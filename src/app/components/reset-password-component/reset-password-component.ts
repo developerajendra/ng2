@@ -4,7 +4,7 @@
 
 import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
-import {FormBuilder, Validators, ControlGroup} from '@angular/common';
+import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {UserService, ValidationService, StaticDataService} from '../../services';
 
 /**

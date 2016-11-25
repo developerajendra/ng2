@@ -2,7 +2,7 @@
  * Importing core components
  */
 
-import {Component, OnInit, ElementRef} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnInit, ElementRef} from '@angular/core';
 import {Router} from '@angular/router';
 
 /**
@@ -38,7 +38,8 @@ function changeStatus() {
   templateUrl: 'cart-description-component.html',
   styleUrls: ['cart-description-component.scss'],
   directives: [ ContinueShoppingComponent, LimitComponent, LoaderComponent],
-  pipes: [OrderByPipe]
+  pipes: [OrderByPipe],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 
 /**

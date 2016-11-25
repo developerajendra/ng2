@@ -6,7 +6,7 @@
 import {AppConstants} from '../../constants/app-constants';
 import {Component, OnInit} from '@angular/core';
 import {ROUTER_DIRECTIVES, Router} from '@angular/router';
-import {FormBuilder, Validators, ControlGroup} from '@angular/common';
+import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 
 /**
  * Importing custom services

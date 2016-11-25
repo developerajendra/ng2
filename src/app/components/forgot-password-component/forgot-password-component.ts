@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit} from "@angular/core";
-import {FormBuilder, Validators} from "@angular/common";
+import {FormBuilder, Validators} from "@angular/forms";
 import {UserService, CookiesService, ValidationService, StaticDataService} from "../../services";
 import {Router} from "@angular/router";
 import {ControlMessages} from "../control-messages-component";

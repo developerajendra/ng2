@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, ElementRef} from "@angular/core";
-import {FormBuilder, Validators} from "@angular/common";
+import {FormBuilder, Validators} from "@angular/forms";
 import {UserService, StaticDataService} from "../../services";
 import {ControlMessages} from "../control-messages-component";
 import {ToolTipComnponent} from "../tool-tip-component";
