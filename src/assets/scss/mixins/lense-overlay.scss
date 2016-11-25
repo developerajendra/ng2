@@ -1,0 +1,17 @@
+/* lense overlay
+-------------------------------*/
+@mixin  overlayBackground{
+  background: $primary-overlay-base-inverted;
+  width: auto;
+}
+
+@mixin overlayWidth{
+  @include viewport(medium) {
+    width: 681px;
+  }
+}
+
+@mixin lens-type{
+  border-top: solid 1px $border-primary-base;
+  border-bottom: solid 1px $border-primary-base;
+}

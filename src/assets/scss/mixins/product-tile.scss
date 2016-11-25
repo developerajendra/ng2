@@ -1,0 +1,18 @@
+/* Product card
+-------------------------------*/
+@mixin card{
+  background: $primary-base-inverted;
+  .card-title{
+    font-size:  $text-small;
+    @include viewport(medium){
+      font-size: $text-medium;
+    }
+
+  }
+  .card-text{
+    font-size:  $text-xsmall;
+    @include viewport(medium){
+      font-size: $text-small;
+    }
+  }
+}

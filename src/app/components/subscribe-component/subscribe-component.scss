@@ -1,0 +1,128 @@
+@import "../../../assets/scss/include";
+
+/* Footer container
+---------------------------------*/
+:host {
+  @include footer();
+  width: 100%;
+  float: left;
+
+  /* Subscribe form
+  ---------------------------------*/
+  .subscribe {
+    @include subscribe();
+    input[type="email"] {
+      margin-bottom: 5px;
+    }
+    input[type="email"]:-webkit-autofill{
+      background-color: $primary-base;
+
+    }
+    input[type="email"]:focus{
+      background-color: $primary-base;
+
+    }
+    .form-group{
+      margin-bottom: 10px;
+      @include viewport(medium){
+        margin-bottom: 0px;
+      }
+    }
+    .input-container{
+      width: 100%;
+
+      float: left;
+      @include viewport(medium){
+        width: 60%;
+      }
+      @include viewport(ipadOnly){
+        width: 48.5%;
+      }
+    }
+    button.btn {
+
+      border-radius: 0px;
+      padding: 5px 12px;
+      margin-bottom: 10px;
+
+    }
+    @include viewport(medium) {
+      input[type="email"] {
+
+        margin-bottom: 0px;
+      }
+      button.btn {
+        border-bottom-left-radius: 0px;
+        margin-left: -5px;
+        margin-top: 0px;
+        height: 30px;
+        padding: 4px 12px;
+        margin-bottom: 0px;
+      }
+    }
+
+  }
+
+  /* Navigations
+  ---------------------------------*/
+  ul.list-inline {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-align:center;
+    &.footer-links {
+      @include footer-links();
+      @include viewport(medium) {
+        margin-top: 5px;
+      }
+    }
+
+    &.footer-social-icons {
+      @include footer-social-icons();
+
+      /*text-align: center;*/
+      li {
+        padding: 7px 3px;
+        display: inline-block;
+
+        @include viewport(large) {
+          padding: 0 8px;
+        }
+        a {
+          display: block;
+          &.facebook {
+            @include icon($fb-footer-icon-width, $fb-footer-icon-height, $fb-footer-icon-offset-x, $fb-footer-icon-offset-y);
+          }
+          &.twitter {
+            @include icon($twitter-footer-icon-width, $twitter-footer-icon-height, $twitter-footer-icon-offset-x, $twitter-footer-icon-offset-y);
+          }
+          &.google-plus {
+            @include icon($gp-width, $gp-height, $gp-offset-x, $gp-offset-y);
+          }
+          &.tumbler {
+            @include icon($tumblr-footer-icon-width, $tumblr-footer-icon-height, $tumblr-footer-icon-offset-x, $tumblr-footer-icon-offset-y);
+          }
+          &.pinterest {
+            @include icon($pinterest-footer-icon-width, $pinterest-footer-icon-height, $pinterest-footer-icon-offset-x, $pinterest-footer-icon-offset-y);
+          }
+        }
+      }
+    }
+
+    li {
+      padding-top: 6px;
+      margin-bottom: 15px;
+      @include viewport(medium) {
+        margin-bottom: 0px;
+        padding: 0 8px;
+      }
+      a {
+        text-transform: uppercase;
+      }
+    }
+
+    /* Form controls
+    ---------------------------------*/
+    .form-control {
+      @include placeholder()
+    }
+  }}

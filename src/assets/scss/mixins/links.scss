@@ -1,0 +1,7 @@
+/* Navigation link
+-------------------------------*/
+@mixin navigation-link($color,$font-size,$border){
+	  color:$color;
+    font-size:$font-size;
+    @include border-top(6px, $border);
+}

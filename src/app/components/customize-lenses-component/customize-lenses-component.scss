@@ -1,0 +1,165 @@
+@import "../../../assets/scss/include";
+
+/*Contact Us
+-----------------------------------*/
+.contact-us {
+  max-width: 60%;
+  padding: 10px 0 20px;
+  margin: auto;
+  font-size: $text-small;
+}
+
+/*Lense selection option
+-----------------------------------*/
+.heading{
+  font-size: $text-small;
+  margin-bottom: 0;
+  position:relative;
+  &:after{
+    @include arrow-down;
+  }
+}
+.panel-collapse{
+  padding: 12px;
+  border-top:none;
+  overflow: hidden;
+}
+.dropdown-content .value{
+  display: none;
+}
+
+
+/*Product card
+-----------------------------------*/
+.card{
+  position: relative;
+  border: none;
+  text-align: center;
+}
+
+.or{
+  padding-top:27px;
+}
+
+label{
+  font-size: $text-small;
+}
+
+.file-upload{
+  margin: 20px 0;
+}
+
+select{
+  font-size: $text-small;
+  margin: 5px 0;
+}
+
+
+.form-group{
+  margin: 10px 0;
+}
+
+.reading{
+  width:100px;
+}
+
+
+/*breadcrumb
+-----------------------------------*/
+.breadcrumb{
+  counter-reset: LIST-ITEMS ;
+  padding: .75rem;
+  background-color: transparent;
+  li{
+    text-transform: uppercase;
+    display: inline;
+    padding-right: 0.5em;
+    &.active{
+      font-weight: bold;
+    }
+  }
+  @include breadcrumb();
+  li:before
+  {
+    content: counter( LIST-ITEMS ) ".";
+    counter-increment: LIST-ITEMS;
+    padding-right: 0.25em;
+    font-weight: bold;
+  }
+}
+
+
+/*customised file input
+---------------------------------*/
+.custom-file-input {
+  color: $primary-text;
+  margin:10px 0;
+  width:100%;
+  margin-left: 25px;
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  padding: 4px 20px 0;
+}
+.custom-file-input::before {
+  content: 'Upload a file';
+  color: $primary-text-inverted;
+  display: inline-block;
+  background-color: $primary-base;
+  border-radius: 0;
+  padding: 4px 12px;
+  height:30px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 700;
+  border:0;
+  position: relative;
+  left:-27px;
+}
+
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background-color:$primary-base;
+  color: $primary-text-inverted;
+}
+
+
+.centralised{
+ margin:0 auto;
+}
+
+.wrapper{
+  @include viewport(medium){
+    padding:10px 0 30px;
+  }
+}
+
+/*removed type number arrows
+-----------------------------------*/
+
+.remove-spinners::-webkit-inner-spin-button,
+.remove-spinners::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.sub-heading{
+  font-family: serif;
+  font-size: 12px;
+  margin-left: 25px;
+  color: #969692;
+}
+
+.on-hand-inventory{
+  font-size: $text-xsmall;
+  @include viewport(large){
+    font-size: $text-small;
+  }
+}
+

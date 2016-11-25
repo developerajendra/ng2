@@ -1,0 +1,12 @@
+@mixin overlay-container{
+  background: $primary-overlay-base;
+  color: $primary-text-inverted;
+  p {
+    color: $primary-text-inverted;
+  }
+}
+
+@mixin continue-shopping {
+  color: $primary-nav-link-inverted;
+  font-size: $text-xsmall;
+}

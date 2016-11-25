@@ -1,0 +1,130 @@
+<div class="placeholder-element" *ngIf="!productModel">
+  <div class="loader">&nbsp;</div>
+</div>
+<section class="main-wrapper overflow-h" *ngIf="productModel">
+  <div class="product-view">
+    <div class="row">
+      <div class="overflow-h col-md-7">
+        <ditto-control [productId]="productModel.productId"></ditto-control>
+      </div>
+      <div class="col-md-5 product-content">
+        <form class="text-xs-center text-md-left product-description" *ngIf="productModel">
+          <h1 class="text-lowercase margin-t10">{{productModel?.name}}</h1>
+
+          <p class="text-capitalize font-italic">{{productModel?.color}}</p>
+
+          <p *ngIf="productModel?.selectedProduct?.tileCollection != 'sale'">
+            <small>Price:</small>
+            <small *ngIf="isEyeWear">$ {{productModel?.prices?.STANDARD_INDEX_LENS_PRICE}}</small>
+            <small *ngIf="!isEyeWear">$ {{productModel?.prices?.NON_RX_SUN_LENS_PRICE}}</small>
+          </p>
+
+          <p *ngIf="productModel?.selectedProduct?.tileCollection == 'sale'">
+            <small>Price:</small>
+            <small *ngIf="isEyeWear"><span class="strike-through">${{productModel?.prices.STANDARD_INDEX_LENS_PRICE || 0}}</span> $
+              {{productModel?.prices?.STANDARD_INDEX_LENS_PRICE}}
+            </small>
+            <small *ngIf="!isEyeWear"><span class="strike-through">${{productModel?.prices?.ORIGINAL_SUN_PRICE || 0}}</span>
+              ${{productModel?.prices?.NON_RX_SUN_LENS_PRICE|| 0}}
+            </small>
+          </p>
+
+          <p>
+            <small>{{productModel?.availability?.eyewear?"In Stock" :"Out of Stock" }} : Eye wear
+            </small>
+          </p>
+          <p>
+            <small>{{productModel?.availability?.home_trial_kit?"In Stock" :"Out of Stock" }} : Home
+              trial kit
+            </small>
+          </p>
+
+          <ul class="text-xs-center list-inline" *ngIf="productModel?.tiles">
+            <li *ngFor="let _product of productModel?.tiles.products" class="list-inline-item" routerLink="/{{_product.product_id}}"
+                [ngClass]="_product.swatchColor">
+            </li>
+          </ul>
+
+          <hr/>
+          <div class="text-xs-center">
+            <!--TODO: If not in Kiosk mode show sold out. If in kiosk mode, show on-hand only -->
+            <button *ngIf="!isKioskMode" type="button" [attr.data-target]="'#'+modalId"  [disabled]="!productModel?.availability?.eyewear"
+                    class="btn-primary text-uppercase " (click)="addToBagModel()" id="AddTobagDetail"
+                    data-toggle="modal" data-dismiss="modal">
+              {{productModel?.availability?.eyewear ? 'Add to bag' : 'Sold Out'}}
+            </button>
+
+            <button *ngIf="isKioskMode" type="button" [attr.data-target]="'#'+modalId"
+                    class="btn-primary text-uppercase " (click)="addToBagModel()" id="AddTobagDetail"
+                    data-toggle="modal" data-dismiss="modal">
+              {{productModel?.availability?.eyewear ? 'Add to bag' : 'on-hand only'}}
+            </button>
+
+          </div>
+          <div class="row stores">
+            <div class="col-xs-12 text-small text-xs-center">
+
+              <a class="display-b create-ditto" href="javaScript:void(0);" *ngIf="isTryOn" (click)="createDitto()"
+                 data-toggle="modal" data-dismiss="modal" data-target="#createDitto">
+                {{(isDitto)?'RECREATE DITTO':'CREATE A NEW DITTO'}}
+              </a>
+
+              <a href="javaScript:void(0);" data-toggle="modal" data-dismiss="modal" data-target="#emailToFriend">Email
+                to a Friend</a>
+            </div>
+          </div>
+          <!--start htk link-->
+          <div class="row stores"
+               *ngIf="productModel.hasHTK">
+            <div class="col-xs-12 text-small text-xs-center">
+              <a *ngIf="!isHtkAdded && (htkItems.length <= 4)"
+                 (click)="addItemToCart(productModel,'home_trial_kit')"
+                 href="javaScript:void(0);" data-target="#bagModal" data-toggle="modal" data-dismiss="modal">TRY ON
+                AT HOME</a>
+              <a *ngIf="!isHtkAdded && (htkItems.length == 5)">HOME TRY-ON KIT FULL</a>
+              <a *ngIf="isHtkAdded">ADDED ({{(5 - htkItems.length <= 0)?'KIT IS FULL':(5 - htkItems.length) + ' SPOTS LEFT'}})</a>
+            </div>
+          </div>
+
+          <div class="row stores" *ngIf="!productModel.hasHTK">
+            <div class="col-xs-12 no-home-trial  text-xs-center">
+              <p class="text-small">NOT AVAILABLE FOR HOME TRY-ON</p>
+            </div>
+          </div>
+          <!--end htk link-->
+
+          <article class="article">
+            <p class="text-justify text-small description">{{productModel?.description}}</p>
+          </article>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--Component Carousel-->
+<product-carousel *ngIf="customerFavorites" [carouselId]="'customer-favorites'" [title]="'CUSTOMER FAVORITES'"
+                  [slug]="'collection.slug'" [productsData]="customerFavorites" [modalId]="'productDetailCarouselModalId'">
+</product-carousel>
+
+
+<!-- Component Plain Banner -->
+<plain-banner [imageFor]="'pdp'" [image]="'footerImages'" [altFor]="'pdp'" [alt]="'footerAltText'" id="pdpBannerBottom"></plain-banner>
+
+<!--Component description-->
+<page-description [contentId]="'productDetails'"></page-description>
+
+<!--Component select lense modal-->
+<select-lense-modal [productId]="productModel?.productId"  [variant]="slug"  [product]="productModel?.selectedProduct" [filterBy]="filterBy"
+                    [modalId]="'productDetailModalId'"  [slug]="slug" [tileCollection]="tileCollection" [page]="'product-detail'"></select-lense-modal>
+
+<!--Component email to friend-->
+<email-modal *ngIf="productModel" [productDetails]="productModel"></email-modal>
+
+
+
+
+
+
+

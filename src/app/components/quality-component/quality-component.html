@@ -1,0 +1,13 @@
+<plain-banner [imageFor]="'quality'" [image]="'heroImages'" [altFor]="'quality'" [alt]="'heroAltText'" id="qualityBannerTop"></plain-banner>
+<section class="main-wrapper">
+  <h1 class="border-heading text-uppercase text-xs-center">{{data.pageTitle}}</h1>
+  <section class="inner-wrapper">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let item of data.quality">
+        <h3>{{item.headline}}</h3>
+        <p>{{item.description}}</p>
+      </div>
+    </div>
+  </section>
+</section>
+<plain-banner [imageFor]="'quality'" [image]="'footerImages'" [altFor]="'quality'" [alt]="'footerAltText'" id="qualityBannerBottom"></plain-banner>

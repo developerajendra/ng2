@@ -1,0 +1,77 @@
+<div class="product-view" >
+  <div class="row">
+    <div class="col-md-10 hidden-sm-down" id="activeimg-div">
+      <ul class="owl-carousel products">
+        <li class="hidden-md-up active overflow-h" id="activeimg">
+          <img *ngIf="showImages && selectedImage && !isDittoVisible" src="{{selectedImage}}"
+               alt="{{productModel?.name}} in {{productModel?.color}} {{productModel?.productSuffix}}">
+          <!--<image-zoom *ngIf="caruselImage && !isDittoVisible"  [imageSource]="caruselImage" [altText]="'active img'"></image-zoom>-->
+          <div id="ditto" #ditto [ngClass]="{hidden:!isDittoVisible || !productModel?.isProductDigitized || !userHasDitto}"></div>
+          <div class="ditto-context text-xs-center" *ngIf="isDittoVisible && productModel?.isProductDigitized && !userHasDitto">
+            <h1>What is Ditto?</h1>
+            <span class="short-border">&nbsp;</span>
+
+            <p class="padding-t20">
+              We use Ditto’s patented virtual try-on technology to help you find the best pair of Ottavo readers for your personal style and face
+              shape. And it’s easy to use, too. Create a Ditto to try on the entire Ottavo collection from the comfort of your own home.</p>
+            <p>Try on the {{productModel?.name}} {{productModel?.productSuffix}} now.</p>
+            <p><a class="btn-primary display-ib" (click)="createDitto()" data-toggle="modal" data-dismiss="modal"
+                           data-target="#createDitto">Make a Ditto</a></p>
+            <img src="/assets/images/ditto_logo.png" alt="DITTO">
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div *ngIf="showImages && selectedImage" class="hidden-sm-down col-md-2" id="thumb-img-div">
+      <ul class="side-img-list owl-carousel" id="thumb-img">
+        <li *ngFor="let productThumb of productModel?.thumbImages; let i = index">
+          <img src="{{productThumb}}" class="side-img"
+               alt="{{productModel?.name}} in {{productModel?.color}} {{productModel?.productSuffix}}"
+               (click)="changeImage(i)"
+               [class.active]="activeImage[i] && !isDittoVisible" [id]="productModel?.name + 'SideImg' +i">
+        </li>
+        <li *ngIf="productModel?.isProductDigitized">
+          <a (click)="virtualTryOn();" [class.active]="isDittoVisible" class="virtual-try-on">Try- On Virtually</a>
+        </li>
+      </ul>
+    </div>
+    <div class="hidden-md-up " *ngIf="productModel?._images">
+      <ul class="owl-carousel" id="full-img">
+        <li *ngFor="let productFull of productModel?._images; let i = index">
+          <img src="{{productFull}}" class="full-img" alt="{{productModel?.name}} in {{productModel?.color}} {{productModel?.productSuffix}}"
+               [id]="productModel?.name + 'FullImg' +i">
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="modal ditto-dialog fade" id="createDitto" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div id="creation"></div>
+    </div>
+  </div>
+</div>
+
+<div class="modal signUpModal " id="DittoLogin" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h2 class="text-xs-center">View Your Ditto</h2>
+      <p class="text-xs-center">Make An Account or Signin To Try On These Glasses</p>
+      <a class="btn-primary " (click)="login()">SIGN IN | SIGN UP</a>
+      <p class="text-xs-center margin-b0 clear"><a class="btn-secondary display-ib margin-t0" data-toggle="modal" data-dismiss="modal">No thanks.</a>
+      </p>
+    </div>
+  </div>
+</div>

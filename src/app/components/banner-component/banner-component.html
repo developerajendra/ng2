@@ -1,0 +1,7 @@
+<section class="main-wrapper">
+  <div class="loader" *ngIf="!image">&nbsp;</div>
+  <div class="banner-plain" *ngIf="isData">
+    <img alt="{{alt}}" src="{{image}}" width="100%" class="img-fluid">
+    <h1 [innerHTML]="text"></h1>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<section class="main-wrapper product-gallery">
+  <h1 *ngIf="title" class="text-xs-center border-top">{{title}}</h1>
+
+  <div class="filter-links">
+    <ul class="list-inline">
+      <li *ngFor="let _tab of tabs let index = index;" class="list-inline-item secondary-nav-link"
+          [ngClass]="{active:active[index]}">
+        <a href="javaScript:void(0);" (click)="changeTab(_tab, index)">{{_tab.name}}</a></li>
+    </ul>
+  </div>
+  <section attr.id="{{carouselId}}" class="inner-wrapper carousel-container">
+    <ul class="list-inline text-xs-center owl-carousel"
+        [ngClass]="{hidden:isLoadingProducts}" *ngIf="!imagesData && productTiles && productTiles.length">
+      <li *ngFor="let tile of productTiles" [ngClass]="{'product-hidden':tile.products.length<1}"
+          class="col-xs-12 padding-1 list-inline-item">
+        <product-tile *ngIf="tile.products.length" [tile]="tile" [selectedProduct]="tile.products[0]" [tileCollection]="slug"
+                      (onProductSelected)="onProductSelected($event)" [showBuyButton]="showBuyButton" [modalId]="modalId" [eleIdToHide]="'product-carousel'"
+                      [isAddToCart]="false" [createProdLink]="createProdLink"></product-tile>
+      </li>
+    </ul>
+    <div *ngIf="isLoadingProducts" class="loader">&nbsp;</div>
+    <ul class="list-inline text-xs-center owl-carousel" [ngClass]="{hidden:isLoadingProducts}"
+        *ngIf="!productTiles && imagesData && imagesData.length">
+      <li *ngFor="let image of imagesData" class="col-xs-12 padding-1 list-inline-item">
+        <img [attr.src]="image" class="side-img" alt="side img">
+      </li>
+    </ul>
+  </section>
+  <select-lense-modal *ngIf="selectedProduct && selectedProduct.product_id" [productId]="selectedProduct.product_id" [modalId]="modalId" [eleIdToHide]="'product-carousel'"></select-lense-modal>
+</section>

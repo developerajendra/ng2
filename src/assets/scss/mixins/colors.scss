@@ -1,0 +1,217 @@
+
+/* Product Colors
+-------------------------------*/
+$x:10;
+@mixin colors{
+
+  //Color list
+  .list-inline-item{
+    cursor:pointer;
+    @include icon-colors(10px, 10px, 0, 0);
+
+    //Color border
+    &.active:before{
+      content: "";
+      border: solid 1px $border-primary-base;
+      padding: 7px;
+      height: 10px;
+      width: 10px;
+      overflow: hidden;
+      float: left;
+      margin: -3px;
+    }
+
+    //Color padding
+    &:not(last-child){
+      margin-right: 8px;
+    }
+  }
+
+
+  .black-tan{
+    @include icon-colors(10px, 10px, 0, 0);
+  }
+  .black-crystal{
+    @include icon-colors(10px, 10px, -10px, 0);
+  }
+  .black-honey-lavender{
+    @include icon-colors(10px, 10px, -$x*2px, 0);
+  }
+  .blonde{
+    @include icon-colors(10px, 10px, -$x*3px, 0);
+  }
+  .bone{
+    @include icon-colors(10px, 10px, -$x*4px, 0);
+  }
+  .bonfire{
+    @include icon-colors(10px, 10px, -$x*5px, 0);
+  }
+  .bourbon-tortoise{
+    @include icon-colors(10px, 10px, -$x*6px, 0);
+  }
+  .brandy-tortoise{
+    @include icon-colors(10px, 10px, -$x*7px, 0);
+  }
+  .brownstone-tortoise{
+    @include icon-colors(10px, 10px, -$x*8px, 0);
+  }
+  .brulee-tortoise{
+    @include icon-colors(10px, 10px, -$x*9px, 0);
+  }
+  .butterscotch-fade{
+    @include icon-colors(10px, 10px, -$x*10px, 0);
+  }
+  .caramel-horn{
+    @include icon-colors(10px, 10px, -$x*11px, 0);
+  }
+  .carbon-black{
+    @include icon-colors(10px, 10px, -$x*12px, 0);
+  }
+  .carbon-black-fade{
+    @include icon-colors(10px, 10px, -$x*13px, 0);
+  }
+  .carbon-black-streak{
+    @include icon-colors(10px, 10px, -$x*14px, 0);
+  }
+  .cayenne-tortoise{
+    @include icon-colors(10px, 10px, -$x*15px, 0);
+  }
+  .chicory-fade{
+    @include icon-colors(10px, 10px, -$x*16px, 0);
+  }
+  .cranberry-fade{
+    @include icon-colors(10px, 10px, -$x*17px, 0);
+  }
+  .crystal{
+    @include icon-colors(10px, 10px, -$x*18px, 0);
+  }
+  .dark-stormy{
+    @include icon-colors(10px, 10px, -$x*19px, 0);
+  }
+  .forest{
+    @include icon-colors(10px, 10px, -$x*20px, 0);
+  }
+  .ginger-stout{
+    @include icon-colors(10px, 10px, -$x*21px, 0);
+  }
+  .golden-tortoise-fade{
+    @include icon-colors(10px, 10px, -$x*22px, 0);
+  }
+  .goldmine{
+    @include icon-colors(10px, 10px, -$x*23px, 0);
+  }
+  .graphite-crystal{
+    @include icon-colors(10px, 10px, -$x*24px, 0);
+  }
+  .grey-frost-fade{
+    @include icon-colors(10px, 10px, -$x*25px, 0);
+  }
+  .grey-smoke{
+    @include icon-colors(10px, 10px, -$x*26px, 0);
+  }
+  .gunmetal-fade{
+    @include icon-colors(10px, 10px, -$x*27px, 0);
+  }
+  .havana-tortoise{
+    @include icon-colors(10px, 10px, -$x*28px, 0);
+  }
+  .mahogany-streak{
+    @include icon-colors(10px, 10px, -$x*29px, 0);
+  }
+  .maple-crystal-tortoise{
+    @include icon-colors(10px, 10px, -$x*30px, 0);
+  }
+  .matte-black{
+    @include icon-colors(10px, 10px, -$x*31px, 0);
+  }
+  .matte-olive-streak{
+    @include icon-colors(10px, 10px, -$x*32px, 0);
+  }
+  .midnight-blue{
+    @include icon-colors(10px, 10px, -$x*33px, 0);
+  }
+  .moss{
+    @include icon-colors(10px, 10px, -$x*34px, 0);
+  }
+  .olive-streak{
+    @include icon-colors(10px, 10px, -$x*35px, 0);
+  }
+  .olive-tortoise-fade{
+    @include icon-colors(10px, 10px, -$x*36px, 0);
+  }
+  .purple-rain{
+    @include icon-colors(10px, 10px, -$x*37px, 0);
+  }
+  .red-flame{
+    @include icon-colors(10px, 10px, -$x*38px, 0);
+  }
+  .sienna{
+    @include icon-colors(10px, 10px, -$x*39px, 0);
+  }
+  .slate-blue{
+    @include icon-colors(10px, 10px, -$x*40px, 0);
+  }
+  .smoulder{
+    @include icon-colors(10px, 10px, -$x*41px, 0);
+  }
+  .sunset-tortoise{
+    @include icon-colors(10px, 10px, -$x*42px, 0);
+  }
+  .walnut-horn{
+    @include icon-colors(10px, 10px, -$x*43px, 0);
+  }
+  .aqua-crystal{
+    @include icon-colors(10px, 10px, -$x*44px, 0);
+  }
+  .forest-fade{
+    @include icon-colors(10px, 10px, -$x*45px, 0);
+  }
+  .olive-fade{
+    @include icon-colors(10px, 10px, -$x*46px, 0);
+  }
+  .rosewood{
+    @include icon-colors(10px, 10px, -$x*47px, 0);
+  }
+  .whiskey-crystal{
+    @include icon-colors(10px, 10px, -$x*48px, 0);
+  }
+  .tokyo-tortoise{
+    @include icon-colors(10px, 10px, -$x*49px, 0);
+  }
+  .berry-crystal{
+    @include icon-colors(10px, 10px, -$x*50px, 0);
+  }
+  .pineapple-tortoise{
+    @include icon-colors(10px, 10px, -$x*51px, 0);
+  }
+  .milky-mauve{
+    @include icon-colors(10px, 10px, -$x*52px, 0);
+  }
+  .ocean-blue{
+    @include icon-colors(10px, 10px, -$x*53px, 0);
+  }
+  .matte-black-horn{
+    @include icon-colors(10px, 10px, -$x*54px, 0);
+  }
+  .light-pink-crystal{
+    @include icon-colors(10px, 10px, -$x*55px, 0);
+  }
+  .dove-grey{
+    @include icon-colors(10px, 10px, -$x*56px, 0);
+  }
+  .brown-gradient{
+    @include icon-colors(10px, 10px, -$x*57px, 0);
+  }
+  .blue-gradient{
+    @include icon-colors(10px, 10px, -$x*58px, 0);
+  }
+  .moss-crystal{
+    @include icon-colors(10px, 10px, -$x*59px, 0);
+  }
+  .aqua-crystal{
+    @include icon-colors(10px, 10px, -$x*60px, 0);
+  }
+  .tropical-storm{
+    @include icon-colors(10px, 10px, -$x*61px, 0);
+  }
+}

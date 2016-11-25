@@ -1,0 +1,12 @@
+@mixin checkout{
+     color: $primary-nav-link;
+    &:hover,&:focus {
+      color: $primary-nav-link;
+    }
+}
+@mixin forgot-password{
+    color: $secondary-text;
+    &:hover,&:focus {
+        color: $secondary-text;
+    }
+}

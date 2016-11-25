@@ -1,0 +1,79 @@
+<div class="modal bag-modal" id="bagModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel1" aria-hidden="false">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+      <div class="modal-arrow">&nbsp;</div>
+      <div class="modal-header">
+        <button type="button" id="close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div *ngIf="!cartItems" class="loader">&nbsp;</div>
+        <div *ngIf="cartItems && haveItems">
+          <h3 class="text-lowercase modal-title" id="myModalLabel1">Shopping Bag</h3>
+
+          <div class="row" *ngFor="let item of cartItems; let index = index; ">
+            <div class="col-xs-4 padding-l0" *ngIf="item.item_type != 'home_trial_kit'">
+              <a class="img-small" [routerLink]="[item.productDetailsRoute]" (click)="closeBagModal()">
+                <img class="img-fluid" [attr.src]="item.imageUrl" [alt]="item.name">
+              </a>
+            </div>
+
+            <div class="col-xs-8 padding0 pull-xs-right " *ngIf="item.item_type != 'home_trial_kit'">
+              <dl class="dl-horizontal">
+                <a href="javaScript:void(0);" class="edit-link" (click)="deleteItem(item)">x</a>
+                <dt><strong>{{item.name}}</strong></dt>
+                <dd></dd>
+                <dt class="font-italic">Color</dt>
+                <dd class="font-italic">{{item.color}}</dd>
+                <dt>Price</dt>
+                <dd id="productPrice{{index+1}}">${{item.prices[item.lens_type+'_PRICE']}}</dd>
+                <dt>QTY:</dt>
+                <dd id="productQty{{index+1}}">{{item.qty}}</dd>
+              </dl>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="cartItems && haveHtkItems">
+          <h3 class="modal-title" id="myModalLabel1">Your Home Try-On Kit </h3>
+          <h3 *ngIf="haveHtkItems < 5" class="modal-title text-xsmall" id="myModalLabel1">You can add ({{5 - haveHtkItems}}) more specs</h3>
+
+          <div class="row" *ngFor="let item of cartItems">
+            <div class="col-xs-4 padding-l0" *ngIf="item.item_type == 'home_trial_kit'">
+              <a class="img-small" [routerLink]="[item.productDetailsRoute]" (click)="closeBagModal()">
+                <img class="img-fluid" [attr.src]="item.imageUrl" [alt]="item.name">
+              </a>
+            </div>
+
+            <div class="col-xs-8 padding0 pull-xs-right " *ngIf="item.item_type == 'home_trial_kit'">
+              <dl class="dl-horizontal">
+                <a href="javaScript:void(0);" class="edit-link" (click)="deleteItem(item)">x</a>
+                <dt><strong>{{item.name}}</strong></dt>
+                <dd></dd>
+                <dt>Color</dt>
+                <dd>{{item.color}}</dd>
+              </dl>
+              <hr>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-8 padding0 pull-xs-right ">
+          <dl class="row clear">
+            <dt class="pull-xs-left">Total:</dt>
+            <dd class="pull-xs-right" id="bagTotal"> {{"$"+bagTotal}}</dd>
+          </dl>
+        </div>
+        <a class="text-xs-right continue-shopping clear" href="javaScript:void(0);" data-dismiss="modal">Continue Shopping </a>
+      </div>
+      <div class="modal-footer">
+        <a id="bagCheckout" type="button" class="btn btn-primary" data-dismiss="modal" [routerLink]="['/checkout/cart']">CHECKOUT</a>
+      </div>
+    </div>
+  </div>
+</div>

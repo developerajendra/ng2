@@ -1,0 +1,15 @@
+  {
+    "title":"About Us",
+    "details":[
+      {
+        "id":1,
+        "heading": "Our Beginnings",
+        "content":"We started Classic Specs because we could not find eyewear that was well crafted, affordable and above all, beautiful. We started small at the Brooklyn Flea but quickly found our footing creating eyewear with style, quality, and creativity."
+      },
+      {
+        "id":2,
+        "heading": "Top-Quality craftsmanship",
+        "content":"Our frames are made with the highest quality Italian acetate and stainless steel reinforced hinges. Our prescription and non-prescription lenses are crafted in LA and feature anti-reflective/scratch polycarbonate with polarized options."
+      }
+    ]
+  }

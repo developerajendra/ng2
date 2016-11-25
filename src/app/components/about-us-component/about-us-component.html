@@ -1,0 +1,11 @@
+<!-- Component Plain Banner -->
+<plain-banner [imageFor]="'about'" [image]="'heroImages'" [altFor]="'about'" [alt]="'heroAltText'" id="aboutBannerTop"></plain-banner>
+<section class="main-wrapper">
+  <h1 class="text-xs-center border-heading">{{aboutUs.title}}</h1>
+  <section class="inner-wrapper overflow-h">
+    <article class="col-xs-12 col-md-6" *ngFor="let item of aboutUs.details">
+      <h2>{{item.heading}}</h2>
+      <p>{{item.content}}</p>
+    </article>
+  </section>
+</section>

@@ -1,0 +1,110 @@
+<div class="modal product-details fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModal"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="closeSubscribe" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="overlay-container">
+          <h1 class="text-xxlarger text-xs-center text-md-left">eyewear<br>email list!</h1>
+          <p class="padding-t10">Be the first to hear about new arrivals,special sales and invites to insider events..</p>
+          <h2>15% OFF</h2>
+          <p>your next online purchase of $250 or more!*</p>
+          <form [ngFormModel]="subscribeUserForm" (ngSubmit)="confirmSubscribe()" autocomplete="off">
+
+            <div class="row">
+              <div class="col-md-6">
+                <!--<input class="pull-left first" type="text" placeholder="FIRST">-->
+                <div class="form-group">
+                  <input type="text"  [ngClass]="{invalid:first_name.touched ||  attemptSubmit}" name="first_name" class="form-control first" placeholder="First Name" ngControl="first_name" id="first_name" #first_name="ngForm">
+                  <control-messages class="pull-left" control="first_name" [displayMessage]="validationMessages.first_name" *ngIf="first_name.touched ||  attemptSubmit"></control-messages>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- <input class="pull-right last" type="text" placeholder="LAST">-->
+                <div class="form-group">
+                  <input type="text" [ngClass]="{invalid:last_name.touched ||  attemptSubmit}"  name="last_name" class="last form-control" placeholder="Last Name" ngControl="last_name" id="last_name" #last_name="ngForm">
+                  <control-messages class="pull-left" control="last_name" [displayMessage]="validationMessages.last_name" *ngIf="last_name.touched ||  attemptSubmit"></control-messages>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <!--<input class="email" type="email" placeholder="EMAIL">-->
+                <div class="form-group">
+                  <input type="email"  [ngClass]="{invalid:email.touched ||  attemptSubmit}" name="email" class="email form-control" placeholder="Email" ngControl="email" id="email" #email="ngForm">
+                  <control-messages class="pull-left" control="email" [displayMessage]="validationMessages.reg_email" *ngIf="email.touched ||  attemptSubmit"></control-messages>
+                </div>
+              </div>
+            </div>
+            <div class="subscribe-footer">
+              <button class="btn-secondary pull-xs-right display-ib" type="submit" [disabled]="disabled" >SUBSCRIBE</button>
+              <p class="clearfix">
+                <a class="continue-shopping pull-xs-right display-ib" href="javaScript:void(0);" data-dismiss="modal">CONTINUE SHOPPING</a>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal product-details fade" id="subscribeConfirmModal" tabindex="-1" role="dialog"
+     aria-labelledby="subscribeConfirmModal"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="closeTwo" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="overlay-container">
+          <h1 class="text-xxlarger">thank you</h1>
+          <p>A message has been sent to your inbox.</p>
+          <p class="text-xs-right"><a class="btn-secondary display-ib" href="javaScript:void(0);" data-dismiss="modal">CONTINUE SHOPPING</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal product-details fade" id="subscribeErrorModal" tabindex="-1" role="dialog"
+     aria-labelledby="subscribeConfirmModal"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" id="closeThree" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="overlay-container">
+          <h1>You are already subscribed !!!</h1>
+          <p class="text-xs-right"><a class="btn-secondary display-ib" href="javaScript:void(0);" data-dismiss="modal">CONTINUE SHOPPING</a></p>
+        </div>
+    </div>
+  </div>
+</div></div>
+
+<div class="modal product-details fade" id="subscribeLoaderModal" tabindex="-1" role="dialog"
+     aria-labelledby="subscribeConfirmModal"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="loader">&nbsp;</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

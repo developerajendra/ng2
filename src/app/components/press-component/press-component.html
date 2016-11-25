@@ -1,0 +1,23 @@
+<plain-banner [imageFor]="'press'" [image]="'heroImages'" [altFor]="'press'" [alt]="'heroAltText'" id="pressBannerTop"></plain-banner>
+<section class="main-wrapper">
+  <h1 class="border-heading text-uppercase text-xs-center">In the Press</h1>
+  <section class="inner-wrapper">
+
+    <div id="press" *ngFor="let press of data.brands">
+      <div class="press-head">
+        <img src={{press.brand_logo_link}} alt="brand-logo">
+        <h2 class="text-xs-center">{{press.brand_sub_heading}}</h2>
+        <p class="clear"><span class="bottom-border"></span></p>
+      </div>
+      <div class="row margin-b10" *ngFor="let items of press.items">
+        <div class="col-md-3 col-sm-6 text-xs-center">
+          <a target="_blank " class="text-decoration-underline" href="{{items.link}}"><img src={{items.image}}  alt=press-img-logo></a>
+        </div>
+        <div class="col-md-9 col-sm-6">
+          <p>{{items.content}} <a class="read-more text-decoration-underline" href="{{items.link}}" target="_blank">Read more..</a></p>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </section>
+</section>

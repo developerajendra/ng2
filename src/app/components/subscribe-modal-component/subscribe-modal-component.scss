@@ -1,0 +1,95 @@
+@import "../../../assets/scss/include";
+
+/* Modal Content
+-------------------------------*/
+.modal-content{
+  @include modal-content();
+  max-width: 467px;
+
+  .close{
+    color: $primary-text-inverted;
+  }
+
+  .modal-header{
+    border:none;
+  }
+}
+
+
+.overlay-container {
+  padding:0  33px;
+  box-shadow: 0 0 7px #000;
+  @include overlay-container();
+
+
+  /* Modal Inputs
+-------------------------------*/
+@include placeholder();
+
+  input.first,
+  input.last,
+  input.email {
+    border: solid 1px $primary-text-inverted;
+    margin: 3px 0;
+    padding: 3px 10px;
+    width: 100%;
+    color:$primary-text-inverted;
+    box-sizing: border-box;
+  }
+
+  input.email {
+    display: block;
+    width: 100%;
+
+
+  }
+
+
+  .email{
+    width: 100%;
+  }
+}
+
+
+
+#subscribeLoaderModal{
+  pointer-events:none;
+  .modal-dialog{
+    margin-top: 150px;
+    @include viewport(medium){
+      margin-top: 250px;
+    }
+  }
+  .modal-content{
+    max-width: 680px;
+    background-color: transparent;
+    border:0;
+    .modal-body{
+      padding: 50px;
+      .loader{
+        width:50px;
+        height:50px;
+      }
+    }
+  }
+}
+.subscribe-footer{
+  width: 100%;
+  padding-top:10px;
+  button{
+    display: block;
+    margin:0;
+    @include viewport(medium) {
+      float: right;
+      display: inline-block;
+    }
+  }
+  p{
+    margin-bottom: 0;
+    .continue-shopping {
+      text-decoration: underline;
+      color: $primary-base-inverted;
+      float: right;
+    }
+  }
+}

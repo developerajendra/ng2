@@ -1,0 +1,67 @@
+<div>
+  <hr>
+  <div *ngIf="!orders" class="loader">&nbsp;</div>
+  <div *ngIf="orders && !orders.length">
+    <div class="row ordersList">
+      <div class="col-md-9 col-xs-9 center-block" id="ordersText">No orders found</div>
+    </div>
+    <hr>
+  </div>
+  <div *ngIf="orders && orders.length">
+    <div *ngFor="let order of orders" class="ordersList">
+      <h2 class="text-xs-center text-capitalize" id="ordersText">{{moment(order.ordered_at).format('MMMM DD, YYYY')}}</h2>
+
+      <div class="row">
+        <div class="col-md-6">
+          <dl>
+            <dt class="font-heavy">ORDER NO:</dt>
+            <dd class="orderId">{{order.order_id}}</dd>
+          </dl>
+          <dl>
+            <dt class="font-heavy">SHIPPED TO:</dt>
+            <dd>{{order?.shipping_address?.name}}</dd>
+            <dd>{{order?.shipping_address?.address1}},&nbsp;{{order?.shipping_address?.address2}}</dd>
+            <dd>{{order?.shipping_address?.city}},&nbsp;{{order?.shipping_address?.country}},&nbsp;{{order?.shipping_address?.state}}</dd>
+            <dd>{{order?.shipping_address?.zip}}</dd>
+          </dl>
+          <dl>
+            <dt class="font-heavy">PAYMENT METHOD:</dt>
+            <dd>{{customer?.name}}</dd>
+            <dd>{{order?.payment?.credit_card?.card_type}} ending in {{order?.payment?.credit_card?.last_4}}</dd>
+          </dl>
+          <dl>
+            <dt class="font-heavy">TRACKING NUMBER:</dt>
+            <dd>{{order?.tracking_numbers}}</dd>
+          </dl>
+
+        </div>
+        <div class="col-md-6">
+          <ul class="shopping-list">
+            <li class="clearfix" *ngFor="let item of order.ordered_items">
+              <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                <img [attr.src]="item.imageUrl" class="img-small">
+              </div>
+              <div class="col-xs-7 padding0 pull-xs-right">
+                <dl class="dl-horizontal">
+                  <dt class="text-lowercase text-larger"><strong>{{item.name}}</strong></dt>
+                  <dd></dd>
+                  <dt class="font-italic">Color</dt>
+                  <dd class="font-italic">{{item.color}}</dd>
+                  <dt>price:</dt>
+                  <dd>{{item.price}}</dd>
+                  <dt>QTY:</dt>
+                  <dd>{{item.qty}}</dd>
+                </dl>
+              </div>
+            </li>
+            <li>
+              <ul class="checkout-details">
+                <li class="text-uppercase font-heavy"><strong>Total: </strong> <span>{{order.totals.total}}</span></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

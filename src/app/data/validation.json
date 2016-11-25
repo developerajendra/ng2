@@ -1,0 +1,424 @@
+{
+  "auth": {
+    "validation": {
+      "reset" : {
+        "email" : {
+          "required": "Please type your email address",
+          "valid_email": "Please type a valid email address",
+          "valid_reset_token": "The reset link is invalid or expired. Please <a href=\"/auth/forgotpassword\">make another one</a>."
+        },
+        "password": {
+          "required": "Please enter a password",
+          "password_length": "Password must be at least 7 characters",
+          "password_strength": "Password is too easy to guess"
+        }
+      },
+      "unsubscribe" : {
+        "email" : {
+          "required": "Please enter your email address",
+          "valid_email": "Please enter a valid email address",
+          "unavailable": "Could not unsubscribe at this time. Please email us at <a class='text-decoration-underline' href='mailto:help@classicspecs.com'>help@classicspecs.com</a> or call {{phone_number}} for assistance."
+        }
+      },
+      "register" : {
+        "reg_email" : {
+          "required": "Please type your email address",
+          "valid_email": "Please type a valid email address",
+          "user_exists": "This email already exists",
+          "valid_reset_token": "Invalid registration. Please call us at {{phone_number}}."
+        },
+        "reg_password": {
+          "required": "Please enter a password",
+          "password_length": "Password must be at least 7 characters",
+          "password_strength": "Password is too easy to guess"
+        },
+        "first_name" : {
+          "required": "Please enter first name"
+        },
+        "last_name": {
+          "required": "Please enter last name"
+        }
+      },
+      "reg_login" : {
+        "reg_email" : {
+          "required": "Please enter your email address",
+          "valid_email": "Please enter a valid email address"
+        },
+        "reg_password" : {
+          "required": "Please enter your password",
+          "valid_login": "Incorrect email or password",
+          "valid_kiosk": "Can't login from this location"
+        }
+      },
+      "login" : {
+        "email" : {
+          "required": "Please enter your email address",
+          "valid_email": "Please enter a valid email address"
+        },
+        "password" : {
+          "required": "Please enter your password",
+          "valid_login": "Incorrect email or password",
+          "valid_kiosk": "Can't login from this location"
+        }
+      },
+      "reg_login": {
+        "reg_email" : {
+          "required": "Please enter your email address",
+          "valid_email": "Please enter a valid email address"
+        },
+        "reg_password" : {
+          "required": "Please enter your password",
+          "new_user_login": "Incorrect email or password",
+          "valid_kiosk": "Can't login from this location"
+        }
+      }
+    },
+    "reset_pageTitle": "Reset your password",
+    "login_pageTitle": "Sign In",
+    "register_pageTitle": "Create an account",
+    "illegalPasswords": [
+      "password",
+      "passwerd",
+      "passcode",
+      "12345678",
+      "pa$$word",
+      "pa$$w0rd",
+      "p@$$w0rd",
+      "11111111",
+      "baseball",
+      "iloveyou",
+      "trustno1",
+      "sunshine",
+      "12341234",
+      "welcome1",
+      "football",
+      "password1"
+    ]
+  },
+  "cart": {
+    "messages": {
+      "update_quantity": "Quantity updated!",
+      "removed": "Item removed!",
+      "invalid_quantity": "Invalid quantity",
+      "qtyOutOfStock":"Required Quantity is not in Stock!",
+      "quantity_limit": "To order more than 5 pairs, please call us at: ",
+      "quantity_unavailable": "Can't update quantity - low stock",
+      "hto_item_exists": "Those frames are already in your home try-on kit.",
+      "invalid_productId": "Can't add product to cart - unknown product ID.",
+      "invalid_purchaseCode": "Can't add product to cart - unknown purchase code.",
+      "hto_unavailable": "Sorry, that product is unavailable for home try-on.",
+      "out_of_stock_hto": "Sorry, that product is out of stock for home trial.",
+      "out_of_stock": "Sorry, that product is currently out of stock.",
+      "hto_limit": "Sorry, your home try-on kit is full.",
+
+
+      "giftcard": {
+        "purchaseCode": {
+          "required": "Please select an E-Gift Card denomination."
+        },
+        "senderName": {
+          "required": "Please enter the Sender's name."
+        },
+        "recipientName": {
+          "required": "Please enter the Recipient's name."
+        },
+        "recipientEmail": {
+          "required": "Please enter the Recipient's email.",
+          "valid_email": "Please enter a valid email address."
+        },
+        "_validateDeliverOn": {
+          "valid_date": "Please enter a valid date",
+          "past_date": "This date is in the past"
+        }
+      }
+    }
+  },
+  "checkout": {
+    "validation": {
+      "start": {
+        "email": {
+          "required": "Please enter your email address",
+          "valid_email": "Please enter a valid email address"
+        },
+        "password": {
+          "required": "Please enter your password",
+          "valid_customer_login": "Incorrect email or password"
+        }
+      },
+      "customize": {
+        "readingStrength": {
+          "required": "Please choose a reading strength"
+        },
+        "patientName": {
+          "required": "Please enter the patient's name"
+        },
+        "doctorName": {
+          "required": "Please enter the doctor's name"
+        },
+        "doctorPhone": {
+          "required": "Please enter a phone number",
+          "valid_phone": "Please enter a valid phone number"
+        },
+        "_validateDob": {
+          "required": "Please enter a date",
+          "valid_date": "Please enter a valid date"
+        },
+        "nameOnRx": {
+          "required": "Please enter a name"
+        },
+        "_validateRxLeft": {
+          "required": "Please select a left eye rx",
+          "axisNoCylinder": "Please check your rx - axis with no cylinder is invalid",
+          "cylinderNoAxis": "Please check your rx - cylinder with no axis is invalid",
+          "cylinderSignMatch": "Please check your rx - cylinder signs (+/-) should match"
+        },
+        "_validateRxRight": {
+          "required": "Please select a right eye rx",
+          "axisNoCylinder": "Please check your rx - axis with no cylinder is invalid",
+          "cylinderNoAxis": "Please check your rx - cylinder with no axis is invalid",
+          "cylinderSignMatch": "Please check your rx - cylinder signs (+/-) should match"
+        },
+        "_validatePupillaryDistance": {
+          "required": "Please select a pupillary distance"
+        },
+        "rxFile": {
+          "required": "Please upload your prescription"
+        }
+      },
+      "address": {
+        "address1": {
+          "required": "Please enter a street address"
+        },
+        "country": {
+          "required": "Please select a country"
+        },
+        "_validateHtoCountry": {
+          "international_hto": "Currently, we only ship home trial kits inside the US. {{#buyitems}}<a href=\"/cart\">Edit your cart</a>{{/buyitems}}"
+        },
+        "_validatePostalCode": {
+          "required_US": "Please enter a zip code",
+          "required": "Please enter a postal code",
+          "valid_postal_US": "Please enter a valid zip code"
+        },
+        "firstName": {
+          "required": "Please enter a first name"
+        },
+        "lastName": {
+          "required": "Please enter a last name"
+        },
+        "_validateName": {
+          "required_firstandlast": "Please enter a name"
+        },
+        "_validateCityAndState": {
+          "citystate": "Please enter a city and state/province",
+          "citystate_US": "Please enter a city and state",
+          "city": "Please enter a city"
+        },
+        "_validateState": {
+          "stateOrProvince": "Please enter a state/province",
+          "stateOrProvince_US": "Please enter a state"
+        },
+        "phoneNumber": {
+          "required": "Please enter a phone number",
+          "valid_phone": "Please enter a valid phone number"
+        },
+        "usePrimaryShipping": {
+          "required": "Please choose an address"
+        },
+        "shipToStore": {
+          "required": "Please choose a shipping option"
+        }
+      },
+      "payment": {
+        "cardNumber": {
+          "required": "Please enter a credit card number",
+          "pattern": "Please enter a valid credit card number"
+        },
+        "_validateExpiration": {
+          "required": "Please enter a date",
+          "valid_date": "This card has expired"
+        },
+        "securityCode": {
+          "required": "Please enter a security code"
+        },
+        "usePrimaryPayment": {
+          "required": "Please choose a payment method"
+        },
+        "giftOrDiscountCode": {
+          "required": "Please enter a code",
+          "valid_code": "Invalid gift card or discount code",
+          "available": "This discount is no longer available",
+          "remaining_value": "There is no more value on this card",
+          "duplicate_code": "This code has already been applied",
+          "no_order_balance": "Order total is already zero",
+          "discounts_for_gc": "Cannot apply discounts to gift card purchases",
+          "must_apply": "Please apply this discount before proceeding"
+        },
+        "zip": {
+          "required": "Please enter a billing zip",
+          "zip_match": "Does not match last order billing zip",
+          "valid_postal_US": "Please enter a valid US zip code"
+        },
+        "_validateApiResponse": {
+          "failed": "Web checkout is temporarily unavailable. Please please call us at {{phone_number}} to complete your order."
+        },
+        "_validatePaymentAuth": {
+          "E_INVALID_CC_NUMBER": "Invalid card number",
+          "E_DECLINED": "Charge failed - please try another card or call {{phone_number}} for assistance"
+        }
+      },
+      "register": {
+        "email": {
+          "required": "Please enter your email address",
+          "valid_email": "Please enter a valid email address",
+          "customerExists": "This email already exists. <a href=\"/checkout/start\">Click to login</a>",
+          "customerExists_salesperson": "This email already exists"
+        },
+        "password": {
+          "required": "Please enter a password",
+          "password_length": "Password must be at least 7 characters",
+          "password_strength": "Password is too easy to guess"
+        },
+        "pinCode": {
+          "valid_pin": "Invalid PIN"
+        }
+      },
+      "customer": {
+        "firstName": {
+          "required": "Please enter a first name"
+        },
+        "lastName": {
+          "required": "Please enter a last name"
+        },
+        "_validateName": {
+          "required_firstandlast": "Please enter a name"
+        }
+      },
+      "rxupload": {
+        "valid_size": "Sorry, the file cannot be larger than {{maxsize_mb}}mb"
+      }
+    },
+    "stepNames": {
+      "1": "Login",
+      "2": "Customize Lenses",
+      "3": "Shipping",
+      "4": "Payment",
+      "5": "Done"
+    },
+    "productPriceDescriptions": {
+      "PRICE_STANDARD": "Including lenses",
+      "PRICE_RX_SUNWEAR": "Including Rx lenses",
+      "PRICE_NO_LENSES": "Frames only",
+      "PRICE_HIGH_INDEX": "Including high index lenses",
+      "PRICE_PRG_STANDARD": "Including Progressive lenses",
+      "PRICE_PRG_INDEX": "Including Progressive High Index lenses",
+      "PRICE_PRG_SUNWEAR": "Including Progressive Lenses"
+    }
+  },
+  "customer": {
+    "account_pageTitle": "My account",
+    "orderdetails_pageTitle": "Order Details"
+  },
+  "numberformat": {
+    "date_format": "m/d/Y",
+    "date_format_words": "F j, Y",
+    "currency_format": "%0.2f",
+    "service_phone": "888-509-5499",
+    "date_months": {
+      "1": "Jan",
+      "2": "Feb",
+      "3": "Mar",
+      "4": "Apr",
+      "5": "May",
+      "6": "Jun",
+      "7": "Jul",
+      "8": "Aug",
+      "9": "Sep",
+      "10": "Oct",
+      "11": "Nov",
+      "12": "Dec"
+    }
+  },
+  "orderstatus": {
+    "orderStatus": {
+      "PROCESSING": {
+        "status": "Processing",
+        "message": "We've received your order"
+      },
+      "RX_PROCESSING": {
+        "status": "Rx Processing",
+        "message": "We're processing your prescription"
+      },
+      "RX_CALLING_DR": {
+        "status": "Acquiring Rx",
+        "message": "We're calling your doctor to get your prescription"
+      },
+      "RX_WAITING": {
+        "status": "Waiting for Rx",
+        "message": "We're waiting to receive your prescription"
+      },
+      "MISSING_INFO": {
+        "status": "Missing information",
+        "message": "We're waiting on missing information to complete your order"
+      },
+      "LENS_FINISHING": {
+        "status": "Lens finishing",
+        "message": "Lenses are being fitted to your frames at our lab"
+      },
+      "HTO_RETURNED": {
+        "status": "Trial kit returned",
+        "message": "We have received your trial kit. Thanks!"
+      },
+      "SHIPPED": {
+        "status": "Shipped",
+        "message": "Your glasses are on their way!"
+      },
+      "PICKUP": {
+        "status": "Ready for pickup",
+        "message": "Your glasses are ready for pickup at the store"
+      },
+      "DELIVERED": {
+        "status": "Delivered",
+        "message": "Your order has been delivered - enjoy your new specs!"
+      }
+    },
+    "orderStage": {
+      "O1_PLACED": {
+        "stage": "Order placed"
+      },
+      "O2_PROCESSING": {
+        "stage": "Processing Rx"
+      },
+      "O3_FINISHING": {
+        "stage": "Lens finishing"
+      },
+      "O4_SHIPPED": {
+        "stage": "In transit"
+      },
+      "O5_DELIVERED": {
+        "stage": "Delivered"
+      },
+      "O6_PICKUP": {
+        "stage": "Ready for pickup"
+      },
+      "O7_RETURNED": {
+        "stage": "Trial Kit returned"
+      }
+    }
+  },
+  "rxhelper": {
+    "rx_makeFriendlyName": "{{firstName}}'s prescription"
+  },
+  "signIn":{
+    "contactUs":"Contact us by '<a href=\"mailto:hello@classicspecs.com\">hello@classicspecs.com</a>' any time, or by phone at 888.509.5499 Monday-Friday , 9am to 6pm EST.",
+    "guestMessage" : "You'll have a chance to create a permanent registration later in the checkout process.",
+    "secureMsg" : "secure checkout",
+    "guestTitle"  : "new customer",
+    "createAccount"  : "create your account",
+    "returningTitle"  : "returning customer",
+    "loginDescriptionTitle"  : "Why Login?",
+    "loginDescription"  : ["lorem ipsum..","lorem ipsum..","lorem ipsum..","lorem ipsum.."]
+
+  },
+  "contactUs" : "Contact us by '<a href=\"mailto:hello@classicspecs.com\">hello@classicspecs.com</a>' any time, or by phone at 888.509.5499 Monday-Friday , 9am to 6pm EST."
+}

@@ -1,0 +1,41 @@
+/* Ditto iframe
+-----------------------------*/
+iframe{
+  z-index: 9999;
+}
+@mixin iframe-ditto{
+  #create-container{
+    height:400px;
+      #recorder-container{
+        height:400px;
+        #recorder-wrapper{
+          min-height:400px;
+          object{
+            min-height:400px;
+          }
+          div#recorder{
+            min-height:400px ;
+            div{
+              min-height:400px !important;
+              video{
+                height:400px !important;
+              }
+            }
+          }
+        }
+      }
+
+  }
+  #recorder-slide{
+    height:400px;
+    >.ready-overlay{
+      >a{
+        bottom:28px;
+        @include viewport(medium){
+          bottom:15px;
+        }
+      }
+    }
+  }
+}
+

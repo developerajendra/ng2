@@ -1,0 +1,39 @@
+@mixin modal-arrow{
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+}
+
+@mixin modal-header{
+  background-color: $primary-base-inverted;
+}
+
+@mixin modal-body{
+  background-color: $primary-base-inverted;
+}
+
+@mixin hr {
+  border-bottom: 1px solid $primary-base;
+}
+
+@mixin edit-link{
+  color: $secondary-text;
+}
+
+@mixin dt{
+  font-size: $text-xsmall;
+  color: $primary-base;
+  @include viewport(medium) {
+    width: auto;
+  }
+}
+
+@mixin dd{
+  color: $secondary-text;
+  font-size: $text-xsmall;
+  color: $primary-base;
+  width: 50%;
+  @include viewport(medium) {
+    width: auto;
+  }
+}

@@ -1,0 +1,97 @@
+@import "../../../assets/scss/include";
+.main-wrapper{
+  padding-top:50px;
+}
+@include viewport(medium){
+  .main-wrapper{
+    padding-top:50px;
+  }
+}
+.checkout-head{
+  border-bottom: 3px solid $primary-base;
+  [class^= 'col-']{
+    padding-left:8px;
+    padding-right:8px;
+  }
+  h2{
+    font-size: $text-medium;
+    @include viewport(medium){
+      font-size: $text-larger;
+    }
+  }
+}
+
+.checkout-trial{
+  border-bottom: 1px solid $primary-base;
+  [class^= 'col-']{
+    padding-left:8px;
+    padding-right:8px;
+  }
+  h4{
+    font-size: $text-small;
+  }
+}
+
+.row{
+  margin: 0px;
+}
+
+.checkout-body{
+  width:100%;
+  .number{
+    &:hover {
+      cursor: pointer;
+    }
+    width:35px;
+    padding:0 0 0 5px;
+  }
+  img{
+    width: 100%;
+  }
+  p{
+    margin-bottom:0px;
+    font-size: $text-small;
+    @include viewport(medium){
+      font-size: $text-medium;
+    }
+  }
+  a{
+    color: $primary-base;
+    display: block;
+  }
+  .row{
+
+    border-bottom: 1px solid $primary-base;
+  }
+  em{
+    color: $secondary-text;
+    font-size: $text-medium;
+  }
+  [class^= 'col-']{
+    padding-left:8px;
+    padding-right:8px;
+
+  }
+  h2{
+    font-size: $text-medium;
+    text-transform: capitalize;
+    @include viewport(desktpop){
+      font-size: $text-larger;
+    }
+  }
+}
+
+.checkout-footer{
+  width:100%;
+  padding: 10px 0;
+  border-top: 2px solid $primary-base;
+  [class^= 'col-']{
+    padding-left:8px;
+    padding-right:8px;
+
+  }
+}
+
+.remove{
+  width:50px;
+}

@@ -1,0 +1,79 @@
+@import "../../../assets/scss/include";
+
+/* Globals
+---------------------------------*/
+p {
+  color: $primary-text;
+}
+
+.wrapper {
+  width: 100%;
+  clear: both;
+  padding: 20px 0px;
+  @include viewport(medium) {
+    width: 70%;
+    padding: 0;
+  }
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+    @include viewport(medium) {
+      text-align: left;
+    }
+  }
+}
+  /* Contact us
+  ---------------------------------*/
+  .contact-us {
+    text-align: center;
+    max-width: 70%;
+    @include viewport(medium){
+      max-width: 50%;
+      margin: 20px auto 50px;
+    }
+    margin: 10px auto;
+    font-size: $text-small;
+    a{
+      color: $primary-text;
+      text-decoration: underline;
+      ;
+    }
+  }
+
+
+  /* Checkout
+  ---------------------------------*/
+  .checkout {
+    @include checkout();
+  }
+
+  /* Forgot password
+  ---------------------------------*/
+  .forgot-password {
+    @include forgot-password();
+  }
+
+@include viewport(medium) {
+  .divider {
+    border-right: 1px solid #999;
+  }
+}
+
+
+span.lock{
+  display:inline-block;
+  @include icon($-lock-icon-modified-width, $-lock-icon-modified-height, $-lock-icon-modified-offset-x, $-lock-icon-modified-offset-y);
+}
+
+
+.list-styled{
+  li{
+    list-style: disc;
+  }
+}
+
+
+
+
+
+

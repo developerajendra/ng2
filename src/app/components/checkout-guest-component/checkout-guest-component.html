@@ -1,0 +1,74 @@
+<loader [overlay]="true" *ngIf="enableLoader"></loader>
+<!---Checkout as guest-->
+<section class="main-wrapper ">
+  <h1 class="border-heading text-xs-center">Checkout</h1>
+
+  <breadcrumb *ngIf="!haveCustomizeLenses"
+              [options]="{name:['sign in','shipping','payment','order confirmation'],active:'sign in'}"></breadcrumb>
+  <breadcrumb *ngIf="haveCustomizeLenses"
+              [options]="{name:['sign in','customizing lens','shipping','payment','order confirmation'], active:'sign in'}"></breadcrumb>
+
+  <div class="inner-wrapper">
+    <p class="contact-us hidden-sm-down" [innerHTML]="staticMsgs.contactUs"></p>
+    <div class="row">
+      <div class="col-md-6 divider">
+        <div class="wrapper pull-sm-left">
+          <h1 class="hidden-sm-down">{{staticMsgs.guestTitle}}</h1>
+          <p class="text-xs-center text-small text-md-left hidden-sm-down">{{staticMsgs.guestMessage}}</p>
+
+          <form [ngFormModel]="emailForm" (submit)="guestEmailSubmit()">
+            <div class="form-group">
+              <input type="email" [ngClass]="{invalid:guestEmail.touched || attemptSubmitEmailForm}"
+                     (ngModelChange)="emailExist=false" class="form-control" placeholder="Email"
+                     ngControl="guestEmail" id="guestEmail" #guestEmail="ngForm">
+              <control-messages control="guestEmail" [displayMessage]="'Please enter a valid email address before proceeding to order.'"
+                                *ngIf="guestEmail.touched || attemptSubmitEmailForm"></control-messages>
+              <span *ngIf="emailExist"
+                    class="error text-small">Email already exists.</span>
+            </div>
+            <button class="btn-primary btn-block" [disabled]="disabledEmailForm">Checkout as guest
+            </button>
+          </form>
+
+
+          <p class="text-xs-center text-small text-md-left hidden-md-up">{{staticMsgs.guestMessage}}</p>
+          <p class="contact-us hidden-md-up">{{staticMsgs.contactUs}}</p>
+          <h2 class="hidden-sm-down">{{staticMsgs.loginDescriptionTitle}}</h2>
+          <ul class="list-styled padding-l20 hidden-sm-down">
+            <li *ngFor="let msg of staticMsgs.loginDescription">
+              <p class="text-small margin-b5">{{msg}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="wrapper pull-sm-right">
+          <h1> {{staticMsgs.returningTitle}} </h1>
+          <form [ngFormModel]="loginForm" (submit)="login()">
+            <div class="form-group">
+              <input type="email" [ngClass]="{invalid:email.touched || attemptSubmit}"
+                     (ngModelChange)="authenticationError=false" class="form-control" placeholder="Email"
+                     ngControl="email" id="email" #email="ngForm">
+              <control-messages control="email" [displayMessage]="validationMessages.email"
+                                *ngIf="email.touched || attemptSubmit"></control-messages>
+              <span *ngIf="authenticationError"
+                    class="error">{{validationMessages.password.valid_customer_login}}</span>
+            </div>
+            <div class="form-group">
+              <input type="password" [ngClass]="{invalid:password.touched || attemptSubmit}"
+                     (ngModelChange)="authenticationError=false" class="form-control" placeholder="Password"
+                     ngControl="password" id="password" #password="ngForm">
+              <control-messages control="password" [displayMessage]="validationMessages.password"
+                                *ngIf="password.touched || attemptSubmit"></control-messages>
+            </div>
+            <button id="continueGuestCheckout" class="btn-primary btn-block" [disabled]="authenticationError || disabled">Continue</button>
+            <em><a href="javaScript:void(0);" class="text-small forgot-password" [routerLink]="['/forgot-password']">
+              Forgot your password?</a></em>
+            <p class="secure-checkout text-uppercase checkout hidden-sm-down text-small"><span class="lock"></span>
+              {{staticMsgs.secureMsg}}</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

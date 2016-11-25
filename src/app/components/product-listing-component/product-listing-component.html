@@ -1,0 +1,101 @@
+<section class="main-wrapper">
+  <h1 class="text-xs-center border-heading" *ngIf="productsData">{{eyeglasses === 'new-arrivals'?'New Arrivals':productsData.h1}}</h1>
+  <div class="row filters" *ngIf="showFilters">
+    <div class="padding-0 col-md-12">
+      <div class="padding-0 col-md-4" *ngIf="!isSlug">
+           <form>
+             <div class="form-group">
+               <div class="padding-0 c-inputs-stacked col-xs-5">
+                 <label class="c-input c-radio">
+                   <input id="radioStacked1" name="radio-stacked" type="radio" [checked]="filterBy == 'eyeglasses'"  (click)="changeFilter('eyeglasses')">
+                   <span class="c-indicator"></span>
+                   EYEGLASSES
+                 </label>
+               </div>
+               <div class="c-inputs-stacked col-xs-6">
+                 <label class="c-input c-radio">
+                   <input id="radioStacked2" name="radio-stacked" type="radio" [checked]="filterBy != 'eyeglasses'" (click)="changeFilter('sunglasses')">
+                   <span class="c-indicator"></span>
+                   SUNGLASSES
+                 </label>
+               </div>
+             </div>
+           </form>
+         </div>
+      <ul class="list-inline hidden-md-down">
+        <li role="filters" class="dropdown list-inline-item" *ngFor="let tag of productTag" [id]="tag.text">
+          <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="javaScript:void(0);" role="button"
+             aria-haspopup="true" aria-expanded="false">
+            {{tag.text}} <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" (click)="$event.stopPropagation();">
+            <li class="dropdown-item" *ngFor="let filter_tag of tag.value">
+              <label attr.for={{filter_tag.value}} class="c-input c-checkbox">
+                <input type="checkbox" name="chooseFilter" id={{filter_tag.value}} ng-value='filter_tag.value'
+                       [checked]="filter_tag.checked" (change)="selectedFilter(filter_tag)">
+                <span class="c-indicator"></span>
+                <span class="filter-text">{{filter_tag.text}}</span>
+              </label>
+            </li>
+          </ul>
+        </li>
+        <li class="list-inline-item clear-filter pull-md-right" *ngIf="filterObject?.tags.length">
+          <a href="javaScript:void(0);" (click)="clearAll()" id="clearFilters">CLEAR FILTERS</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="products-wrapper" *ngIf="filterObject.collectionName != 'must-haves'">
+    <ul class="row equal-height" *ngIf="productsData && productsData.tiles">
+      <template ngFor let-tile [ngForOf]="productsData.tiles" let-index="index" >
+        <li [ngClass]="{'product-hidden':tile.products.length<1}"
+            class="col-xs-6 col-sm-4 col-md-4 col-lg-3">
+          <product-tile *ngIf="tile.products.length" [tile]="tile" [selectedProduct]="tile.products[0]"
+                        [tileCollection]="filterObject.collectionName"
+                        [isAddToCart]="true" [modalId]="'quickBuy'" [filterBy]="filterBy"
+                        (onProductSelected)="onProductSelected($event)" [showSwatches]="!expandTiles">
+          </product-tile>
+        </li>
+        <li *ngIf="index == 7"  class="special-product hidden-md-down col-xs-12 col-sm-8 col-md-8 col-lg-6">
+          <a [href]="specialProductUrl" target="_blank">
+            <img src="{{specialImageTile}}" alt="{{specialImageTile}}">
+          </a>
+        </li>
+      </template>
+
+    </ul>
+    <div *ngIf="productsData && (!productsData.tiles || !productsData.tiles.length)" class="row">
+      No results found.
+    </div>
+    <div *ngIf="isLoadingCollectionData" class="loader">&nbsp;</div>
+  </div>
+
+  <!-- start must have -->
+  <div class="products-wrapper" *ngIf="filterObject.collectionName == 'must-haves' && productsData && productsData.tiles">
+    <div *ngFor="let tile of productsData.tiles">
+      <product-must-have-tile *ngIf="tile.products.length" [tile]="tile" [selectedProduct]="tile.products[0]"
+                              [modalId]="'myModal'" [filterBy]="filterBy"
+                              [slug]="slug" [tileCollection]="tileCollection"
+                              (onProductSelected)="onProductSelected($event)">
+      </product-must-have-tile>
+    </div>
+  </div>
+  <!-- end must have -->
+
+</section>
+
+<page-description [contentId]="'productListing'"></page-description>
+
+<!--Select lense model-->
+<select-lense-modal *ngIf="productsData && selectedProduct" [productId]="selectedProduct?.product_id" [variant]="slug" [product]="selectedProduct" [filterBy]="filterBy"
+                    [modalId]="'quickBuy'" [slug]="slug" [tileCollection]="tileCollection"></select-lense-modal>
+
+
+
+
+
+
+
+
+
+

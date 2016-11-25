@@ -1,0 +1,62 @@
+@import "../../../assets/scss/include";
+
+.checkout-head{
+  border-bottom: 3px solid $primary-base;
+}
+
+.row{
+  margin: 0px;
+}
+
+.checkout-body{
+  width:100%;
+  .number{
+    width:35px;
+  }
+  img{
+    width: 100%;
+  }
+  p{
+    margin-bottom:0px;
+
+  }
+  a{
+    color: $primary-base;
+  }
+  .row{
+
+    border-bottom: 1px solid $primary-base;
+  }
+  em{
+    color: $secondary-text;
+    font-size: $text-medium;
+  }
+  ul{
+    li{
+      line-height: 1rem;
+      small{
+        color: $secondary-text;
+        font-weight: bold;
+        font-size:$text-xsmall;
+      }
+    }
+  }
+  [class^= 'col-']{
+    padding-left:8px;
+    padding-right:8px;
+  }
+  h2{
+    font-size: $text-medium;
+    text-transform: capitalize;
+    @include viewport(desktpop){
+      font-size: $text-larger;
+    }
+  }
+}
+
+.checkout-footer{
+  width:100%;
+  padding: 10px 0;
+  border-top: 2px solid $primary-base;
+}
+

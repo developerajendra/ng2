@@ -1,0 +1,16 @@
+@mixin filters{
+  ul {
+    li{
+      a,span,
+      a:hover {
+        color: $primary-text;
+        font-size:$text-small;
+      }
+    }
+  }
+}
+
+@mixin labels{
+  font-size:$text-small;
+  color: $primary-text;
+}

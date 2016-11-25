@@ -1,0 +1,38 @@
+<section class="main-wrapper">
+  <h1 class="text-xs-center border-heading">VIRTUAL TRY - ON</h1>
+
+  <section class="inner-wrapper">
+    <p class="text-xs-center">
+      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+    </p>
+    <div class="video-handler">
+      <div class="video-head">
+        <span class="enlarge"><span class="sr-only">Enlarge Screen</span></span>
+      </div>
+      <div class="video-body">
+        <span class="play"><span class="right-arrow"></span></span>
+      </div>
+    </div>
+    <ul class="try-buttons">
+      <li >
+        <a href="collection/womens-sunglasses">
+          <button type="button" class="btn-primary">TRY ON SUNGLASSES</button>
+        </a>
+      </li>
+      <li >
+        <a href="collection/womens-eyeglasses">
+          <button type="button" class="btn-primary">TRY ON EYEGLASSES</button>
+        </a>
+      </li>
+    </ul>
+  </section>
+</section>
+
+
+<product-carousel [carouselId]="'must-haves'" [title]="'MUST-HAVES'"
+                  [slug]="'must-haves'" [gender]="'womens'" [modalId]="'musthaves'">
+</product-carousel>
+<!-- Component Plain Banner -->
+<plain-banner [imageFor]="'vto'" [image]="'footerImages'" [altFor]="'vto'" [alt]="'footerAltText'" id="vtoBannerBottom"></plain-banner>
+<!--Component description-->
+<page-description [contentId]="'landing'"></page-description>

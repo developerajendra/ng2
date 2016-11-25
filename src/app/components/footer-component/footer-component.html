@@ -1,0 +1,27 @@
+<div class="main-wrapper footer-wrapper" *ngIf="!isCheckoutPage">
+  <div class="row">
+    <div class="col-lg-5 col-md-6">
+      <ul class="list-inline footer-links text-lg-left text-small">
+        <li class="list-inline-item padding-l0"><a [routerLink]="['about']" href="javaScript:void(0);" id="about" >About</a></li>
+        <li class="list-inline-item"><a [routerLink]="['faq']" href="javaScript:void(0);" id="faq" >FAQ</a></li>
+        <li class="list-inline-item"><a [routerLink]="['location']" href="javaScript:void(0);" id="location">Locations</a></li>
+        <li class="list-inline-item"><a [routerLink]="['press']" href="javaScript:void(0);" id="press" >Press</a></li>
+        <li class="list-inline-item"><a [routerLink]="['quality']" href="javaScript:void(0);" id="quantity" >Quality</a></li>
+      </ul>
+    </div>
+    <div class="col-lg-4 col-md-3">
+      <ul class="list-inline footer-social-icons text-xs-small text-lg-medium">
+        <li class="list-inline-item"><a href="https://www.facebook.com/aliceandoliviabystaceybendet" class=" facebook" id="facebook" target="_blank"><span class="sr-only">Facebook</span></a></li>
+        <li class="list-inline-item"><a href="https://twitter.com/aliceandolivia" class="twitter" class="twitter" id="twitter" target="_blank"><span class="sr-only">twitter</span></a></li>
+        <li class="list-inline-item"><a href="https://www.pinterest.com/alice_olivia" class="pinterest" id="pinterest" target="_blank"><span class="sr-only">pinterest</span></a></li>
+        <li class="list-inline-item"><a href="https://worldof.aliceandolivia.com/" class="tumbler" id="tumbler" target="_blank"><span class="sr-only">tumbler</span></a></li>
+        <li class="list-inline-item"><a href="https://plus.google.com/+aliceandolivia/posts" class="google-plus" id="googlePlus" target="_blank"><span class="sr-only">google plus</span></a></li>
+      </ul>
+    </div>
+    <div class="col-lg-3 col-md-3">
+      <ul class="list-inline  footer-links text-small">
+        <li class="list-inline-item pull-lg-right padding-r0"><a href="javaScript:void(0);" data-toggle="modal" data-dismiss="modal" (click)="subscribe()" id="footerSubscribe">Subscribe</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

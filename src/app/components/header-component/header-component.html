@@ -1,0 +1,54 @@
+  <div class="top-header">
+    <p class="text-xsmall text-xs-center">Free Shipping + returns | 888.509.5499</p>
+  </div>
+  <div class="main-wrapper">
+    <nav class="navbar navbar-light navbar-default">
+      <div class="logo-wrapper">
+        <button *ngIf="!isCheckoutPage" class="navbar-toggler pull-xs-left hidden-md-up collapsed" type="button" data-toggle="collapse" data-target="#nav-content"> &#9776;</button>
+        <div class="logo" [ngClass]="{'kiosk-enable':isKioskMode}" id="logoWrapper">
+          <a href="javaScript:void(0);" (click)="changeTabName()" [ngClass]="{disabled:isCheckoutPage}" [routerLink]="['/']">
+            <img src="assets/images/logo.png" alt="Classic Specs">
+          </a>
+        </div>
+        <div  *ngIf="isKioskMode && !isCheckoutPage" class="text-xs-left col-xs-12 col-sm-4 col-sm-offset-2 kiosk-mode">
+          <h1>@ {{kioskName}}</h1>
+          <a [routerLink]="['/']" href="javascript:void(0)" class="text-xsmall text-decoration-underline" (click)="exitKioskMode()">Get out of kiosk mode.</a>
+        </div>
+        <div *ngIf="isCheckoutPage" class="pull-md-right">
+          <ul class="list-inline text-small" >
+            <li class="list-inline-item phone"><a href="tel:'{{contacts.phone}}'">Call - {{contacts.phone}}</a></li>
+            <li class="list-inline-item-link email"><a class="text-decoration-underline" href="mailto:'{{contacts.email}}'">Email - {{contacts.email}}</a></li>
+          </ul>
+        </div>
+        <div class="right-nav pull-md-right" *ngIf="!isCheckoutPage">
+          <ul  class="list-inline text-xsmall">
+            <li class="list-inline-item" *ngIf="!isLoggedIn"><a class="sign-in" (click)="changeTabName()" [routerLink]="['auth/login']" title="Sign In" href="javaScript:void(0);" id="signin">Sign In</a></li>
+            <li class="list-inline-item position-relative" *ngIf="isLoggedIn && userInfo">
+              <a class="sign-in dropdown-toggle" data-toggle="dropdown" id="username" role="button" aria-haspopup="true" aria-expanded="false"  title="Sign In" href="javaScript:void(0);">
+                {{'Hi, '+userInfo?.first_name}}
+              </a>
+              <div class="dropdown-menu text-small">
+                <a class="dropdown-item" [routerLink]="['customer']"  id="myAccount" href="javaScript:void(0);">My Account</a>
+                <a class="dropdown-item" [routerLink]="['customer/order-history']" id="OrderStatus" href="javaScript:void(0);">Order Status</a>
+                <div class="dropdown-divider">&nbsp;</div>
+                <a class="dropdown-item sign-in" (click)="logout()" title="Sign In" id="signOut" href="javaScript:void(0);">Sign Out</a>
+              </div>
+            </li>
+            <li class="list-inline-item"><a data-toggle="modal" data-dismiss="modal" class="subscribe" title="Subscribe" (click)="subscribe()" id="subscribe" href="javaScript:void(0);">Subscribe</a></li>
+
+            <li class="list-inline-item"><a title="Bag" class="bag" href="javaScript:void(0);"
+                   data-toggle="modal" data-dismiss="modal" id="cart" [class.disabled]="!cartItemsCount" data-target="#bagModal">
+              <span>Bag</span> ({{cartItemsCount}}) </a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="collapse navbar-toggleable-sm" [ngClass]="{in:tabChange}" id="nav-content" *ngIf="!isCheckoutPage">
+        <ul class="nav navbar-nav text-small">
+          <li *ngFor="let tab of navTabs" class="nav-item primary-nav-link" (click)="isActive(tab.name)">
+            <a *ngIf="tab.name != 'shop-a-o'" (click)="changeTabName(tab.name)" [ngClass]="{highlight:'sale'===tab.name}" [routerLink]="[tab.url]" [id]="tab.name" href="javaScript:void(0);">{{tab.text}}</a>
+            <a *ngIf="tab.name == 'shop-a-o'" [id]="tab.name" [href]="tab.url" [target]="tab.target">{{tab.text}}</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>

@@ -1,0 +1,26 @@
+@import "../../../assets/scss/include";
+
+/*breadcrumb
+-----------------------------------*/
+.breadcrumb{
+  counter-reset: LIST-ITEMS ;
+  padding: .75rem;
+  background-color: transparent;
+  li{
+    text-transform: uppercase;
+    display: inline;
+    padding-right: 0.5em;
+    &.active{
+      font-weight: bold;
+      color: $primary-nav-link;
+    }
+  }
+  @include breadcrumb();
+  li:before
+  {
+    content: counter( LIST-ITEMS ) ".";
+    counter-increment: LIST-ITEMS;
+    padding-right: 0.25em;
+    font-weight: bold;
+  }
+}

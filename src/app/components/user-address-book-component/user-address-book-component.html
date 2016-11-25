@@ -1,0 +1,165 @@
+<div>
+  <hr>
+  <div id="address">
+    <div *ngIf="!userInfo || isLoading" class="loader">&nbsp;</div>
+    <div *ngIf="userInfo && !userInfo.addresses.length">
+      <div class="row addressList">
+        <div class="col-md-9 col-xs-9 center-block addressText">No address found</div>
+      </div>
+      <hr>
+    </div>
+    <div *ngIf="userInfo && userInfo.addresses.length">
+      <div class="row addressList" *ngFor="let address of userInfo.addresses; let $index=index">
+        <div class="col-md-9 col-xs-9">
+          <div class="col-md-6">
+            <p class="text-small font-heavy addressText"><strong id="{{'addressName_'+$index}}">{{address.name}}</strong></p>
+          </div>
+          <div class="col-md-6">
+            <address class="text-small" id="{{'addressText_'+$index}}">
+              {{address?.address1}},<br>
+              {{(address?.address2)?address.address2+',':''}} &nbsp;
+              {{address?.city}}, &nbsp;
+              {{address?.state}}, <br>
+              {{address?.country}},&nbsp;
+              {{address?.zip}}
+            </address>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-3">
+          <a href="javaScript:void(0);" id="{{'removeAddress_'+$index}}" class=" pull-xs-right text-uppercase margin-r10"
+             (click)="removeAddress($index)">remove</a>
+          <a href="javaScript:void(0);" id="{{'editAddress_'+$index}}" data-target="#addressModal" data-toggle="modal"
+             class=" pull-xs-right text-uppercase margin-r10" (click)="editAddress($index)">edit</a>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <p><a href="javaScript:void(0);" id="addAddress" data-target="#addressModal" data-toggle="modal" (click)="addAddress()"
+          class="text-decoration-underline text-small">ADD NEW ADDRESS</a></p>
+  </div>
+
+  <div class="modal address-modal fade" id="addressModal" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel1" aria-hidden="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="isLoading" class="loader">&nbsp;</div>
+          <form [ngFormModel]="addressForm" class="form-default">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="first_name" class="bold">First Name</label>
+                <input [ngClass]="{invalid:first_name.touched || attemptSubmit}" type="text" name="first_name" class="form-control" ngControl="first_name" id="first_name"
+                       #first_name="ngForm">
+                <control-messages id="validateFname" control="first_name" [displayMessage]="validationMessages.firstName"
+                                  *ngIf="first_name.touched || attemptSubmit"></control-messages>
+
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="last_name" class="bold">Last Name</label>
+                <input [ngClass]="{invalid:last_name.touched || attemptSubmit}" type="text" name="last_name" class="form-control" id="last_name" ngControl="last_name"
+                       #last_name="ngForm">
+                <control-messages id="validateLname" control="last_name" [displayMessage]="validationMessages.lastName"
+                                  *ngIf="last_name.touched || attemptSubmit"></control-messages>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="address1" class="bold">Address 1</label>
+              <input  [ngClass]="{invalid:address1.touched || attemptSubmit}" type="text" name="address1" class="form-control" ngControl="address1" id="address1"
+                     #address1="ngForm">
+              <control-messages id="validateAddress1" control="address1" [displayMessage]="validationMessages.address1"
+                                *ngIf="address1.touched || attemptSubmit"></control-messages>
+            </div>
+
+            <div class="form-group">
+              <label for="address2" class="bold">Address 2</label>
+              <input type="text" name="address2" class="form-control" placeholder="" id="address2" ngControl="address2"
+                     #address2="ngForm">
+            </div>
+
+            <div class="form-group  width50">
+              <label for="country" class="bold">Country</label>
+              <select [ngClass]="{invalid:country.touched || attemptSubmit}" name="country" placeholder="" id="country" ngControl="country" #country="ngForm">
+                <option value="">Select country</option>
+                <option *ngFor="let item of countriesData?.countries" [value]="item.abbreviation">{{item.name}}</option>
+              </select>
+              <control-messages id="validateCountry" control="country" [displayMessage]="validationMessages.country"
+                                *ngIf="country.touched || attemptSubmit"></control-messages>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="city" class="bold">City</label>
+                <input [ngClass]="{invalid:city.touched || attemptSubmit}" type="text" name="city" class="form-control" placeholder="" id="city" ngControl="city"
+                       #city="ngForm">
+                <control-messages id="validateCity" control="city"
+                                  [displayMessage]="validationMessages._validateCityAndState.city"
+                                  *ngIf="city.touched || attemptSubmit"></control-messages>
+              </div>
+
+              <div *ngIf="country.viewModel !== 'US'" class="col-md-6 form-group">
+                <label for="state" class="bold">State</label>
+                <input [ngClass]="{invalid:state.touched || attemptSubmit}" type="text" id="state" [ngClass]=" {invalid:state.touched || attemptSubmit}"
+                       name="state" ngControl="state" #state="ngForm">
+                <control-messages id="validateState" control="state"
+                                  [displayMessage]="validationMessages._validateCityAndState.citystate"
+                                  *ngIf="state.touched || attemptSubmit"></control-messages>
+              </div>
+
+              <div *ngIf="country.viewModel === 'US'" class="form-group col-md-6">
+                <label for="state" class="bold">State</label>
+                <select [ngClass]="{invalid:state.touched || attemptSubmit}" name="state"
+                        placeholder="" ngControl="state" id="state" #state="ngForm">
+                  <option value="">Select state</option>
+                  <option *ngFor="let item of countriesData?.states" [value]="item.abbreviation">{{item.name}}</option>
+                </select>
+                <control-messages id="validateState" control="state"
+                                  [displayMessage]="validationMessages._validateCityAndState.citystate"
+                                  *ngIf="state.touched || attemptSubmit"></control-messages>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="zip" class="bold">Zip</label>
+              <input [ngClass]="{invalid:zip.touched || attemptSubmit}" type="text" name="zip" class="form-control" id="zip" ngControl="zip" #zip="ngForm">
+              <control-messages id="validateZip" control="zip" [displayMessage]="validationMessages._validatePostalCode"
+                                *ngIf="zip.touched || attemptSubmit"></control-messages>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="phone" class="bold">Phone</label>
+                  <input [ngClass]="{invalid:phone.touched || attemptSubmit}"  type="number" [ngClass]="{invalid:phone.touched || attemptSubmit}"
+                         name="phone" class="form-control remove-spinners"
+                         ngControl="phone" id="phone" #phone="ngForm">
+                  <control-messages id="validatePhone" control="phone" [displayMessage]="validationMessages.phoneNumber"
+                                    *ngIf="phone.touched || attemptSubmit"></control-messages>
+                </div>
+                <div class="col-md-6">
+                  <label>&nbsp;</label>
+
+                  <p class="text-small margin-t5 margin-b0">
+
+                    <tool-tip [title]="'Why phone?'" [text]="'Lorem ipsum dolor sit amet.'"></tool-tip>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" (click)="saveAddress()" id="saveAddress" class="btn btn-primary">Save</button>
+          <!--data-dismiss="modal"-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

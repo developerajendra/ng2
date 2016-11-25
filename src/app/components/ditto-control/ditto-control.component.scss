@@ -1,0 +1,319 @@
+@import "../../../assets/scss/include";
+
+:host {
+  .inner-wrapper.carousel-container {
+    height: auto !important;
+  }
+
+  /* Carousel specific
+  ---------------------------------*/
+  .full-img{
+    width:100%;
+  }
+
+  .owl-carousel {
+    flex-direction: column;
+    .owl-stage-outer {
+      width:100%;
+      //margin-left: 21px;
+    }
+    .owl-stage {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+    .owl-item{
+      height: 100%;
+      z-index: 1;
+    }
+    .owl-nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -1;
+      margin-top: 20px;
+      width: 106%;
+      div {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 7rem;
+        font-weight: 100;
+        width: 39px;
+        overflow: hidden;
+        text-indent:-9999px;
+        &.owl-next {
+          background: url('../../../assets/images/ottavo/Arrow-Right.png') no-repeat -17px -10px;
+          float: right;
+          margin: 0;
+          width: 21px;
+          height: 31px;
+          z-index: 1;
+        }
+        &.owl-prev {
+          background: url("../../../assets/images/ottavo/Arrow-Left.png") no-repeat -16px -9px;
+          float: left;
+          margin: 0;
+          width: 21px;
+          height: 31px;
+        }
+      }
+    }
+  }
+}
+
+.ditto-dialog {
+  .modal-dialog {
+    @include overlayBackground();
+    @include overlayWidth();
+    z-index: 999;
+  }
+
+  .modal-body {
+    max-height: 750px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .modal-content,
+  .modal-footer,
+  .modal-header {
+    border: none;
+    text-align: left;
+    @include overlayBackground();
+  }
+  .lense-type {
+    @include lens-type();
+    overflow: hidden;
+    padding: 10px 0;
+    margin: 10px 0px;
+    .row {
+      [class^='col-xs-'] {
+        padding: 0px 5px;
+      }
+    }
+    .c-inputs-stacked {
+      width: 100%;
+    }
+  }
+  .add-bag {
+    text-align: center;
+  }
+
+}
+
+/* Product view
+---------------------------------*/
+.product-view {
+  width: 100%;
+  float: left;
+  //min-height: 34vh;
+  //@include viewport(medium) {
+  //  min-height: 34vh;
+  //}
+
+  @include viewport(ipadPortrait) {
+    padding-top: 20px;
+  }
+  ul {
+    &.products {
+      display: block;
+      padding: 0px;
+      li {
+        margin-bottom: 10px;
+        &.active {
+          display: block !important;
+        }
+      }
+    }
+  }
+  .product-content {
+    min-height: 750px;
+  }
+
+  /* Product image
+  ---------------------------------*/
+  #activeimg-div{
+    height: 32rem;
+  }
+  #activeimg{
+    img {
+    width: 100%;
+    max-width: 628px;
+    max-height: 490px;
+    margin-left: 35px;
+    }
+  }
+  .side-img {
+    width: 100%;
+    height: 100%;
+    max-height: 80px;
+    max-width: 70px;
+    box-shadow: 0 0 2px #888888;
+  }
+  .side-img-list {
+    display: flex;
+    justify-content: space-around;
+    padding-left: 0px;
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Active product
+---------------------------------*/
+
+.side-img-list {
+  .active {
+    border: solid 1px $border-primary-base;
+  }
+  img {
+    border: solid 1px transparent;
+  }
+}
+
+/* Product description
+---------------------------------*/
+.article .description {
+  padding: 20px 0;
+}
+
+.product-description {
+  width: 100%;
+  float: left;
+  @include viewport(large) {
+    width: 80%;
+    float: right;
+  }
+  .btn-primary {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+    @include viewport(medium) {
+      display: inline-block;
+      width: 160px;
+    }
+  }
+  hr {
+    border-bottom: 1px solid #000;
+  }
+  .stores {
+    a {
+      text-transform: uppercase;
+      color: $primary-text;
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .list-inline {
+    @include colors;
+  }
+}
+
+.virtual-try-on {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  color: $secondary-text;
+  background-color: #eee;
+  font-size: $text-small;
+  max-width: 70px;
+  font-weight: bold;
+  box-shadow: 0 0 2px #888;
+  text-align: center;
+  &hover {
+    color: $primary-text;
+    text-decoration: none;
+  }
+  &active {
+    border: solid 1px $border-primary-base;
+  }
+
+  @include viewport(medium) {
+    font-size: 0.5rem;
+    padding: 2px;
+  }
+
+  @include viewport(large) {
+    font-size: $text-small;
+    padding: 5px;
+  }
+}
+
+.ditto-context {
+  width: 95%;
+  margin: auto;
+
+  img {
+    width: 100px !important;
+  }
+}
+
+.short-border {
+  padding: 0 15px;
+  display: inline-block;
+  border-bottom: 3px solid $primary-base;
+}
+
+.hidden {
+  display: none;
+}
+
+.signUpModal {
+  max-width: 455px;
+  margin-left: auto;
+  margin-top: 180px;
+  margin-right: auto;
+  margin-bottom: auto;
+  z-index: 1050;
+}
+
+.placeholder-element {
+  z-index: 9999;
+  background: $primary-base-inverted;
+  min-height: 34em;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .loader {
+    position: absolute;
+  }
+}
+
+.ditto {
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+  display: inline-block;
+  @include viewport(medium) {
+    width: 400px;
+    height: 300px;
+  }
+}
+
+.align-center {
+  text-align: center;
+}
+
+@include iframe-ditto;
+
+#recorder-slide > .ready-overlay > a {
+  @include viewport(medium) {
+    bottom: 15px;
+  }
+}

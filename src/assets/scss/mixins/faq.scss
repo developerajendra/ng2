@@ -1,0 +1,15 @@
+/* Search
+-------------------------------*/
+@mixin search{
+  margin: 20px 0;
+  .search{
+    width: 85%;
+    padding: 5px;
+    @include viewport(medium){
+      width: 70%;
+    }
+  }
+
+}
+
+

@@ -1,0 +1,134 @@
+<!--Thankyou checkout-->
+<section class="main-wrapper">
+  <h1 class="text-xs-center border-heading">Checkout</h1>
+
+  <breadcrumb *ngIf="!haveCustomizeLenses"  [options]="{name:['sign in','shipping','payment','order confirmation'],active:'order confirmation'}"></breadcrumb>
+  <breadcrumb *ngIf="haveCustomizeLenses"  [options]="{name:['sign in','customizing lens','shipping','payment','order confirmation'],active:'order confirmation'}"></breadcrumb>
+
+
+
+  <div class="inner-wrapper">
+    <p class="contact-us">Contact us by <a class="text-decoration-underline" href="mailto:help@aliceandoliviaeyewear.com">help@aliceandoliviaeyewear.com</a>  any time, or by phone at 888.509.5499
+      Monday-Friday , 9am to 6pm EST.</p>
+    <div class="row print-container">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="javaScript:void(0);" class="text-decoration-underline"></a>
+          </div>
+          <div class="col-md-4">
+            <h2 class="text-xs-center">thank you</h2>
+            <p class="text-xs-center ">
+              Your order has been recieved.
+            </p>
+          </div>
+        </div>
+        <p class="confirmation-notification">
+          You will receive an email with your order confirmation and will be notified when your item is being shipped.
+        </p>
+        <div class="row">
+          <div class="col-md-6 divider order-details">
+            <dl>
+              <dt class="text-xlarger" *ngIf="order.order_id">Order Number:</dt>
+              <dd class="text-xlarger">{{order.order_id}}</dd>
+            </dl>
+            <dl>
+              <dt>Name:</dt>
+              <dd>{{order?.shipping_address.name}}</dd>
+            </dl>
+            <dl>
+              <dt>Shipping To:</dt>
+              <dd>{{order?.shipping_address.address1}} {{order?.shipping_address.address2}}</dd>
+              <dd>{{order?.shipping_address.city}}, {{order?.shipping_address.state}}</dd>
+              <dd>{{order?.shipping_address.country}}, {{order?.shipping_address.zip}}</dd>
+            </dl>
+            <dl *ngIf="order.order_id">
+              <dt>Payment Method</dt>
+              <dd>{{order?.payment?.card_type || 'not available'}}</dd>
+            </dl>
+            <img src="/../../assets/images/a_and_o.jpg" width="100%" class="padding-t10 padding-b10 hidden-sm-down"
+                 alt="a-and-o.com">
+          </div>
+          <div class="col-md-6 ">
+            <div class="shopping-items">
+              <!--<h4>SHOPPING BAG({{totalProductCount||0}})</h4>-->
+              <ul class="shopping-list">
+                <template ngFor let-item [ngForOf]="displayCustomizedProducts" >
+                  <li class="clearfix">
+                    <div class="row"  >
+                      <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                        <a class="img-small" [routerLink]="[item.productDetailsRoute]">
+                          <img class="img-fluid" [attr.src]="item.img_url" [alt]="item.name">
+                        </a>
+                      </div>
+                      <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                        <dl class="dl-horizontal">
+                          <dt class="text-larger" ><strong>{{item.name}} </strong></dt>
+                          <dd></dd>
+                          <dt class="font-italic">Color:</dt>
+                          <dd class="font-italic">{{item.color}}</dd>
+                          <dt>Price:</dt>
+                          <dd>${{item.price}}</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </li>
+                </template>
+
+                <template ngFor let-item [ngForOf]="displayNonCustomizedProducts" >
+                  <li class="clearfix">
+                    <div class="row"  >
+                      <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                        <a class="img-small" [routerLink]="[item.productDetailsRoute]">
+                          <img class="img-fluid" [attr.src]="item.imageUrl" [alt]="item.name">
+                        </a>
+                      </div>
+                      <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                        <dl class="dl-horizontal">
+                          <dt class="text-larger"><strong>{{item.name}} </strong></dt>
+                          <dd></dd>
+                          <dt class="font-italic">Color:</dt>
+                          <dd class="font-italic">{{item.color}}</dd>
+                          <dt>Price:</dt>
+                          <dd>${{item.prices[item.lens_type + '_PRICE']}}</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </li>
+                </template>
+
+
+                <h2 class="text-xlarger text-lowercase" *ngIf="haveHtkItems">YOUR HOME TRY-ON KIT</h2>
+                <template ngFor let-product [ngForOf]="productList">
+                  <li class="clearfix" *ngIf="product.item_type == 'home_trial_kit'">
+                    <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                      <img class="img-fluid" [attr.src]="product.imageUrl"/>
+                    </div>
+                    <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                      <dl class="dl-horizontal">
+                        <dt class="text-larger"><strong>{{product.name}} </strong></dt>
+                        <dd></dd>
+                        <dt class="font-italic">Color</dt>
+                        <dd class="font-italic">{{product.color}}</dd>
+
+                      </dl>
+                    </div>
+                  </li>
+                </template>
+                <li>
+                  <ul class="checkout-details">
+                    <li><span class="display-i font-heavy">Subtotal: </span> <span class="pull-xs-right"> ${{cart.totals.subtotal}}</span></li>
+                    <li *ngIf="cart.totals.discount_code_amounts[0]"><span class="display-i font-heavy">Discounts: </span> <span  class="pull-xs-right"> - ${{cart.totals.discount_code_amounts[0].amount_redeemed}}</span></li>
+                    <li><span  class="display-i font-heavy">Shipping: </span> <span class="pull-xs-right"> ${{cart.totals.shipping}}</span></li>
+                    <li class="font-heavy"><strong>Total: </strong> <span  class="pull-xs-right">${{cart.totals.total}}</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <img src="/../../assets/images/a_and_o.jpg" width="100%" class="hidden-md-up" alt="a-and-o.com">
+      </div>
+    </div>
+  </div>
+</section>

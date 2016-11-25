@@ -1,0 +1,77 @@
+@import "../../../assets/scss/include";
+
+/* Product filters
+---------------------------------*/
+.filters {
+  margin: 20px 0px;
+  @include viewport(ipadLandscape){
+    display:block;
+  }
+  @include viewport(desktop){
+    display:block;
+  }
+  @include filters();
+  ul {
+    li {
+      margin-right: 30px;
+
+      &.clear-filter{
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* Filter dropdown
+---------------------------------*/
+.dropdown-menu{
+  z-index: $z-index1;
+}
+
+label {
+  font-weight: 400;
+  @include labels();
+}
+
+.form-group{
+  margin:0;
+}
+
+.filter-text{
+  text-transform: uppercase;
+}
+
+.video-handler{
+  width:100%;
+  margin:20px 0;
+  position: relative;
+  background-color: $secondary-base;
+  .video-head{
+    width:100%;
+    padding:10px 0;
+    background-color: $secondary-base;
+  }
+  .video-body{
+    width:100%;
+    background-color: $secondary-base;
+    span.play{
+      display: block;
+      margin:auto;
+      border-radius: 100%;
+      width:100px;
+      height:100px;
+      background-color:#eee;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+    }
+  }
+}
+
+
+.special-product{
+  background: #b6b3be;
+  max-height: 300px;
+  overflow: hidden;
+}

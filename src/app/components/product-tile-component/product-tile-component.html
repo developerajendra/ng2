@@ -1,0 +1,50 @@
+<div *ngIf="!hiddenTag" class="card" [id]="productModel?.name + productModel?.product_id">
+  <div class="image-block">
+    <a *ngIf="createProdLink" class="product-image"
+       [routerLink]=" '/' + productModel?.productId">
+      <div class="card-img">
+        <img class="img-fluid" [attr.src]="productModel?.gridImageUrl" alt="{{productModel?.productStrData}} {{productModel?.productSuffixData}}">
+        <img class="img-fluid hover" [attr.src]="productModel?.gridAltImageUrl" alt="{{productModel?.productStrData}} {{productModel?.productSuffixData}}">
+      </div>
+    </a>
+
+    <div *ngIf="!createProdLink" class="product-image">
+      <div class="card-img"><img class="img-fluid" [attr.src]="productModel?.gridImageUrl"
+                                 alt="{{productModel?.productStrData}} {{productModel?.productSuffixData}}">
+      </div>
+    </div>
+    <div class="tag-new text-xsmall font-italic" *ngIf="productModel?.hasNewTagsData">New</div>
+    <button *ngIf="showBuyButton"   [disabled]="!productModel?.availability?.eyewear"
+            [attr.data-target]="'#'+modalId" class="quik-buy btn-primary text-uppercase"  data-toggle="modal"
+            (click)="showQuickbuy()">{{productModel?.availability?.eyewear?'QUICK BUY':'SOLD OUT'}}
+    </button>
+  </div>
+  <div class="card-block" [id]="productModel?.nameData">
+    <h3 class="text-capitalize card-title">{{productModel?.nameData}}</h3>
+    <p class="text-capitalize font-italic card-text color-name">{{productModel?.colorData}}</p>
+  </div>
+  <ul class="products list-inline" *ngIf="tileCollection != 'sale'">
+    <li *ngIf="productModel?.isEyeWear && showBuyButton" class="card-text">${{productModel?.prices?.STANDARD_INDEX_LENS_PRICE}}</li>
+    <li *ngIf="!productModel?.isEyeWear && showBuyButton" class="card-text">${{productModel?.prices?.NON_RX_SUN_LENS_PRICE}}</li>
+    <div *ngIf="showSwatches" class="swatchDiv">
+      <li *ngFor="let _product of tile.products" class="list-inline-item" (click)="getSelectedProduct(_product)"
+          [ngClass]="_product.swatchColor">
+      </li>
+    </div>
+  </ul>
+  <ul class="products list-inline" *ngIf="tileCollection == 'sale'">
+    <li *ngIf="showBuyButton && filterBy != 'eyeglasses' " class="card-text">
+      <span class="strike-through">${{productModel?.prices?.ORIGINAL_SUN_PRICE || 0}}</span>
+      <span class="highlight">${{productModel?.prices?.NON_RX_SUN_LENS_PRICE || 0}}</span>
+    </li>
+    <li *ngIf="showBuyButton && !(filterBy != 'eyeglasses')" class="card-text">
+      <span class="strike-through">${{productModel?.prices?.ORIGINAL_RX_PRICE || 0}}</span>
+      <span class="highlight">${{productModel?.prices?.STANDARD_INDEX_LENS_PRICE || 0}}</span>
+    </li>
+    <div *ngIf="showSwatches">
+      <li *ngFor="let _product of tile.products" class="list-inline-item" (click)="getSelectedProduct(_product)"
+          [ngClass]="_product.swatchColor">
+      </li>
+    </div>
+  </ul>
+</div>

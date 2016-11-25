@@ -1,0 +1,635 @@
+@import "../include";
+body,
+html {
+  font-size: 100%;
+  background: $primary-base-inverted;
+  font-family: $font-stack-normal;
+  color: $primary-text;
+  -webkit-overflow-scrolling: touch;
+}
+
+html{
+  @include viewport(ipadOnly){
+  height: 100%;
+  }
+
+}
+body {
+  padding-top: $body-padding-mobile-top;
+  overflow-x: hidden;
+  @include viewport(medium){
+   padding-top: $body-desktop-padding-top;
+  }
+  @include viewport(desktop){
+    padding-bottom: $body-padding-bottom;
+  }
+ @include viewport(ipadPortrait){
+    height: 100%;
+    padding-top: $body-padding-top;
+ }
+  @include viewport(ipadOnly){
+    height: 100%;
+  }
+}
+
+ul,li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Inputs
+-------------------------------*/
+input[type='email'] {
+  background: transparent;
+}
+
+input[type=radio]:focus {
+  background: transparent;
+}
+
+input[type='search'],
+input[type='text'],
+input[type='email'],
+input[type='number'],
+input[type='password'],textarea {
+  border: 1px solid $border-primary-base;
+  border-radius: 0;
+  background: transparent;
+  height: 30px !important;
+  font-size: $text-small;
+  width: 100%;
+  padding:2px 12px;
+
+  &:focus,&:hover,&:visited,&:active{
+    border-color: $border-primary-base;
+    outline: 1px solid rgba($border-primary-base,.3%);
+  }
+}
+
+input::-webkit-input-placeholder {
+  color: $border-primary-base;
+  opacity: 1;
+}
+
+input::-moz-placeholder {
+  color: $border-primary-base;
+  opacity: 1;
+}
+
+input::-ms-input-placeholder {
+  color: $border-primary-base;
+  opacity: 1;
+}
+
+input::placeholder {
+  color: $border-primary-base;
+  opacity: 1;
+}
+
+select{
+  border: 1px solid $border-primary-base;
+  border-radius: 0;
+  background: transparent;
+  height: 30px;
+  width: 100%;
+  font-size: $text-small;
+  &:focus,&:hover,&:visited,&:active{
+    border-color: $border-primary-base;
+    outline: 1px solid rgba($border-primary-base,.3%);
+  }
+}
+/* Input validation
+-------------------------------*/
+input.invalid.ng-invalid{
+  border: 1px solid #ed1c24 !important;
+  box-shadow: 0 0 3px #ed1c24;
+}
+select.invalid.ng-invalid{
+  border: 1px solid #ed1c24 !important;
+  box-shadow: 0 0 3px #ed1c24;
+}
+
+/* Checkbox style
+-------------------------------*/
+.c-input{
+  color: $primary-text;
+  padding-top:3px;
+  font-size: $text-xsmall;
+  @include viewport(medium) {
+    padding-top: 2px;
+    font-size: $text-small;
+  }
+}
+.c-indicator{
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.c-input>input:focus~.c-indicator,.c-input>input:checked~.c-indicator{
+  background-color: $primary-base;
+  background-image: none;
+}
+
+.c-input>input:not(:checked)~.c-indicator{
+  background-color: $secondary-checkbox-base;
+}
+.c-input>input:focus~.c-indicator{
+  box-shadow:none;
+}
+
+.c-checkbox input ~ .c-indicator, .c-checkbox input:checked ~ .c-indicator{
+  background-image: none;
+  color: $primary-text;
+  border-radius: 0;
+  background-color: $primary-base-inverted;
+}
+.c-input.c-radio > input:not(:checked) ~ .c-indicator{
+  background-color: $primary-base-inverted;
+  border: solid 2px $border-primary-base;
+}
+
+.c-input.c-checkbox >  input:not(:checked) ~ .c-indicator{
+  background-color: $primary-base-inverted;
+  @include icon($checkbox-border-width, $checkbox-border-height, $checkbox-border-offset-x, $checkbox-border-offset-y);
+}
+
+.c-checkbox input:checked ~ .c-indicator{
+  @include icon($icon-uncheck-width, $icon-uncheck-height, $icon-uncheck-offset-x, $icon-uncheck-offset-y);
+}
+
+.disable-click,.radio-selected{
+  pointer-events: none;
+}
+
+/* Wrappers
+-------------------------------*/
+.main-wrapper {
+  @include width($main-wrapper-width, 5px auto, 0 15px);
+  @include viewport(desktop) {
+    padding: 0 2rem;
+  }
+}
+
+.inner-wrapper {
+  @include maxWidth($inner-wrapper-width, 0 auto, 20px 0);
+  @include viewport(medium){
+    @include maxWidth($inner-wrapper-width, 0 auto, 20px 20px);
+  }
+}
+
+.highlight, .error {
+  color: $primary-highlight !important;
+}
+
+
+/* Buttons
+-------------------------------*/
+
+.btn {
+  display: block;
+  font-size: $text-medium;
+  padding: .2rem 1rem .10rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid transparent;
+  margin: 15px 0;
+  text-transform: uppercase;
+  border-radius: 0;
+}
+
+.btn-outline{
+  //Text color, background & border
+  @include button-primary-hover($primary-button-text-hover, $primary-button-base-hover, $primary-button-hover-border);
+  border-radius:0;
+  outline: 0;
+}
+
+.btn-primary {
+  @extend .btn;
+  //Text color, background & border
+  @include button-primary($primary-button-text, $primary-button-base, transparent);
+
+  //Mobile only
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    //Text color, background & border
+    @include button-primary($primary-button-text, $primary-button-base, transparent);
+  }
+
+  //Desktop only
+  @include viewport(desktop){
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:active:hover {
+      //Text color, background & border
+      @include button-primary-hover($primary-button-text-hover, $primary-button-base-hover, $primary-button-hover-border);
+    }
+  }
+}
+
+.btn-secondary {
+  @extend .btn;
+  //Text color, background & border
+  @include button-primary($secondary-button-text, $secondary-button-base, transparent);
+
+  //Mobile only
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    //Text color, background & border
+    @include button-primary($secondary-button-text, $secondary-button-base, transparent);
+  }
+
+  //Desktop only
+  @include viewport(desktop){
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:active:hover {
+      //Text color, background & border
+      @include button-primary-hover($secondary-button-text-hover, $secondary-button-base-hover, $secondary-button-hover-border);
+    }
+  }
+}
+
+.btn-primary[disabled],
+.btn-primary[disabled]:hover,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:active{
+  @extend .btn-secondary;
+  cursor: not-allowed;
+}
+
+
+
+/* Navigation Links
+-------------------------------*/
+a,a:hover,a:active,a:focus{
+  color: $primary-nav-link;
+}
+
+.primary-nav-link {
+  //$color,$font-size,$border
+  @include navigation-link($primary-nav-link, $text-small, transparent);
+  &:hover {
+    @include navigation-link($primary-nav-link-hover, $text-small, transparent);
+  }
+  &.active {
+    @include navigation-link($primary-nav-link, $text-small, $primary-active-nav-link-border);
+  }
+}
+
+.secondary-nav-link {
+  //$color,$font-size,$border
+  @include navigation-link($secondary-nav-link, $text-larger, transparent);
+  &:hover {
+    @include navigation-link($secondary-nav-link-hover, $text-larger, transparent);
+  }
+  &.active {
+    @include navigation-link($secondary-nav-link, $text-larger, $secondary-active-nav-link-border);
+  }
+}
+
+.continue-shopping {
+  display: block;
+  text-transform: lowercase;
+  text-align: center;
+  margin: 10px 0;
+  font-size: $text-small;
+  &:hover,&:focus,a,a:hover,a:focus {
+    //color:  $primary-nav-link-inverted;;
+  }
+}
+
+
+
+
+/* Carousel dots
+-------------------------------*/
+
+.owl-dots {
+  text-align: center;
+  .owl-dot {
+    width: 15px;
+    height: 15px;
+    background: #ccc;
+    margin: 0 10px;
+    border-radius: 50px;
+    display: inline-block;
+    &.active {
+      background: #999;
+    }
+  }
+}
+
+
+/* Equal height container
+-------------------------------*/
+
+.equal-height {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+
+/* Global Dialog box vertical center
+-------------------------------*/
+
+.modal {
+  text-align: center;
+  padding: 0 !important;
+
+  .close{
+    opacity: 1;
+    &:hover{
+      opacity: 0.2;
+    }
+  }
+  .modal-dialog {
+    display: inline-block;
+    @include viewport(medium){
+      margin: 70px auto;
+    }
+    .modal-content{
+      margin: 0 auto;
+      border-radius: 0;
+    }
+    text-align: left;
+    vertical-align: middle;
+  }
+}
+
+
+
+/* Loader
+-------------------------------*/
+
+.loader-main {
+  @include icon-loader(150px,150px,0,0);
+
+  width: 140px;
+  height: 140px;
+  max-width: 140px;
+  max-height: 140px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  float: left;
+  text-align:center;
+  font-size:0;
+  line-height:0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+
+  -webkit-animation: 3s loader steps(79) infinite;
+  -ms-animation: 3s loader steps(79) infinite;
+  -o-animation: 3s loader steps(79) infinite;
+  -moz-animation: 3s loader steps(79) infinite;
+   animation: 3s loader steps(79) infinite;
+
+}
+
+.loader{
+  @extend .loader-main;
+}
+
+@-webkit-keyframes loader {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position:  0 0;
+  }
+}
+
+
+@-moz-keyframes loader {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position:  0 0;
+  }
+}
+
+@-o-keyframes loader {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position:  0 0;
+  }
+}
+
+@-ms-keyframes loader {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position:  0 0;
+  }
+}
+
+
+
+
+.loaer-circle{
+  -webkit-animation: spin 0.8s linear infinite;
+  animation: spin 0.8s linear infinite;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  z-index: 9999;
+  border-radius: 50%;
+  border-top: 3px solid #999;
+  border-right: 3px solid #999;
+  border-bottom: 2px solid #999;
+  border-left: 3px solid #fff;
+  width: 30px;
+  height: 30px;
+  position: static;
+
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* breadcrumb
+---------------------------------*/
+.breadcrumb {
+    width: 100% ;
+    list-style-type: decimal;
+    background-color: transparent;
+    text-align: center;
+    margin-bottom: 0;
+    @include viewport(medium){
+      margin-bottom: 1rem;
+
+    }
+    li {
+        display: inline;
+        padding-right: 0.5em;
+        float: none;
+        font-size: $text-xsmall;
+        a{
+            color: $secondary-base;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+        @include viewport(large) {
+            float: left;
+        }
+        &.active{
+          font-weight: bold;
+        }
+    }
+    li:before {
+        padding-right: 0.25em;
+    }
+    @include viewport(medium) {
+        padding: 0;
+        margin-top: -4px;
+    }
+}
+
+/*----divider-------------*/
+.divider {
+  border-right:0;
+  @include viewport(medium){
+    border-right: 1px solid #999;
+  }
+}
+
+/*----products-------------*/
+li.product-hidden {
+  display: none;
+}
+
+/*hr styling
+---------------------------*/
+hr{
+  border-bottom: 1px solid $primary-base;
+}
+
+/*border-header
+----------------------------*/
+.border-heading{
+  border-bottom:1px solid $border-primary-base;
+  border-top:1px solid $border-primary-base;
+  padding:17px 0 13px;
+  text-transform: uppercase;
+}
+
+/*border-header
+----------------------------*/
+.border-top{
+  border-top:1px solid $border-primary-base;
+  padding:12px 0 0;
+}
+
+/*Label
+----------------------------*/
+label{
+  color: $primary-text;
+  margin-bottom: 0px;
+
+}
+
+label.control-label{
+  font-weight: bold;
+}
+
+:focus{
+  outline: none !important;
+}
+
+
+/*Contact Us
+-----------------------------------*/
+.contact-us {
+  text-align: center;
+  margin: 10px auto;
+  font-size: $text-small;
+  a{
+    color: $primary-text;
+    text-decoration: underline;
+  }
+  @include viewport(medium){
+    max-width: 52%;
+
+  }
+}
+
+
+/*Textarea
+-----------------------------------*/
+textarea{
+  width:100%;
+  min-height: 100px;
+  font-size: $text-small;
+}
+
+
+/* ditto -iframe
+-----------------------------------*/
+/*@include iframe-ditto;*/
+iframe{
+  height:520px;
+}
+
+.strike-through{
+  text-decoration: line-through;
+}
+
+.disabled{
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.cursor-default{
+  cursor:default;
+}

@@ -1,0 +1,66 @@
+@import "../../../assets/scss/include";
+
+.search-form{
+  @include search;
+}
+.faq-top{
+  @include viewport(medium) {
+    padding-top: 10px;
+  }
+}
+.headings{
+  font-size: $text-small;
+  margin-bottom: 0;
+  position: relative;
+
+  @include viewport(medium){
+    font-size: $text-xsmall;
+  }
+
+  @include viewport(large){
+    font-size: $text-small;
+  }
+
+  &:after{
+    @include arrow-down;
+  }
+}
+.panel-collapse{
+  padding: 12px;
+  border-top:none;
+}
+
+
+.search-element{
+  outline: solid 1px #ea6f0a;
+  box-shadow: 0 0 45px #efb936;
+}
+
+.card{
+  float: none !important;
+  border:none;
+}
+
+.group-two{
+  @include viewport(medium){
+    padding:0;
+  }
+
+  @include viewport(large){
+    padding:0 .9375rem 0 .9375rem;
+  }
+
+  @include viewport(ipadPortrait){
+    .panel-heading a{
+      padding-left: 4px;
+      font-size: 0.7em;
+    }
+  }
+}
+.question{
+  padding-bottom: 10px;
+}
+
+.answer{
+  padding-bottom: 10px;
+}

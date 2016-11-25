@@ -1,0 +1,14 @@
+/* Carousel
+-------------------------------*/
+@mixin carousel{
+  background: $primary-base-inverted;
+}
+
+@mixin carouselWrapper{
+  @include viewport(ipadOnly) {
+    max-width: 824px;
+  }
+  @include viewport(ipadPortrait) {
+    max-width: 650px;
+  }
+}

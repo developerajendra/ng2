@@ -1,0 +1,20 @@
+<section class="main-wrapper">
+  <section class="inner-wrapper">
+    <ul class="tabs-navigation">
+      <li><a class="font-heavy text-small" href="javaScript:void(0);" id="accountInfoTab"
+             [ngClass]="{active:activeTab[0]}" (click)="changeActiveTab(0)"
+             [routerLink]="['home']">ACCOUNT INFORMATION</a></li>
+      <li><a class="font-heavy text-small" href="javaScript:void(0);" id="orderHistoryTab" (click)="changeActiveTab(1)"
+             [ngClass]="{active:activeTab[1]}" [routerLink]="['order-history']">ORDER HISTORY</a></li>
+      <li><a class="font-heavy text-small" href="javaScript:void(0);" id="addressesTab" (click)="changeActiveTab(2)"
+             [ngClass]="{active:activeTab[2]}" [routerLink]="['address']">ADDRESS BOOK</a></li>
+      <li><a class="font-heavy text-small" href="javaScript:void(0);" id="prescriptionsTab" (click)="changeActiveTab(3)"
+             [ngClass]="{active:activeTab[3]}" [routerLink]="['prescriptions']">PRESCRIPTIONS</a></li>
+      <li><a class="font-heavy text-small pull-md-right" href="javaScript:void(0);" id="dittoTab" (click)="changeActiveTab(4)"
+             [ngClass]="{active:activeTab[4]}" [routerLink]="['ditto']">DITTO</a></li>
+    </ul>
+    <router-outlet></router-outlet>
+  </section>
+
+</section>
+

@@ -1,0 +1,101 @@
+<!--Cart
+--------------------------------->
+<loader [overlay]="true" *ngIf="enableLoader"></loader>
+<section class="main-wrapper">
+  <section class="inner-wrapper">
+    <!--checkout-cart-head-->
+    <div class="row  checkout-head">
+      <div class="col-xs-6 col-sm-9">
+        <h2>SHOPPING CART</h2>
+      </div>
+      <div class="col-xs-6 col-sm-3" *ngIf="cartItems.length > 0">
+        <a id="cartCheckoutTop" href="javaScript:void(0);" *ngIf="!isKioskMode" class="btn-primary margin-0" [routerLink]="['/checkout']">checkout</a>
+        <a id="cartCheckoutTop" href="javaScript:void(0);" *ngIf="isKioskMode && customizeLensesId" class="btn-primary margin-0"
+           [routerLink]="['/checkout/customize/'+customizeLensesId]">checkout</a>
+        <a id="cartCheckoutTop" href="javaScript:void(0);" *ngIf="isKioskMode && !customizeLensesId" class="btn-primary margin-0"
+           [routerLink]="['/checkout/shipping']">checkout</a>
+      </div>
+    </div>
+    <!--checkout-cart-body-->
+    <div class="checkout-body" *ngIf="cartItems.length > 0">
+      <section *ngFor="let item of cartItems | orderby:'name';let index = index;">
+        <div class="row padding-t20 padding-b10" *ngIf="item.item_type != 'home_trial_kit'">
+          <div class="col-xs-6">
+            <a class="col-sm-6" [routerLink]="[item.productDetailsRoute]">
+              <img class="img-fluid" width="100%" [attr.src]="item.imageUrl" [alt]="item.name">
+            </a>
+            <div class="col-sm-6">
+              <h2><a href="javaScript:void(0);" [routerLink]="[item.productDetailsRoute]">{{item.name}}</a></h2>
+              <p><em>{{item.color}}</em></p>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="col-xs-6">
+              <input type="number" id="productQty{{index+1}}" class="number" min="1" max="5" step="1" [disabled]="isLoading"
+                     [ngClass]="{'pointer-loader':isLoading}" #qty (change)="updateItem(item, qty)" value="{{item.qty}}"
+                     data-dismiss="modal" data-target="#limitModal" >
+
+              <a href="javaScript:void(0);" class="remove display-b text-small" (click)="deleteItem(item)">Remove</a>
+            </div>
+            <div class="col-md-6 col-xs-6 col-sm-6">
+              <span class="clear pull-xs-right pull-sm-left" id="productPrice{{index+1}}">${{item.totalPrice}}.<sup>00</sup></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+    <!--checkout-cart-head-->
+    <div class="row  checkout-trial" *ngIf='haveHtkItems'>
+      <div class="col-xs-12">
+        <h4>HOME TRIAL KIT</h4>
+      </div>
+    </div>
+    <div class="checkout-body" *ngIf="cartItems.length > 0">
+      <section *ngFor="let item of cartItems | orderby:'name';let index = index;">
+        <div class="row padding-t20 padding-b10" *ngIf="item.item_type == 'home_trial_kit'">
+          <div class="col-xs-6">
+            <a class="col-sm-6" [routerLink]="[item.productDetailsRoute]">
+              <img class="img-fluid" width="100%" [attr.src]="item.imageUrl" [alt]="item.name">
+            </a>
+            <div class="col-sm-6">
+              <h2><a href="javaScript:void(0);" [routerLink]="[item.productDetailsRoute]">{{item.name}}</a></h2>
+              <p><em>{{item.color}}</em></p>
+            </div>
+          </div>
+          <div class="col-xs-6">
+            <div class="col-xs-6">
+              <a href="javaScript:void(0);" class="display-b text-small" (click)="deleteItem(item)">Remove</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+    </div>
+
+    <!--checkout-cart-footer-->
+    <div class="checkout-footer" *ngIf="cartItems.length > 0">
+      <div class="row">
+        <div class="col-xs-6 col-sm-9">
+          <p class="text-xsmall"><span class="text-uppercase">SSl encrypted checkout</span><br>
+            Need help? 800.802.9763(M-F 9:30 AM - 5:30 PM EST)
+          </p>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <span id="bagTotal" class="pull-xs-right pull-sm-left margin-b10">{{"$"+bagTotal}}.<sup>00</sup></span>
+          <a id="cartCheckoutBottom" href="javaScript:void(0);" *ngIf="!isKioskMode" class="btn-primary clear" [routerLink]="['/checkout']">checkout</a>
+          <a id="cartCheckoutBottom"  href="javaScript:void(0);" *ngIf="isKioskMode && customizeLensesId" class="btn-primary margin-0 clear"
+             [routerLink]="['/checkout/customize/'+customizeLensesId]">checkout</a>
+          <a id="cartCheckoutBottom"  href="javaScript:void(0);" *ngIf="isKioskMode && !customizeLensesId" class="btn-primary margin-0 clear"
+             [routerLink]="['/checkout/shipping']">checkout</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <limit-popup   [message]="message"></limit-popup>
+</section>
+
+

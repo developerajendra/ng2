@@ -1,0 +1,35 @@
+/* Primary button
+-------------------------------*/
+@mixin button-primary($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+}
+
+/* Primary button hover
+-------------------------------*/
+@mixin button-primary-hover($color, $background, $border) {
+  @include border(1px, $border);
+  color: $color;
+  background: $background;
+  text-decoration: none;
+  outline: solid 1px $primary-button-outline;
+}
+
+/* Secondary button
+-------------------------------*/
+@mixin button-secondary($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+}
+
+/* Secondary button hover
+-------------------------------*/
+@mixin button-secondary-hover($color, $background, $border) {
+  @include border(1px, $border);
+  color: $color;
+  background: $background;
+  text-decoration: none;
+  outline: solid 1px $primary-button-outline;
+}

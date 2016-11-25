@@ -1,0 +1,13 @@
+@import "../../../assets/scss/include";
+
+
+.tool-tip{
+  background: $primary-base;
+  position: absolute;
+  color: $primary-text-inverted;
+  padding: 10px;
+  left: 16px;
+  bottom: 24px;
+  border-radius: 10px 10px 10px 0;
+  box-shadow: 2px 2px 5px $primary-base;
+}

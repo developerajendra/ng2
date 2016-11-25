@@ -1,0 +1,81 @@
+@import "../../../assets/scss/include";
+
+
+/* Product details dialog box
+-------------------------------*/
+.product-details {
+  .modal-dialog {
+    @include overlayBackground();
+    @include overlayWidth();
+  }
+
+  .modal-body{
+    max-height: 457px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .modal-content,
+  .modal-footer,
+  .modal-header {
+    border: none;
+    text-align: left;
+    @include overlayBackground();
+  }
+  .lense-type {
+    @include lens-type();
+    overflow: hidden;
+    padding: 10px 0;
+    margin: 10px 0px;
+    .row {
+      [class^='col-xs-'] {
+        padding: 0px 5px;
+      }
+    }
+    .c-inputs-stacked {
+      width: 100%;
+    }
+  }
+  .add-bag{
+    text-align: center;
+  }
+
+}
+
+.side-img {
+    width: 100%;
+    height: auto;
+    max-width:70px;
+    max-height: 80px;
+    background-color: #343343;
+    border: 1px solid $secondary-base;
+
+  }
+  .side-img-list {
+    padding: 25px 0 0;
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
+
+      img{
+        width:100%;
+
+
+      }
+    }
+  }
+
+  .row{
+    .row{
+      margin:0px;
+      [class^='col-']{
+        padding:0 5px;
+      }
+    }
+  }
+
+/* Active product
+---------------------------------*/
+.side-img-list .active{
+  border:solid 1px $border-primary-base;
+}

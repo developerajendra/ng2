@@ -1,0 +1,15 @@
+img{
+  width:100%;
+}
+.zoom-overlay{
+  border: 1px solid black;
+  width: 579px;
+  height: 307px;
+  display: none;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 12px;
+  top: -40px;
+  cursor: crosshair;
+  z-index: 99;
+}

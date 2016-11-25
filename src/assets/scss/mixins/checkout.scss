@@ -1,0 +1,121 @@
+
+@mixin checkout-form-h2 {
+  font-size: $text-medium;
+  font-weight: $font-stack-normal;
+}
+
+@mixin form-label{
+  display: block;
+  color: $primary-base;
+  font-weight: $font-stack-normal;
+}
+
+@mixin form-control{
+  color: $primary-base;
+  background-color: $primary-base-inverted;
+  background-image: none;
+  border: 1px solid $primary-base;
+}
+
+@mixin field-info{
+  color: $primary-base;
+  font-size: $text-xsmall;
+  font-weight: $font-stack-normal;
+}
+
+@mixin shopping-items{
+  @include viewport(medium) {
+    border: 1px solid $primary-base;
+  }
+  h4{
+    font-size: $text-small;
+    font-weight: $font-stack-normal;
+  }
+}
+
+@mixin shopping-list{
+  li{
+    border-bottom: 1px solid $primary-base;;
+    color: $primary-base;
+    font-size: $text-small;
+  }
+}
+@mixin shopping-price-details{
+  li{
+    border-bottom: 1px solid $primary-base;;
+    color: $primary-base;
+    font-size: $text-small;
+  }
+}
+
+@mixin edit-link {
+  color: $secondary-text;
+}
+
+@mixin dt {
+  font-size: $text-xsmall;
+  color: $primary-base;
+  @include viewport(medium) {
+    width: auto;
+  }
+}
+
+@mixin dd {
+  color: $secondary-text;
+  font-size: $text-xsmall;
+  color: $primary-base;
+
+  @include viewport(medium) {
+    width: auto;
+  }
+}
+
+@mixin cs-btn-default {
+  background-color: $primary-button-base;
+  color: $primary-button-text;
+  font-size: $text-small;
+  //Mobile only
+  &:hover,
+  &:focus,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    //Text color, background & border
+    @include button-primary($primary-button-text, $primary-button-base, transparent);
+  }
+
+  //Desktop only
+  @include viewport(desktop){
+    &:hover,
+    &:focus,
+    &:active,
+    &:active:focus,
+    &:active:hover {
+      //Text color, background & border
+      @include button-primary-hover($primary-button-text-hover, $primary-button-base-hover, $primary-button-hover-border);
+    }
+  }
+}
+
+@mixin dropdown-wrapper{
+  .btn-dropdown{
+    border: 1px solid $primary-base;
+    background-color: transparent;
+  }
+}
+
+@mixin secure-payment{
+  background-color: #eee;
+  border: 1px solid #aaa;
+  p{
+    color: #aaa;
+  }
+}
+
+@mixin print-container{
+  border: 0;
+  @include viewport(medium){
+    border: 1px solid $border-primary-base;
+
+  }
+}

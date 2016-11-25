@@ -1,0 +1,131 @@
+{
+  "comment_toHelpYouOut": "Section is the array of brands having logo link, sub heading and their items (items are the articles featured in different websites). Items array has image (i.e., article's website logo), link (i.e., article link to that site), and content (i.e., short description displays in popover). You need to copy entire brands array's first element if you need to add new brand and its details.",
+
+  "brands" : [
+    {
+      "brand_logo_link": "http://www.eponymous.co/img/images/logo_small_black.png",
+      "brand_sub_heading": "FEATURED IN",
+      "items" : [
+        {
+          "image": "http://www.eponymous.co/img/images/press/FashionTimes.png",
+          "link": "http://www.fashiontimes.com/articles/26819/20160630/steven-alan-and-eponym-open-new-steven-alan-optical-store-in-nolita.htm",
+          "content": "Steven Alan And Eponym Open New Steven Alan Optical Store In Nolita."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Techcrunch.png",
+          "link": "https://techcrunch.com/2013/07/25/warby-as-a-service-backed-by-reddit-posterous-founders-eponym-helps-brands-build-and-distribute-their-own-eyewear/",
+          "content": "Startups, take note: It turns out there are other ways to build a company, including through a 'platform' model and a 'services' business, and, sure, it might be a risky bet this early in the game, but one might even venture that this approach will one day eclipse Warby."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/WWD.png",
+          "link": "http://wwd.com/retail-news/direct-internet-catalogue/eponym-signs-alice-olivia-jason-wu-seeks-to-disrupt-eyewear-online-10421124/",
+          "content": "Eponym Signs Alice + Olivia, Jason Wu to Disrupt Eyewear Online"
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Fasionista.png",
+          "link": "http://fashionista.com/2016/06/eponym-eyewear",
+          "content": "The e-commerce-focused company holds eyewear licenses for Steven Alan, Alice + Olivia and Jason Wu, with many more designer partnerships in the pipeline."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Forbes.png",
+          "link": "http://www.forbes.com/sites/alextaub/2013/07/25/is-your-fashion-brand-looking-to-move-into-eyewear-time-to-meet-eponym/",
+          "content": "When looking at disruption in the eyewear space, most people talk about Warby Parker. That is because Warby Parker is cutting out the middleman and selling eyewear directly to consumers. However, there is a new disruptor in town and its name is Eponym."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Dujour.png",
+          "link": "http://dujour.com/news/eponym-eyewear-andrew-lipovsky/",
+          "content": "We were looking for a quality product with more options that weren’t available to us before.” Which is exactly where Lipovsky and Ruiz’s company, Eponym, comes in."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Mashable.png",
+          "link": "http://mashable.com/2013/09/06/warby-parker-startups/",
+          "content": "Unlike other digital startups, each client brand has a baked-in customer base, so Eponym can scale quickly while providing a unique experience for each brand, rather than focusing on one target market."
+        }
+      ]
+    },
+    {
+      "brand_logo_link": "http://www.eponymous.co/img/images/press/CS_Logo.png",
+      "brand_sub_heading": "FEATURED IN",
+      "items" : [
+        {
+          "image": "http://www.eponymous.co/img/images/press/hypebeast.png",
+          "link": "http://hypebeast.com/2016/4/jean-jullien-classic-specs",
+          "content": "Jean Jullien Teams up with NYC's Classic Specs for Its Artist Collaboration Series"
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/highsnobiety.png",
+          "link": "http://www.highsnobiety.com/2016/04/11/jean-jullien-classic-specs-sunglasses/",
+          "content": "Classic Specs Calls on Jean Jullien and Tim Lahan for Limited Edition Sunglasses"
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/verily.png",
+          "link": "http://verilymag.com/2016/02/glasses-frames-for-your-face-shape",
+          "content": "With the help of some Classic Specs glasses, the Verily editors show that the right frame on the right face makes for an awesome bespectacled look."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/EdgeMedia.png",
+          "link": "http://www.edgemedianetwork.com/style/fashion/news/199453/6_ways_to_throw_shade",
+          "content": "Premiering at the Brooklyn Flea in 2010, Classic Specs was founded in Williamsburg to bring beautiful and well-crafted eyewear to all."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/UW.png",
+          "link": "http://unbiasedwriter.com/style/hot-pick-classic-specs-three-way-amherst-sunglasses/",
+          "content": "No summer outfit is complete without the perfect pair of shades, and Classic Specs‘s contemporary designs will keep you stylish without breaking the bank."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/visionmonday.png",
+          "link": "http://www.visionmonday.com/style/article/classic-specs-teams-up-with-top-artists-to-create-frames-for-special-series/",
+          "content": "Classic Specs Teams Up With Top Artists to Create Frames for Special Series"
+        }
+      ]
+    },
+
+    {
+      "brand_logo_link": "http://www.eponymous.co/img/images/press/SAO_Logo.png",
+      "brand_sub_heading": "FEATURED IN",
+      "items" : [
+        {
+          "image": "http://www.eponymous.co/img/images/press/WWW.png",
+          "link": "http://www.whowhatwear.com/spring-summer-sunglasses-shopping-face-shape/slide16",
+          "content": "Sunglasses You'll Want to Wear Every Day."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Elle.png",
+          "link": "http://www.elle.com/fashion/shopping/g28267/cat-eye-sunglasses/?slide=17",
+          "content": "The Most Universally Flattering Sunglasses."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/MrMagazine.png",
+          "link": "http://www.mr-mag.com/steven-alan-opens-two-standalone-optical-locations-manhattan/",
+          "content": "American designer Steven Alan has opened the doors to his second Manhattan standalone Optical location this month."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Racked.png",
+          "link": "http://ny.racked.com/2016/6/1/11829524/steven-alan-optical-nyc-west-village",
+          "content": "You're Not Crazy: There Are More Steven Alan Stores in NYC Than Ever Right Now"
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Racked.png",
+          "link": "http://ny.racked.com/maps/best-sunglasses-stores-nyc",
+          "content": "While Steven Alan's New York outposts have carried at least some of the brand's eyewear styles since it launched in 2013, a dedicated optical store didn't exist until last year."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/People.png",
+          "link": "http://style.people.com/style/shopping-sunglasses-for-every-face-shape-celebrity#style/2016/06/09/photo/komono-square-face-shapes-style-gallery-3247861",
+          "content": "Struggling to find the perfect sunnies this summer? We asked a few eyewear experts to help you find the right pair."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/Mashable.png",
+          "link": "http://mashable.com/2013/09/06/warby-parker-startups/",
+          "content": "Unlike other digital startups, each client brand has a baked-in customer base, so Eponym can scale quickly while providing a unique experience for each brand, rather than focusing on one target market."
+        },
+        {
+          "image": "http://www.eponymous.co/img/images/press/BusinessInsider.png",
+          "link": "http://www.businessinsider.com/13-things-every-guy-needs-for-spring-2016-5",
+          "content": "The Steven Alan Optical eyewear collections are designed for the city-dwellers, for those who have an urban sensibility and are looking for more creative alternatives to classic designs."
+        }
+      ]
+    }
+
+  ]
+}

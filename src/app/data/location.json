@@ -1,0 +1,122 @@
+{
+  "cities" : [
+    {
+      "city_name" : "Newyork",
+      "stores" : [
+        {
+          "name" : "Junk Food Clothing (Venice)",
+          "street" : "1103, Abbot Kinneys",
+          "city"  : "Venice",
+          "pincode" : "CA 90291",
+          "phone_no" : "888.509.5499",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/1103+Abbot+Kinney+Blvd,+Los+Angeles,+CA+90291/@33.9919217,-118.4725435,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bac76a83c2ad:0xb3cc97158b78439d!8m2!3d33.9919217!4d-118.4703548",
+          "store_hours" : [
+            {
+             "days" : "Mon-Sun",
+             "time" : "10-6pm"
+            }
+
+          ]
+        },
+        {
+          "name" : "Brooklyn Denim Company (Brooklyn)",
+          "street" : "85 N 3rd St",
+          "city"  : "Newyork",
+          "pincode" : "NY 11249",
+          "phone_no" : "888.509.5499",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/Brooklyn+Denim+Co./@40.7172571,-73.9646937,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25961296897c1:0x20947e2c8a3d0079!8m2!3d40.7172571!4d-73.962505",
+          "store_hours" : [
+            {
+              "days" : "Mon - Sat",
+              "time" : "11-7pm"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12AM - 6PM"
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "city_name" : "Denmark",
+      "stores" : [
+        {
+          "name" : "Azalea (Valencia)",
+          "city"  : "San Francisco",
+          "pincode" : "CA 94110 ",
+          "phone_no" : "888.509.5499",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/Azalea+Boutique/@37.7575609,-122.42363,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e3dd2567639:0xc49b64fcd5a880c0!8m2!3d37.7575609!4d-122.4214413",
+          "store_hours" : [
+            {
+              "days" : "Mon-Fri",
+              "time" : "11AM - 7PM"
+            },
+            {
+              "days" : "Sat-Sun",
+              "time" : "11AM - 7PM"
+            }
+          ]
+        },
+        {
+          "name" : "Azalea (Valencia)",
+          "city"  : "San Francisco",
+          "pincode" : "CA 94110 ",
+          "phone_no" : "888.509.5499",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/Azalea+Boutique/@37.7575609,-122.42363,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e3dd2567639:0xc49b64fcd5a880c0!8m2!3d37.7575609!4d-122.4214413",
+          "store_hours" : [
+            {
+              "days" : "Mon-Fri",
+              "time" : "11AM - 7PM"
+            },
+            {
+              "days" : "Sat-Sun",
+              "time" : "11AM - 7PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city_name" : "Australia",
+      "stores" : [
+        {
+          "name" : "Topanga (Canoga Park)",
+          "street" : "6600 Topanga Canyon Blvd",
+          "city"  : "Canoga Park",
+          "pincode" : "CA 91303 ",
+          "phone_no" : "818.200.1105",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/search/TOPANGA+(CANOGA+PARK)++6600+Topanga+Canyon+Blvd+Canoga+Park,+CA+91303/@34.1903548,-118.6056472,17z/data=!3m1!4b1",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sun",
+              "time" : "10AM - 9PM"
+            }
+          ]
+        },
+        {
+          "name" : "Topanga (Canoga Park)",
+          "street" : "6600 Topanga Canyon Blvd",
+          "city"  : "Canoga Park",
+          "pincode" : "CA 91303 ",
+          "phone_no" : "818.200.1105",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/search/TOPANGA+(CANOGA+PARK)++6600+Topanga+Canyon+Blvd+Canoga+Park,+CA+91303/@34.1903548,-118.6056472,17z/data=!3m1!4b1",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sun",
+              "time" : "10AM - 9PM"
+            }
+          ]
+        }
+      ]
+    }
+
+  ]
+}

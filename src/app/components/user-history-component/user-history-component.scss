@@ -1,0 +1,172 @@
+@import "../../../assets/scss/include";
+
+.table td, .table th {
+  border-top: 0;
+  border-bottom: 1px solid $primary-base;
+  a {
+    text-decoration: underline;
+    color: $primary-text;
+    font-size: $text-small;
+  }
+}
+
+/*Tabs navigation
+---------------------------*/
+ul.tabs-navigation {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+  @include viewport(medium) {
+    display: table;
+    text-align: left;
+  }
+  li {
+    display: block;
+    padding: 5px;
+    @include viewport(medium) {
+      display: table-cell;
+      padding: 15px;
+    }
+    a {
+      color: $primary-base;
+      text-transform: uppercase;
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+a.add-new {
+  color: $primary-base;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: $text-small;
+}
+
+/*User Account Structure
+-----------------------------------*/
+.row {
+  p {
+    margin-bottom: 0;
+  }
+  a {
+    text-decoration: underline;
+    color: $primary-text;
+    font-size: $text-small;
+  }
+  [class^='col-'] {
+    [class^='col-'] {
+      padding: 0;
+    }
+  }
+}
+
+hr {
+  margin: 10px 0;
+}
+
+/* Shopping items for order-history
+---------------------------------*/
+.shopping-items {
+  float: none;
+  border: none;
+  @include viewport(medium) {
+    float: right;
+    min-width: 85%;
+  }
+  @include shopping-items();
+  h4 {
+    padding: 25px 30px 0 41px;
+  }
+
+}
+
+ul.shopping-list {
+  margin: 0;
+  padding: 25px 0;
+  @include shopping-list();
+  @include viewport(medium) {
+    padding: 25px 5%;
+  }
+
+  li {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  & li:last-child {
+    border-bottom: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.img-small {
+  max-width: 150px;
+  height: 60px;
+  background-color: #cccccc;
+}
+
+.dl-horizontal {
+  margin: 0;
+  .edit-link {
+    @include edit-link();
+    font-size: $text-xsmall;
+    line-height: 20px;
+    text-transform: uppercase;
+    float: right;
+
+  }
+  dt {
+    text-align: left;
+    font-weight: normal;
+    line-height: 20px;
+    width: 50%;
+  }
+  dd {
+    text-align: right;
+    font-weight: normal;
+    font-size: $text-small;
+    line-height: 20px;
+    @include dd();
+    width: 50%;
+
+  }
+  & dd {
+    margin-left: 0;
+    float: right;
+    margin-top: -20px;
+  }
+}
+
+.checkout-details {
+  padding: 0;
+  li {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  span {
+    float: right;
+  }
+}
+
+.cs-btn-default {
+  line-height: 28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  padding: 2px 20px 0;
+  border: 0;
+}
+
+dl {
+  dd {
+    margin-bottom: 0;
+    font-size: $text-small;
+  }
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}

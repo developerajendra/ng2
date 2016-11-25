@@ -1,0 +1,4 @@
+<div class="image-zoom">
+  <img class="img-zoom" (mousemove)="zoomIn($event)" (mouseout)="zoomOut()" src="{{imageSource}}" alt="{{altText}}">
+  <div id="overlay" (mousemove)="zoomIn($event)" (mouseout)="zoomOut()" class="zoom-overlay"></div>
+</div>

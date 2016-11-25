@@ -1,0 +1,192 @@
+@import "../../../assets/scss/include";
+
+:host {
+  .inner-wrapper.carousel-container {
+    height: auto !important;
+  }
+}
+
+/* Product view
+---------------------------------*/
+.product-view {
+  padding-top: 50px;
+  width: 100%;
+  float: left;
+  min-height: 70vh;
+  @include viewport(medium){
+    min-height: 34vh;
+  }
+
+  @include viewport(ipadPortrait){
+    padding-top:20px;
+  }
+  ul {
+    &.products {
+      display: block;
+      padding: 0px;
+      li {
+        margin-bottom: 10px;
+        &.active {
+          display: block !important;
+        }
+      }
+    }
+  }
+
+  .product-content{
+    min-height: 472px;
+  }
+
+  /* Product image
+  ---------------------------------*/
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+  }
+  .side-img {
+    width: 100%;
+    height: auto;
+    max-height: 80px;
+
+    max-width: 70px;
+
+    box-shadow: 0 0 2px #888888;
+  }
+  .side-img-list {
+    padding-left: 0px;
+    li {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+  }
+}
+
+/* Active product
+---------------------------------*/
+
+.side-img-list{
+   .active {
+      border: solid 1px $border-primary-base;
+    }
+    img{
+      border:solid 1px transparent;
+    }
+}
+
+/* Product description
+---------------------------------*/
+.article .description {
+  padding: 20px 0;
+}
+
+.product-description {
+  width: 100%;
+  float: left;
+  @include viewport(large) {
+    width: 80%;
+    float: right;
+  }
+  .btn-primary {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    display: block;
+    width: 100%;
+    @include viewport(medium) {
+      display: inline-block;
+      width: 160px;
+    }
+  }
+  hr {
+    border-bottom: 1px solid #000;
+  }
+  .stores {
+    a {
+      text-transform: uppercase;
+      color: $primary-text;
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  .list-inline {
+    @include colors;
+  }
+}
+
+.virtual-try-on {
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  color: $secondary-text;
+  background-color: #eee;
+  font-size: $text-small;
+  max-width: 70px;
+  font-weight: bold;
+  box-shadow: 0 0 2px #888;
+  text-align: center;
+  &hover {
+    color: $primary-text;
+    text-decoration: none;
+  }
+  &active {
+    border: solid 1px $border-primary-base;
+  }
+
+  @include viewport(medium){
+    font-size: 0.5rem;
+    padding:2px;
+  }
+
+  @include viewport(large){
+    font-size: $text-small;
+    padding:5px;
+  }
+}
+
+.no-home-traial {
+  padding-top: 5px;
+}
+
+.ditto-context {
+  text-align: center;
+
+  img {
+    width: 100px;
+  }
+}
+
+.short-border {
+  padding: 0 15px;
+  display: inline-block;
+  border-bottom: 3px solid $primary-base;
+}
+
+.hidden {
+  display: none;
+}
+
+
+.signUpModal{
+  max-width: 455px;
+  margin-left: auto;
+  margin-top: 180px;
+  margin-right: auto;
+  margin-bottom: auto;
+}
+
+.placeholder-element{
+  z-index:9999;
+  background: $primary-base-inverted;
+  min-height:34em;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .loader{
+    position: absolute;
+  }
+}

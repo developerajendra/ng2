@@ -1,0 +1,56 @@
+<loader *ngIf="enableLoader" [overlay]="true"></loader>
+<section class="main-wrapper">
+  <h1 class="text-xs-center border-heading">{{pageTitle.register_pageTitle}}</h1>
+  <div class="inner-wrapper">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="signup-wrapper pull-md-left">
+          <p class="text-small">Please enter the following information.</p>
+          <form [ngFormModel]="registerUserForm" (ngSubmit)="registerUser()">
+            <!--First name-->
+            <div class="form-group">
+              <input type="text"  [ngClass]="{invalid:first_name.touched || attemptSubmit}" name="first_name" class="form-control" placeholder="First Name" ngControl="first_name" id="first_name" #first_name="ngForm">
+              <control-messages id="errorFirstName" control="first_name" [displayMessage]="validationMessages.first_name" *ngIf="first_name.touched || attemptSubmit"></control-messages>
+            </div>
+            <!--Last name-->
+            <div class="form-group">
+              <input type="text" [ngClass]="{invalid:last_name.touched || attemptSubmit}"  name="last_name" class="form-control" placeholder="Last Name" ngControl="last_name" id="last_name" #last_name="ngForm">
+              <control-messages id="errorLastName" control="last_name" [displayMessage]="validationMessages.last_name" *ngIf="last_name.touched || attemptSubmit"></control-messages>
+            </div>
+            <!--Email-->
+            <div class="form-group">
+              <input type="email"  [ngClass]="{invalid:email.touched || attemptSubmit}" name="email" (ngModelChange)="emailExistError=false" class="form-control" placeholder="Email" ngControl="email" id="email" #email="ngForm">
+              <span *ngIf="emailExistError && !email.errors" class="error">Email already exist.</span>
+              <control-messages id="errorEmail" control="email" [displayMessage]="validationMessages.reg_email" *ngIf="email.touched || attemptSubmit"></control-messages>
+            </div>
+            <!--Passwords-->
+            <div ngControlGroup="matchingPassword">
+              <div class="form-group">
+                <input type="password"  [ngClass]="{invalid:password.touched && attemptSubmit}" name="password" class="form-control" placeholder="Password" ngControl="password" id="password" #password="ngForm">
+                <span id="errorPasswordOne" *ngIf="registerUserForm.controls['matchingPassword'].controls['password'].hasError('required') && (password.touched || attemptSubmit)"
+                      class="error text-small">{{validationMessages.reg_password.required}}</span>
+                <span id="errorPasswordTwo" *ngIf="registerUserForm.controls['matchingPassword'].controls['password'].hasError('minlength') && attemptSubmit"
+                      class="error text-small">{{validationMessages.reg_password.password_length}}</span>
+              </div>
+              <div class="form-group">
+                <input type="password" name="confirm_password" [ngClass]="{invalid:confirm_password.touched || attemptSubmit}" class="form-control" placeholder="Confirm Password" ngControl="confirm_password" id="confirm_password" #confirm_password="ngForm">
+                <control-messages id="errorPasswordThree" control="matchingPassword" displayMessage="Password not matched." *ngIf="(!(registerUserForm.controls['matchingPassword'].controls['confirm_password'].hasError('required') && confirm_password.touched ) && confirm_password.touched)|| attemptSubmit"></control-messages>
+                <span id="errorPasswordFour" *ngIf="registerUserForm.controls['matchingPassword'].controls['confirm_password'].hasError('required') && (confirm_password.touched || attemptSubmit)"
+                        class="error text-small">Please enter a confirm password</span>
+              </div>
+            </div>
+            <!--Awesome Emails-->
+            <div class="form-group">
+              <label id="receiveEmails" class="text-small c-input c-checkbox">
+                <input type="checkbox"  ngControl="email_opt_in" id="email_opt_in" #email_opt_in="ngForm" [checked]="true">
+                <span class="c-indicator"></span> would like to receive emails from Alice + Olivia Eyewear
+              </label>
+            </div>
+
+            <button id="register" type="submit" class="btn-primary" [disabled]="emailExistError || disabled">REGISTER</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

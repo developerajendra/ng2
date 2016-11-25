@@ -1,0 +1,131 @@
+@import "../../../assets/scss/include";
+
+
+/* Product card
+---------------------------------*/
+.card {
+  @include card();
+  position: relative;
+  border: none;
+  text-align: center;
+  height: 100%;
+  padding-bottom: 50px;
+  @include viewport(ipadOnly){
+    padding-bottom: 70px;
+  }
+
+  .product-image {
+    display: block;
+    padding-bottom: 15px;
+  }
+
+  .card-block {
+    padding: 8px;
+    @include viewport(medium) {
+      padding: 0 1.25rem 0.7rem;
+    }
+  }
+
+  p {
+    small {
+      text-transform: capitalize;
+    }
+  }
+
+  /* Image block
+---------------------------------*/
+  .image-block {
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 7px;
+  }
+
+  /* Card image
+---------------------------------*/
+  .card-img {
+    width: 100%;
+    margin: 0 auto;
+
+    &:hover{
+      img{
+        display: none;
+      }
+      img.hover{
+        display: block;
+      }
+    }
+
+    img {
+      margin: auto;
+      &.hover{
+        display: none;
+      }
+
+      @include viewport(large) {
+        max-height: 120px;
+      }
+      @include viewport(xlarge) {
+        max-height: 160px;
+      }
+    }
+  }
+}
+
+  /* Quik buy
+-------------------------------}--*/
+.card{
+  .quik-buy {
+    @include viewport(desktop){
+      display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+  &:hover {
+    .quik-buy {
+      display: block;
+    }
+  }
+}
+
+.card-title{
+  margin-bottom:0;
+}
+
+/* Product list
+---------------------------------*/
+.products{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  min-height: 61px;
+  @include colors;
+
+  li {
+    color: $primary-text;
+    margin-bottom: 10px;
+  }
+  .strike-through{
+    padding-right:3px;
+  }
+}
+
+.tag-new {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  right:-10px;
+  background: rgba(191, 171, 115, 0.88);
+  padding: 10px 7px;
+  border-radius: 50%;
+  box-shadow: 0 0 3px #9a9393;
+  color:#fff
+}

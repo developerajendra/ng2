@@ -1,0 +1,61 @@
+
+<section class="inner-wrapper">
+  <div class="row">
+    <div class="must-have-product col-sm-4 text-xs-center">
+      <a [routerLink]="[productDetailsRoute]" href="javaScript:void(0);" (click)="addSelectedProduct()"><img [attr.src]="product_image_url" width="100%"  alt="{{selectedProduct.name}} in {{selectedProduct.color}} Glasses"></a>
+      <a class="link btn-primary btn-block text-xsmall hidden-lg-up" href="www.glamour.com" target="_blank">www.glamour.com</a>
+    </div>
+    <div class="col-sm-8 ">
+      <h2 class="text-uppercase text-xs-center text-sm-left">{{selectedProduct.name}}</h2>
+      <p class="text-xs-center text-sm-left">
+        {{selectedProduct.description}}
+      </p>
+      <div class="row card equal-height">
+        <div class="quick-buy-block text-xs-center col-xs-12 col-sm-6 col-md-6 col-lg-4  position-relative">
+          <div class="card-img">
+            <div class="card" [id]="selectedProduct.name + selectedProduct.product_id">
+              <div class="image-block">
+                <div class="card-img">
+                  <a class="product-image" href="javaScript:void(0);" (click)="addSelectedProduct()"
+                     [routerLink]="[productDetailsRoute]">
+                      <img class="img-fluid product-image" [attr.src]="product_image_url" alt="{{selectedProduct.name}} in {{selectedProduct.color}} Glasses">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button href="javaScript:void(0);" [disabled]="!selectedProduct.availability.eyewear"
+                  class="quick-buy btn-primary text-uppercase" data-toggle="modal" (click)="buySelectedProduct()"
+                  [attr.data-target]="'#'+modalId">{{selectedProduct?.availability?.eyewear?'QUICK BUY':'SOLD
+            OUT'}}
+          </button>
+        </div>
+
+
+        <div class="quick-buy-block col-xs-12 col-sm-6 col-md-6 col-lg-4 position-relative">
+          <div class="card-block">
+            <h2 class="card-title">{{selectedProduct.name}}</h2>
+            <p class="card-text">Color: {{selectedProduct.color}}</p>
+            <p class="card-text">Price:
+              <span class="products list-inline">
+                <span *ngIf="isEyeWear" class="card-text">${{selectedProduct.prices.STANDARD_INDEX_LENS_PRICE}}</span>
+                <span *ngIf="!isEyeWear" class="card-text">${{selectedProduct.prices.NON_RX_SUN_LENS_PRICE}}</span>
+
+              </span>
+            </p>
+            <ul class="products list-inline">
+              <li *ngFor="let _product of tile.products" (click)="getSelectedProduct(_product)"
+                  [ngClass]="_product.swatchColor"  class="list-inline-item"></li>
+            </ul>
+          </div>
+          <button class="quick-buy display-b btn-primary text-uppercase" (click)="addSelectedProduct()"
+                  [routerLink]="[productDetailsRoute]">
+            SHOP THIS STYLE
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<hr>

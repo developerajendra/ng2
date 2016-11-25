@@ -1,0 +1,29 @@
+@import "../../../assets/scss/include";
+.modal-header{
+  border-bottom:0 ;
+}
+
+.modal-dialog{
+  @include viewport(medium){
+    min-width: 750px;
+  }
+  .modal-content{
+    max-width: 500px;
+  }
+}
+form{
+  @include viewport(medium){
+    padding-right:25px;
+  }
+}
+
+.image-container{
+  text-align: center;
+  img{
+    width: 100%;
+  }
+}
+
+.modal-body{
+  padding-top: 0;
+}

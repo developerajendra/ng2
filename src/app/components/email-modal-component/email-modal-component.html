@@ -1,0 +1,92 @@
+<div class="modal fade" id="emailToFriend" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel1"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{{productDetails?.gridImage}}" width="100%" alt="{{productDetails?.productStr}}" >
+          </div>
+          <div class="col-md-8">
+            <form [ngFormModel]="form" (ngSubmit)="submitForm()">
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-6 padding-r5">
+                    <label for="referral_first_name">Friend's Name:</label>
+                    <input type="text" [ngClass]="{invalid:referral_first_name.touched || attemptSubmit}"
+                           name="referral_first_name" class="form-control" ngControl="referral_first_name"
+                           id="referral_first_name" #referral_first_name="ngForm" placeholder="First Name" [(ngModel)]="friendName" (change)="inputOnChange()">
+                    <control-messages control="referral_first_name" [displayMessage]="validationMessages.first_name"
+                                      *ngIf="referral_first_name.touched || attemptSubmit"></control-messages>
+                  </div>
+                  <div class="col-xs-6 padding-l5">
+                    <label>&nbsp;</label>
+                    <input type="text" [ngClass]="{invalid:referral_last_name.touched || attemptSubmit}"
+                           name="referral_last_name" class="form-control" ngControl="referral_last_name"
+                           id="referral_last_name" #referral_last_name="ngForm" placeholder="Last Name">
+                    <control-messages control="referral_last_name" [displayMessage]="validationMessages.last_name"
+                                      *ngIf="referral_last_name.touched || attemptSubmit"></control-messages>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="referral_email">Friend's Email:</label>
+                <input type="text" [ngClass]="{invalid:referral_email.touched || form.hasError('valid-email', 'referral_email') || attemptSubmit}" name="referral_email"
+                       class="form-control" ngControl="referral_email" id="referral_email" #referral_email="ngForm"
+                       placeholder="Email">
+                <control-messages control="referral_email" [displayMessage]="validationMessages.reg_email"
+                                  *ngIf="referral_email.touched || form.hasError('valid-email', 'referral_email') || attemptSubmit"></control-messages>
+              </div>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-xs-6 padding-r5">
+                    <label for="refree_first_name">Your Name:</label>
+                    <input type="text" [ngClass]="{invalid:refree_first_name.touched || attemptSubmit}"
+                           name="refree_first_name" class="form-control" ngControl="refree_first_name"
+                           id="refree_first_name" #refree_first_name="ngForm" placeholder="First Name">
+                    <control-messages control="refree_first_name" [displayMessage]="validationMessages.first_name"
+                                      *ngIf="refree_first_name.touched || attemptSubmit"></control-messages>
+                  </div>
+                  <div class="col-xs-6 padding-l5">
+                    <label>&nbsp;</label>
+                    <input type="text" [ngClass]="{invalid:refree_last_name.touched || attemptSubmit}"
+                           name="refree_last_name" class="form-control" ngControl="refree_last_name"
+                           id="refree_last_name" #refree_last_name="ngForm" placeholder="Last Name" [(ngModel)]="myName" (change)="inputOnChange()">
+                    <control-messages control="refree_last_name" [displayMessage]="validationMessages.last_name"
+                                      *ngIf="refree_last_name.touched || attemptSubmit"></control-messages>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="refree_email">Your Email:</label>
+                <input type="text" [ngClass]="{invalid:refree_email.touched || form.hasError('valid-email', 'refree_email') || attemptSubmit}" name="refree_email"
+                       class="form-control" ngControl="refree_email" id="refree_email" #refree_email="ngForm"
+                       placeholder="Email" >
+                <control-messages control="refree_email"  [displayMessage]="validationMessages.reg_email"
+                                  *ngIf="refree_email.touched || form.hasError('valid-email', 'refree_email') || attemptSubmit"></control-messages>
+              </div>
+              <div class="form-group">
+                <label>Message:</label>
+                <textarea ngControl="mail_body" #mail_body="ngForm"
+                          *ngIf="productDetails.selectedProduct"></textarea>
+                <control-messages control="mail_body" displayName="Message" *ngIf="attemptSubmit"></control-messages>
+              </div>
+              <div class="form-group">
+                <div class="pull-xs-right">
+                  <button type="button" data-dismiss="modal" class="btn-secondary display-ib margin-r10">Cancel</button>
+                  <button type="submit" class="btn-primary display-ib" [disabled]="disabled"  (click)="submitForm()" >SEND</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,406 @@
+<loader [overlay]="true" *ngIf="enableLoader"></loader>
+<section class="main-wrapper">
+  <h1 class="border-heading text-xs-center">Checkout</h1>
+
+  <breadcrumb *ngIf="!haveCustomizeLenses"  [options]="{name:['sign in','shipping','payment','order confirmation'],active:'shipping'}"></breadcrumb>
+  <breadcrumb *ngIf="haveCustomizeLenses"  [options]="{name:['sign in','customizing lens','shipping','payment','order confirmation'], active:'shipping'}"></breadcrumb>
+
+  <!--shipping form-->
+  <section class="inner-wrapper checkout-form">
+    <!--contact-us-->
+    <p class="contact-us hidden-sm-down" [innerHtml]="staticMsgs.contactUs"></p>
+    <form [ngFormModel]="shippingForm" (ngSubmit)="submitShippingForm()" class="form-default">
+      <div class="row form-wrapper">
+        <div class="col-md-6 col-lg-6">
+
+          <div *ngIf="!!userInfo && showPreOrder && !isKioskMode && !isGuest">
+            <div class="form-group">
+              <label class="font-normal c-input c-radio text-uppercase text-small" [ngClass]="{'radio-selected':isAddressSaved === false}">
+                <input id="old_address"  name="optionsRadios" value="true"   ngControl="isAddressSaved"  type="radio" (click)="updateAddressStatus(false)">
+                <span class="c-indicator"></span>
+                USE SHIPPING ADDRESS FROM A PREVIOUS ORDER
+              </label>
+            </div>
+            <div class="form-group"  *ngIf="userInfo && isAddressSaved===false">
+              <select  name="savedAddress" ngControl="savedAddress" #savedAddress="ngForm" [ngClass]="{invalid:savedAddress.touched || attemptSubmit}" class=" width50" id="savedAddress" [(ngModel)]="addressIndex" (click)="errorFlag(addressIndex)">
+                <option>Select Address</option>
+                <option [attr.value]="i" *ngFor="let address of userInfo.addresses; let i = index">{{address.name}}</option>
+              </select>
+
+              <div class="previous-order-address" *ngIf="userInfo?.addresses[addressIndex]">
+                <address class="text-small">
+                  {{userInfo?.addresses[addressIndex]?.name}},<br>
+                  {{userInfo?.addresses[addressIndex]?.address1}},<br>
+                  {{(userInfo?.addresses[addressIndex]?.address2)?userInfo.addresses[addressIndex].address2+',':''}} &nbsp;
+                  {{userInfo?.addresses[addressIndex]?.city}}, &nbsp;
+                  {{userInfo?.addresses[addressIndex]?.state}}, <br>
+                  {{userInfo?.addresses[addressIndex]?.country}},&nbsp;
+                  {{userInfo?.addresses[addressIndex]?.zip}}
+                </address>
+              </div>
+              <span class="error text-small display-b" *ngIf=addressErrorMessage>{{addressErrorMessage}}</span>
+            </div>
+          </div>
+
+          <span class="error text-small display-b" *ngIf=errorMessage>*{{errorMessage}}</span>
+
+          <div class="form-group" *ngIf="isKioskMode" (click)="htkErrorMessage = '' ">
+            <label class="font-normal font-normal c-input c-radio text-uppercase text-small" [ngClass]="{'radio-selected': enableClick === true}">
+              <input name="optionsRadios" id="new_address" value="true" type="radio" (click)="shipToStore(false)">
+              <span class="c-indicator"></span>
+              SHIP TO STORE FOR CUSTOMER PICK UP
+            </label>
+          </div>
+
+        <div class="form-group" (click)=" addressErrorMessage=''; errorMessage='' " *ngIf="!isLoggedIn || !hasAddresses  || !userInfo ">
+          <label class="font-normal c-input c-radio text-uppercase text-small"
+                 [ngClass]="{'radio-selected': isCustomerPickUp === false || !hasAddresses  || !userInfo}">
+            <input name="optionsRadios" id="new_address" value="true" checked ngControl="isAddressSaved" type="radio"
+                   (click)="updateAddressStatus(true)">
+            <span class="c-indicator"></span>
+            Enter new shipping address
+          </label>
+        </div>
+
+        <div class="form-group" (click)=" addressErrorMessage=''; errorMessage='' " *ngIf="( userInfo && hasAddresses && !isKioskMode)">
+          <label class="font-normal c-input c-radio text-uppercase text-small" [ngClass]="{'radio-selected': isAddressSaved === true }">
+            <input name="optionsRadios" id="new_address" value="true" checked ngControl="isAddressSaved" type="radio"
+                   (click)="updateAddressStatus(true)">
+            <span class="c-indicator"></span>
+            Enter shipping address
+          </label>
+        </div>
+
+          <section *ngIf="isAddressSaved===true">
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="shipping_first_name" class="bold">First Name</label>
+                <input type="text" [ngClass]="{invalid:shipping_first_name.touched || attemptSubmit}"
+                       name="shipping_first_name" class="form-control" ngControl="shipping_first_name"
+                       id="shipping_first_name" #shipping_first_name="ngForm">
+                <control-messages control="shipping_first_name" [displayMessage]="validationMessages.firstName"
+                                  *ngIf="shipping_first_name.touched || attemptSubmit"></control-messages>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="shipping_last_name" class="bold">Last Name</label>
+                <input type="text" [ngClass]="{invalid:shipping_last_name.touched || attemptSubmit}"
+                       name="shipping_last_name" class="form-control" ngControl="shipping_last_name"
+                       id="shipping_last_name" #shipping_last_name="ngForm">
+                <control-messages control="shipping_last_name" [displayMessage]="validationMessages.lastName"
+                                  *ngIf="shipping_last_name.touched || attemptSubmit"></control-messages>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="shipping_address1" class="bold">Address 1</label>
+              <input type="text" [ngClass]="{invalid:shipping_address.touched || attemptSubmit}" name="shipping_address"
+                     class="form-control" ngControl="shipping_address" id="shipping_address1"
+                     #shipping_address="ngForm">
+              <control-messages control="shipping_address" [displayMessage]="validationMessages.address1"
+                                *ngIf="shipping_address.touched || attemptSubmit"></control-messages>
+            </div>
+            <div class="form-group">
+              <label for="shipping_address2" class="bold">Address 2</label>
+              <input type="text" name="shipping_address2" class="form-control" placeholder=""
+                     ngControl="shipping_address2" id="shipping_address2" #shipping_address2="ngForm">
+            </div>
+            <div class="form-group  width50" (click)="htkErrorMessage = '' ">
+              <label for="shipping_country" class="bold">Country</label>
+              <select [ngClass]="{invalid:shipping_country.touched || attemptSubmit}" name="shipping_country" (ngModelChange)="resetShippingStateValue($event)"
+                      placeholder="" ngControl="shipping_country" id="shipping_country" #shipping_country="ngForm">
+                <option value="">Select country</option>
+                <option *ngFor="let item of countriesData.countries" [value]="item.abbreviation">{{item.name}}</option>
+              </select>
+              <control-messages control="shipping_country" [displayMessage]="validationMessages.country"
+                                *ngIf="shipping_country.touched || attemptSubmit"></control-messages>
+              <span
+                *ngIf="htkErrorMessage"
+                class="error text-small">{{htkErrorMessage}}
+                </span>
+
+            </div>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="shipping_city" class="bold">City</label>
+                <input type="text" [ngClass]="{invalid:shipping_city.touched || attemptSubmit}" name="shipping_city"
+                       ngControl="shipping_city" id="shipping_city" #shipping_city="ngForm">
+                <control-messages control="shipping_city"
+                                  [displayMessage]="validationMessages._validateCityAndState.city"
+                                  *ngIf="shipping_city.touched || attemptSubmit"></control-messages>
+              </div>
+              <div *ngIf="shippingCountry != 'US'" class="col-md-6 form-group">
+                <label for="shipping_state" class="bold">State</label>
+                <input type="text" id="shipping_state" [ngClass]=" {invalid:shipping_state.touched || attemptSubmit}"
+                       name="shipping_state" ngControl="shipping_state" #shipping_state="ngForm">
+                <control-messages control="shipping_state"
+                                  [displayMessage]="validationMessages._validateCityAndState.citystate"
+                                  *ngIf="shipping_state.touched || attemptSubmit"></control-messages>
+              </div>
+
+              <div *ngIf="shippingCountry == 'US'" class="form-group col-md-6">
+                <label for="shipping_state" class="bold">State</label>
+                <select [ngClass]="{invalid:shipping_state.touched || attemptSubmit}" name="shipping_state"
+                        placeholder="" ngControl="shipping_state" id="state" #shipping_state="ngForm">
+                  <option value="">Select state</option>
+                  <option *ngFor="let item of countriesData.states" [value]="item.abbreviation">{{item.name}}</option>
+                </select>
+                <control-messages control="shipping_state"
+                                  [displayMessage]="validationMessages._validateCityAndState.citystate"
+                                  *ngIf="shipping_state.touched || attemptSubmit"></control-messages>
+              </div>
+
+            </div>
+            <div class="form-group">
+              <label for="shipping_zip_code" class="bold">Zip</label>
+              <input type="number" [ngClass]="{invalid:shipping_zip_code.touched || attemptSubmit}"
+                     name="shipping_zip_code" class="form-control" ngControl="shipping_zip_code" id="shipping_zip_code"
+                     #shipping_zip_code="ngForm">
+              <control-messages control="shipping_zip_code" [displayMessage]="validationMessages._validatePostalCode"
+                                *ngIf="shipping_zip_code.touched || attemptSubmit"></control-messages>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="shipping_phone_number" class="bold">Phone</label>
+                  <input [min]="10" type="number" [ngClass]="{invalid:shipping_phone_number.touched || attemptSubmit}"
+                         name="shipping_phone_number" class="form-control remove-spinners"
+                         ngControl="shipping_phone_number" id="shipping_phone_number" #shipping_phone_number="ngForm">
+                  <control-messages control="shipping_phone_number" [displayMessage]="validationMessages.phoneNumber"
+                                    *ngIf="shipping_phone_number.touched || attemptSubmit"></control-messages>
+                </div>
+                <div class="col-md-6">
+                  <label>&nbsp;</label>
+                  <p class="text-small margin-t5 margin-b0">
+                    <tool-tip [title]="'Why phone?'" [text]="'Lorem ipsum dolor sit amet.'"></tool-tip>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group" *ngIf="isGuest && !isKioskMode">
+              <label for="password" class="bold">Create password</label>
+              <input type="password" [ngClass]="{invalid:password.touched || attemptSubmit}" name="password"
+                     class="form-control" placeholder="Password" ngControl="password" id="password" #password="ngForm">
+
+                <span
+                  *ngIf="shippingForm.controls['password'].hasError('required') && (password.touched || attemptSubmit)"
+                  class="error text-small">{{customerValidationMessages.password.required}}
+                </span>
+                  <span *ngIf="shippingForm.controls['password'].hasError('minlength') && (password.touched || attemptSubmit)"
+                        class="error text-small">Invalid password.,it must have atleast 7 character.
+                  </span>
+            </div>
+
+        </section>
+        <section>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-7  col-md-offset-0 col-lg-offset-0">
+                <label class="font-normal c-input c-checkbox text-small" #abc>
+                  <input type="checkbox" name="isBillingAddrSame" abc.checked [(ngModel)]="sameBillingAddress" (change)="toggleBillingAddress($event)"
+                         ngControl="isBillingAddrSame" id="isBillingAddrSame" #isBillingAddrSame="ngForm">
+                  <span class="c-indicator"></span>
+                  Use the same address for billing.
+                </label>
+              </div>
+            </div>
+          </div>
+          <!----Start Billing Address ---->
+          <div *ngIf="!sameBillingAddress">
+            <h2 class="font-normal margin-b10 margin-t10">Enter Billing Address</h2>
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="billing_first_name" class="bold">First Name</label>
+                <input type="text" [ngClass]="{invalid:billing_first_name.touched || attemptSubmit}" name="billing_first_name" class="form-control"
+                       ngControl="billing_first_name" id="billing_first_name" #billing_first_name="ngForm">
+                <control-messages [displayMessage]="validationMessages.firstName" control="billing_first_name"
+                                  *ngIf="billing_first_name.touched || attemptSubmit"></control-messages>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="billing_last_name" class="bold">Last Name</label>
+                <input type="text" [ngClass]="{invalid:billing_last_name.touched || attemptSubmit}"
+                       name="billing_last_name" class="form-control" ngControl="billing_last_name"
+                       id="billing_last_name" #billing_last_name="ngForm">
+                <control-messages control="billing_last_name" [displayMessage]="validationMessages.lastName"
+                                  *ngIf="billing_last_name.touched || attemptSubmit"></control-messages>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="billing_address" class="bold">Address 1</label>
+              <input type="text" [ngClass]="{invalid:billing_address.touched || attemptSubmit}" name="billing_address" class="form-control"
+                     ngControl="billing_address" id="billing_address" #billing_address="ngForm">
+              <control-messages control="billing_address" [displayMessage]="validationMessages.address1"
+                                *ngIf="billing_address.touched || attemptSubmit"></control-messages>
+            </div>
+            <div class="form-group">
+              <label for="billing_address2" class="bold">Address 2</label>
+              <input type="text" name="billing_address2" class="form-control" placeholder=""
+                     ngControl="billing_address2" id="billing_address2" #billing_address2="ngForm">
+            </div>
+
+
+            <div class="form-group  width50">
+              <label for="billing_country" class="bold">Country</label>
+              <control-messages control="billing_country" [displayMessage]="validationMessages.country"
+                                *ngIf="billing_country.touched || attemptSubmit"></control-messages>
+              <select [ngClass]="{invalid:billing_country.touched || attemptSubmit}" name="billing_country"
+                      placeholder="" ngControl="billing_country" id="billing_country" #billing_country="ngForm">
+                <option value="">Select country</option>
+                <option *ngFor="let item of countriesData.countries" [value]="item.abbreviation">{{item.name}}</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="billing_city" class="bold">City</label>
+                <input type="text" [ngClass]="{invalid:billing_city.touched || attemptSubmit}" name="city_" class="form-control" placeholder=""
+                       ngControl="billing_city" id="billing_city" #billing_city="ngForm">
+                <control-messages control="billing_city" [displayMessage]="validationMessages._validateCityAndState.city"
+                                  *ngIf="billing_city.touched || attemptSubmit"></control-messages>
+              </div>
+              <div *ngIf="shippingForm.controls.billing_country.value != 'US'" class="col-md-6 form-group">
+                <label for="billing_state" class="bold">State</label>
+                <input type="text" id="billing_state" [ngClass]=" {invalid:billing_state.touched || attemptSubmit}"
+                       name="billing_state" ngControl="billing_state" #billing_state="ngForm">
+                <control-messages control="billing_state" [displayMessage]="validationMessages._validateCityAndState.citystate"
+                                  *ngIf="billing_state.touched || attemptSubmit"></control-messages>
+              </div>
+
+              <div *ngIf="shippingForm.controls.billing_country.value == 'US'" class="form-group col-md-6">
+                <label for="billing_state" class="bold">State</label>
+                <select [ngClass]="{invalid:billing_state.touched || attemptSubmit}" name="billing_state"
+                        placeholder="" ngControl="billing_state" id="billing_state" #billing_state="ngForm">
+                  <option value="">Select State</option>
+                  <option *ngFor="let item of countriesData.states" [value]="item.abbreviation">{{item.name}}</option>
+                </select>
+                <control-messages control="billing_state"
+                                  [displayMessage]="validationMessages._validateCityAndState.citystate_US"
+                                  *ngIf="billing_state.touched || attemptSubmit"></control-messages>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="billing_zip_code" class="bold">Zip</label>
+              <input type="text" [ngClass]="{invalid:billing_zip_code.touched || attemptSubmit}" name="billing_zip_code" class="form-control"
+                     ngControl="billing_zip_code" id="billing_zip_code" #billing_zip_code="ngForm">
+              <control-messages control="billing_zip_code" [displayMessage]="validationMessages._validatePostalCode"
+                                *ngIf="billing_zip_code.touched || attemptSubmit"></control-messages>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-md-12">
+                  <label for="billing_phone_number" class="bold">Phone</label>
+                  <input type="number" [ngClass]="{invalid:billing_phone_number.touched || attemptSubmit}" name="billing_phone_number"
+                         class="form-control remove-spinners" ngControl="billing_phone_number" id="billing_phone_number"
+                         #billing_phone_number="ngForm">
+                  <control-messages control="billing_phone_number" [displayMessage]="validationMessages.phoneNumber"
+                                    *ngIf="billing_phone_number.touched || attemptSubmit"></control-messages>
+                  <p class="text-small margin-t5 margin-b0">
+                    <tool-tip [title]="'Why do you need my number?'"
+                              [text]="'We keep your phone number on hand in case we ever need to reach out to you directly concerning your order. Ottavo will never sell your name, e-mail address, or any other personal information to third parties.'"></tool-tip>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            </div>
+            <!----Enter Billing Address ---->
+            <div class="form-group" *ngIf="isGuest">
+              <label class="font-normal c-input c-checkbox text-small">
+                <input type="checkbox" [(ngModel)]="subscriptionOptIn">
+                <span class="c-indicator"></span>
+                Keep me up to date on new styles and promotions
+              </label>
+            </div>
+
+          </section>
+
+        </div>
+        <div class="col-md-6 col-lg-6">
+          <div *ngIf="cartItems.length !== 0" class="shopping-items">
+            <!--shopping bag-->
+            <h2 class="text-xlarger text-lowercase" *ngIf="haveItems">SHOPPING BAG</h2>
+            <ul class="shopping-list">
+
+              <template ngFor let-item [ngForOf]="displayCustomizedProducts" >
+                <li class="clearfix">
+                  <div class="row"  >
+                    <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                      <img class="img-fluid" [attr.src]="item.img_url" [alt]="item.name">
+                    </div>
+                    <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                      <dl class="dl-horizontal">
+                        <dt class="text-larger" ><strong>{{item.name}} </strong></dt>
+                        <dd></dd>
+                        <dt class="font-italic">Color:</dt>
+                        <dd class="font-italic">{{item.color}}</dd>
+                        <dt>Price:</dt>
+                        <dd>${{item.price}}</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </li>
+              </template>
+
+              <template ngFor let-item [ngForOf]="displayNonCustomizedProducts" >
+                <li class="clearfix">
+                  <div class="row"  >
+                    <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                      <img class="img-fluid" [attr.src]="item.imageUrl" [alt]="item.name">
+                    </div>
+                    <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                      <dl class="dl-horizontal">
+                        <dt  class="text-larger" ><strong>{{item.name}} </strong></dt>
+                        <dd></dd>
+                        <dt class="font-italic">Color:</dt>
+                        <dd class="font-italic">{{item.color}}</dd>
+                        <dt>Price:</dt>
+                        <dd>${{item.prices[item.lens_type + '_PRICE']}}</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </li>
+              </template>
+
+
+            </ul>
+            <!--Home trial bag-->
+            <h2 *ngIf="haveHtkItems" class="text-xlarger text-lowercase">YOUR HOME TRY-ON KIT</h2>
+            <ul class="shopping-list padding-t0">
+              <template ngFor let-item [ngForOf]="cartItems">
+                <li class="clearfix" *ngIf="item.item_type == 'home_trial_kit'">
+                  <div class="row">
+                    <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                      <img class="img-fluid" [attr.src]="item.imageUrl" [alt]="item.name">
+                    </div>
+                    <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                      <dl class="dl-horizontal">
+                       <!-- <a href="javaScript:void(0);" class="edit-link" (click)="deleteItem(item)">X</a>-->
+                        <dt  class="text-larger" ><strong>{{item.name}} </strong></dt>
+                        <dd></dd>
+                        <dt class="font-italic">Color:</dt>
+                        <dd class="font-italic">{{item.color}}</dd>
+                      </dl>
+                    </div>
+                  </div>
+                </li>
+              </template>
+            </ul>
+            <!--checkout price details-->
+            <ul class="checkout-details">
+              <li><span class="display-i font-heavy">Subtotal: </span> <span id="shippingCharges" class="pull-xs-right">{{"$"+( totalCustomize + totalNonCustomize )}}</span></li>
+              <!-- <li><strong>Shipping: </strong> <span>{{"$"+(cartData.cart.totals.shipping)}}</span></li>-->
+              <li class="font-heavy"><strong>Total: </strong> <span class="pull-xs-right" id="shippingTotal">{{"$"+( totalCustomize + totalNonCustomize + (cartData.cart.totals.shipping) )}}</span></li>
+            </ul>
+            <button id="continueShipping" type="submit" class="cs-btn-default" [disabled]="disabled"> Continue</button>
+          </div>
+          <!--continue shopping-->
+          <div *ngIf="cartItems.length === 0" class="shopping-items">
+            <p class="text-small">Your cart is empty.</p>
+            <button id="shippingBackToHome" class="btn-primary" [routerLink]="['/']">Continue Shopping</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</section>

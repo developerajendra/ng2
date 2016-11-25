@@ -1,0 +1,33 @@
+<div>
+  <hr>
+  <div class="row dittoList" *ngIf="userInfo && !(userInfo.ditto && userInfo.ditto.ditto_id)">
+    <div class="col-md-12">
+      <p id="dittoText">Ditto not created yet.</p>
+    </div>
+  </div>
+  <div class="row" *ngIf="!userInfo">
+    <div class="col-md-12">
+      <div class="loader">&nbsp;</div>
+    </div>
+  </div>
+  <div class="row dittoList" [ngClass]="{hidden:!(userInfo && userInfo.ditto && userInfo.ditto.ditto_id && !isDittoStarted)}">
+    <div id="dittoText" class="col-xs-4" *ngIf="userInfo && userInfo.ditto && userInfo.ditto.ditto_id">
+      {{moment(userInfo.ditto.created_at).format('DD/MM/YYYY')}}
+    </div>
+    <div class="col-xs-4 align-center">
+      <div id="ditto" class="ditto"></div>
+    </div>
+    <div class="col-xs-4" *ngIf="userInfo && userInfo.ditto && userInfo.ditto.ditto_id">
+      <a href="javaScript:void(0);" (click)="deleteDittoApi()" id="removebtn"
+         class="pull-xs-right text-uppercase margin-r10">remove</a>
+    </div>
+    <hr>
+  </div>
+  <div id="creation"></div>
+  <p>
+    <a (click)="createDitto()" *ngIf="!isDittoStarted" href="javaScript:void(0);"
+       class="text-decoration-underline text-small">
+      {{(userInfo && userInfo.ditto && userInfo.ditto.ditto_id)?'RECREATE DITTO':'CREATE A NEW DITTO'}}
+    </a>
+  </p>
+</div>

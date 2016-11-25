@@ -1,0 +1,26 @@
+{
+  "heroImages": {
+    "default" : "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Mens_Eyewear-Banner-5.jpg",
+    "home": "http://4af27e7f14ec6a80c148-8cfc2776c20ac53ede788e5519cb1b9a.r70.cf2.rackcdn.com/stevenalanoptical/collections/mens-eyewear/hero/4eaa053ff9_OldMensOptical-Banner.JPG",
+    "about": "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Womens_Eyewear-Banner-1.jpg",
+    "press": "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Womens_Eyewear-Banner-1.jpg",
+    "quality": "http://4af27e7f14ec6a80c148-8cfc2776c20ac53ede788e5519cb1b9a.r70.cf2.rackcdn.com/stevenalanoptical/collections/mens-eyewear/hero/4eaa053ff9_OldMensOptical-Banner.JPG"
+  },
+  "footerImages": {
+    "default" : "http://4af27e7f14ec6a80c148-8cfc2776c20ac53ede788e5519cb1b9a.r70.cf2.rackcdn.com/stevenalanoptical/collections/mens-eyewear/hero/4eaa053ff9_OldMensOptical-Banner.JPG",
+    "home": "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Womens_Eyewear-Banner-1.jpg",
+    "pdp": "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Womens_Eyewear-Banner-1.jpg",
+    "quality": "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Womens_Eyewear-Banner-1.jpg",
+    "vto": "https://qa-www.classicspecs.com/images/views/grid/Classic_Specs-Womens_Eyewear-Banner-1.jpg"
+  },
+  "altText": {
+    "default" : "Classic Specs",
+    "PDP": ["Principal Display Panel"],
+    "home": {"heroAltText": "Home page hero image alt text", "footerAltText": "Home page footer image alt text"},
+    "quality": {"heroAltText": "Quality page hero image alt text", "footerAltText": "Quality page footer image alt text"},
+    "about": {"heroAltText": "About us hero banner alt text"},
+    "press": {"heroAltText": "Press hero banner alt text"},
+    "pdp": {"footerAltText": "PDP page footer image alt text"},
+    "vto": {"footerAltText": "Virtual Try-On footer image alt text"}
+  }
+}

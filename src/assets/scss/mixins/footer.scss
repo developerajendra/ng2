@@ -1,0 +1,105 @@
+/*Footer
+--------------------------*/
+@mixin footer{
+  background-color: $primary-base;
+  padding: 20px 0px;
+
+  z-index: $z-index2;
+  bottom:0;
+  @include viewport(medium){
+    position: absolute;
+  }
+  @include viewport(medium){
+    padding: 0.4rem 2rem;
+  }
+  @include viewport(desktop){
+    position: fixed;
+    padding: 0.4rem 2rem;
+  }
+}
+/*Subscribe
+--------------------------*/
+@mixin subscribe{
+  input[type="email"] {
+    width: 100%;
+    background-color: $primary-base;
+    color:$primary-base-inverted;
+    border: 1px solid $primary-base-inverted;
+    @include viewport(medium){
+
+      border-right: none;
+      display: inline-block;
+
+    }
+  }
+  button.btn {
+    display: block;
+    width: 100%;
+    background-color: $primary-base-inverted;
+    color: $primary-text;
+    @include viewport(medium){
+      display: inline-block;
+      width: auto;
+    }
+  }
+}
+
+/*Footer links
+--------------------------*/
+@mixin footer-links {
+  margin-top: 5px;
+  color: $primary-text-inverted;
+  text-align: center;
+  li {
+    display: block;
+
+    @include viewport(medium) {
+      display: inline-block;
+
+    }
+    a {
+      color: $primary-nav-link-inverted;
+
+    }
+  }
+}
+
+/*Social icons
+--------------------------*/
+@mixin footer-social-icons{
+  text-align: center;
+  margin-top:0px;
+
+  li{
+    display:inline-block;
+    vertical-align: middle;
+
+  }
+  @include viewport(desktop){
+    text-align: left;
+  }
+}
+
+/*Placeholder
+--------------------------*/
+@mixin placeholder{
+  input::-webkit-input-placeholder {
+    color: $primary-base;
+    opacity: 1;
+  }
+
+  input::-moz-placeholder {
+    color: $primary-base;
+    opacity: 1;
+  }
+
+  input::-ms-input-placeholder {
+    color: $primary-base;
+    opacity: 1;
+  }
+
+  input::placeholder {
+    color: $primary-base;
+    opacity: 1;
+  }
+ }

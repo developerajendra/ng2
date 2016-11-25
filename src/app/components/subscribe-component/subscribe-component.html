@@ -1,0 +1,33 @@
+<div class="main-wrapper">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <form [ngFormModel]="subscribeForm" (ngSubmit)="confirmSubscribe($event)" autocomplete="off">
+          <div class="subscribe">
+            <div class="form-group input-container">
+              <input type="email"  [ngClass]="{invalid:email.touched && attemptSubmit}" name="email" aria-describedby="basic-addon2" class="form-control" placeholder="Enter Email Address" ngControl="email" id="email" #email="ngForm">
+              <control-messages control="email" [displayMessage]="validationMessages.email" *ngIf="errors && errors.required || subscribeForm.hasError('valid_email', 'email') && attemptSubmit"></control-messages>
+            </div>
+              <button class="btn btn-default" type="submit" [disabled]="disabled" id="btnSubscribe">SUBSCRIBE</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-lg-5 col-md-5">
+        <ul class="list-inline footer-links text-small">
+          <li class="list-inline-item"><a [routerLink]="['about']" href="javaScript:void(0);" id="about">About</a></li>
+          <li class="list-inline-item"><a [routerLink]="['faq']" href="javaScript:void(0);" id="faq">FAQ</a></li>
+          <li class="list-inline-item"><a [routerLink]="['location']" href="javaScript:void(0);" id="location">Locations</a></li>
+          <li class="list-inline-item"><a [routerLink]="['press']" href="javaScript:void(0);" id="press">Press</a></li>
+          <li class="list-inline-item"><a [routerLink]="['quality']" href="javaScript:void(0);" id="quantity">Quality</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-3">
+        <ul class="list-inline footer-social-icons pull-lg-right text-xs-small text-lg-medium">
+          <li class="list-inline-item"><a href="javaScript:void(0);" class=" facebook" id="facebook"><span class="sr-only">Facebook</span></a></li>
+          <li class="list-inline-item"><a href="javaScript:void(0);" class="twitter" id="twitter"><span class="sr-only">twitter</span></a></li>
+          <li class="list-inline-item"><a href="javaScript:void(0);" class="pinterest" id="pinterest"><span class="sr-only">pinterest</span></a></li>
+          <li class="list-inline-item"><a href="javaScript:void(0);" class="tumbler" id="tumbler"><span class="sr-only">tumbler</span></a></li>
+          <li class="list-inline-item"><a href="javaScript:void(0);" class="google-plus" id="googlePlus"><span class="sr-only">google plus</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>

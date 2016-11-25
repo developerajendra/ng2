@@ -1,0 +1,236 @@
+<loader [overlay]="true" *ngIf="enableLoader"></loader>
+<section class="main-wrapper">
+  <h1 class="border-heading text-xs-center">Check Out</h1>
+
+  <breadcrumb *ngIf="!haveCustomizeLenses"  [options]="{name:['sign in','shipping','payment','order confirmation'],active:'payment'}"></breadcrumb>
+  <breadcrumb *ngIf="haveCustomizeLenses"  [options]="{name:['sign in','customizing lens','shipping','payment','order confirmation'], active:'payment'}"></breadcrumb>
+
+  <section class="inner-wrapper checkout-form">
+    <p class="contact-us hidden-sm-down" [innerHtml]="staticMsgs.contactUs"></p>
+    <div class="row form-wrapper">
+      <div class="col-md-6 col-lg-6">
+        <form [ngFormModel]="paymentForm">
+          <div class="form-group" *ngIf="!isKioskMode && !isGuest && userInfo && userInfo.credit_cards.length">
+            <label class="font-normal c-input c-radio text-small" id='previous-card-info'>
+              <input name='radio' type="radio" ngControl="isSavedCard" value="true"
+                     (click)="updateSavedCardStatus(true)">
+              <span class="c-indicator"></span>
+              USE PAYMENT INFORMATION FROM A PREVIOUS ORDER
+            </label>
+            <div class="row" *ngIf="userInfo && isCardInfoFromSaved && userInfo.credit_cards.length">
+              <div class="col-md-8">
+
+                  <select id="savedCards" [(ngModel)]="cardIndex" (click)="errorFlag(cardIndex)">
+                    <option>Select Card</option>
+                    <option [attr.value]="i" *ngFor="let card of storedCardList; let i = index">{{card.credit_card.card_type  +'*******'+card.credit_card.last_4}}</option>
+                  </select>
+
+              </div>
+            </div>
+            <span class="error text-small" *ngIf="cardErrorMessage">{{cardErrorMessage}}</span>
+          </div>
+          <div class="form-group" *ngIf="!isKioskMode" (click)=" cardErrorMessage=''; customerExists = '' ; cvvErrorMessage = '' ">
+            <label class="font-normal font-normal c-input c-radio margin-b20 text-small" [ngClass]="{'cursor-default':!(userInfo && isCardInfoFromSaved && userInfo.credit_cards.length)}">
+              <input type='radio' ngControl="isSavedCard" name="radio" value="true"
+                     (click)="updateSavedCardStatus(false)" id='new-card-info' checked>
+              <span class="c-indicator"></span>
+              ENTER NEW CARD INFORMATION
+            </label>
+          </div>
+          <div class="form-group" *ngIf="!isCardInfoFromSaved || isKioskMode">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="credit-card-number" class="bold">CREDIT CARD NUMBER</label>
+                  <input type="text" [ngClass]="{invalid:card_number.touched || attemptSubmit}" class="form-control"
+                         ngControl="card_number" #card_number="ngForm" pattern="\d*" maxlength="16"
+                         id="credit-card-number" (ngModelChange)="cardNumberErrorMessage=''"
+                         placeholder="">
+                  <control-messages control="card_number" [displayMessage]="validationMessages.cardNumber"
+                                    *ngIf="card_number.touched || attemptSubmit"></control-messages>
+                  <span class="error text-small" *ngIf="cardNumberErrorMessage">{{cardNumberErrorMessage}}</span>
+                </div>
+                <div class="form-group">
+                  <div class="row">
+                    <div class="col-md-6" (click)="expiryErrorMessage=''">
+                      <label for="exp-date" class="bold">EXPIRATION DATE</label>
+                      <select [ngClass]="{invalid:expire_month.touched || attemptSubmit || expiryErrorMessage}"
+                              id="exp-date" [(ngModel)]="selectedMonth"
+                              ngControl="expire_month" #expire_month="ngForm">
+                        <option *ngFor="let month of listOfMonth" [ngValue]="month.value">{{month.value}}
+                          {{month.name}}
+                        </option>
+                      </select>
+                      <control-messages control="expire_month" [displayMessage]="validationMessages._validateExpiration"
+                                        *ngIf="expire_month.touched || attemptSubmit"></control-messages>
+
+                    </div>
+                    <div class="col-md-6" (click)="expiryErrorMessage=''">
+                      <label>&nbsp;</label>
+                      <select [ngClass]="{invalid:expire_year.touched || attemptSubmit || expiryErrorMessage}" id="year"
+                              ngControl="expire_year" #expire_year="ngForm"
+                              [(ngModel)]="selectedYear">
+                        <option *ngFor="let year of listOfYear" [ngValue]="year">{{year}}</option>
+                      </select>
+                      <control-messages control="expire_year" [displayMessage]="validationMessages._validateExpiration"
+                                        *ngIf="expire_year.touched || attemptSubmit"></control-messages>
+                    </div>
+                  </div>
+                  <span class="error text-small" *ngIf="expiryErrorMessage">{{expiryErrorMessage}}</span>
+                </div>
+                <div class="form-group">
+                  <label for="cvv" class="bold">CVV</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input type="text" [ngClass]="{invalid:CVV_number.touched || attemptSubmit}"
+                             id="cvv" ngControl="CVV_number" placeholder="" minlength="3" maxlength="4" pattern="([0-9]{3,4})"
+                             #CVV_number="ngForm" (ngModelChange)="cvvErrorMessage ='' " />
+                      <control-messages control="CVV_number" [displayMessage]="'Please Enter a valid CVV number'"
+                                        *ngIf="CVV_number.touched || attemptSubmit"></control-messages>
+                      <span class="error text-small" *ngIf="cvvErrorMessage">{{cvvErrorMessage}}</span>
+                    </div>
+                    <div class="col-md-6 text-small">
+                      <tool-tip [title]="'WHAT IS CVV?'" [text]="'Lorem ipsum dolor sit amet.'"></tool-tip>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" *ngIf="isKioskMode">
+                  <label for="emailKiosk" class="bold">Email</label>
+                  <input type="email" [ngClass]="{invalid:email.touched || customerExists || attemptSubmit}"
+                         class="form-control" placeholder="Email"
+                         ngControl="email" id="emailKiosk" #email="ngForm" (ngModelChange)="customerExists ='' ">
+                  <div *ngIf="customerExists" class="error text-small">{{customerExists}}</div>
+                  <control-messages control="email"
+                                    [displayMessage]="'Please enter a valid email address before proceeding to order.'"
+                                    *ngIf="!customerExists&&(email.touched || attemptSubmit)"></control-messages>
+                </div>
+
+                <div class="form-group" *ngIf="!isKioskMode">
+                  <label id="saveThisCard" class="font-normal c-input c-checkbox text-small">
+                    <input class="form-check-input" type="checkbox" name="saveCard" ngControl="save" id="saveCard"
+                           value="option1" #save="ngForm">
+                    <span class="c-indicator"></span>
+                    SAVE THIS CARD
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--promo code-->
+          <div class="form-group" *ngIf="!haveHtkItems || haveItems">
+            <label for="promo-code">PROMO CODE</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id='promo-code' placeholder="Promo code" ngControl="promoCode"
+                     (chagne)="promoCodeErrorMessage=''" [(ngModel)]="promoCode" [readonly]="promoCodeAppliedMessage"
+                     aria-describedby="basic-addon2"/>
+              <button class="input-group-addon" id="basic-addon2" (click)="applyPromoCode()" [disabled]="promoCodeAppliedMessage">APPLY</button>
+            </div>
+            <span class="error text-small" *ngIf="promoCodeErrorMessage">{{promoCodeErrorMessage}}</span><br>
+            <span class="text-small" *ngIf="promoCodeAppliedMessage">{{promoCodeAppliedMessage}}</span>
+          </div>
+
+          <!----If kiosk mode is on ---->
+          <div *ngIf="isKioskMode" class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="pinCode" class="bold">PIN CODE</label>
+                <input type="number" name="billing_pin_code" class="form-control pin-code"
+                       ngControl="pinCode" id="pinCode" #pin_code="ngForm">
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <!--shopping bag-->
+      <div class="col-md-6 col-lg-6">
+        <div *ngIf="cartItems.length !== 0" class="shopping-items">
+          <h2 class="text-xlarger  text-lowercase">SHOPPING BAG</h2>
+          <ul class="shopping-list">
+            <template ngFor let-item [ngForOf]="displayCustomizedProducts">
+              <li class="clearfix">
+                <div class="row">
+                  <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                    <img class="img-fluid" [attr.src]="item.img_url" [alt]="item.name">
+                  </div>
+                  <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                    <dl class="dl-horizontal">
+                      <dt class="text-larger"><strong>{{item.name}} </strong></dt>
+                      <dd></dd>
+                      <dt class="font-italic">Color:</dt>
+                      <dd class="font-italic">{{item.color}}</dd>
+                      <dt>Price:</dt>
+                      <dd>${{item.price}}</dd>
+                    </dl>
+                  </div>
+                </div>
+              </li>
+            </template>
+
+            <template ngFor let-item [ngForOf]="displayNonCustomizedProducts">
+              <li class="clearfix">
+                <div class="row">
+                  <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                    <img class="img-fluid" [attr.src]="item.imageUrl" [alt]="item.name">
+                  </div>
+                  <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                    <dl class="dl-horizontal">
+                      <dt class="text-larger"><strong>{{item.name}} </strong></dt>
+                      <dd></dd>
+                      <dt class="font-italic">Color:</dt>
+                      <dd class="font-italic">{{item.color}}</dd>
+                      <dt>Price:</dt>
+                      <dd>${{item.prices[item.lens_type + '_PRICE']}}</dd>
+                    </dl>
+                  </div>
+                </div>
+              </li>
+            </template>
+
+            <h2 *ngIf="haveHtkItems" class="text-xlarger text-lowercase padding-l0">YOUR HOME TRY-ON KIT</h2>
+            <template ngFor let-product [ngForOf]="productList">
+              <li class="clearfix" *ngIf="product.item_type == 'home_trial_kit'">
+                <div class="col-xs-4 col-sm-2 col-md-4 col-lg-4">
+                  <img class="img-fluid" [attr.src]="product.imageUrl"/>
+                </div>
+                <div class="col-xs-8 col-sm-10 col-md-8 col-lg-8 padding0 pull-right">
+                  <dl class="dl-horizontal">
+                    <a *ngIf='(product.lens_type==="RX_SUN_LENS")'
+                       [routerLink]="['/checkout/customize/'+product.rxIndex]"
+                       class="edit-link">EDIT</a>
+                    <dt class="text-larger"><strong>{{product.name}} </strong></dt>
+                    <dd></dd>
+                    <dt class="font-italic">Color</dt>
+                    <dd></dd>
+                    <dt></dt>
+                    <dd></dd>
+                    <dt></dt>
+
+                    <dd></dd>
+                  </dl>
+                </div>
+              </li>
+            </template>
+            <li>
+              <ul class="checkout-details">
+                <li  *ngIf="cart.totals?.has_nexus && cart.totals?.total_tax"><span class="font-heavy display-i">Subtotal: </span> <span class="pull-xs-right">{{cart.totals?.total_pre_tax | currency:'USD':true:'1.2-2'}}</span></li>
+                <li  class="font-heavy" *ngIf="discount"><strong>Discounts: </strong> <span class="pull-xs-right">{{"- $"+( discount )}}</span></li>
+                <li><span  class="font-heavy display-i">Shipping: </span> <span class="pull-xs-right">{{"$"+(cart.totals.shipping)}}</span></li>
+                <!--<li><strong>Tax: </strong> <span>{{"$"+ "0"}}</span></li>-->
+                <li  class="font-heavy"><strong>Total: </strong> <span class="pull-xs-right">{{cart.totals?.total | currency:'USD':true:'1.2-2'}}</span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <button type="submit" (click)="makePayment()" id='continuePayment' class="cs-btn-default"> Continue</button>
+         </div>
+        <div class="secoure-wrapper">
+          <p class="secure-checkout text-uppercase checkout hidden-sm-down text-small"><span class="lock"></span>
+            SECURE CHECKOUT</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

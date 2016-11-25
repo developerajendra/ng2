@@ -1,0 +1,107 @@
+@import "theme";
+/* Paragraph
+-------------------------------*/
+p {
+    font-size: $text-medium;
+    color: $primary-text;
+}
+
+/* Headings
+-------------------------------*/
+h1 {
+    font-weight: 700;
+    font-size: $text-xlarger;
+    font-family: $font-stack-bold;
+}
+
+h2 {
+    font-weight: 700;
+    margin: 10px 0px;
+    font-size: $text-larger;
+    font-family: $font-stack-heavy;
+}
+
+h3 {
+    font-weight: 700;
+    margin: 10px 0px;
+    font-size: $text-medium;
+    font-family: $font-stack-normal;
+}
+
+h4 {
+    font-weight: 700;
+    margin: 10px 0px;
+    font-size: $text-small;
+    font-family: $font-stack-normal;
+}
+
+h5 {
+    font-weight: 700;
+    margin: 10px 0px;
+    font-size: $text-xsmall;
+    font-family: $font-stack-normal;
+}
+
+
+/* Text size classes
+-------------------------------*/
+.text-xxlarger{
+  font-size: $text-xlarger+0.8;
+}
+.text-xlarger {
+    font-size: $text-xlarger;
+    font-family: $font-stack-bold;
+}
+
+.text-larger {
+    font-size: $text-larger;
+    font-family: $font-stack-heavy;
+}
+
+.text-medium {
+    font-size: $text-medium;
+    font-family: $font-stack-normal;
+}
+
+.text-small {
+    font-size: $text-small;
+    font-family: $font-stack-normal;
+}
+
+.text-xsmall {
+    font-size: $text-xsmall;
+    font-family: $font-stack-normal;
+}
+.font-normal{
+  font-family: $font-stack-normal !important;
+}
+.font-heavy{
+  font-family: $font-stack-heavy !important;
+}
+
+/*Fonts family
+------------------------------------------------------*/
+
+///fonts family bold- base64 source url
+///@group font
+///@type fonts
+@font-face {
+    font-family: $font-stack-bold;
+    src: $font-stack-bold-url;
+}
+
+///fonts family heavy - base64 source url
+///@group font
+///@type fonts
+@font-face {
+    font-family: $font-stack-heavy;
+    src: $font-stack-heavy-url;
+}
+
+///fonts family normal- base64 source url
+///@group font
+///@type fonts
+@font-face {
+    font-family: $font-stack-normal;
+    src: $font-stack-normal-url;
+}

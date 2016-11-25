@@ -1,0 +1,53 @@
+<loader [overlay]="true" *ngIf="enableLoader"></loader>
+<section class="main-wrapper ">
+  <h1 class="text-xs-center border-heading">{{pageTitle.login_pageTitle}}</h1>
+  <div class="inner-wrapper">
+    <p class="contact-us" [innerHtml]="staticMsgs.contactUs"></p>
+    <div class="row">
+      <div class="col-md-6 divider">
+        <div class="wrapper pull-md-left">
+          <h1 >new customers</h1>
+          <p class="text-xs-center text-small text-sm-center text-md-left"  [innerHtml]="staticMsgs.guestMessage"></p>
+
+          <a id="createAnAccount" class="btn-primary account width-auto" [routerLink]="['/register-user']">{{staticMsgs.createAccount}}</a>
+          <a href="javaScript:void(0);" class="text-uppercase text-small checkout">
+            <span class="lock"></span>
+            {{staticMsgs.secureMsg}}
+          </a>
+          <h2 class="text-lowercase hidden-sm-down">{{staticMsgs.loginDescriptionTitle}}</h2>
+          <ul class="list-styled padding-l20 hidden-sm-down" >
+            <li *ngFor = "let msg of staticMsgs.loginDescription">
+              <p class="text-small margin-b5">{{msg}}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="wrapper pull-md-right">
+          <h1>{{staticMsgs.returningTitle}}</h1>
+          <form [ngFormModel]="loginForm" (submit)="login()">
+            <div class="form-group">
+              <input type="email"  [ngClass]="{invalid:email.touched || attemptSubmit}" (ngModelChange)="authenticationError=false" class="form-control" placeholder="Email" ngControl="email" id="emailLogin" #email="ngForm">
+              <control-messages id="errorEmail" control="email" [displayMessage]="validationMessages.email" *ngIf="email.touched || attemptSubmit" ></control-messages>
+              <span id="errorEmailOne" *ngIf="authenticationError"
+                    class="error">email or password not matched.</span>
+            </div>
+            <div class="form-group">
+              <input type="password" [ngClass]="{invalid:password.touched || attemptSubmit}" (ngModelChange)="authenticationError=false" class="form-control" placeholder="Password" ngControl="password" id="password" #password="ngForm" >
+              <control-messages id="errorPassword" control="password"  [displayMessage]="validationMessages.password" *ngIf="password.touched || attemptSubmit" ></control-messages>
+            </div>
+            <button id="continue" class="btn-primary btn-block" [disabled]="authenticationError || disabled">Continue</button>
+            <em><a href="javaScript:void(0);" class="text-small forgot-password" [routerLink]="['/forgot-password']">Forgot your password?</a></em>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+

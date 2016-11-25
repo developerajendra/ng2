@@ -1,0 +1,99 @@
+@import "../../../assets/scss/include";
+
+/* Product filters
+---------------------------------*/
+.filters {
+  margin: 20px 0px;
+  display:none;
+  @include viewport(ipadLandscape){
+    display:block;
+  }
+  @include viewport(desktop){
+    display:block;
+  }
+  @include filters();
+  ul {
+    li {
+      margin-right: 30px;
+
+    }
+  }
+}
+
+.border-heading{
+  padding-top:21px;
+}
+
+/* Filter dropdown
+---------------------------------*/
+.dropdown-menu{
+  z-index: $z-index1;
+}
+
+label {
+  font-weight: 400;
+  @include labels();
+}
+
+.form-group{
+  margin:0;
+}
+
+.filter-text{
+  text-transform: uppercase;
+}
+
+.video-handler{
+  width:100%;
+  margin:20px 0;
+  position: relative;
+  min-height: 400px;
+  background-color: $secondary-base;
+  .enlarge{
+    float:right;
+    display: inline-block;
+    margin:10px;
+    background-color:#eee;
+    padding:20px;
+  }
+  span.play{
+    display: block;
+    margin:auto;
+    border-radius: 100%;
+    width:90px;
+    height:90px;
+    background-color:#eee;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position: absolute;
+
+  }
+  .right-arrow{
+    width:0;
+    height:0;
+    border-left:30px solid  $secondary-base;
+    border-bottom:20px solid transparent;
+    border-top:20px solid transparent;
+    position: absolute;
+    z-index:5;
+    top:0;
+    left:5px;
+    right:0;
+    bottom:0;
+    display: inline-block;
+    margin:auto;
+  }
+}
+
+
+.try-buttons{
+  text-align:center;
+
+  li{
+
+      display:inline-block;
+
+  }
+}

@@ -1,0 +1,75 @@
+<div>
+  <hr>
+  <div *ngIf="userInfo">
+    <p class="text-small">Please review your account information and make sure it's up to date.</p>
+    <div class="row">
+      <div class="col-md-9 col-xs-9">
+        <div class="col-md-6">
+          <p class="font-heavy"><strong>Name</strong></p>
+        </div>
+        <div class="col-md-6" *ngIf="editableFild!=='name'">
+          <p id="uNameText">{{userInfo?.first_name+' '+userInfo?.last_name}}</p>
+        </div>
+        <div class="col-md-6" *ngIf="editableFild==='name'">
+          <div class="col-md-5">
+            <input type="text" id="fname" placeholder="First Name" [(ngModel)]="payload.first_name">
+          </div>
+          <div class="col-md-2">&nbsp;</div>
+          <div class="col-md-5 pull-right">
+            <input type="text" id="lname" placeholder="Last Name" [(ngModel)]="payload.last_name">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-3">
+        <a href="javaScript:void(0);" id="editName" *ngIf="editableFild!=='name'" (click)="editUser('name')"
+           class="pull-xs-right text-uppercase margin-r10">edit</a>
+        <a href="javaScript:void(0);" id="saveName" *ngIf="editableFild==='name'" (click)="saveUser()"
+           class="pull-xs-right text-uppercase margin-r10">save</a>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-9 col-xs-9">
+        <div class="col-md-6">
+          <p class="font-heavy "><strong>Email</strong></p>
+        </div>
+        <div class="col-md-6" *ngIf="editableFild!=='email'">
+          <p id="uEmailText">{{userInfo.email}}</p>
+        </div>
+        <div class="col-md-6" *ngIf="editableFild==='email'">
+          <input type="text" id="uEmail" placeholder="First Name" [(ngModel)]="payload.email" (ngModelChange)="emailError=''">
+          <span *ngIf="emailError" class="error">{{emailError}}</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-3">
+        <a href="javaScript:void(0);" id="editEmail" *ngIf="editableFild!=='email'" (click)="editUser('email')"
+           class="pull-xs-right text-uppercase margin-r10">edit</a>
+        <a href="javaScript:void(0);" id="saveEmail" *ngIf="editableFild==='email'" (click)="saveUser()"
+           class="pull-xs-right text-uppercase margin-r10">save</a>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-9 col-xs-9">
+        <div class="col-md-6">
+          <p class="font-heavy"><strong>Password</strong></p>
+        </div>
+        <div class="col-md-6" *ngIf="editableFild!=='password'">
+          <p id="uPasswdText">************</p>
+        </div>
+        <div class="col-md-6" *ngIf="editableFild==='password'">
+          <input type="password" id="uPasswd" placeholder="Password" [(ngModel)]="payload.password" (ngModelChange)="passwordError=''">
+          <span *ngIf="passwordError" class="error">{{passwordError}}</span>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-3">
+        <a href="javaScript:void(0);" id="editPasswd" *ngIf="editableFild!=='password'" (click)="editUser('password')"
+           class="pull-xs-right text-uppercase margin-r10">edit</a>
+        <a href="javaScript:void(0);" id="savePasswd" *ngIf="editableFild==='password'" (click)="saveUser()"
+           class="pull-xs-right text-uppercase margin-r10">save</a>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="loader" *ngIf="!userInfo || isLoading">&nbsp;</div>
+</div>

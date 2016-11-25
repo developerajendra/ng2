@@ -1,0 +1,18 @@
+/* width
+-------------------------------*/
+@mixin width($width,$margin,$padding){
+	  width: $width;
+    margin: $margin;
+    clear: both;
+    padding: $padding;
+}
+
+/* Max width
+-------------------------------*/
+@mixin maxWidth($width,$margin,$padding){
+	max-width: $width;
+	width:100% ;
+	clear: both;
+  margin: $margin;
+  padding: $padding;
+}

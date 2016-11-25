@@ -1,0 +1,129 @@
+<div>
+  <div class="modal product-details fade" [attr.id]="modalId" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel1"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="row">
+                <div class="col-md-12">
+                  <a href="javaScript:void(0);" [routerLink]=" '/' + product?.productId">
+                    <img src="{{changedImage || product?.gridImage}}" class="main-img" width="100%" alt="main image">
+                  </a>
+                </div>
+
+                <div class="col-xs-12">
+                  <ul   class="side-img-list text-xs-center">
+                    <li class="list-inline-item"
+                        *ngFor="let source of product?.images; let i = index">
+                      <img src="{{source}}" class="side-img" alt="side img" (click)="changeImage(product.images,i)"
+                           [class.active]="activeImage[i]" *ngIf="i<3">
+                    </li>
+                  </ul>
+                </div>
+
+
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <h2 class="text-lowercase">{{product?.name}}</h2>
+
+              <p class="font-italic">{{product?.color}}</p>
+              <div class="lense-type" *ngIf="!product?.isEyeWear">
+                <div class="row margin-b10">
+                  <div class="col-xs-8">
+                    <label class="c-input c-radio">
+                      <input [checked]="lensTypeOfSelectedProduct == 'NON_RX_SUN_LENS' || 'STANDARD_INDEX_LENS' || ''" id="non_rx_sun_lens" [attr.name]="modalId +'-radio-stacked'"
+                             (click)="setLensType(LENS_TYPE.NON_RX_SUN_LENS)" type="radio">
+                      <span class="c-indicator"></span>
+                      <span>{{PRICE_LABEL.NON_RX_SUN_LENS_PRICE}}</span>
+                    </label>
+                  </div>
+                  <div class="col-xs-4">
+                    <span class="pull-xs-right">${{product?.prices?.NON_RX_SUN_LENS_PRICE || 0 }}</span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-8">
+                    <label class=" c-input c-radio">
+                      <input [checked]="lensTypeOfSelectedProduct == 'RX_SUN_LENS'" id="rx_sun_lens" [attr.name]="modalId +'-radio-stacked'"
+                             (click)="setLensType(LENS_TYPE.RX_SUN_LENS)"
+                             type="radio">
+                      <span class="c-indicator"></span>
+                      <span>{{PRICE_LABEL.RX_SUN_LENS_PRICE}}</span>
+                    </label>
+                  </div>
+                  <div class="col-xs-4">
+                    <span class="pull-xs-right">${{product?.prices?.RX_SUN_LENS_PRICE || 0}}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="lense-type" *ngIf="product?.isEyeWear">
+                <div class="row margin-b10">
+                  <div class="col-xs-8">
+                    <label class="c-input c-radio">
+                      <input [checked]="true" id="standard_index_lens" [attr.name]="modalId +'-radio-stacked'"
+                             (click)="setLensType(LENS_TYPE.STANDARD_INDEX_LENS)" type="radio">
+                      <span class="c-indicator"></span>
+                      <span>{{PRICE_LABEL.STANDARD_INDEX_LENS_PRICE}}</span>
+                    </label>
+                  </div>
+                  <div class="col-xs-4">
+                    <span class="pull-xs-right">${{product?.prices?.STANDARD_INDEX_LENS_PRICE}}</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="add-bag">
+                <p class="text-xsmall free-shippint">
+                  FREE SHIPPING / FREE RETURNS
+                </p>
+                <a id="addToBag" class="btn-primary display-ib" (click)="addItemToCart(product,'eyewear')" href="javaScript:void(0);"
+                   data-toggle="modal" data-dismiss="modal">
+                  ADD TO BAG
+                </a>
+
+                <p class="text-xs-left text-small">{{product?.description}}</p>
+                <a href="javaScript:void(0);"
+                   class="text-xs-right continue-shopping text-xsmall text-decoration-underline" data-dismiss="modal">CONTINUE
+                  SHOPPING</a>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal product-details fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModal"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="overlay-container text-xs-center">
+            <p><strong>{{errorMessage}}</strong></p>
+            <button class="btn-primary display-ib" data-toggle="modal" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

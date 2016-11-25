@@ -1,0 +1,105 @@
+@import "../../../assets/scss/include";
+
+/* Product filters
+---------------------------------*/
+.filters {
+  margin: 20px 0px;
+  display:none;
+  @include viewport(ipadLandscape){
+    display:block;
+  }
+  @include viewport(desktop){
+    display:block;
+  }
+  @include filters();
+  ul {
+    li {
+      margin-right: 30px;
+
+    }
+  }
+}
+
+/* Card
+---------------------------------*/
+.card {
+  @include card();
+  position: relative;
+  border: none;
+  height:100%;
+  text-align: center;
+  @include viewport(medium){
+    text-align: left;
+  }
+
+  img{
+    width: 100%;
+    height:100%;
+  }
+
+
+  .card-block{
+    padding:20px;
+    @include viewport(medium){
+      padding:0 20px;
+    }
+
+    p{
+      margin-bottom: 5px;
+    }
+    h2{
+      margin-top: 0px;
+    }
+    .form-group{
+      margin-bottom: 0px;
+    }
+    .btn-primary{
+      display: inline-block;
+      @include viewport(medium){
+        display: block;
+      }
+    }
+  }
+}
+
+.profile-img{
+  max-width: 200px;
+}
+/* Quick buy
+---------------------------------*/
+
+.quick-buy {
+  @include viewport(desktop) {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  display: block;
+  margin: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.card-img{
+  display: inline-block;
+  &:hover {
+    .quick-buy {
+      display: block;
+
+    }
+  }
+}
+
+/*inner row
+---------------------------------*/
+.row{
+  .row{
+    margin: 0px;
+    [class^='col-']{
+      padding: 0px;
+    }
+  }
+}
+

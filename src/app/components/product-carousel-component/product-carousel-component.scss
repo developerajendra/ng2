@@ -1,0 +1,159 @@
+@import "../../../assets/scss/include";
+@import "carousel";
+
+
+
+/* Product Container
+---------------------------------*/
+.product-gallery {
+  @include  carousel;
+
+
+  /* Container
+---------------------------------*/
+  .inner-wrapper {
+   @include carouselWrapper;
+    ul.hidden{
+      display: none;
+    }
+  }
+
+  .carousel-container{
+    height: 54vh;
+    max-height: 381px;
+    padding-top: 0;
+    position: relative;
+    @include viewport(mobileLandscape){
+      height: 100vh;
+    }
+    .loader{
+      position: absolute;
+    }
+  }
+
+
+  .default {
+    width: 250px;
+    height: 250px;
+    background-color: #343343;
+  }
+  .filter-links {
+    width: 100%;
+    float: left;
+    font-size: $text-xsmall;
+    font-family: $font-stack-normal;
+    text-align: center;
+    border-top: 1px solid $primary-base;
+    overflow: hidden;
+    ul {
+      text-align: center;
+      li {
+        margin: 0px 2%;
+        font-size: $text-xsmall;
+        font-family: $font-stack-normal;
+        @include viewport(medium) {
+          font-size: $text-medium;;
+        }
+        @include viewport(medium) {
+          margin: 0px 25px;
+        }
+        a {
+          color: $primary-nav-link;
+          text-transform: uppercase;
+          display: inline-block;
+          padding: 10px 10px 0;
+        }
+      }
+      li.active {
+        a {
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  /* Product list
+ ---------------------------------*/
+  ul.list-inline .list-inline-item{
+    height: 100%;
+  }
+
+  /* List items
+  ---------------------------------*/
+  .thumbnail {
+    border: none;
+    text-align: center;
+    .caption {
+      padding: 10px 0 0;
+    }
+    h3 {
+      text-transform: uppercase;
+    }
+    p {
+      text-transform: uppercase;
+      small {
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+
+
+:host{
+
+  /* Carousel specific
+  ---------------------------------*/
+  .owl-carousel {
+    position: relative;
+
+    .owl-stage {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+    .owl-nav {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      height: 96px;
+      width: 100%;
+      z-index: -1;
+      div {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-size: 7rem;
+        font-weight: 100;
+        width: 39px;
+        overflow: hidden;
+        text-indent:-9999px;
+        &.owl-next {
+          @include icon($carousel-arrow-right-width, $carousel-arrow-right-height, $carousel-arrow-right-offset-x, $carousel-arrow-right-offset-y);
+          float: right;
+          margin-right: -70px;
+          @include viewport(ipadPortrait) {
+            margin-right: -50px;
+          }
+        }
+        &.owl-prev {
+          @include icon($carousel-arrow-left-width, $carousel-arrow-left-height, $carousel-arrow-left-offset-x, $carousel-arrow-left-offset-y);
+          float: left;
+          margin-left: -70px;
+          @include viewport(ipadPortrait) {
+            margin-left: -50px;
+          }
+        }
+      }
+    }
+  }
+}

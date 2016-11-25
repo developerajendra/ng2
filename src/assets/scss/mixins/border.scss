@@ -1,0 +1,16 @@
+/* Border
+-------------------------------*/
+@mixin border($width,$color){
+	border:solid $width $color;
+}
+
+
+/* Border - Top
+-------------------------------*/
+@mixin border-top($width,$color){
+	border-top:solid $width $color;
+}
+
+
+/* Transparent outline
+-------------------------------*/

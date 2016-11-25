@@ -1,0 +1,12 @@
+@import "../../../assets/scss/include";
+.signup-wrapper{
+    width: 100% ;
+    clear: both;
+    padding: 5px 0px;
+    @include viewport(medium) {
+        width: 70% ;
+    }
+    p{
+		 padding:0 0 15px;
+    }
+}

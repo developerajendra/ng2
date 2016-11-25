@@ -1,0 +1,365 @@
+<div>
+  <hr>
+  <div id="prescription">
+    <div *ngIf="!userInfo || isLoading" class="loader">&nbsp;</div>
+    <div *ngIf="userInfo && (!userInfo.rx || !userInfo.rx.length)">
+      <div class="row prescriptionsList">
+        <div class="col-md-9 col-xs-9 center-block prescriptionsText">No prescription found</div>
+      </div>
+      <hr>
+    </div>
+    <div *ngIf="userInfo && userInfo.rx && userInfo.rx.length">
+      <div class="row prescriptionsList" *ngFor="let _rx of userInfo.rx; let i=index;">
+        <div class="col-md-9 col-xs-9">
+          <div class="col-md-6">
+            <p class="text-small font-heavy prescriptionsText" *ngIf="_rx?.rx_type!=='RX_UPLOAD'"><strong>{{_rx.name_on_rx?_rx.name_on_rx+"'s
+              Prescription" : 'Not Provided'}}</strong></p>
+
+            <p class="text-small font-heavy prescriptionsText" *ngIf="_rx?.rx_type==='RX_UPLOAD'"><strong>{{_rx.name_on_rx?_rx.name_on_rx+"
+              Prescription" : 'Not Provided'}}</strong></p>
+          </div>
+          <div class="col-md-6">
+            <p class="text-small" id="{{'rxtype_'+i}}">
+              {{_rx?.rx_type}}
+            </p>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-3">
+          <a href="javaScript:void(0);" *ngIf="_rx.isEdit" id="{{'editbtn_'+i}}" (click)="editRx(i)"
+             class="pull-xsdialog-right text-small text-uppercase margin-r10">edit</a>
+          <a href="javaScript:void(0);" (click)="viewRx(i)" id="{{'viewbtn_'+i}}" data-target="#rxModal"
+             data-toggle="modal"
+             class="pull-xs-right text-small text-uppercase margin-r10">View</a>
+        </div>
+      </div>
+      <hr>
+    </div>
+    <p *ngIf="!isAdding"><a href="javaScript:void(0);" (click)="addRx()" id="addBtn"
+                            class="text-decoration-underline text-small">ADD
+      NEW
+      PRESCRIPTION</a></p>
+
+    <div id="editRx">
+      <div class="container-fluid" *ngIf="activeForm && (isAdding||isEditing)">
+        <form [ngFormModel]="rxForm">
+          <ul>
+            <li>
+              <!--Label (call my doctor)-->
+              <label class="c-input c-radio">
+                <input id="callMyDoctor" name="radio" (click)="change('callMyDoctor')" type="radio"
+                       [checked]="activeRadio === 'callMyDoctor'">
+                <span class="c-indicator"></span>
+                CALL MY DOCTOR
+              </label>
+              <!--Value (call my doctor)-->
+              <div *ngIf="activeRadio === 'callMyDoctor'" class="col-md-12">
+                <div class="form-group">
+                  <input placeholder="EYEWEAR PATIENT'S NAME" type="text" name="patientName" id="patientName"
+                         class="form-control" [ngClass]="{invalid:patientName.touched || attemptSubmit}"
+                         ngControl="patientName" #patientName="ngForm">
+              <span class="error text-small" id="patientNameError"
+                    *ngIf="(rxForm.controls['patientName'].hasError('required')) && (patientName.touched || attemptSubmit)"
+                >{{validationMessages.patientName.required}}</span>
+                </div>
+                <div class="form-group">
+                  <input placeholder="DOCTOR'S NAME" type="text" name="doctorName" class="form-control"
+                         [ngClass]="{invalid:doctorName.touched || attemptSubmit}" id="doctorName"
+                         ngControl="doctorName" #doctorName="ngForm">
+                <span class="error text-small" id="doctorNameError"
+                      *ngIf="(rxForm.controls['doctorName'].hasError('required')) && (doctorName.touched || attemptSubmit)"
+                  >{{validationMessages.doctorName.required}}</span>
+                </div>
+                <div class="form-group">
+                  <input placeholder="DOCTOR'S PHONE NO" type="text" name="doctorPhone"
+                         [ngClass]="{invalid:doctorPhone.touched || attemptSubmit}" id="doctorPhone"
+                         class="form-control" ngControl="doctorPhone" #doctorPhone="ngForm">
+                <span class="error text-small" id="doctorPhoneError"
+                      *ngIf="(rxForm.controls['doctorPhone'].hasError('required')) && (doctorPhone.touched || attemptSubmit)"
+                  >{{validationMessages.doctorPhone.required}}</span>
+                </div>
+                <div class="form-group margin-b0">
+                  <label class="display-b">EYEWEAR PATIENT'S DATE OF BIRTH</label>
+
+                  <div class="row">
+                    <div class="col-xs-4 padding-r0" (click)="showDobErrorMessage=''">
+                      <select id="month" ngControl="month"
+                              [ngClass]="{invalid:month.touched || attemptSubmit}" #month="ngForm">
+                        <option selected>{{dob_mm||'Month'}}</option>
+                        <option *ngFor="let _month of months">{{_month}}</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-4" (click)="showDobErrorMessage=''">
+                      <select id="day" ngControl="day" [ngClass]="{invalid:day.touched || attemptSubmit}"
+                              #day="ngForm">
+                        <option selected>{{dob_dd||'Day'}}</option>
+                        <option *ngFor="let _day of days">{{_day}}</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-4 padding-l0" (click)="showDobErrorMessage=''">
+                      <select id="year" ngControl="year" [ngClass]="{invalid:year.touched || attemptSubmit}"
+                              #year="ngForm">
+                        <option selected>{{dob_yy||'Year'}}</option>
+                        <option *ngFor="let _year of years">{{_year}}</option>
+                      </select>
+                    </div>
+                  </div>
+                <span class="display-b error text-small" id="dobError"
+                      *ngIf="(rxForm.controls['day'].hasError('required')||rxForm.controls['month'].hasError('required')||rxForm.controls['year'].hasError('required')) && attemptSubmit"
+                  >{{validationMessages._validateDob.required}}</span>
+                  <span class="error text-small"
+                        *ngIf="!(rxForm.controls['day'].hasError('required')||rxForm.controls['month'].hasError('required')||rxForm.controls['year'].hasError('required')) && showDobErrorMessage">{{showDobErrorMessage}}</span>
+                </div>
+                <p class="small">
+                  <small>We need the eyewear patient's date of birth because some offices require this
+                    information
+                    to release the prescription
+                  </small>
+                </p>
+
+              </div>
+            </li>
+            <li>
+              <!--Label (enter it now)-->
+              <label class="c-input c-radio">
+                <input id="enterNow" name="radio" (click)="change('enterItNow')" type="radio"
+                       [checked]="activeRadio === 'enterItNow'">
+                <span class="c-indicator"></span>
+                I'LL ENTER IT NOW
+              </label>
+              <!--Value (enter it now)-->
+              <div *ngIf="activeRadio === 'enterItNow'" class="padding-t10 col-md-12">
+                <div class="form-group">
+                  <input placeholder="NAME ON PRESCRIPTION" type="text" name="nameOnRx"
+                         [ngClass]="{invalid:nameOnRx.touched || attemptSubmit}"
+                         id="nameOnRx" class="form-control" ngControl="nameOnRx" #nameOnRx="ngForm">
+                <span class="error text-small" id="nameOnRxError"
+                      *ngIf="(rxForm.controls['nameOnRx'].hasError('required')) && (nameOnRx.touched || attemptSubmit)">{{validationMessages.nameOnRx.required}}</span>
+                </div>
+
+                <div class="prescription-table enter-it-now">
+                  <table class="text-small table">
+                    <thead>
+                    <tr>
+                      <th>&nbsp;</th>
+                      <th>Sphere</th>
+                      <th>Cylinder</th>
+                      <th>Axis</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <th scope="row" class="right-od">Right (OD)
+                        <span class="error text-small"
+                              *ngIf="(rxForm.controls['sphereR'].hasError('required')||rxForm.controls['cylinderR'].hasError('required')||rxForm.controls['axisR'].hasError('required')) && (sphereR.touched||cylinderR.touched||axisR.touched||attemptSubmit)">*</span>
+                      </th>
+                      <td>
+                        <select id="sphereR" ngControl="sphereR"
+                                [ngClass]="{invalid:sphereR.touched || attemptSubmit}"
+                                #sphereR="ngForm">
+                          <option selected>{{rx_Object.right.sphere||'--'}}</option>
+                          <option *ngFor="let data of prescriptionData?.rightOd?.sphere">{{data}}</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select ngControl="cylinderR"
+                                [ngClass]="{invalid:cylinderR.touched || attemptSubmit}" id="cylinderR"
+                                #cylinderR="ngForm">
+                          <option selected>{{rx_Object.right.cylinder||'--'}}</option>
+                          <option *ngFor="let data of prescriptionData?.rightOd?.cylinder">{{data}}</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select ngControl="axisR"
+                                [ngClass]="{invalid:axisR.touched || attemptSubmit}"
+                                id="axisR" #axisR="ngForm">
+                          <option selected>{{rx_Object.right.axis||'--'}}</option>
+                          <option *ngFor="let data of prescriptionData?.rightOd?.axis">{{data}}</option>
+                        </select>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="left-os">Left (OS)
+                        <span class="error text-small"
+                              *ngIf="(rxForm.controls['sphereL'].hasError('required')||rxForm.controls['cylinderL'].hasError('required')||rxForm.controls['axisL'].hasError('required')) && (sphereL.touched||cylinderL.touched||axisL.touched||attemptSubmit)">*</span>
+                      </th>
+                      <td>
+                        <select id="sphereL" ngControl="sphereL"
+                                [ngClass]="{invalid:sphereL.touched || attemptSubmit}"
+                                #sphereL="ngForm">
+                          <option selected>{{rx_Object.left.sphere||'--'}}</option>
+                          <option *ngFor="let data of prescriptionData?.leftOd?.sphere">{{data}}</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select ngControl="cylinderL"
+                                [ngClass]="{invalid:cylinderL.touched || attemptSubmit}" id="cylinderL"
+                                #cylinderL="ngForm">
+                          <option selected>{{rx_Object.left.cylinder||'--'}}</option>
+                          <option *ngFor="let data of prescriptionData?.leftOd?.cylinder">{{data}}</option>
+                        </select>
+                      </td>
+                      <td>
+                        <select ngControl="axisL"
+                                [ngClass]="{invalid:axisL.touched || attemptSubmit}"
+                                id="axisL" #axisL="ngForm">
+                          <option selected>{{rx_Object.left.axis||'--'}}</option>
+                          <option *ngFor="let data of prescriptionData?.leftOd?.axis">{{data}}</option>
+                        </select>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="form-group">
+                  <div class="row pupillary-distance">
+                    <p>
+                      <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                    </p>
+                    <div class="col-xs-3 padding-0">
+                      <label class="text-xsmall">
+                        BINOCULAR
+                      </label>
+                      <select ngControl="bino" id="bino" #bino="ngForm">
+                        <option selected>{{rx_Object.pd.bino || '--'}}</option>
+                        <option *ngFor="let data of prescriptionData?.pupillaryDistance?.binocular">{{data}}</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-3">
+                      <label>
+                        &nbsp;
+                      </label>
+
+                      <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                    </div>
+                    <div class="col-xs-3 padding-l0">
+                      <label class="text-xsmall">
+                        RIGHT
+                      </label>
+                      <select ngControl="mono_right" id="mono_right" #mono_right="ngForm">
+                        <option selected>{{rx_Object.pd.mono_right || '--'}}</option>
+                        <option *ngFor="let data of prescriptionData?.pupillaryDistance?.right">{{data}}</option>
+                      </select>
+                    </div>
+                    <div class="col-xs-3 padding-l0">
+                      <label class="text-xsmall">
+                        LEFT
+                      </label>
+                      <select ngControl="mono_left" id="mono_left" #mono_left="ngForm">
+                        <option selected>{{rx_Object.pd.mono_left || '--'}}</option>
+                        <option *ngFor="let data of prescriptionData?.pupillaryDistance?.left">{{data}}</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <!--Label (Digital copy)-->
+              <label class="c-input c-radio">
+                <input id="uploadCopy" name="radio" (click)="change('digitalCopy')" type="radio"
+                       [checked]="activeRadio === 'digitalCopy'">
+                <span class="c-indicator"></span>
+                I'LL UPLOAD A DIGITAL COPY
+              </label>
+              <!--Value (digital copy)-->
+              <div *ngIf="activeRadio === 'digitalCopy'" class="col-md-12 form-group">
+                <a href="javaScript:void(0)" class="custom-file-input" [ngClass]="{invalid:attemptSubmit}">
+                  <input type="file" id="uploadFile" class="input-file" accept=".pdf,.docx,image/*"
+                         (change)="fileUpload($event)">
+                  <input type="hidden" ngControl="uploadFile" #uploadFile="ngForm">
+                  <span *ngIf="rx_Object.rx_file && !rx_Object.rx_file.filename">{{rx_Object.rx_file}}</span>
+                  <span *ngIf="rx_Object.rx_file && rx_Object.rx_file.filename">{{rx_Object.rx_file.filename}}</span>
+                </a>
+              <span class="error text-small" id="uploadError"
+                    *ngIf="(rxForm.controls['uploadFile'].hasError('required')) && (attemptSubmit )"
+                >{{validationMessages.rxFile.required}}</span>
+              </div>
+            </li>
+          </ul>
+        </form>
+        <button type="button" (click)="save()" id="saveBtn" class="btn btn-primary">save</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal rx-modal fade" id="rxModal" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel1" aria-hidden="false">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="selectedRx" class="padding-5 doctor-information">
+            <div *ngIf="selectedRx.friendly_name" class="patient-name">
+              {{selectedRx.friendly_name}}
+              <hr/>
+            </div>
+            <div class="padding-t20 prescription-table">
+              <div class="padding-t10 title text-small" id="selected_rxtype">{{selectedRx.rx_type}}</div>
+              <table class="text-small padding-t10 table table-striped">
+                <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                  <th>SP</th>
+                  <th>CYL</th>
+                  <th>AX</th>
+                  <th>ADD</th>
+                  <th>SEG HT</th>
+                  <th>PD MONO</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <th scope="row">OD</th>
+                  <td>{{selectedRx.right.sphere || 0}}</td>
+                  <td>{{selectedRx.right.cylinder || 0}}</td>
+                  <td>{{selectedRx.right.axis || 0}}</td>
+                  <td>{{selectedRx.right.add || 0}}</td>
+                  <td>{{selectedRx.right.seg_height || 0}}</td>
+                  <td>{{selectedRx.pd.mono_right || 'none'}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">OS</th>
+                  <td>{{selectedRx.left.sphere || 0}}</td>
+                  <td>{{selectedRx.left.cylinder || 0}}</td>
+                  <td>{{selectedRx.left.axis || 0}}</td>
+                  <td>{{selectedRx.left.add || 0}}</td>
+                  <td>{{selectedRx.left.seg_height || 0}}</td>
+                  <td>{{selectedRx.pd.mono_left || 'none'}}</td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="padding-t10 pd-bino">
+                PD BINO : <span class="text-small"> {{selectedRx.pd.bino || 0}}</span>
+              </div>
+              <div *ngIf="rxFile" class="padding-t10 pd-bino">
+                <img *ngIf="isRxImage" [attr.src]="rxFile"/>
+                <a *ngIf="!isRxImage" href="javaScript:void(0);" (click)="downloadRxFile()">Downlod
+                  {{selectedRx.rx_file}}</a>
+              </div>
+            </div>
+            <div *ngIf="selectedRx.rx_type == 'RX_CALL_DOCTOR'" class="padding-t20 doctor-information">
+              <h6 class="bold">Doctor Info</h6>
+              <hr/>
+              <ul>
+                <li>Doctor name: <span class="text-small">{{selectedRx.doctor_info.doctor_name}}</span></li>
+                <li>Doctor Phone: <span class="text-small"> {{selectedRx.doctor_info.doctor_phone}}</span></li>
+                <li>Doctor Patient dob: <span class="text-small">{{selectedRx.doctor_info.patient_dob}}</span></li>
+              </ul>
+            </div>
+            <div class="padding-t20 doctor-information">
+              <hr/>
+              <ul>
+                <li>High Index: <span class="text-small"> {{selectedRx.is_high_index}}</span></li>
+                <li>Progressive: <span class="text-small"> {{selectedRx.is_progressive}}</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

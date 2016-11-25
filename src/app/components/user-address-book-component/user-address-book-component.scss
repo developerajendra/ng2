@@ -1,0 +1,111 @@
+@import "../../../assets/scss/include";
+
+/*Tabs navigation
+---------------------------*/
+ul.tabs-navigation {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  @include viewport(medium) {
+    display: table;
+    text-align: left;
+  }
+  li {
+    display: block;
+    padding: 5px;
+    @include viewport(medium) {
+      display: table-cell;
+      padding: 15px;
+    }
+    a {
+      color: $primary-base;
+      text-transform: uppercase;
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+a.add-new {
+  color: $primary-base;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: $text-small;
+}
+
+/*User Account Structure
+-----------------------------------*/
+.row {
+  margin-top: 30px;
+  p {
+    margin-bottom: 0;
+  }
+  a {
+    text-decoration: underline;
+    color: $primary-text;
+    font-size: $text-small;
+  }
+  [class^='col-'] {
+    [class^='col-'] {
+      padding: 0;
+    }
+  }
+}
+
+hr {
+  margin: 10px 0;
+}
+
+/*Address details
+----------------------------------*/
+dl {
+  dd {
+    margin-bottom: 0;
+    font-size: $text-small;
+  }
+}
+
+@import "../../../assets/scss/include";
+
+/* Product details dialog box
+-------------------------------*/
+.address-modal {
+  .modal-dialog {
+    padding: 0 20px 16px;
+    @include overlayBackground();
+    @include overlayWidth();
+  }
+
+  .modal-body {
+    max-height: 550px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .modal-content,
+  .modal-footer,
+  .modal-header {
+    border: none;
+    text-align: left;
+    @include overlayBackground();
+  }
+
+  .modal-content,
+  .modal-footer,
+  .modal-body {
+    padding-top: 0;
+  }
+  .modal-content,
+  .modal-footer,
+  .modal-body,
+  .modal-header {
+    padding-bottom: 0;
+  }
+  .add-bag {
+    text-align: center;
+  }
+
+}
+

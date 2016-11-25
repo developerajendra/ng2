@@ -1,0 +1,351 @@
+@import "../../../assets/scss/include";
+
+/* Checkout globals
+---------------------------------*/
+h1 {
+  text-align: center;
+  clear: both;
+  @include viewport (large) {
+    text-align: left;
+  }
+}
+.form-wrapper {
+  @include viewport(medium){
+    margin-top: 50px;
+  }
+  clear: both;
+}
+
+/* Checkout form
+---------------------------------*/
+.checkout-form {
+  padding: 10px 20px;
+
+  h2 {
+    margin: 0 0 50px;
+    text-transform: uppercase;
+    @include checkout-form-h2();
+  }
+  @include viewport(medium) {
+    .width50 {
+      width: 48%;
+    }
+  }
+}
+
+/* Checkbox & Radio button
+---------------------------------*/
+.checkbox,
+.radio {
+  margin-top: 0;
+  .checkbox {
+    &.update-check {
+      @include viewport(medium) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.checkbox label input:only-child,
+.radio label input:only-child {
+  vertical-align: sub;
+}
+
+.form-default label.checkbox-field {
+  font-size: 10px;
+  text-transform: initial;
+  line-height: 20px;
+}
+
+.form-default {
+  @include viewport (medium) {
+    [class^='col-xs-offset-'] {
+      margin-left: 0px;
+    }
+  }
+  label{
+    text-transform: uppercase;
+    font-size: $text-small;
+    font-family: $font-stack-heavy;
+  }
+}
+
+
+/* Form controls
+---------------------------------*/
+.form-control {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-size: 12px;
+  @include form-control();
+  border-radius: 0;
+  box-shadow: none;
+  transition: none;
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  @include viewport(medium) {
+    .form-control {
+      padding: 3px 15px;
+    }
+  }
+}
+
+
+/* Phone field
+---------------------------------*/
+.phone-field {
+  position: relative;
+  .field-info {
+    @include field-info();
+    text-align: center;
+    display: block;
+    line-height: 20px;
+    text-transform: uppercase;
+    @include viewport(medium) {
+      position: absolute;
+      right: -100px;
+      bottom: 7px;
+    }
+  }
+}
+
+.option-field {
+  margin-bottom: 30px;
+}
+
+
+/* Shopping items
+---------------------------------*/
+.shopping-items {
+  float: none;
+  border: none;
+  width:100%;
+  @include viewport(medium) {
+    float: right;
+    width: 85%;
+
+  }
+  @include shopping-items();
+  h2 {
+    padding:0;
+    text-align: center;
+    font-size: $text-larger;
+    @include viewport(medium){
+      padding: 25px 30px 0 15px;
+      text-align: left;
+    }
+
+  }
+
+}
+
+
+ul.shopping-list {
+  margin: 0;
+  padding: 20px 0 0;
+  @include shopping-list();
+  @include viewport(medium) {
+    padding: 20px 5% 0;
+  }
+
+  li {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+
+}
+
+.img-small {
+  max-width: 78px;
+  height: 78px;
+  background-color: #cccccc;
+}
+
+.dl-horizontal {
+  margin: 0;
+  .edit-link {
+    @include edit-link();
+    font-size: 10px;
+    line-height: 20px;
+    text-transform: uppercase;
+    float: right;
+
+  }
+  dt {
+    text-align: left;
+    font-weight: normal;
+    line-height: 20px;
+    width: 50%;
+  }
+  dd {
+    text-align: right;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 20px;
+    @include dd();
+    width: 50%;
+
+  }
+  & dd {
+    margin-left: 0;
+    float: right;
+    margin-top: -20px;
+  }
+}
+
+.checkout-details {
+  padding: 0px 0 20px;
+  @include viewport(medium) {
+    padding: 0px 5% 20px;
+  }
+  @include shopping-price-details();
+  li {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    &:last-child{
+      border: none;
+    }
+  }
+
+}
+
+.cs-btn-default {
+  @include cs-btn-default();
+  line-height: 28px;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  padding: 2px 20px 0;
+  border: 0;
+
+}
+
+/* Customised Dropdown
+---------------------------------*/
+.dropdown-wrapper{
+  @include cs-btn-default();
+  width:100% ;
+  float: left;
+  margin:10px 0px;
+  position:relative;
+  .btn-dropdown{
+    width:100% ;
+    position:relative;
+    border-radius: 0px;
+    margin:0px;
+    padding:6px 12px;
+    text-align:left;
+
+  }
+  .dropdown-toggle::after {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    right: 10px;
+    top: 15px;
+    content: "";
+    border-top: .4em solid;
+    border-right: .4em solid transparent;
+    border-left: .4em solid transparent;
+  }
+  .dropdown-menu{
+    z-index:10;
+  }
+  .dropdown-content{
+    position: absolute;
+    width: 100% ;
+    border: 1px solid $border-primary-base;
+    border-top: none;
+    margin:0px;
+    padding:6px 12px;
+    border-radius:0px;
+    li{
+      display:block;
+      margin:5px 0px;
+    }
+  }
+}
+
+/* Secure Payment
+---------------------------------*/
+.secure-payment{
+  width: 100% ;
+  padding:20px;
+  margin:20px 0px;
+  @include secure-payment();
+  p{
+    margin:0px;
+  }
+}
+
+.list-styled{
+  li{
+    list-style: disc;
+  }
+}
+/*Contact Us
+-----------------------------------*/
+.contact-us {
+  text-align: center;
+  max-width: 50%;
+  margin: 10px auto;
+  font-size: $text-small;
+}
+
+/*Print
+-----------------------------------*/
+.print-container{
+  @include print-container();
+  padding: 20px 0px;
+}
+
+/*breadcrumb
+-----------------------------------*/
+.breadcrumb{
+  counter-reset: LIST-ITEMS ;
+  padding: .75rem;
+  background-color: transparent;
+  li{
+    text-transform: uppercase;
+    display: inline;
+    padding-right: 0.5em;
+    &.active{
+      font-weight: bold;
+    }
+  }
+  @include breadcrumb();
+  li:before
+  {
+    content: counter( LIST-ITEMS ) ".";
+    counter-increment: LIST-ITEMS;
+    padding-right: 0.25em;
+    font-weight: bold;
+  }
+}
+
+
+/*removed type number arrows
+-----------------------------------*/
+
+.remove-spinners::-webkit-inner-spin-button,
+.remove-spinners::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+
+.previous-order-address{
+  padding:13px 0 0;
+}
+
+:host loader .loader-wrapper{
+  height: 150vh;
+}

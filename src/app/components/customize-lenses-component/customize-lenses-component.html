@@ -1,0 +1,1051 @@
+<div class="loader" *ngIf="isLoading">&nbsp;</div>
+
+<section class="main-wrapper ">
+  <h1 class="text-xs-center border-heading">Checkout</h1>
+
+  <breadcrumb
+    [options]="{name:['sign in','customizing lens','shipping','payment','order confirmation'], active:'customizing lens'}"></breadcrumb>
+
+  <section class="inner-wrapper overflow-h">
+    <section class="customizing-lense-content">
+
+      <p class="text-xs-center contact-us hidden-sm-down">Contact us by <a href="mailto:help@aliceandoliviaeyewear.com"
+                                                                           class="text-decoration-underline">help@aliceandoliviaeyewear.com</a>
+        any time, or by
+        phone at 888.509.5499
+        Monday-firday , 9am to 6pm EST.</p>
+    </section>
+
+    <section class="customizing-lense-form">
+      <form [ngFormModel]="customizeLens" *ngIf="prescriptionData.rightOd">
+        <div class="row">
+          <div class="col-md-6 divider wrapper">
+
+            <!--NON RX-->
+            <div *ngIf="isKioskMode && rx_product && rx_product.lens_type === 'NON_RX_SUN_LENS' " class="col-md-11 padding-0"
+                 id="accordionTwo" role="tablist"
+                 aria-multiselectable="true">
+              <!--On-hand inventory-->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingFive">
+                  <a class="on-hand-inventory heading btn btn-outline text-xs-left" data-toggle="collapse" data-parent="#accordionTwo"
+                     href="#collapseFive" aria-expanded="false" aria-controls="collapseFive"
+                     (click)="clickToggle('onHandInventoryYes')">
+                    Are these sunglasses from on-hand inventory?
+                  </a>
+                </div>
+                <!--*ngIf="selectedGroup == 'onHandInventory'"-->
+                <div id="collapseFive" class="btn-outline panel-collapse collapse overflow-h" role="tabpanel"
+                     aria-labelledby="headingFive">
+                  <div class="dropdown-content">
+
+                    <div class="col-xs-12">
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':!showFlag}">
+                        <input id="radio4" [checked]="!showFlag" name="radio" type="radio"
+                               (click)="showLens(false)">
+                        <span class="c-indicator"></span>
+                        YES
+                      </label>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':showFlag}">
+                        <input id="radio4" name="radio1" [checked]="showFlag" type="radio"
+                               (click)="showLens(true)">
+                        <span class="c-indicator"></span>
+                        NO, THESE WILL BE SHIPPED
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--RX-->
+            <div *ngIf="showFlag" class="col-md-11 padding-0" id="accordion" role="tablist"
+                 aria-multiselectable="true">
+              <!--Prescription lens-->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne" [ngClass]="{'disable-click':selectedGroup == 'prescription_high_index' ||selectedGroup == 'prescription'}">
+                  <a class="heading btn btn-outline text-xs-left" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"
+                     (click)="clickToggle('prescription_high_index')">
+                    Prescription lens
+                  </a>
+                </div>
+
+                <div *ngIf="selectedGroup == 'prescription' || selectedGroup == 'prescription_high_index'"
+                     id="collapseOne"
+                     [ngClass]="{'in':(selectedGroup == 'prescription' || selectedGroup == 'prescription_high_index') && !clickedToggle && !isExistingRx}"
+                     class="btn-outline panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                  <ul ngControlGroup="prescription" class="dropdown-content">
+                    <li>
+                      <!--Label (Send it later)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'prescriptionSendItLater'}">
+                        <input name="radio" id="radio1" [checked]="selectedLens == 'prescriptionSendItLater'"
+                               type="radio" ngControl="iWillSendItLater"
+                               (click)="selectLens('prescriptionSendItLater')" #sendItLater="ngForm">
+                        <span class="c-indicator"></span>
+                        I'LL SEND IT LATER
+                      </label>
+
+                      <!--Value (Send it later)-->
+                      <div ngControlGroup="iWillSendItLaterGroup"
+                           *ngIf="selectedLens == 'prescriptionSendItLater' && rx_product "
+                           class="col-md-12">
+
+                        <div class="prescription" *ngIf="rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label for="test" class="hover-underline c-input c-checkbox">
+                            <input id="test" type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+
+                        </div>
+
+                        <!-- kiosk mode - show pd (Send it later)-->
+                        <div class="form-group" ngControlGroup="pupillaryDistance" *ngIf="isKioskMode">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                    <li>
+                      <!--Label (call my doctor)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'prescriptionCallMyDoctor'}">
+                        <input id="radio2" [checked]="selectedLens == 'prescriptionCallMyDoctor'" name="radio"
+                               type="radio" ngControl="callMyDoctor"
+                               (click)="selectLens('prescriptionCallMyDoctor')">
+                        <span class="c-indicator"></span>
+                        CALL MY DOCTOR
+                      </label>
+
+                      <!--Value (call my doctor)-->
+                      <div *ngIf="selectedLens == 'prescriptionCallMyDoctor'" ngControlGroup="callMyDoctorGroup"
+                           class="col-md-12 padding-l0 padding-r0">
+                        <div class="form-group">
+                          <input placeholder="EYEWEAR PATIENT'S NAME" type="text" name="patientName"
+                                 [ngClass]="{invalid:patientName.touched || attemptSubmit}" id="patientName"
+                                 class="form-control" ngControl="patientName" #patientName="ngForm">
+                          <span
+                            *ngIf="(customizeLens.controls['prescription'].controls['callMyDoctorGroup'].controls['patientName'].hasError('required')) && (patientName.touched || attemptSubmit)"
+                            class="error text-small">{{validationMessages.patientName.required}}
+                          </span>
+                        </div>
+                        <div class="form-group">
+                          <input placeholder="DOCTOR'S NAME" type="text" name="doctorName"
+                                 [ngClass]="{invalid:doctorName.touched || attemptSubmit}" id="doctorName"
+                                 class="form-control" ngControl="doctorName" #doctorName="ngForm">
+                          <span
+                            *ngIf="(customizeLens.controls['prescription'].controls['callMyDoctorGroup'].controls['doctorName'].hasError('required')) && (doctorName.touched || attemptSubmit)"
+                            class="error text-small">{{validationMessages.doctorName.required}}</span>
+                        </div>
+                        <div class="form-group">
+                          <input [min]="10" placeholder="DOCTOR'S PHONE NO" type="number" min="0" name="doctorPhone"
+                                 [ngClass]="{invalid:doctorPhone.touched || attemptSubmit}" id="doctorPhone"
+                                 class="form-control remove-spinners" ngControl="doctorPhone" #doctorPhone="ngForm">
+                          <span
+                            *ngIf="(customizeLens.controls['prescription'].controls['callMyDoctorGroup'].controls['doctorPhone'].hasError('required')) && (doctorPhone.touched || attemptSubmit)"
+                            class="error text-small">{{validationMessages.doctorPhone.required}}</span>
+                        </div>
+                        <div class="form-group margin-b0">
+                          <label class="display-b">
+                            EYEWEAR PATIENT'S DATE OF BIRTH</label>
+
+                          <div class="row">
+                            <div class="col-xs-4 padding-r0" (click)="showDobErrorMessage=''">
+                              <select name="select" ngControl="patientDateOfMonth"
+                                      [ngClass]="{invalid:patientDateOfMonth.touched || attemptSubmit}"
+                                      id="patientDateOfMonth" #patientDateOfMonth="ngForm">
+                                <option selected value="month">{{monthValue || 'Month'}}</option>
+                                <option *ngFor="let month of months">{{month}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4" (click)="showDobErrorMessage=''">
+                              <select name="select" ngControl="patientBirthDay"
+                                      [ngClass]="{invalid:patientBirthDay.touched || attemptSubmit}"
+                                      id="patientBirthDay" #patientBirthDay="ngForm">
+                                <option selected value="">{{dayValue || 'Day'}}</option>
+                                <option *ngFor="let day of days">{{day}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4 padding-l0" (click)="showDobErrorMessage=''">
+                              <select name="select" ngControl="patientBirthYear"
+                                      [ngClass]="{invalid:patientBirthYear.touched || attemptSubmit}"
+                                      id="patientBirthYear" #patientBirthYear="ngForm">
+                                <option selected value="">{{yearValue || 'Year'}}</option>
+                                <option *ngFor="let year of years">{{year}}</option>
+                              </select>
+                            </div>
+                          </div>
+
+                      <span
+                        *ngIf="(customizeLens.controls['prescription'].controls['callMyDoctorGroup'].controls['patientDateOfMonth'].hasError('required') || customizeLens.controls['prescription'].controls['callMyDoctorGroup'].controls['patientBirthDay'].hasError('required') || customizeLens.controls['prescription'].controls['callMyDoctorGroup'].controls['patientBirthYear'].hasError('required')) && attemptSubmit"
+                        class="display-b error text-small">{{validationMessages._validateDob.required}}</span>
+                          <span class="error text-small" *ngIf="showDobErrorMessage">{{showDobErrorMessage}}</span>
+                        </div>
+                        <p class="small">
+                          <small>We need the eyewear patient's date of birth because some offices require this
+                            information
+                            to release the prescription
+                          </small>
+                        </p>
+                        <div class="prescription" *ngIf="rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+                        </div>
+
+                        <!-- kiosk mode - show pd (call my doctor)-->
+                        <div class="form-group" ngControlGroup="pupillaryDistance" *ngIf="isKioskMode">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                    <li>
+                      <!--Label (enter it now)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'prescriptionEnterItNow'}">
+                        <input [checked]="selectedLens == 'prescriptionEnterItNow'" id="radio3" name="radio"
+                               type="radio" ngControl="iWillEnterNow"
+                               (click)="selectLens('prescriptionEnterItNow')" #iWillEnterNow="ngForm">
+                        <span class="c-indicator"></span>
+                        I'LL ENTER IT NOW
+                      </label>
+
+                      <!--Value (enter it now)-->
+                      <div class="col-md-12 padding-l0 padding-r0" *ngIf="selectedLens == 'prescriptionEnterItNow'"
+                           ngControlGroup="iWillEnterNowGroup">
+                        <div class="form-group">
+
+                          <input placeholder="NAME ON PRESCRIPTION" type="text" name="nameOnPrescription"
+                                 [ngClass]="{invalid:nameOnPrescription.touched || attemptSubmit}"
+                                 id="nameOnPrescription" class="form-control" ngControl="nameOnPrescription"
+                                 #nameOnPrescription="ngForm">
+                      <span
+                        *ngIf="(customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['nameOnPrescription'].hasError('required')) && (nameOnPrescription.touched || attemptSubmit)"
+                        class="error text-small">{{validationMessages.nameOnRx.required}}</span>
+
+                        </div>
+
+                        <!--Right OD-->
+                        <div class="form-group" ngControlGroup="rightOd">
+                          <p>
+                            <small>Right (OD)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-4 padding-r0">
+                              <label class="text-xsmall">
+                                Sphere
+                              </label>
+                              <select name="select1" ngControl="sphere"
+                                      *ngIf="prescriptionData.rightOd.sphere"
+                                      [ngClass]="{invalid:sphere.touched || attemptSubmit}" id="sphere1"
+                                      #sphere="ngForm" (ngModelChange)="rightSphereValue=$event;showHighIndex()">
+
+                                <option selected value="">{{rightSphereValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.rightOd.sphere" [attr.value]="data">
+                                  {{data}}
+                                </option>
+
+                              </select>
+                            </div>
+
+                            <div class="col-xs-4">
+                              <label class="text-xsmall">
+                                Cylinder
+                              </label>
+                              <select name="select2" ngControl="cylinder"
+                                      *ngIf="prescriptionData.rightOd.cylinder"
+                                      [ngClass]="{invalid:cylinder.touched || attemptSubmit}" id="cylinder1"
+                                      #cylinder="ngForm" (ngModelChange)="rightCylinderValue=$event;showHighIndex()">
+
+                                <option selected value="">{{rightCylinderValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.rightOd.cylinder" [attr.value]="data">
+                                  {{data}}
+                                </option>
+
+                              </select>
+
+                            </div>
+                            <div class="col-xs-4 padding-l0">
+                              <label class="text-xsmall">
+                                Axis
+                              </label>
+                              <select name="select3" ngControl="axis"
+                                      [ngClass]="{invalid:axis.touched || attemptSubmit}"
+                                      id="axis1" #axis="ngForm">
+                                <option selected value="">{{rightAxisValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.rightOd.axis">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+
+                      <span
+                        *ngIf="(customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['rightOd'].controls['sphere'].hasError('required') || customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['rightOd'].controls['cylinder'].hasError('required') || customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['rightOd'].controls['axis'].hasError('required')) && (attemptSubmit)"
+                        class="display-b error text-small">{{validationMessages._validateRxRight.required}}</span>
+                        </div>
+
+                        <!--Left od-->
+
+                        <div class="form-group" ngControlGroup="leftOs">
+                          <p>
+                            <small>Left (OS)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-4 padding-r0">
+                              <label class="text-xsmall">
+                                Sphere
+                              </label>
+
+                              <select name="select4" ngControl="sphere"
+                                      *ngIf="prescriptionData.leftOd.sphere"
+                                      [ngClass]="{invalid:sphere.touched || attemptSubmit}" id="sphere"
+                                      #sphere="ngForm" (ngModelChange)="leftSphereValue=$event;showHighIndex()">
+
+                                <option selected value="">{{leftSphereValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.leftOd.sphere" [attr.value]="data">
+                                  {{data}}
+                                </option>
+
+                              </select>
+
+
+                            </div>
+
+                            <div class="col-xs-4">
+                              <label class="text-xsmall">
+                                Cylinder
+                              </label>
+                              <select name="select5" ngControl="cylinder"
+                                      *ngIf="prescriptionData.leftOd.cylinder"
+                                      [ngClass]="{invalid:cylinder.touched || attemptSubmit}" id="cylinder"
+                                      #cylinder="ngForm" (ngModelChange)="leftCylinderValue=$event;showHighIndex()">
+
+                                <option selected value="">{{leftCylinderValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.leftOd.cylinder" [attr.value]="data">
+                                  {{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4 padding-l0">
+                              <label class="text-xsmall">
+                                Axis
+                              </label>
+                              <select name="select6" ngControl="axis"
+                                      [ngClass]="{invalid:axis.touched || attemptSubmit}"
+                                      id="axis" #axis="ngForm">
+                                <option selected value="">{{leftAxisValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.leftOd.axis">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+
+                           <span
+                             *ngIf="(customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['leftOs'].controls['sphere'].hasError('required') || customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['leftOs'].controls['cylinder'].hasError('required') || customizeLens.controls['prescription'].controls['iWillEnterNowGroup'].controls['leftOs'].controls['axis'].hasError('required')) && (attemptSubmit)"
+                             class="display-b error text-small">{{validationMessages._validateRxLeft.required}}</span>
+                        </div>
+
+                        <!--Is High Index-->
+                        <div class="prescription" *ngIf="showIsHighIndex && rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Please use thinner (high-index) lenses and
+                            add $30 to my order total.
+                          </label>
+                        </div>
+
+                        <div class="form-group" ngControlGroup="pupillaryDistance">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+
+                      <!--Label (Digital copy)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'prescriptionDigitalCopy'}">
+                        <input [checked]="selectedLens == 'prescriptionDigitalCopy'" id="radio4" name="radio"
+                               type="radio" (click)="selectLens('prescriptionDigitalCopy')"
+                               ngControl="uploadDigitalCopy" #uploadDigitalCopy="ngForm">
+                        <span class="c-indicator"></span>
+                        I'LL UPLOAD A DIGITAL COPY
+                      </label>
+
+                      <!--Value (digital copy)-->
+                      <div class="form-group" *ngIf="selectedLens == 'prescriptionDigitalCopy'"
+                           ngControlGroup="uploadDigitalCopyGroup">
+
+                        <input type="file" class="custom-file-input " id="uploadFile" accept=".pdf,.docx,image/*"
+                               [ngClass]="{invalid:attemptSubmit}" (change)="fileUpload($event)"
+                               ngControl="uploadFile" #uploadFile="ngForm" required="required">
+                        <span
+                          *ngIf="(customizeLens.controls['prescription'].controls['uploadDigitalCopyGroup'].controls['uploadFile'].hasError('required')) && (attemptSubmit )"
+                          class="error text-small">{{validationMessages.rxFile.required}}</span>
+
+                        <div class="prescription" *ngIf="rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+                        </div>
+
+                        <!-- kiosk mode - show pd (digital copy)-->
+                        <div class="form-group" ngControlGroup="pupillaryDistance" *ngIf="isKioskMode">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!--Progressive Lens-->
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo" [ngClass]="{'disable-click':selectedGroup == 'progressive_high_index' ||selectedGroup == 'progressive'}">
+                  <a class="heading btn btn-outline text-xs-left" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"
+                     (click)="clickToggle('progressive_high_index')">
+                    progressive lens
+                  </a>
+                </div>
+                <div *ngIf="selectedGroup == 'progressive' || selectedGroup == 'progressive_high_index'"
+                     [ngClass]="{'in':(selectedGroup == 'progressive' || selectedGroup == 'progressive_high_index') && !clickedToggle && !isExistingRx}"
+                     id="collapseTwo" class="btn-outline panel-collapse collapse"
+                     role="tabpanel" aria-labelledby="headingTwo">
+                  <ul ngControlGroup="progressive" class="dropdown-content">
+                    <li>
+
+                      <!--Label (Send it later)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'progressiveSendItLater'}">
+                        <input [checked]="selectedLens == 'progressiveSendItLater'" name="radio" id="radio1"
+                               type="radio" ngControl="iWillSendItLater"
+                               (click)="selectLens('progressiveSendItLater')" #sendItLater="ngForm">
+                        <span class="c-indicator"></span>
+                        I'LL SEND IT LATER
+                      </label>
+
+                      <!--Value (Send it later)-->
+                      <div *ngIf="selectedLens == 'progressiveSendItLater' && rx_product"
+                           ngControlGroup="_iWillSendItLaterGroup"
+                           class="col-md-12 padding-l0 padding-r0">
+                        <div class="prescription" *ngIf="rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+                        </div>
+
+                        <!-- kiosk mode - show pd (Send it later)-->
+                        <div class="form-group" ngControlGroup="pupillaryDistance" *ngIf="isKioskMode">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+
+                    </li>
+                    <li>
+                      <!--Label (call my doctor)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'progressiveCallMyDoctor'}">
+                        <input [checked]="selectedLens == 'progressiveCallMyDoctor'" id="radio2" name="radio"
+                               type="radio" ngControl="callMyDoctor"
+                               (click)="selectLens('progressiveCallMyDoctor')">
+                        <span class="c-indicator"></span>
+                        CALL MY DOCTOR
+                      </label>
+
+                      <!--Value (call my doctor)-->
+                      <div *ngIf="selectedLens == 'progressiveCallMyDoctor'" ngControlGroup="_callMyDoctorGroup"
+                           class="col-md-12 padding-l0 padding-r0">
+                        <div class="form-group">
+                          <input placeholder="EYEWEAR PATIENT'S NAME" type="text" name="patientName"
+                                 [ngClass]="{invalid:patientName.touched || attemptSubmit}" id="patientName"
+                                 class="form-control" ngControl="patientName" #patientName="ngForm">
+                      <span
+                        *ngIf="(customizeLens.controls['progressive'].controls['_callMyDoctorGroup'].controls['patientName'].hasError('required')) && (patientName.touched || attemptSubmit)"
+                        class="error text-small">{{validationMessages.patientName.required}}</span>
+                        </div>
+                        <div class="form-group">
+                          <input placeholder="DOCTOR'S NAME" type="text" name="doctorName"
+                                 [ngClass]="{invalid:doctorName.touched || attemptSubmit}" id="doctorName"
+                                 class="form-control" ngControl="doctorName" #doctorName="ngForm">
+                      <span
+                        *ngIf="(customizeLens.controls['progressive'].controls['_callMyDoctorGroup'].controls['doctorName'].hasError('required')) && (doctorName.touched || attemptSubmit)"
+                        class="error text-small">{{validationMessages.doctorName.required}}</span>
+                        </div>
+                        <div class="form-group">
+                          <input placeholder="DOCTOR'S PHONE NO" type="number" min="0" name="doctorPhone"
+                                 [ngClass]="{invalid:doctorPhone.touched || attemptSubmit}" id="doctorPhone"
+                                 class="form-control remove-spinners" ngControl="doctorPhone" #doctorPhone="ngForm">
+                      <span
+                        *ngIf="(customizeLens.controls['progressive'].controls['_callMyDoctorGroup'].controls['doctorPhone'].hasError('required')) && (doctorPhone.touched || attemptSubmit)"
+                        class="error text-small">{{validationMessages.doctorPhone.required}}</span>
+                        </div>
+                        <div class="form-group margin-b0">
+                          <label class="display-b">
+                            EYEWEAR PATIENT'S DATE OF BIRTH</label>
+
+                          <div class="row">
+                            <div class="col-xs-4 padding-r0" (click)="showDobErrorMessage=''">
+                              <select name="select" ngControl="patientDateOfMonth"
+                                      [ngClass]="{invalid:patientDateOfMonth.touched || attemptSubmit}"
+                                      id="patientDateOfMonth" #patientDateOfMonth="ngForm">
+                                <option selected value="month">{{monthValue || 'Month'}}</option>
+                                <option *ngFor="let month of months">{{month}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4" (click)="showDobErrorMessage=''">
+                              <select name="select" ngControl="patientBirthDay"
+                                      [ngClass]="{invalid:patientBirthDay.touched || attemptSubmit}"
+                                      id="patientBirthDay" #patientBirthDay="ngForm">
+                                <option selected value="day">{{dayValue || 'Day'}}</option>
+                                <option *ngFor="let day of days">{{day}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-4 padding-l0" (click)="showDobErrorMessage=''">
+                              <select name="select" ngControl="patientBirthYear"
+                                      [ngClass]="{invalid:patientBirthYear.touched || attemptSubmit}"
+                                      id="patientBirthYear" #patientBirthYear="ngForm">
+                                <option selected value="Year">{{yearValue || 'Year'}}</option>
+                                <option *ngFor="let year of years">{{year}}</option>
+                              </select>
+                            </div>
+                          </div>
+                      <span
+                        *ngIf="(customizeLens.controls['progressive'].controls['_callMyDoctorGroup'].controls['patientDateOfMonth'].hasError('required') || customizeLens.controls['progressive'].controls['_callMyDoctorGroup'].controls['patientBirthDay'].hasError('required') || customizeLens.controls['progressive'].controls['_callMyDoctorGroup'].controls['patientBirthYear'].hasError('required'))  &&  attemptSubmit"
+                        class="display-b error text-small">{{validationMessages._validateDob.required}}</span>
+                          <span class="error text-small" *ngIf="showDobErrorMessage">{{showDobErrorMessage}}</span>
+                        </div>
+                        <p class="small">
+                          <small>We need the eyewear patient's date of birth because some offices require this
+                            information
+                            to release the prescription
+                          </small>
+                        </p>
+
+                        <div class="prescription" *ngIf="rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+                        </div>
+
+                        <!-- kiosk mode - show pd (call my doctor)-->
+                        <div class="form-group" ngControlGroup="pupillaryDistance" *ngIf="isKioskMode">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                    <li>
+
+                      <!--Label (Digital copy)-->
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'progressiveDigitalCopy'}">
+                        <input [checked]="selectedLens == 'progressiveDigitalCopy'" id="radio4" name="radio"
+                               type="radio" (click)="selectLens('progressiveDigitalCopy')"
+                               ngControl="uploadDigitalCopy" #uploadDigitalCopy="ngForm">
+                        <span class="c-indicator"></span>
+                        I'LL UPLOAD A DIGITAL COPY
+                      </label>
+
+                      <!--Value (digital copy)-->
+                      <div class="form-group" *ngIf="selectedLens == 'progressiveDigitalCopy'"
+                           ngControlGroup="_uploadDigitalCopyGroup">
+                        <input type="file" class=" custom-file-input" id="uploadFileprogressive" accept=".pdf,.docx,image/*"
+                               [ngClass]=" {invalid:attemptSubmit}" (change)="fileUpload($event)"
+                               ngControl="uploadFile" #uploadFile="ngForm" required="required">
+                        <span
+                          *ngIf="(customizeLens.controls['progressive'].controls['_uploadDigitalCopyGroup'].controls['uploadFile'].hasError('required')) && (attemptSubmit)"
+                          class="error text-small">{{validationMessages.rxFile.required}}</span>
+
+                        <div class="prescription" *ngIf="rx_product && !rx_product.is_sun">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="isHighIndex"
+                                   (change)="changeEvent(selectedGroup,selectedLens)"
+                                   name="highIndex" ngControl="highIndex" #highIndex="ngForm">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+                        </div>
+
+                        <!-- kiosk mode - show pd (digital copy)-->
+                        <div class="form-group" ngControlGroup="pupillaryDistance" *ngIf="isKioskMode">
+                          <p>
+                            <small>PUPILLARY DISTANCE (IF YOU HAVE IT)</small>
+                          </p>
+                          <div class="row">
+                            <div class="col-xs-3 padding-r0">
+                              <label class="text-xsmall">
+                                BINOCULAR
+                              </label>
+                              <select name="select7" ngControl="binocular" id="pupillaryDistance" #binocular="ngForm">
+                                <option selected value="">{{pdBinoValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.binocular">{{data}}
+                                </option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3">
+                              <label>
+                                &nbsp;
+                              </label>
+
+                              <p class="text-small margin-t10 margin-b5 text-xs-center">OR</p>
+                            </div>
+
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                RIGHT
+                              </label>
+                              <select name="select8" ngControl="right" id="right" #right="ngForm">
+                                <option selected value="">{{pdRightValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.right">{{data}}</option>
+                              </select>
+                            </div>
+                            <div class="col-xs-3 padding-l0">
+                              <label class="text-xsmall">
+                                LEFT
+                              </label>
+                              <select name="select9" ngControl="left" id="left" #left="ngForm">
+                                <option selected value="">{{pdLeftValue || '--'}}</option>
+                                <option *ngFor="let data of prescriptionData.pupillaryDistance.left">{{data}}</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!--Reading Glasses-->
+              <div class="panel panel-default" *ngIf="rx_product && !rx_product.is_sun">
+                <div class="panel-heading" role="tab" id="headingThree" [ngClass]="{'disable-click':selectedGroup == 'reading'}">
+                  <a class="heading btn btn-outline text-xs-left" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
+                     (click)="clickToggle('reading')">
+                    Reading glasses
+                  </a>
+                </div>
+                <div *ngIf="selectedGroup == 'reading'" id="collapseThree"
+                     [ngClass]="{'in':selectedGroup == 'reading' && !clickedToggle && !isExistingRx}"
+                     class="btn-outline panel-collapse collapse"
+                     role="tabpanel" aria-labelledby="headingThree">
+                  <div class="dropdown-content">
+                    <!--Reading-->
+                    <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'reading'}">
+                      <input #readingGlasses [checked]="selectedLens == 'reading'" id="radio2" name="radio" type="radio"
+                             ngControl="reading" (click)="selectLens('reading')">
+                      <span class="c-indicator"></span>
+                      READING GLASSES
+                    </label>
+
+                    <div class="form-group overflow-h" *ngIf="selectedLens == 'reading'" ngControlGroup="readingGroup">
+                      <p>Select reading glasses strength</p>
+                      <select name="select" name="glassesStrength"
+                              [ngClass]="{invalid:glassesStrength.touched || attemptSubmit}" id="glassesStrength"
+                              class="reading" ngControl="glassesStrength" #glassesStrength="ngForm">
+                        <option selected value="">{{lensStrengthValue || '+0.00'}}</option>
+                        <option *ngFor="let data of prescriptionData.readingGlasses">{{data}}</option>
+                      </select>
+                     <span
+                       *ngIf="(customizeLens.controls['readingGroup'].controls['glassesStrength'].hasError('required')) && (glassesStrength.touched || attemptSubmit)"
+                       class="display-b clear error text-small">{{validationMessages.readingStrength.required}}</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!--Non Corrective Lenses-->
+              <div class="panel panel-default" *ngIf="rx_product && !rx_product.is_sun">
+                <div class="panel-heading" role="tab" id="headingFour" [ngClass]="{'disable-click':selectedGroup == 'nonPrescription'}">
+                  <a class="heading btn btn-outline text-xs-left" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
+                     (click)="clickToggle('nonPrescription')">
+                    Non Prescription
+                  </a>
+                </div>
+                <div *ngIf="selectedGroup == 'nonPrescription'"
+                     [ngClass]="{'in':selectedGroup == 'nonPrescription' && !clickedToggle && !isExistingRx}" id="collapseFour"
+                     class="btn-outline panel-collapse collapse overflow-h" role="tabpanel"
+                     aria-labelledby="headingFour">
+                  <div class="dropdown-content">
+                    <div class="col-xs-12">
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'noCorrectiveLens'}">
+                        <input [checked]="selectedLens == 'noCorrectiveLens'" id="radio4" name="radio"
+                               ngControl="planoLens" type="radio"
+                               (click)="selectLens('noCorrectiveLens')">
+                        <span class="c-indicator"></span>
+                        Non-Corrective (plano) lenses
+                      </label>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedLens == 'noLenses'}">
+                        <input [checked]="selectedLens == 'noLenses'" id="radio4" name="radio" ngControl="noLens"
+                               type="radio"
+                               (click)="selectLens('noLenses')">
+                        <span class="c-indicator"></span>
+                        No Lenses
+                      </label>
+                    </div>
+
+                    <!--                    &lt;!&ndash;On hand demo frames&ndash;&gt;
+
+                                        <div class="col-xs-12" *ngIf="isKioskMode">
+                                          <label class="c-input c-radio">
+                                            <input [checked]="selectedLens == 'onHandDemoFrames'" id="radio4" name="radio" ngControl="onHand" type="radio"
+                                                   (click)="selectLens('onHandDemoFrames')">
+                                            <span class="c-indicator"></span>
+                                            On-Hand demo frames
+                                          </label>
+                                        </div>-->
+                  </div>
+                </div>
+              </div>
+
+              <!--Previous Prescriptions-->
+              <div *ngIf="userInfo && userInfo.rx && userInfo.rx.length && !isKioskMode" class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOnePrevious" [ngClass]="{'disable-click':selectedGroup == 'RX_EXISTING'}">
+                  <a class="heading btn btn-outline text-xs-left" data-toggle="collapse" data-parent="#accordion"
+                     href="#collapseSix" aria-expanded="true" aria-controls="collapseSix" (click)="clickToggle('RX_EXISTING')">
+                    Previous Prescriptions
+                  </a>
+                </div>
+
+                <div *ngIf="isExistingRx" id="collapseSix" [ngClass]="{'in': !clickedToggle && isExistingRx}"
+                     class="btn-outline panel-collapse collapse" role="tabpanel" aria-labelledby="headingOnePrevious">
+                  <ul class="dropdown-content">
+                    <li *ngFor="let _rx of userInfo.rx; let i=index">
+                      <label class="c-input c-radio" [ngClass]="{'radio-selected':selectedRxIndex[i]}">
+                        <input name="radio" id="radio5" [checked]="selectedRxIndex[i] && isExistingRx" type="radio"
+                               (click)="setSelectedRxIndex(i)">
+                        <span class="c-indicator"></span>
+                        <span *ngIf='_rx?.name_on_rx'>{{(_rx?.rx_type!=='RX_UPLOAD')? _rx.name_on_rx+"'s Prescription" : _rx.name_on_rx+" Prescription"}}</span>
+                        <span *ngIf='!_rx?.name_on_rx'>Prescription</span>
+                        <br/>
+                        <span *ngIf="_rx?.rx_type==='RX_UPLOAD'" class="sub-heading">Uploaded on <strong>{{moment(_rx.created_at).format('MM/DD/YYYY')}}</strong></span>
+                        <span *ngIf="_rx?.rx_type==='RX_READING'" class="sub-heading">Entered on <strong>{{moment(_rx.created_at).format('MM/DD/YYYY')}}</strong></span>
+                      </label>
+
+                      <div class="col-md-12" *ngIf="selectedRxIndex[i] && rx_product && !rx_product.is_sun">
+                        <div class="prescription">
+                          <p class="text-small">Do you have a very strong prescription?</p>
+                          <label class="hover-underline c-input c-checkbox">
+                            <input type="checkbox" [checked]="_rx.is_high_index" [(ngModel)]="_rx.is_high_index" name="highIndex">
+                            <span class="c-indicator"></span>
+                            Yes, please use thinner (high-index) lenses
+                            and add $30 to my order total if necessary
+                          </label>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-md-4 wrapper">
+            <div class="card" *ngIf="rx_product">
+              <div>
+                <img src="{{rx_product.imageUrl}}" class="img-fluid centralised" alt="{{rx_product.name}}">
+
+                <div class="card-block">
+                  <h3 class="card-title">{{rx_product.name}}</h3>
+
+                  <p class="card-text">{{rx_product.color}}</p>
+
+                  <p class="card-text">
+                    <small><strong>Price: ${{lensPrice || rx_product_price}}</strong></small>
+                  </p>
+
+                  <p class="card-text">
+                    <small><strong>{{lensDescription}}</strong></small>
+                  </p>
+                </div>
+              </div>
+              <button id="continueCustomizeLense" *ngIf="selectedLens.length||isExistingRx" class="btn-primary display-ib" (click)="submitForm()">Continue to Shipping
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </section>
+</section>

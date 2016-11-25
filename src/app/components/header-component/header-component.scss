@@ -1,0 +1,315 @@
+@import "../../../assets/scss/include";
+
+/* Header container
+---------------------------------*/
+:host {
+  @include header();
+
+  /* Top header
+  ---------------------------------*/
+  .top-header {
+    @include topHeader();
+    -webkit-transition: 0.7s;
+  }
+
+  #hide-header{
+    margin-top:-36px;
+  }
+  #show-header{
+    margin-top:0;
+  }
+
+  @include viewport(medium) {
+    p {
+      @include topColor;
+      text-transform: uppercase;
+      margin: 0;
+      padding: 10px 0;
+    }
+  }
+
+
+  /* Kiosk mode
+ ---------------------------------*/
+  .kiosk-mode{
+    padding: 20px 0 0;
+    clear: both;
+    float: none;
+    text-align: center !important;
+    text-transform: uppercase;
+
+    @include viewport(small){
+      float: left;
+      text-align: left !important;
+      clear: inherit;
+      margin: 0 50px;
+    }
+    @include viewport(medium){
+      padding: 22px 0 0;
+    }
+
+    h1{
+      line-height: 0;
+    }
+  }
+  .kiosk-enable {
+    float: left;
+  }
+
+
+  /* Logo
+  ---------------------------------*/
+  .logo-wrapper {
+    width: 100%;
+    float: left;
+    text-align: center;
+    padding: 2px 0 10px;
+    @include viewport(desktop) {
+      padding: 2px 0 19px;
+    }
+    background-color: $primary-base-inverted;
+
+    position: relative;
+    .logo {
+      padding: 13px 0 0;
+      display: inline-block;
+      .disabled{
+        pointer-events: none;
+      }
+      @include viewport(desktop) {
+        float: left !important;
+      }
+      @include viewport(ipadLandscape) {
+        float: left !important;
+      }
+      margin: auto;
+      a {
+        float: left;
+        img {
+          width: 100%;
+          max-width: 240px;
+          padding: 0 7px;
+          @include viewport(medium) {
+            max-width: 310px;
+            padding: 0;
+          }
+        }
+      }
+    }
+
+    /* Right navigation
+    ---------------------------------*/
+    .right-nav {
+      position: absolute;
+      top: 8px;
+      right: 4px;
+      @include viewport(desktop) {
+        position: static;
+      }
+      ul.list-inline {
+        li {
+          @include viewport(medium) {
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+          display: inline-block;
+          > a {
+            @include navigation;
+            display: none;
+            @include viewport(desktop) {
+              display: inline-block;
+              text-indent: 0;
+            }
+            @include viewport(ipadLanscape) {
+              display: inline-block;
+              text-indent: 0;
+            }
+            &.bag {
+              &.disabled {
+                pointer-events: none;
+              }
+              @include icon($bag-width, $bag-height, $bag-offset-x, $bag-offset-y);
+              display: block;
+              text-indent: 29px;
+              padding-top: 10px;
+              span {
+                display: none;
+
+                @include viewport(desktop) {
+                  display: inline-block;
+                  text-indent: 0;
+
+                }
+              }
+            }
+            & {
+              text-indent: -9999px;
+            }
+            @include viewport(medium) {
+              &.sign-in {
+                @include icon($subscribe-width, $subscribe-height, $subscribe-offset-x, $subscribe-offset-y);
+
+              }
+              &.subscribe {
+                @include icon($sign-in-width, $sign-in-height, $sign-in-offset-x, $sign-in-offset-y);
+              }
+              &.bag {
+                @include icon($bag-width, $bag-height, $bag-offset-x, $bag-offset-y);
+              }
+              & {
+                text-indent: -9999px;
+                margin: 10px 0;
+                float: left;
+                display: block;
+                position: static;
+              }
+            }
+            @include viewport(desktop) {
+              &.bag,
+              &.sign-in,
+              &.subscribe {
+                text-indent: 0;
+                margin: 0;
+                overflow: hidden;
+                display: block;
+                position: static;
+                background: none;
+                width: auto;
+                height: auto;
+              }
+            }
+          }
+        }
+        li:last-child {
+          margin-right: 10px;
+          padding: 0;
+
+          @include viewport(medium) {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  /* Navigation bar
+  ---------------------------------*/
+  .navbar {
+    padding: 0;
+    width: 100%;
+    .navbar-toggler {
+      margin-top: 10px;
+      padding: 0;
+    }
+    .navbar-toggleable-sm {
+      width: 100%;
+      float: left;
+      clear: both;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      position: absolute;
+      top: 100%;
+      z-index: 111;
+      background: $primary-base-inverted;
+      @include viewport(ipadPortrait) {
+        text-align: center;
+      }
+      @include viewport(ipadLandscape) {
+        text-align: left !important;
+      }
+      @include viewport(medium) {
+        border: none;
+        position: static;
+        height: auto !important;
+
+      }
+      ul.navbar-nav {
+        width: 100%;
+        float: left;
+        margin-left: 0;
+        padding-bottom: 20px;
+        max-height: 480px;
+        @include viewport(mobileLandscape) {
+          max-height: 200px;
+        }
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        background: $primary-base-inverted;
+        @include viewport(medium) {
+          padding-bottom: 0;
+        }
+        li {
+          display: block;
+          float: none;
+          text-align: left;
+          margin-left: 0;
+          @include viewport(large) {
+            float: left;
+          }
+          @include viewport(ipadOnly) {
+            display: inline-block;
+            float: none;
+          }
+          a {
+            display: block;
+            padding: 10px;
+            @include navigation;
+            @include viewport(medium) {
+              display: inline-block;
+            }
+          }
+          &:first-child a {
+            @include viewport(medium){
+              padding: 10px 0;
+            }
+          }
+        }
+        li.active {
+
+          a {
+            outline: none;
+            &:hover {
+              background-color: #fff;
+              text-decoration: none;
+            }
+            &:focus{
+              outline: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Navigation bar default
+  ---------------------------------*/
+  .navbar-default {
+    margin-bottom: 0;
+    border: none;
+    clear: both;
+    background-color: $primary-base-inverted;
+    @include viewport(medium) {
+      position: static;
+    }
+    .navbar-nav li.active a{
+      border: solid 1px $border-primary-base;
+      @include viewport(medium){
+        border:none;
+      }
+    }
+    .navbar-nav li a {
+      color: $primary-nav-link;
+      text-transform: uppercase;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    @include viewport(ipadOnly) {
+      .navbar-toggleable-sm ul {
+        display: inline-block;
+      }
+    }
+  }
+}
+

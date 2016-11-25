@@ -1,0 +1,59 @@
+<!--Cart
+--------------------------------->
+<loader [overlay]="true" *ngIf="enableLoader"></loader>
+<section class="main-wrapper">
+  <section class="inner-wrapper">
+    <!--checkout-review-cart-body-->
+    <div class="checkout-body" *ngIf="rxItems && rxItems.length">
+      <div class="row padding-t20" *ngFor="let item of rxItems;let index = index;">
+        <div class="col-md-6 col-xs-6 col-sm-6">
+          <div class="col-md-6 col-sm-6">
+            <img class="img-fluid" width="100%" [attr.src]="item.img_url" [alt]="item.name">
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <h2 class="text-uppercase">{{item.name}}</h2>
+
+            <p class="text-uppercase"><em>{{item.color}}</em></p>
+          </div>
+        </div>
+        <div class="col-md-6 col-xs-6 col-sm-6">
+          <div class="col-md-6 col-xs-6 col-sm-6">
+            <p class="text-xsmall margin-b5 text-uppercase">{{lensType[item.rx_lens_type]}}</p>
+
+            <p class="text-xsmall margin-b5">
+              <strong *ngIf=" item.rx_type === 'RX_READING' && item.rx_lens_type === 'READING_LENS' ">+{{item.left.sphere}}</strong>
+              <strong *ngIf=" item.rx_type === 'RX_ENTER_NOW' ">{{item.name_on_rx}}</strong>
+              <strong>{{rx_Options[item.rx_type]}}</strong>
+              <a href="javaScript:void(0);" class="margin-l10 text-uppercase text-decoration-underline"
+                 *ngIf="item.rx_type === 'RX_UPLOAD' " data-toggle="modal" data-target="#imageModal"
+                 (click)="showImage(index)">View</a>
+              <a href="javaScript:void(0);" class="margin-l10 text-uppercase text-decoration-underline"
+                 *ngIf="item.rx_type === 'RX_ENTER_NOW' " (click)="show[index] = !show[index]">{{show[index] ? "Hide" :
+                "Show"}}</a>
+            </p>
+            <ul *ngIf="item.rx_type === 'RX_ENTER_NOW' && show[index] ">
+              <li>
+                <small>OD: {{item.right.sphere}} | {{item.right.axis}} | {{item.right.cylinder}}</small>
+              </li>
+              <li>
+                <small>OS: {{item.left.sphere}} | {{item.left.axis}} | {{item.left.cylinder}}</small>
+              </li>
+              <li>
+                <small>PUP. DIST: {{item.pd.bino || '--'}} | {{item.pd.mono_right || '--'}} | {{item.pd.mono_left || '--'}}</small>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-xs-6 col-sm-6">
+            <small><a href="javaScript:void(0);" class="display-b text-decoration-underline"
+                      [routerLink]="['/checkout/customize/' + item.rx_id + '/edit']">EDIT OPTIONS</a></small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="btn-primary" id="continueReview" type="button" [routerLink]="['/checkout/shipping']">Continue</button>
+  </section>
+</section>
+
+<image-modal *ngIf="isRxImage" [modalId]="showModalId" [imageData]="imageData" ></image-modal>
+

@@ -1,0 +1,27 @@
+@import "../../../assets/scss/include";
+
+.ditto {
+
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+  display: inline-block;
+  @include viewport(medium){
+    width: 400px;
+    height: 300px;
+  }
+}
+.align-center{
+  text-align: center;
+}
+.hidden{
+  display: none;
+}
+
+@include iframe-ditto;
+
+#recorder-slide > .ready-overlay > a{
+  @include viewport(medium){
+     bottom:15px;
+  }
+}

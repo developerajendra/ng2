@@ -1,0 +1,32 @@
+/* Top header
+-------------------------------*/
+@mixin  topHeader{
+  display: none;
+  @include viewport(ipadLandscape) {
+    display: block;
+    width: 100%;
+    background-color: $primary-base;
+    color: blue;
+  }
+}
+
+@mixin topColor{
+  color: $primary-text-inverted;
+}
+
+
+/* Header
+-------------------------------*/
+@mixin header{
+  background: $primary-base-inverted;
+  width: 100%;
+  position: fixed;
+  top:0;
+  z-index: $z-index2;
+}
+
+@mixin  navigation{
+  text-transform: uppercase;
+  color: $primary-nav-link;
+  font-family: $font-stack-heavy;
+}

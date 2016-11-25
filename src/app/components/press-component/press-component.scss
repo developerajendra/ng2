@@ -1,0 +1,19 @@
+@import "../../../assets/scss/include";
+
+dd{
+  font-size: $text-small;
+  margin-bottom: 0;
+}
+img{
+  margin:10px auto;
+}
+.press-head{
+  text-align: center;
+}
+.bottom-border{
+  padding:0 15px;
+  border-bottom: 2px solid $primary-base;
+}
+.read-more{
+  font-family: $font-stack-heavy;
+}

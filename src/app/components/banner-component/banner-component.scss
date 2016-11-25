@@ -1,0 +1,20 @@
+@import "../../../assets/scss/include";
+
+/*Plain Banner
+---------------------------------*/
+.banner-plain {
+  margin: 20px 0 40px;
+  img {
+    @include banner-img();
+  }
+}
+
+h1{
+  letter-spacing: -.4vw;
+  line-height: .96em;
+  position: absolute;
+  padding:9% 4% !important;
+  font-size: 7vw !important;
+  top: 0;
+  color:$primary-base-inverted;
+}

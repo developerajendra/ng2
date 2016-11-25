@@ -1,0 +1,162 @@
+@import "../../../assets/scss/include";
+
+/*Tabs navigation
+---------------------------*/
+ul.tabs-navigation {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+  @include viewport(medium) {
+    display: table;
+    text-align: left;
+  }
+  li {
+    display: block;
+    padding: 5px;
+    @include viewport(medium) {
+      display: table-cell;
+      padding: 15px;
+    }
+    a {
+      color: $primary-base;
+      text-transform: uppercase;
+      &.active {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+a.add-new {
+  color: $primary-base;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: $text-small;
+}
+
+/*User Account Structure
+-----------------------------------*/
+.row {
+  margin-top: 30px;
+  p {
+    margin-bottom: 0;
+  }
+  a {
+    text-decoration: underline;
+    color: $primary-text;
+    font-size: $text-small;
+  }
+  [class^='col-'] {
+    [class^='col-'] {
+      padding: 0;
+    }
+  }
+}
+
+hr {
+  margin: 10px 0;
+}
+
+/*Address details
+----------------------------------*/
+dl {
+  dd {
+    margin-bottom: 0;
+    font-size: $text-small;
+  }
+}
+
+/* Product details dialog box
+-------------------------------*/
+.rx-modal {
+  .modal-dialog {
+    @include overlayBackground();
+    @include overlayWidth();
+  }
+
+  .modal-body {
+    max-height: 550px;
+    overflow: hidden;
+    overflow-y: auto;
+  }
+
+  .modal-content,
+  .modal-footer,
+  .modal-header {
+    border: none;
+    text-align: left;
+    @include overlayBackground();
+    img{
+      width:100%;
+    }
+  }
+
+  .modal-content,
+  .modal-footer,
+  .modal-body {
+    padding-top: 0;
+  }
+  .modal-content,
+  .modal-footer,
+  .modal-body,
+  .modal-header {
+    .row {
+      margin-top: 0;
+    }
+    padding-bottom: 0;
+  }
+}
+
+
+.pupillary-distance{
+  margin: 0;
+  padding: 20px 0 0;
+}
+
+/*customised file input
+---------------------------------*/
+.custom-file-input {
+  color: $primary-text;
+  margin:10px 0;
+  width:100%;
+  margin-left: 25px;
+  .input-file {
+    opacity: 0;
+    position: absolute;
+    left: 15px;
+    width: 100%;
+  }
+}
+.custom-file-input::-webkit-file-upload-button {
+  visibility: hidden;
+  padding: 4px 20px 0;
+}
+.custom-file-input::before {
+  content: 'Upload a file';
+  color: $primary-text-inverted;
+  display: inline-block;
+  background-color: $primary-base;
+  border-radius: 0;
+  padding: 4px 12px;
+  height:30px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  font-weight: 700;
+  border:0;
+  position: relative;
+  left:-27px;
+}
+
+.custom-file-input:active {
+  outline: 0;
+}
+.custom-file-input:active::before {
+  background-color:$primary-base;
+  color: $primary-text-inverted;
+}
+.enter-it-now .right-od,.enter-it-now .left-os{
+  padding: 0;
+}

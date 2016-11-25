@@ -1,0 +1,38 @@
+@mixin continue-shopping(){
+  color: $primary-nav-link-inverted;
+  font-size: $text-xsmall;
+}
+
+@mixin placeholder{
+  ::-webkit-input-placeholder {
+    color: $primary-text-inverted;
+    opacity: 1;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    color: $primary-text-inverted;
+    opacity: 1;
+  }
+
+  ::-moz-placeholder {  /* Firefox 19+ */
+    color: $primary-text-inverted;
+    opacity: 1;
+  }
+
+  :-ms-input-placeholder {
+    color: $primary-text-inverted;
+    opacity: 1;
+  }
+
+}
+
+@mixin overlay-container{
+  color: $primary-text-inverted;
+  p {
+    color: $primary-text-inverted;
+  }
+}
+
+@mixin modal-content{
+  background: $primary-overlay-base;
+}
