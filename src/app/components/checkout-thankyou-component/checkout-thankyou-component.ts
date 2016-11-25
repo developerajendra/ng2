@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, OnDestroy, ElementRef} from "@angular/core";
-import {Router} from "@angular/router";
+import {ROUTER_DIRECTIVES,Router} from "@angular/router";
 import {CartService, CookiesService} from "../../services";
 import {BreadCrumbComponent} from "../breadcrumb-component";
 import {AppConstants} from "../../constants/app-constants";
