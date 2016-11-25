@@ -3,6 +3,7 @@
  */
 
 import {Component, OnInit, ElementRef} from '@angular/core';
+import {MetaService} from "ng2-meta";
 
 /**
  * Importing custom components
@@ -49,7 +50,7 @@ export class LocationComponent implements OnInit {
    * constructor() used to initialize class level variables
    */
 
-  constructor(private location:StaticDataService, private elementRef:ElementRef) {
+  constructor(protected metaService: MetaService, private location:StaticDataService, private elementRef:ElementRef) {
 
   }
 
@@ -78,6 +79,7 @@ export class LocationComponent implements OnInit {
       .then((data)=> {
         this.data = data;
         this.cities = data.cities;
+        this.setMetaTags(data);
         changeStatus();
       }, error => {
         changeStatus();
@@ -95,4 +97,15 @@ export class LocationComponent implements OnInit {
       $('body, html').animate({scrollTop: this.diff}, 1000);
     }
   }
+
+  /**
+   * setMetaTags() used to get metatags form JSON
+   *
+   */
+
+  setMetaTags(data) {
+    this.metaService.setTitle(data.pageTitle);
+    this.metaService.setTag('description', data.metaDescription);
+  }
+
 }

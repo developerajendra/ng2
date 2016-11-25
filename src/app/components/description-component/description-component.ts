@@ -3,6 +3,7 @@
  */
 
 import {Component, Input, OnInit} from '@angular/core';
+import {Router, ROUTER_DIRECTIVES, NavigationStart} from '@angular/router';
 
 /**
  * Importing custom components
@@ -34,7 +35,7 @@ export class DescriptionComponent implements OnInit {
    * constructor() used to initialize class level variables
    */
 
-  constructor(private description:StaticDataService) {
+  constructor(private description:StaticDataService, private _router:Router) {
   }
 
   /**
@@ -65,9 +66,20 @@ export class DescriptionComponent implements OnInit {
    */
 
   setDescription(_data){
-    _data.map((data)=>{
+    _data && _data.map((data)=>{
       if(data.contentId == this.contentId){
         this.content = data;
+      }
+    })
+  }
+
+  ngAfterViewInit(){
+    let sub:any = this._router.events.subscribe((event)=>{
+      if(event instanceof NavigationStart){
+
+        setTimeout(() => {
+          this.getDescription();
+        }, 1000);
       }
     })
   }

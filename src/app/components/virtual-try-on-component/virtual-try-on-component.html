@@ -1,9 +1,9 @@
 <section class="main-wrapper">
-  <h1 class="text-xs-center border-heading">VIRTUAL TRY - ON</h1>
+  <h1 class="text-xs-center border-heading">{{data?.title}}</h1>
 
   <section class="inner-wrapper">
     <p class="text-xs-center">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+      {{data?.description}}
     </p>
     <div class="video-handler">
       <div class="video-head">
@@ -35,4 +35,4 @@
 <!-- Component Plain Banner -->
 <plain-banner [imageFor]="'vto'" [image]="'footerImages'" [altFor]="'vto'" [alt]="'footerAltText'" id="vtoBannerBottom"></plain-banner>
 <!--Component description-->
-<page-description [contentId]="'landing'"></page-description>
+<page-description [contentId]="'vto'"></page-description>

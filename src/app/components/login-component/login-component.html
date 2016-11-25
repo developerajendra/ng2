@@ -1,12 +1,12 @@
 <loader [overlay]="true" *ngIf="enableLoader"></loader>
 <section class="main-wrapper ">
-  <h1 class="text-xs-center border-heading">{{pageTitle.login_pageTitle}}</h1>
+  <h1 class="text-xs-center border-heading">{{title?.login_pageTitle}}</h1>
   <div class="inner-wrapper">
     <p class="contact-us" [innerHtml]="staticMsgs.contactUs"></p>
     <div class="row">
       <div class="col-md-6 divider">
         <div class="wrapper pull-md-left">
-          <h1 >new customers</h1>
+          <h1>new customers</h1>
           <p class="text-xs-center text-small text-sm-center text-md-left"  [innerHtml]="staticMsgs.guestMessage"></p>
 
           <a id="createAnAccount" class="btn-primary account width-auto" [routerLink]="['/register-user']">{{staticMsgs.createAccount}}</a>

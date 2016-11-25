@@ -20,7 +20,6 @@ import { MetaService ,MetaConfig } from 'ng2-meta';
 
 
 import { AppComponent } from './app';
-import { TestComponent } from './components/test-component';
 import { HeaderComponent,BannerComponent, FooterComponent} from './components';
 
 
@@ -62,7 +61,6 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent,
     BannerComponent,
     HeaderComponent,
     FooterComponent

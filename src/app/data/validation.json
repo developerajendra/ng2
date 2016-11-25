@@ -74,7 +74,7 @@
       }
     },
     "reset_pageTitle": "Reset your password",
-    "login_pageTitle": "Sign In",
+    "login_pageTitle": "Secure Sign In",
     "register_pageTitle": "Create an account",
     "illegalPasswords": [
       "password",
@@ -417,7 +417,9 @@
     "createAccount"  : "create your account",
     "returningTitle"  : "returning customer",
     "loginDescriptionTitle"  : "Why Login?",
-    "loginDescription"  : ["lorem ipsum..","lorem ipsum..","lorem ipsum..","lorem ipsum.."]
+    "pageTitle":" Sign In | alice + olivia eyewear",
+    "metaDescription":"Log into your alice + olivia eyewear account for saved order history, shipping information, and prescription information.",
+    "loginDescription"  : ["Fast and Secure SSL encrypted checkout","Real-time order tracking","Saved prescription and order history"]
 
   },
   "contactUs" : "Contact us by '<a href=\"mailto:hello@classicspecs.com\">hello@classicspecs.com</a>' any time, or by phone at 888.509.5499 Monday-Friday , 9am to 6pm EST."

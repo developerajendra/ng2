@@ -20,7 +20,7 @@
           <div [id]="'heading'+i" class="btn-outline panel-collapse collapse" [ngClass]="{in:item.defaultOpen}" role="tabpanel" aria-labelledby="headingOne">
             <dl class="question-answer text-xs-left text-small"  [ngClass]="{'search-element':list.selected}"  *ngFor="let list of item.questions">
               <dt class="question text-medium">{{list.question}}</dt>
-              <dd class="answer">{{list.answer}}</dd>
+              <dd class="answer" [innerHTML]="list.answer"></dd>
             </dl>
           </div>
         </seciton>
@@ -41,7 +41,7 @@
           <div [id]="'heading'+i" class="btn-outline panel-collapse collapse" [ngClass]="{in:item.defaultOpen}" role="tabpanel" aria-labelledby="headingOne">
             <dl class="question-answer text-xs-left text-small"  [ngClass]="{'search-element':list.selected}"  *ngFor="let list of item.questions">
               <dt class="question text-medium">{{list.question}}</dt>
-              <dd class="answer">{{list.answer}}</dd>
+              <dd class="answer" [innerHTML]="list.answer"></dd>
             </dl>
           </div>
         </seciton>
@@ -62,7 +62,7 @@
           <div [id]="'heading'+i" class="btn-outline panel-collapse collapse" [ngClass]="{in:item.defaultOpen}" role="tabpanel" aria-labelledby="headingOne">
             <dl class="question-answer text-xs-left text-small"  [ngClass]="{'search-element':list.selected}"  *ngFor="let list of item.questions">
               <dt class="question text-medium">{{list.question}}</dt>
-              <dd class="answer">{{list.answer}}</dd>
+              <dd class="answer" [innerHTML]="list.answer"></dd>
             </dl>
           </div>
         </seciton>

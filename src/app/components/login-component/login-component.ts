@@ -3,6 +3,7 @@
  */
 
 import {Component, OnInit} from '@angular/core';
+import {MetaService} from "ng2-meta";
 
 /**
  * Importing app level constants
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
   disabled:boolean = false;
   validationMessages:any;
   private currentUrl:any = null;
-  pageTitle:string;
+  title:string;
   staticMsgs:any = null;
   enableLoader:boolean = false;
 
@@ -57,11 +58,11 @@ export class LoginComponent implements OnInit {
    * @param _router
    */
 
-  constructor(private _staticDataService:StaticDataService, private _formBuilder:FormBuilder, private _userService:UserService, private _cookie:CookiesService, private _router:Router) {
+  constructor(private metaService: MetaService,private _staticDataService:StaticDataService, private _formBuilder:FormBuilder, private _userService:UserService, private _cookie:CookiesService, private _router:Router) {
     this._staticDataService.getDataValidation().then(data=> {
       this.validationMessages = data.auth.validation.login,
         this.staticMsgs = data.signIn,
-        this.pageTitle = data.auth
+        this.title = data.auth
     }, error=>{/*console.log(error)*/});
     let login_cookie:any = this._cookie.getCookie(AppConstants.LOGIN_COOKIE);
     this.loginForm = this._formBuilder.group({
@@ -84,6 +85,10 @@ export class LoginComponent implements OnInit {
         changeStatus();
       }
     );
+
+    this.setMetaTags(this.staticMsgs);
+
+
   }
 
   /**
@@ -134,6 +139,16 @@ export class LoginComponent implements OnInit {
         this._userService.setIsLoggedIn$(false);
         this.disabled = false;
       });
+  }
+
+  /**
+   * setMetaTags() used to get metatags form JSON
+   *
+   */
+
+  setMetaTags(data) {
+    this.metaService.setTitle(data.pageTitle);
+    this.metaService.setTag('description', data.metaDescription);
   }
 
 }

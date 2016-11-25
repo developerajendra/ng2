@@ -3,6 +3,7 @@
  */
 
 import {Component, OnInit, ElementRef} from "@angular/core";
+import {MetaService} from "ng2-meta";
 import {StaticDataService} from "../../services";
 import {BannerComponent} from "../banner-component";
 import {Title} from "@angular/platform-browser";
@@ -38,14 +39,12 @@ declare var jQuery: any;
 export class FaqComponent implements OnInit {
 
   private data: any = [];
-  pageTitle: string = 'FAQ';
 
   /**
    * constructor() used to initialize class lavel variables
    */
 
-  constructor(protected faq: StaticDataService, protected elementRef: ElementRef, protected _title: Title) {
-    _title.setTitle(TenantConstant.DOMAIN_NAME + ' - ' + this.pageTitle);
+  constructor(protected metaService: MetaService, protected faq: StaticDataService, protected elementRef: ElementRef) {
   }
 
   /**
@@ -64,6 +63,7 @@ export class FaqComponent implements OnInit {
     this.faq.getFaq()
     .then((data) => {
       this.data = data;
+      this.setMetaTags(data);
       changeStatus();
     }, error => {
       changeStatus();
@@ -94,6 +94,17 @@ export class FaqComponent implements OnInit {
       });
       data.selected = data.selected || selected;
     })
+  }
+
+
+  /**
+   * setMetaTags() used to get metatags form JSON
+   *
+   */
+
+  setMetaTags(data) {
+    this.metaService.setTitle(data.pageTitle);
+    this.metaService.setTag('description', data.metaDescription);
   }
 
 }

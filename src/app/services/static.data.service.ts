@@ -1,7 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Headers, Http, Response} from "@angular/http";
-import 'rxjs/add/operator/toPromise';
-
+import {Http, Response} from "@angular/http";
 
 /**
  * @Injectable() for static.data.service
@@ -104,6 +102,24 @@ export class StaticDataService {
 
   getFaq() {
     return this.getData("faq.json");
+  }
+
+  /**
+   * getVto() used get the vto json data
+   * @returns {Observable<R>}
+   */
+
+  getVto() {
+    return this.getData("vto.json");
+  }
+
+  /**
+   * getProductListing() used get the vto json data
+   * @returns {Observable<R>}
+   */
+
+  getProductListing() {
+    return this.getData("productListing.json");
   }
 
   /**

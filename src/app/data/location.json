@@ -1,81 +1,149 @@
 {
+  "pageTitle":"Find eyeglasses & sunglasses stores | alice + olivia eyewear",
+  "metaDescription":"Find alice + olivia stores that carry the entire alice + olivia eyewear eyeglasses and sunglasses collection.",
   "cities" : [
     {
-      "city_name" : "Newyork",
+      "city_name" : "California",
       "stores" : [
         {
-          "name" : "Junk Food Clothing (Venice)",
-          "street" : "1103, Abbot Kinneys",
-          "city"  : "Venice",
-          "pincode" : "CA 90291",
-          "phone_no" : "888.509.5499",
+          "name" : "BEVERLY HILLS",
+          "street" : "410 N BEVERLY DRIVE",
+          "city"  : "BEVERLY HILLS",
+          "pincode" : "CA 90210",
+          "phone_no" : "310-341-2870",
           "map" : "(map)",
-          "mapLink":"https://www.google.com/maps/place/1103+Abbot+Kinney+Blvd,+Los+Angeles,+CA+90291/@33.9919217,-118.4725435,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bac76a83c2ad:0xb3cc97158b78439d!8m2!3d33.9919217!4d-118.4703548",
+          "mapLink":"https://www.google.com/maps/place/410+N+Beverly+Dr,+Beverly+Hills,+CA+90210/@34.0703131,-118.4041064,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2bc079e80d6cb:0x5470008eef007f7d!8m2!3d34.0703131!4d-118.4019177",
           "store_hours" : [
             {
-             "days" : "Mon-Sun",
-             "time" : "10-6pm"
-            }
-
-          ]
-        },
-        {
-          "name" : "Brooklyn Denim Company (Brooklyn)",
-          "street" : "85 N 3rd St",
-          "city"  : "Newyork",
-          "pincode" : "NY 11249",
-          "phone_no" : "888.509.5499",
-          "map" : "(map)",
-          "mapLink":"https://www.google.com/maps/place/Brooklyn+Denim+Co./@40.7172571,-73.9646937,17z/data=!3m1!4b1!4m5!3m4!1s0x89c25961296897c1:0x20947e2c8a3d0079!8m2!3d40.7172571!4d-73.962505",
-          "store_hours" : [
-            {
-              "days" : "Mon - Sat",
-              "time" : "11-7pm"
+             "days" : "Mon - Sat",
+             "time" : "10AM - 7PM"
             },
             {
               "days" : "Sun",
-              "time" : "12AM - 6PM"
+              "time" : "10AM - 6PM"
             }
-          ]
-        }
 
-      ]
-    },
-    {
-      "city_name" : "Denmark",
-      "stores" : [
+          ]
+        },
         {
-          "name" : "Azalea (Valencia)",
-          "city"  : "San Francisco",
-          "pincode" : "CA 94110 ",
-          "phone_no" : "888.509.5499",
+          "name" : "CABAZON",
+          "street" : "DESERT HILLS PREMIUM OUTLET",
+          "city"  : "48650 SEMINOLE DRIVE, SUITE 1128",
+          "pincode" : "CABAZON, CA 92230",
+          "phone_no" : "951-572-6316",
           "map" : "(map)",
-          "mapLink":"https://www.google.com/maps/place/Azalea+Boutique/@37.7575609,-122.42363,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e3dd2567639:0xc49b64fcd5a880c0!8m2!3d37.7575609!4d-122.4214413",
+          "mapLink":"https://www.google.com/maps/place/Desert+Hills+Premium+Outlets/@33.9287601,-116.8171103,17z/data=!3m1!4b1!4m5!3m4!1s0x80db408e60db5bb3:0xa68c1a0727fd5080!8m2!3d33.9287601!4d-116.8149216",
           "store_hours" : [
             {
-              "days" : "Mon-Fri",
-              "time" : "11AM - 7PM"
+              "days" : "Mon - Sat",
+              "time" : "10AM-9PM"
             },
             {
-              "days" : "Sat-Sun",
-              "time" : "11AM - 7PM"
+              "days" : "Sun",
+              "time" : "10AM - 8PM"
             }
           ]
         },
         {
-          "name" : "Azalea (Valencia)",
-          "city"  : "San Francisco",
-          "pincode" : "CA 94110 ",
-          "phone_no" : "888.509.5499",
+          "name" : "MALIBU",
+          "street" : "3939 CROSS CREEK ROAD",
+          "city"  : "MALIBU",
+          "pincode" : "CA 90265",
+          "phone_no" : "310-775-8375",
           "map" : "(map)",
-          "mapLink":"https://www.google.com/maps/place/Azalea+Boutique/@37.7575609,-122.42363,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e3dd2567639:0xc49b64fcd5a880c0!8m2!3d37.7575609!4d-122.4214413",
+          "mapLink":"https://www.google.com/maps/place/3939+Cross+Creek+Rd,+Malibu,+CA+90265/@34.0350403,-118.6878711,17z/data=!3m1!4b1!4m5!3m4!1s0x80e81e33a8cfde83:0x1920b6a24f02f52d!8m2!3d34.0350403!4d-118.6856824",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 6PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "11AM - 6PM"
+            }
+          ]
+        },
+        {
+          "name" : "MELROSE",
+          "city"  : "8501 MELROSE AVENUE",
+          "pincode" : "WEST HOLLYWOOD, CA 90069",
+          "phone_no" : "310-775-8376",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/8501+Melrose+Ave,+West+Hollywood,+CA+90069/@34.0821886,-118.3789515,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2beb13f8f1377:0xa3b29f91f68952e3!8m2!3d34.0821886!4d-118.3767628",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "11AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "11AM - 6PM"
+            }
+          ]
+        },
+        {
+          "name" : "SAN FRANCISCO",
+          "city"  : "2259 FILLMORE STREET",
+          "pincode" : "SAN FRANCISCO, CA 94115",
+          "phone_no" : "415-813-2805",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/2259+Fillmore+St,+San+Francisco,+CA+94115/@37.7905583,-122.4367241,17z/data=!3m1!4b1!4m5!3m4!1s0x808580c61107791b:0x589214a0ebae409!8m2!3d37.7905583!4d-122.4345354",
           "store_hours" : [
             {
               "days" : "Mon-Fri",
               "time" : "11AM - 7PM"
             },
             {
-              "days" : "Sat-Sun",
+              "days" : "Sat",
+              "time" : "10AM - 6PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "11AM - 6PM"
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "city_name" : "Connecticut",
+      "stores" : [
+        {
+          "name" : "GREENWICH",
+          "street" : "335 GREENWICH AVENUE ",
+          "city"  : "GREENWICH",
+          "pincode" : "CT 06830",
+          "phone_no" : "203-826-8540",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/335+Greenwich+Ave,+Greenwich,+CT+06830/@41.024246,-73.6272327,17z/data=!3m1!4b1!4m5!3m4!1s0x89c298495a5ba719:0x438181ad526ce74c!8m2!3d41.024246!4d-73.625044",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 5PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city_name" : "District of Columbia",
+      "stores" : [
+        {
+          "name" : "GEORGETOWN",
+          "street" : "3303 M ST NW",
+          "city"  : "WASHINGTON",
+          "pincode" : "DC 20007",
+          "phone_no" : "202-602-0445",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/3303+M+St+NW,+Washington,+DC+20007/@38.9052371,-77.0684677,17z/data=!3m1!4b1!4m5!3m4!1s0x89b7b648c63bbc35:0x37b77fac28e4fc5f!8m2!3d38.9052371!4d-77.066279",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sun",
               "time" : "11AM - 7PM"
             }
           ]
@@ -83,40 +151,317 @@
       ]
     },
     {
-      "city_name" : "Australia",
+      "city_name" : "Florida",
       "stores" : [
         {
-          "name" : "Topanga (Canoga Park)",
-          "street" : "6600 Topanga Canyon Blvd",
-          "city"  : "Canoga Park",
-          "pincode" : "CA 91303 ",
-          "phone_no" : "818.200.1105",
+          "name" : "MIAMI",
+          "street" : "106 NE 40th Street",
+          "city"  : "Miami",
+          "pincode" : "FL 33137",
+          "phone_no" : "305.375.6056",
           "map" : "(map)",
-          "mapLink":"https://www.google.com/maps/search/TOPANGA+(CANOGA+PARK)++6600+Topanga+Canyon+Blvd+Canoga+Park,+CA+91303/@34.1903548,-118.6056472,17z/data=!3m1!4b1",
+          "mapLink":"https://www.google.com/maps/place/106+NE+40th+St,+Miami,+FL+33137/@25.8133383,-80.1953768,17z/data=!3m1!4b1!4m5!3m4!1s0x88d9b150d294cb7f:0x5c0c0ad6c0d2a256!8m2!3d25.8133383!4d-80.1931881",
           "store_hours" : [
             {
-              "days" : "Mon-Sun",
-              "time" : "10AM - 9PM"
-            }
-          ]
-        },
-        {
-          "name" : "Topanga (Canoga Park)",
-          "street" : "6600 Topanga Canyon Blvd",
-          "city"  : "Canoga Park",
-          "pincode" : "CA 91303 ",
-          "phone_no" : "818.200.1105",
-          "map" : "(map)",
-          "mapLink":"https://www.google.com/maps/search/TOPANGA+(CANOGA+PARK)++6600+Topanga+Canyon+Blvd+Canoga+Park,+CA+91303/@34.1903548,-118.6056472,17z/data=!3m1!4b1",
-          "store_hours" : [
+              "days" : "Mon-Sat",
+              "time" : "11AM - 7PM"
+            },
             {
-              "days" : "Mon-Sun",
-              "time" : "10AM - 9PM"
+              "days" : "Sun",
+              "time" : "12PM - 6PM"
             }
           ]
         }
       ]
     }
-
+  ,
+    {
+      "city_name" : "Georgia",
+      "stores" : [
+        {
+          "name" : "ATLANTA",
+          "street" : "232 BUCKHEAD AVENUE SUITE C310",
+          "city"  : "ATLANTA",
+          "pincode" : "GA 30305",
+          "phone_no" : "404-891-0715",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/232+Buckhead+Ave+NE+c310,+Atlanta,+GA+30305/@33.8381505,-84.3823159,17z/data=!3m1!4b1!4m5!3m4!1s0x88f5058dd9d804eb:0xe6bcb5b5d62786a0!8m2!3d33.8381505!4d-84.3801272",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 6PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city_name" : "Illinois",
+      "stores" : [
+        {
+          "name" : "CHICAGO",
+          "street" : "919 NORTH MICHIGAN AVENUE",
+          "city"  : "CHICAGO",
+          "pincode" : " IL 60611",
+          "phone_no" : "312-273-1254",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/919+N+Michigan+Ave,+Chicago,+IL+60611/@41.8997907,-87.6256897,17z/data=!3m1!4b1!4m5!3m4!1s0x880fd354074ab48b:0x35bfdbc0c7a72fb0!8m2!3d41.8997907!4d-87.623501",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "11AM - 6PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city_name" : "Massachusetts",
+      "stores" : [
+        {
+          "name" : "BOSTON",
+          "street" : "166 NEWBURY STREET",
+          "city"  : "BOSTON",
+          "pincode" : "MA 02116",
+          "phone_no" : "617-297-9059",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/166+Newbury+St,+Boston,+MA+02116/@42.3503966,-71.0808595,17z/data=!3m1!4b1!4m5!3m4!1s0x89e37a0c1014ebc1:0xb50a5ccd8628ae17!8m2!3d42.3503966!4d-71.0786708",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "11AM - 7PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city_name" : "New York",
+      "stores" : [
+        {
+          "name" : "AMERICANA MANHASSET",
+          "street" : "2042 NORTHERN BLVD",
+          "city"  : "MANHASSET",
+          "pincode" : "NY 11030",
+          "phone_no" : "516-472-2687",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/Americana+Manhasset/@40.7954865,-73.6753083,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2888c2a5b7b03:0x5ac97a8118026c5d!8m2!3d40.7954865!4d-73.6731196",
+          "store_hours" : [
+            {
+              "days" : "Mon-Wed",
+              "time" : "10AM - 6PM"
+            },
+            {
+              "days" : "Thurs-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 6PM"
+            }
+          ]
+        },
+        {
+          "name" : "BRYANT PARK",
+          "street" : "80 WEST 40TH STREET",
+          "city"  : "NEW YORK",
+          "pincode" : "NY 10018",
+          "phone_no" : "212-840-0887",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/search/BRYANT+PARK++80+WEST+40TH+STREET+NEW+YORK,+NY+10018/@40.7532686,-73.9861502,17z/data=!3m1!4b1",
+          "store_hours" : [
+            {
+              "days" : "Mon-Fri",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sat",
+              "time" : "12PM - 6PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 5PM"
+            }
+          ]
+        },
+        {
+          "name" : "EAST HAMPTON",
+          "street" : "79 MAIN STREET",
+          "city"  : "EAST HAMPTON",
+          "pincode" : "NY 11937",
+          "phone_no" : "631-702-7155",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/79+Main+St,+East+Hampton,+NY+11937/@40.9618512,-72.1892986,17z/data=!3m1!4b1!4m5!3m4!1s0x89e8bafdd8d0edc5:0x10c375cdaab46f93!8m2!3d40.9618512!4d-72.1871099",
+          "store_hours" : [
+            {
+              "days" : "Closed",
+              "time" : "Will reopen spring 2017"
+            }
+          ]
+        },
+        {
+          "name" : "MEATPACKING",
+          "street" : "431 W 14TH STREET",
+          "city"  : "NEW YORK",
+          "pincode" : "NY 10014",
+          "phone_no" : "646-747-1232",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/431+W+14th+St,+New+York,+NY+10016/@40.7417486,-74.0089167,17z/data=!3m1!4b1!4m5!3m4!1s0x89c259c09cc5a959:0x6c3ab14155797157!8m2!3d40.7417486!4d-74.006728",
+          "store_hours" : [
+            {
+              "days" : "Sun-Wed",
+              "time" : "11AM - 7PM"
+            },
+            {
+              "days" : "Thurs - Sat",
+              "time" : "11PM - 8PM"
+            }
+          ]
+        },
+        {
+          "name" : "SOHO",
+          "street" : "98 GREENE STREET",
+          "city"  : "NEW YORK",
+          "pincode" : "NY 10012",
+          "phone_no" : "646-790-8030",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/98+Greene+St,+New+York,+NY+10012/@40.7242025,-74.0019325,17z/data=!3m1!4b1!4m5!3m4!1s0x89c2598e97b642cd:0x8bff0ee9be366edf!8m2!3d40.7242025!4d-73.9997438",
+          "store_hours" : [
+            {
+              "days" : "Mon-Wed",
+              "time" : "11AM - 7PM"
+            },
+            {
+              "days" : "Thurs - Fri",
+              "time" : "11AM - 8PM"
+            },
+            {
+              "days" : "Sat",
+              "time" : "11AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 6PM"
+            }
+          ]
+        },
+        {
+          "name" : "SOUTHAMPTON",
+          "street" : "58 JOBS LANE",
+          "city"  : "SOUTHAMPTON",
+          "pincode" : "NY 11968",
+          "phone_no" : "631-204-0164",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/58+Jobs+Ln,+Southampton,+NY+11968/@40.8833574,-72.3935752,17z/data=!3m1!4b1!4m5!3m4!1s0x89e894c5247fb417:0xc29f57b8e983d360!8m2!3d40.8833574!4d-72.3913865",
+          "store_hours" : [
+            {
+              "days" : "Closed",
+              "time" : "Will reopen spring 2017"
+            }
+          ]
+        },
+        {
+          "name" : "MADISON AVENUE (65TH AND 66TH STREET)",
+          "street" : "755 MADISON AVENUE",
+          "city"  : "NEW YORK",
+          "pincode" : "NY 10065",
+          "phone_no" : "646-545-2895",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/755+Madison+Ave,+New+York,+NY+10065/@40.7674482,-73.9705676,17z/data=!3m1!4b1!4m5!3m4!1s0x89c258ee7d935f85:0x376793334518acfe!8m2!3d40.7674482!4d-73.9683789",
+          "store_hours" : [
+            {
+              "days" : "Mon-Wed",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Thurs",
+              "time" : "10AM - 8PM"
+            },
+            {
+              "days" : "Fri - Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "11AM - 6PM"
+            }
+          ]
+        },
+        {
+          "name" : "UPPER MADISON AVENUE (87TH STREET)",
+          "street" : "1188 MADISON AVENUE",
+          "city"  : "NEW YORK",
+          "pincode" : "NY 10028",
+          "phone_no" : "646-790-8032",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/1188+Madison+Ave,+New+York,+NY+10028/@40.7814986,-73.9605389,17z/data=!3m1!4b1!4m5!3m4!1s0x89c258bd4d20ebfd:0xc493b1f7fa9a9b85!8m2!3d40.7814986!4d-73.9583502",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 7PM"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "city_name" : "Texas",
+      "stores" : [
+        {
+          "name" : "DALLAS HIGHLAND PARK VILLAGE",
+          "street" : "7B Highland Park Village",
+          "city"  : "DALLAS",
+          "pincode" : "TX 75205",
+          "phone_no" : "972-426-7364",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/7+Highland+Park+Village,+Dallas,+TX+75205/@32.8354403,-96.8073457,17z/data=!3m1!4b1!4m5!3m4!1s0x864e9eefac26f40b:0x4ea44cbd02398dd3!8m2!3d32.8354403!4d-96.805157",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 6PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 5PM"
+            }
+          ]
+        },
+        {
+          "name" : "HOUSTON",
+          "street" : "4444 WESTHEIMER",
+          "city"  : "HOUSTON",
+          "pincode" : "TX 77027",
+          "phone_no" : "281-581-0649",
+          "map" : "(map)",
+          "mapLink":"https://www.google.com/maps/place/4444+Westheimer,+Houston,+TX+77027/@29.7433465,-95.455238,17z/data=!3m2!4b1!5s0x8640c1145a9ccd3d:0x3333a570073039b0!4m5!3m4!1s0x8640c1144b2768f5:0xfb6a3bdd3e71faa7!8m2!3d29.7432276!4d-95.4530464",
+          "store_hours" : [
+            {
+              "days" : "Mon-Sat",
+              "time" : "10AM - 7PM"
+            },
+            {
+              "days" : "Sun",
+              "time" : "12PM - 6PM"
+            }
+          ]
+        }
+      ]
+    }
   ]
 }

@@ -1,76 +1,93 @@
 {
+  "pageTitle":"Frequently Asked Questions | alice + olivia eyewear",
+  "metaDescription":"Questions about your alice + olivia glasses or sunglasses?  Review our frequently asked questions or ask our dedicated alice + olivia eyewear support team.",
   "sections": [
     {
-      "name": "My Order",
-      "anchor": "my-order",
+      "name": "Purchasing",
+      "anchor": "purchasing",
       "defaultOpen":true,
       "questions": [
         {
-          "question": "How long will my order take?",
-          "answer": "Orders that include both your prescription and PD will take 5-7 business days to process for single vision prescriptions and 7-10 business days for progressive prescriptions.  All orders take 3-5 business days to ship. Calling eye doctors may add 2 business days, and orders that are missing important information may require additional time for processing."
+          "question": "How can I give you my prescription?",
+          "answer": "There are a few options: You can give us your optometrist’s phone number, along with your date of birth, and we will obtain it on your behalf. You may also upload a digital copy of your prescription at checkout, or email it to us at <a  class='text-decoration-underline' href='mailto:help@aliceandoliviaeyewear.com'>help@aliceandoliviaeyewear.com.</a> You may also fax a copy of your prescription to us at (646) 924-3705. Please be sure to include your name and order number when you send your prescription via email or fax."
         },
         {
-          "question": "How can I give you my prescription?",
-          "answer": "We can accept your prescription in a few ways:\n\n- Enter your prescription at checkout. \n- Upload a copy of your prescription when prompted to do so during checkout. \n- Provide us with your optometrist’s phone number and your birthday. We’ll call your optometrist and obtain it on your behalf. \n- Send us a picture of the Rx with your phone and email to [orders@classicspecs.com](mailto:orders@classicspecs.com) (Be sure to include your order number). \n- Fax your prescription to us at (646) 607-9497."
+          "question": "How long will my order take to process?",
+          "answer": "After purchase, an order with a complete prescription and pupillary distance (PD), will take 5 - 7 business days for lenses manufacturing at our optical lab for single-vision prescriptions (most common). Progressive prescriptions will require 7 - 10 business days to process at our lab. Once processing is complete, your new eyewear will then take 3-5 business days to reach you via USPS. Orders that require that we obtain a prescription from an optometrist, or that are missing important information such as PD, may require an additional 3 business days for processing."
         },
         {
           "question": "What is the status of my order?",
-          "answer": "To check the status of your order, [log into your account and view your order history](/customer/home)."
+          "answer": "You can check the status of your order <a class='text-decoration-underline' href=customer/home>in your account section</a> or send an email to our support team at <a  class='text-decoration-underline' href='mailto:help@aliceandoliviaeyewear.com'>help@aliceandoliviaeyewear.com.</a> "
         },
         {
-          "question": "How much does shipping cost?",
-          "answer": "Shipping within the United States (including HI and AK) is free. International shipping is $30-40 depending on location."
+          "question": "This style is out of stock.  Will it come back?",
+          "answer": "Some sunglasses and eyeglasses styles and frame colors are limited editions and will not come back in stock.  We’d be happy to check with our retail locations to see if they have additional stock.  Feel free to contact us at <a  class='text-decoration-underline' href='mailto:help@aliceandoliviaeyewear.com'>help@aliceandoliviaeyewear.com.</a> to see if we can locate a pair of glasses or sunglasses for you or suggest alternative styles."
         },
         {
-          "question": "What does my order come with?",
-          "answer": "Each eyewear order comes in a Classic Specs gift box with a beautiful hard-shell case and microfiber cloth."
+          "question": "Can I use my FSA card to place an order on alice + olivia eyewear?",
+          "answer": "Yes!  Your FSA card qualifies for prescription glasses, progressive glasses, prescription sunglasses, progressive sunglasses, and frames alone (without lenses) on <a class='text-decoration-underline' href='www.aliceandoliviaeyewear.com'> aliceandoliviaeyewear.com </a> only. FSA cards cannot be used with purchase on <a class='text-decoration-underline' href='www.aliceandoliviaeyewear.com'> aliceandoliviaeyewear.com </a>"
         }
       ]
     },
     {
-      "name": "Prescriptions and Rx Information",
-      "anchor": "prescriptions-and-rx",
+      "name": "Prescriptions",
+      "anchor": "prescriptions",
       "defaultOpen":true,
       "questions": [
         {
-          "question": "I want to buy some Classic Specs prescription glasses, but I can't remember the last time I went to the eye doctor. Do you have an optometrist on staff?",
-          "answer": "At this time we do not have an optometrist on staff, but we can recommend several optometrists within walking distance of our showrooms, [located in Brooklyn and Los Angeles](/findus)."
+          "question": "What is the strongest prescription you can fill for glasses?",
+          "answer": "The strongest single vision prescription we are able to fill for eyeglasses is -10.00/+6.00 sphere or +/-4.00 cylinder. If you have a stronger prescription than that, you may purchase our frames without lenses by selecting the \"No Lenses\" at checkout and have your lenses made by a local optician."
         },
         {
-          "question": "What is my PD, and how do I get it?",
-          "answer": "Your PD is the distance between your pupils in millimeters, and it allows us to align your prescription perfectly with your unique eyes. The last optician who made glasses for you will have your PD on file -- and don't worry, it doesn't change over time or expire. You can also have your PD measured in an instant in our showroom, or by your eye doctor."
-        },
-        {
-          "question": "When I was entering my prescription online, I noticed the price went up. What just happened?",
-          "answer": "You’ve been automatically upgraded to high index lenses! Some prescription are really strong, so we add ultra-thin and ultra-light lenses to your order to keep your lenses from getting too thick. High index also help to prevent the \"magnifying glass\" effect created by thicker lenses. They cost $30 more per pair."
-        },
-        {
-          "question": "I have a strong prescription, and I need thinner lenses. Do you offer those?",
-          "answer": "Yep, absolutely we do! We offer thinner, lighter lenses, called High Index Lenses (pl 1.67). We recommend them for all customers with strong prescriptions. They cost $30 more per pair."
-        },
-        {
-          "question": "What’s the strongest prescription that you can fill?",
-          "answer": "The strongest prescription we can fill is +/-10.00 sphere, or +/-4.00 cylinder. If you have a stronger prescription than that, you can purchase our frames without lenses and have your prescription filled locally by your optometrist. Frames without lenses cost $80.00."
-        },
-        {
-          "question": "What is the strongest prescription that you can fill for sunwear?",
-          "answer": "The highest prescription we recommend filling in sunwear is a +/-6 sphere. We can fill stronger prescriptions, but the lenses can get pretty thick."
-        },
-        {
-          "question": "What kind of lenses and AR coating do you use?",
-          "answer": "Our lenses are made from CR-39, an optical plastic with incredible visual acuity, polycarbonate, one of the most shatter-resistant materials on earth, and high-index (denser) polycarbonate! On top of that, every single pair of our lenses includes free anti-reflective, anti-scratch, and UV coatings."
+          "question": "What is the strongest prescription you can fill for sunwear?",
+          "answer": "The strongest prescription we can fill in prescription sunwear is a -6.00/+4.00 sphere. We do not offer high index sunglasses."
         },
         {
           "question": "Do you offer bifocal or progressive lenses?",
-          "answer": "Yes.  We offer free-form HD progressive lenses.  These lenses are made with the latest in precision computerized surfacing equipment for the greatest clarity and most accurate prescription.  Progressive lenses and frames start at $275 and include free shipping anywhere in the United States (included HI and AK)."
+          "answer": "We offer free-form HD progressive lenses in all of our prescription frames. These lenses are made with an algorithmic segment height for the best field of vision at each focal point in the lens.  Progressives are widely considered the modern alternative to bifocal glasses."
         },
         {
-          "question": "My prescription includes prisms, can you fill it?",
-          "answer": "Prism prescriptions are for sensitive eyes, and reducing muscular strain - They’re best filled in person. We would recommend that you purchase our frames without lenses for $80.00 and then bring them to your optometrist to have your prescription filled."
+          "question": "I have a strong prescription, do you offer high index lenses?",
+          "answer": "Yes! For strong prescriptions, we offer thinner, lighter lenses called high index lenses to reduce the “coke bottle” effect of thick lenses. We recommend them for all customers with prescriptions stronger than +/-4.00 sphere. They are available for $40 more per pair."
         },
         {
-          "question": "I'm new to glasses - what type of lens do I need?",
-          "answer": "[Click here](/landing/which-lenses-to-choose-for-glasses) for more information on our lens offerings. If you need additional assistance choosing the right lenses for you, feel free to e-mail help@classicspecs.com or call us at 888-509-5499 (M-F 9:30am-5:30pm ET)."
+          "question": "Why did the price go up when I entered my prescription during checkout?",
+          "answer": "If you have a strong prescription, we automatically upgrade the eyeglasses lenses in your order from standard index lenses to high index lenses. These lenses more efficiently refract light, thus preventing the \"magnifying glass\" effect created by thicker lenses on strong prescriptions. The cost for a high index lens upgrade is an additional $40 per pair. If you enter your prescription directly, you will see the change in your order total immediately. If you upload your prescription or request that we call your doctor, we will process the additional charge once we submit your prescription to our lab. If you would like to decline this option, simply uncheck the box for high index lenses during checkout."
+        },
+        {
+          "question": "What is my PD, and how can I find it?",
+          "answer": "Your pupillary distance (PD) is the distance between your pupils measured in millimeters.  This allows us to fit your prescription glasses or sunglasses to the position of your field of vision. Any optician can measure your PD.  If you had prescription eyeglasses made in the past, your optician should have your PD on file. There are also a number of online tools you may use to measure your PD from the comfort of your own home. This measurement does not change, and it will not vary depending on the style of alice + olivia glasses or sunglasses."
+        },
+        {
+          "question": "What is the refractive index of your lenses?",
+          "answer": "Our lenses are made from shatter resistant polycarbonate, one of the thinnest and lightest materials used for women’s prescription glasses. Our standard index lenses have a refractive index of 1.56, and our high index lenses (for strong prescriptions) have a refractive index of 1.67. For especially mild prescriptions, we use a material called CR-39 that boasts impeccable visual acuity but tends to get fairly thick when used to accommodate stronger prescriptions."
+        },
+        {
+          "question": "What kind of lenses and coatings do you use?",
+          "answer": "Every pair of alice + olivia prescription eyeglasses includes anti-reflective and scratch-resistant coatings on each lense."
+        }
+      ]
+    },
+    {
+      "name": "Returns And Exchanges",
+      "anchor": "returns-and-exchanges",
+      "defaultOpen":true,
+      "questions": [
+        {
+          "question": "What is the return policy?",
+          "answer": "We want you to enjoy your recent alice + olivia eyewear purchase. If something isn’t right, you may return your eyeglasses or sunglasses (even prescription eyeglasses and sunglasses) within 30 days of delivery for an exchange or full refund. To initiate an exchange, or facilitate a return email us at <a class='text-decoration-underline' href='mailto:help@aliceandoliviaeyewear.com'>help@aliceandoliviaeyewear.com.</a> If you have a domestic order we will send you a prepaid USPS return shipping label to begin your return process.  Please note that our return policy does not apply to sale items, which are final sale (non-returnable and non-exchangeable). Additionally, international shipping fees are non-refundable."
+        },
+        {
+          "question": "What if my eyeglasses or sunglasses don't fit?",
+          "answer": "If your new frames don’t fit exactly right, a local optician can likely perform an adjustment to align the fit to your face.  This only takes a few moments and is usually free.  If there is a free involved, we would happy to reimburse you for the cost of the adjustment."
+        },
+        {
+          "question": "I lost my glasses. Can you help me replace them?",
+          "answer": "We keep the pertinent details of your previous purchases (including your prescription) on file for up to five years. If you need a replacement, we can arrange that quickly and easily. Lost frames do not qualify for reimbursement during our 30 day return policy."
+        },
+        {
+          "question": "Can I return my glasses or sunglasses to an alice + olivia store near me?",
+          "answer": "Yes!  But, for the fastest processing please return your glasses or sunglasses by starting the return process by emailing  <a class='text-decoration-underline' href='mailto:help@aliceandoliviaeyewear.com'>help@aliceandoliviaeyewear.com.</a>"
         }
       ]
     },
@@ -80,160 +97,31 @@
       "defaultOpen":true,
       "questions": [
         {
-          "question": "When will my order be shipped?",
-          "answer": "Please allow 5-7 business days (7-10 business days for progressive prescriptions) from the day you place your order for your eyewear to be shipped and an additional 2 business if we are calling your doctor. All orders include tracking."
+          "question": "When will my order ship?",
+          "answer": "For single-vision prescription eyeglasses orders, please allow 5-7 business days from the day you place your completed order for your new eyewear to ship. For progressive prescription orders, please allow 7-10 business days from the date of order placement until the date of shipment. Non-prescription orders will ship within 2-4 business days. When your order ships, we will send a shipping confirmation email complete with a USPS tracking number to the email address we have on file for your order."
         },
         {
-          "question": "How will my order be shipped?",
-          "answer": "We ship all of our domestic orders via USPS. When your frames ship you will receive an email including a tracking number."
+          "question": "How will you ship my order?",
+          "answer": "We ship all of our domestic orders via USPS First Class with limited tracking. Domestic orders generally take 3-5 business days to arrive. When you order ships from our lab, you will receive a email with a USPS tracking number and expected arrival date. International orders that contain prescription eyewear are first shipped to our warehouse in Brooklyn, and are then re-shipped to their final destinations via International Priority Mail. Each time your order is shipped, you will receive a tracking number to monitor the progress to you. International order can take multiple weeks depending on customs processing and procedures of the local postal authority."
         },
         {
-          "question": "Do you ship to Hawaii and Alaska?",
-          "answer": "Yes. We ship to Hawaii and Alaska via USPS.  There is no additional charge for shipping to these states."
+          "question": "I need my new eyewear right away. Can you expedite it?",
+          "answer": "At this time we don’t offer expedited shipping or delivery."
         },
         {
           "question": "Do you offer international shipping, and how much does it cost?",
-          "answer": "Yes. We charge $30-40 for international shipping."
-        },
-        {
-          "question": "What should I do if I need a return shipping label?",
-          "answer": "To obtain a return shipping label, just email our support team at [help@classicspecs.com](mailto:help@classicspecs.com) and we’ll get a complimentary return shipping label for you right away."
-        }
-
-      ]
-    },
-    {
-      "name": "Home Try-On",
-      "anchor": "home-try-on",
-      "defaultOpen":true,
-      "questions": [
-        {
-          "question": "When will my home trial ship?",
-          "answer": "We’ll ship your home trial frames within 3-7 business days of your order."
-        },
-        {
-          "question": "Do you offer international shipping on home try-on kits?",
-          "answer": "We’re so sorry, but at this time we can’t. Because the trial is “free,” the kits often encounter problems going through customs, and can end up costing an incredible sum of money in duties and taxes. As an alternative, if there’s a frame that you absolutely love, we’d recommend that you order it to see how it fits and feels – We will gladly accept your return within 30 days if they don’t work out."
-        },
-        {
-          "question": "How long can I keep my home trial kit?",
-          "answer": "You may keep your Home Try-On Kit for 7 days once it is delivered. If you need more time for any reason, just let us know so that we can extend your kit."
-        },
-        {
-          "question": "How do I send my kit back?",
-          "answer": "To send the kit back to us, simply put the return shipping label to the box the kit came in (Please place the new label on top of the old label), seal it, and pop it back in the mail or drop it off at a post office."
-        },
-        {
-          "question": "What if I need more time to make up my mind?",
-          "answer": "Picking your favorite pair of glasses can be tough (We totally understand). A great way to choose a favorite is to put it to a vote (Instagram, Facebook, Tumblr) or call us and we can help you choose the right eyewear for your style. If you need some extra time, just shoot us a quick note at [help@classicspecs.com](mailto:help@classicspecs.com) and we’ll be happy to grant an extension."
-        },
-        {
-          "question": "I lost my return shipping label, what should I do?",
-          "answer": "Drop us a line at [help@classicspecs.com](mailto:help@classicspecs.com) and we’ll send you a new return-shipping label."
-        },
-        {
-          "question": "What is this $1 charge I see on my credit card?",
-          "answer": "The Home Trial Kit is completely free, but we do collect your credit card information as a security measure. You may see a $1 “pending” charge for each frame you selected, this is only an authorization - we will not charge your account."
-        },
-        {
-          "question": "Can I order more than one trial kit?",
-          "answer": "Certainly. We encourage you to try as many frames as you need to find the perfect pair - Although we recommend that our customers only order one kit at a time, because it simplifies the return process."
-        },
-        {
-          "question": "I found a pair that I want to buy in my Home Trial Kit. What do I do now?",
-          "answer": "Once you have found a pair of frames that you love, fill out the order slip that came with your kit and send it back with your return - we'll take care of the order once we receive it. Otherwise, you can place an order for your chosen frames and lenses directly on our website or call us at 888-509-5499 (M-F, 9:30AM-5:30PM ET)."
-        },
-        {
-          "question": "Do I keep the pair I like from my Home Trial Kit and send the rest back?",
-          "answer": " Once you have ordered your chosen eyewear, send back the complete Home Try-On Kit. Your finished eyewear will be sent to you, along with a hard-shell case and microfiber cloth to protect your new Classic Specs eyewear."
+          "answer": "Yes, we charge a $40 flat rate for international shipping. All international prescription orders ship first from our optical lab to our warehouse for processing and quality assurance.  From there, international orders are shipped a second time to the final destination.  Due to custom procedures on eyewear shipments, international orders can take multiple weeks to clear and arrive at a final destination."
         }
       ]
     },
     {
-      "name": "About Classic Specs",
-      "anchor": "about-classic-specs",
+      "name": "alice + olivia eyewear warranty",
+      "anchor": "alice-olivia-eyewear-warranty",
       "defaultOpen":true,
       "questions": [
         {
-          "question": "What are your frames made of?",
-          "answer": "Our frames are made of premium cellulose acetate, which we source from a family-owned factory in Northern Italy."
-        },
-        {
-          "question": "How do you keep your prices so low?",
-          "answer": "We believe that incredible quality should not cost an incredible sum. We keep our prices reasonable by creating beautiful eyewear in-house, removing all middlemen."
-        },
-        {
-          "question": "Does Classic Specs make sunglasses?",
-          "answer": "Absolutely. We make both prescription and non-prescription sunwear, using the highest quality UVA/UVB protective lenses on the market.  Polarized lenses are also available in many of our styles."
-        },
-        {
-          "question": "Does Classic Specs offer polarized non-rx sunglasses?",
-          "answer": "Yes.  The Amherst, Ashland, Cornelia, Dakota, Exeter, Sedgwick, Vanderbilt, and Wayward sunglasses all come standard with polarized non-rx sunglasses lenses.  Other styles do not feature polarized lenses."
-        }
-      ]
-    },
-    {
-      "name": "Returns and Exchanges",
-      "anchor": "returns-and-exchanges",
-      "defaultOpen":true,
-      "questions": [
-        {
-          "question": "What is the return policy?",
-          "answer": "If you are not satisfied with your purchase, you may return your eyewear within 30 days of delivery for a full refund or exchange. Unfortunately, international shipping fees are non-refundable. We are always available to troubleshoot any issues you might be experiencing or to help you get into a perfect pair of frames! If you would like help initiating an exchange or facilitating a return, contact us at help@classicspecs.com or call us at 888-509-5499 (M-F, 9:30AM-5:30PM ET)."
-        },
-        {
-          "question": "What if my prescription doesn’t feel right?",
-          "answer": "We would be happy to address and troubleshoot any problems you might be experiencing with your lenses. Sometimes, especially with new prescriptions, your vision might feel a little distorted at first, but your eyes will adjust. You can also take your new frames to your optometrist, who can check them against the prescription that he or she wrote for you, and modify your prescription accordingly. If your optometrist modifies your prescription within 30 days of delivery, we will replace your lenses free of charge."
-        },
-        {
-          "question": "What if my frames don’t feel right?",
-          "answer": "If your new frames don’t fit perfectly, bring them to one of our showrooms, where our competent, talented staff will be happy to adjust your frames until they fit perfectly. If a showroom visit is inconvenient, you can also bring your frames to your own optician, and we’ll cover the cost of any necessary adjustments."
-        },
-        {
-          "question": "I want to buy a second pair of glasses. Do I need to find my prescription all over again?",
-          "answer": "We keep your prescription on file so that your re-order process can be quick and easy. Just email us after your order, and we will take care of the rest!"
-        },
-        {
-          "question": "What forms of payment do you take?",
-          "answer": "We can accept all major credit cards (VISA, MasterCard, Discover, and American Express) and FSA cards. Learn more about [FSA glasses purchases](/fsa-glasses)."
-        },
-        {
-          "question": "Do you offer gift cards?",
-          "answer": "We do not offer gift cards at this time, but would be happy to assist you in purchasing a gift for a loved one. If you want to give the gift of prescription eyewear or sunwear we will assist you in whatever way possible."
-        }
-      ]
-    },
-    {
-      "name": "Insurance Information",
-      "anchor": "insurance-information",
-      "defaultOpen":true,
-      "questions": [
-        {
-          "question": "What types of insurance do you accept?",
-          "answer": "At this time we can only accept insurance in the form of an FSA or HSA (two types of health insurance which look and act like debit cards). For all other types of vision insurance, we are happy to provide itemized invoices, which you can submit to your insurance company for reimbursement."
-        },
-        {
-          "question": "What is an FSA or HSA?",
-          "answer": "An HSA (or Health Savings Account) is a medical savings account of pre-tax dollars. The account allows you to set aside a portion of your wages to pay for health and wellness expenses. At the end of the year, any unused amounts may be rolled over to subsequent years.\n\nAn FSA (Flexible Spending Account) is similar to an HSA with a few key differences. Those with this type of coverage must use the funds in their account or they will expire at the end of the year. Learn more about [FSA glasses purchases](/fsa-glasses)."
-        },
-        {
-          "question": "What can I use my FSA or HSA for?",
-          "answer": "You can use your FSA or HSA card for new prescription glasses, reading glasses, prescription sunglasses, or a pair of frames without lenses. The only items available on our site that cannot be purchased using an FSA or HSA are non-prescription sunglasses. Learn more about [FSA glasses purchases](/fsa-glasses)."
-        },
-        {
-          "question": "Can I buy sunglasses with my FSA or HSA?",
-          "answer": "Yes, absolutely, as long as those sunglasses are prescription. Learn more about [FSA glasses purchases](/fsa-glasses)."
-        }
-      ]
-    },
-    {
-      "name": "Warranty Policy",
-      "anchor": "warranty-policy",
-      "defaultOpen":true,
-      "questions": [
-        {
-          "question": "What does your warranty cover?",
-          "answer": "Our warranty covers manufacturing defects for a full year. The warranty includes lens coatings and excludes accidental damage and wear resulting from normal use. Lens scratches and prescription changes are not covered under warranty. Contact us with any warranty questions at [help@classicspecs.com](mailto:help@classicspecs.com)."
+          "question": "What is the warranty on my glasses and sunglasses?",
+          "answer": "All alice + olivia eyewear is protected by a one-year limited warranty. Our warranty covers lens coatings and manufacturing defects. The policy does not cover accidental damage or lens scratches. For warranty inquiries please contact our customer support team at  <a class='text-decoration-underline' href='mailto:help@aliceandoliviaeyewear.com'>help@aliceandoliviaeyewear.com.</a>"
         }
       ]
     }

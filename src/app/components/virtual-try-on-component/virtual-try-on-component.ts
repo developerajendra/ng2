@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, ElementRef} from '@angular/core';
-
+import {MetaService} from "ng2-meta";
 
 /**
  * @Component for virtual-try-on-component
@@ -47,15 +47,14 @@ export class VirtualTryOnComponent implements OnInit {
     nav: true,
     dots: true
   };
-  pageTitle: string = '3D Virtual Try On';
+  data:any = null;
 
   /**
    * constructor() used to initialize class level variables
    */
 
-  constructor(protected elementRef: ElementRef, protected staticData:StaticDataService, protected _title: Title) {
+  constructor(protected metaService: MetaService, protected elementRef: ElementRef, protected staticData:StaticDataService) {
     window.scrollTo(0, 0);
-    _title.setTitle(TenantConstant.DOMAIN_NAME + ' - ' + this.pageTitle);
   }
 
   /**
@@ -64,7 +63,7 @@ export class VirtualTryOnComponent implements OnInit {
 
   ngOnInit() {
     this.getSteps();
-
+    this.getvto();
   }
 
   loadCarousel(){
@@ -81,5 +80,30 @@ export class VirtualTryOnComponent implements OnInit {
   //       this.loadCarousel();
   //     }, e => {
   //     });
+  }
+
+  /**
+   * getvto() used to get location data
+   */
+  getvto() {
+    this.staticData.getVto()
+      .then((data)=> {
+          this.data = data;
+          this.setMetaTags(data);
+          changeStatus();
+        }, error => {
+          changeStatus();
+        }
+      )
+  }
+
+  /**
+   * setMetaTags() used to get metatags form JSON
+   *
+   */
+
+  setMetaTags(data) {
+    this.metaService.setTitle(data.pageTitle);
+    this.metaService.setTag('description', data.metaDescription);
   }
 }

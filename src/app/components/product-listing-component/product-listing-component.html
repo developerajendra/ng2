@@ -83,8 +83,7 @@
   <!-- end must have -->
 
 </section>
-
-<page-description [contentId]="'productListing'"></page-description>
+<page-description [contentId]="tileCollection || slug"></page-description>
 
 <!--Select lense model-->
 <select-lense-modal *ngIf="productsData && selectedProduct" [productId]="selectedProduct?.product_id" [variant]="slug" [product]="selectedProduct" [filterBy]="filterBy"

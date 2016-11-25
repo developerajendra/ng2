@@ -5,7 +5,7 @@
 import {Component, OnInit, Input, OnDestroy} from "@angular/core";
 import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from "@angular/router";
 import {MetaService} from "ng2-meta";
-import {ProductService, StorageService} from "../../services";
+import {ProductService, StorageService, StaticDataService} from "../../services";
 import {ProductTileComponent} from "../product-tile-component";
 import {ProductMusthaveTileComponent} from "../product-must-have-tile-component";
 import {DescriptionComponent} from "../description-component";
@@ -70,7 +70,7 @@ export class ProductListingComponent implements OnInit, OnDestroy {
    * @param _ProductService
    */
 
-  constructor(protected _route: ActivatedRoute, protected router: Router, protected _ProductService: ProductService,
+  constructor(protected staticData: StaticDataService,protected _route: ActivatedRoute, protected router: Router, protected _ProductService: ProductService,
               protected _storageService: StorageService, protected metaService: MetaService, protected _title: Title) {
   }
 
@@ -103,6 +103,8 @@ export class ProductListingComponent implements OnInit, OnDestroy {
     this.subs.push(sub);
     if (this.showLargeTile)
       this.getSpecialProduct();
+
+    this.getProductListStaticData();
   }
 
   handleComponentData() {
@@ -136,7 +138,7 @@ export class ProductListingComponent implements OnInit, OnDestroy {
       this.masterProductsData = this.doExpandTiles(productsData);
       this.productsData = this.filterTile(this.masterProductsData);
 
-      this.setMetaTags();
+      // this.setMetaTags();
       this.isLoadingCollectionData = false;
       changeStatus();
     }, error=> {
@@ -435,19 +437,6 @@ export class ProductListingComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * setMetaTags() used to get metatags form DB
-   *
-   */
-
-  setMetaTags() {
-    // this.metaService.setTitle('tesgting')//TenantConstant.DOMAIN_NAME+ ' | ' + this.productsData.h2);
-    if (this.productsData && this.productsData.metaDescription) this.metaService.setTag('description', this.productsData.metaDescription);
-    if (this.productsData && this.productsData.metaKeywords) this.metaService.setTag('keywords', this.productsData.metaKeywords);
-    this.metaService.setTag('og:title', this.productsData.name);
-    this._title.setTitle(this.productsData.name);
-  }
-
-  /**
    * getSpecialProduct() used to get special product urls
    *
    */
@@ -458,4 +447,45 @@ export class ProductListingComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  /**
+   * getFaq() used to get faq data
+   */
+  getProductListStaticData() {
+    this.staticData.getProductListing()
+      .then((data) => {
+        data && this.setMetaTags(data);
+        changeStatus();
+      }, error => {
+        changeStatus();
+      })
+  }
+
+  ngAfterViewInit(){
+    let sub:any = this.router.events.subscribe((event)=>{
+      this.getProductListStaticData();
+
+      setTimeout(() => {
+
+        }, 1000);
+    })
+  }
+
+  /**
+   * setMetaTags() used to get metatags form JSON
+   *
+   */
+
+  setMetaTags(data) {
+    let _id = this.tileCollection || this.slug;
+    for(let _data of data){
+      if(_data.id ===  _id){
+        this.metaService.setTitle(_data.pageTitle);
+        this.metaService.setTag('description', _data.metaDescription);
+      }
+    }
+
+  }
+
+
 }
