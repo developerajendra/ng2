@@ -9,10 +9,9 @@ import {Component, OnInit, Input} from "@angular/core";
  */
 
 @Component({
-  moduleId:module.id,
   selector:"tool-tip",
   templateUrl:"tool-tip-component.html",
-  styleUrls:["tool-tip-component.css"]
+  styleUrls:["tool-tip-component.scss"]
 })
 
 /**

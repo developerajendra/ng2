@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, ElementRef} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 /**
  * Importing custom services
@@ -34,11 +34,10 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'cart-description',
   templateUrl: 'cart-description-component.html',
-  styleUrls: ['cart-description-component.css'],
-  directives: [ROUTER_DIRECTIVES, ContinueShoppingComponent, LimitComponent, LoaderComponent],
+  styleUrls: ['cart-description-component.scss'],
+  directives: [ ContinueShoppingComponent, LimitComponent, LoaderComponent],
   pipes: [OrderByPipe]
 })
 
@@ -263,7 +262,7 @@ export class CartDescriptionComponent implements OnInit {
   }
 
 
-  
+
   /**
    * ngOnDestroy() used to destroy notify
    */

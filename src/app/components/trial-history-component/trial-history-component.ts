@@ -10,10 +10,9 @@ import {Component, OnInit} from '@angular/core';
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'trial-history',
   templateUrl: 'trial-history-component.html',
-  styleUrls: ['trial-history-component.css']
+  styleUrls: ['trial-history-component.scss']
 })
 
 /**

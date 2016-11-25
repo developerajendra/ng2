@@ -21,10 +21,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'must-haves',
   templateUrl: 'must-haves-component.html',
-  styleUrls: ['must-haves-component.css']
+  styleUrls: ['must-haves-component.scss']
 })
 
 /**

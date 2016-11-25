@@ -18,10 +18,9 @@ declare var jQuery:any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'bag-modal',
   templateUrl: 'bag-modal-component.html',
-  styleUrls: ['bag-modal-component.css'],
+  styleUrls: ['bag-modal-component.scss'],
   directives: [ROUTER_DIRECTIVES]
 })
 

@@ -19,10 +19,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'select-lense-modal',
   templateUrl: 'select-lense-modal-component.html',
-  styleUrls: ['select-lense-modal-component.css'],
+  styleUrls: ['select-lense-modal-component.scss'],
   directives: [ROUTER_DIRECTIVES]
 
 })

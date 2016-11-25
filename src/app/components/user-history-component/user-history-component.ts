@@ -18,10 +18,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'user-history',
   templateUrl: 'user-history-component.html',
-  styleUrls: ['user-history-component.css']
+  styleUrls: ['user-history-component.scss']
 })
 
 /**

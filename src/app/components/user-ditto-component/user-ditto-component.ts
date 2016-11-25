@@ -26,10 +26,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'user-ditto',
   templateUrl: 'user-ditto-component.html',
-  styleUrls: ['user-ditto-component.css']
+  styleUrls: ['user-ditto-component.scss']
 })
 
 /**

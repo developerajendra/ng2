@@ -20,10 +20,9 @@ declare var jQuery: any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'product-carousel',
   templateUrl: 'product-carousel-component.html',
-  styleUrls: ['product-carousel-component.css'],
+  styleUrls: ['product-carousel-component.scss'],
   directives: [ROUTER_DIRECTIVES, ProductTileComponent, SelectLenseModal]
 })
 

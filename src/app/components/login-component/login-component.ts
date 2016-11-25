@@ -27,10 +27,9 @@ function changeStatus() {
 
 
 @Component({
-  moduleId: module.id,
   selector: 'login',
   templateUrl: 'login-component.html',
-  styleUrls: ['login-component.css'],
+  styleUrls: ['login-component.scss'],
   directives: [ROUTER_DIRECTIVES, ControlMessages, LoaderComponent]
 })
 

@@ -26,10 +26,9 @@ function changeStatus() {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'payment',
   templateUrl: 'payment-component.html',
-  styleUrls: ['payment-component.css'],
+  styleUrls: ['payment-component.scss'],
   directives: [LoaderComponent, ToolTipComnponent, ControlMessages, BannerComponent, BreadCrumbComponent, FORM_DIRECTIVES, ROUTER_DIRECTIVES]
 })
 

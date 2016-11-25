@@ -24,10 +24,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'check-out',
   templateUrl: 'checkout-component.html',
-  styleUrls: ['checkout-component.css'],
+  styleUrls: ['checkout-component.scss'],
   directives: [ROUTER_DIRECTIVES, ToolTipComnponent, ControlMessages, BreadCrumbComponent, LoaderComponent]
 })
 

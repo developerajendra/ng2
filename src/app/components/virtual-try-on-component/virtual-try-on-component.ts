@@ -26,10 +26,9 @@ function changeStatus() {
 }
 
 @Component({
-  moduleId: module.id,
   selector: 'virtual-try-on',
   templateUrl: 'virtual-try-on-component.html',
-  styleUrls: ['virtual-try-on-component.css'],
+  styleUrls: ['virtual-try-on-component.scss'],
   directives: [ProductCarouselComponent, BannerComponent, DescriptionComponent, ProductListingComponent]
 })
 

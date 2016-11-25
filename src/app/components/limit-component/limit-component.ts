@@ -10,10 +10,9 @@ import {Component, OnInit, Input} from '@angular/core';
  */
 
 @Component({
-  moduleId:module.id,
   selector:'limit-popup',
   templateUrl:"limit-component.html",
-  styleUrls:['limit-component.css'],
+  styleUrls:['limit-component.scss'],
 })
 
 

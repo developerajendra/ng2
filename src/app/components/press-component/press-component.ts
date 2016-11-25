@@ -20,10 +20,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: "press",
   templateUrl: "press-component.html",
-  styleUrls: ["press-component.css"],
+  styleUrls: ["press-component.scss"],
   directives: [BannerComponent]
 })
 

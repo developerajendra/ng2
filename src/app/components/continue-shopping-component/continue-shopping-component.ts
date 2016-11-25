@@ -11,10 +11,9 @@ import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from '@angular/router';
  */
 
 @Component({
-  moduleId:module.id,
   selector:'continue-shopping',
   templateUrl:'continue-shopping-component.html',
-  styleUrls:['continue-shopping-component.css'],
+  styleUrls:['continue-shopping-component.scss'],
   directives:[ROUTER_DIRECTIVES]
 })
 

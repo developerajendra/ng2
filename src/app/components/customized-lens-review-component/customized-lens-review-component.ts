@@ -23,10 +23,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'lens-review',
   templateUrl: 'customized-lens-review.html',
-  styleUrls: ['customized-lens-review.css'],
+  styleUrls: ['customized-lens-review.scss'],
   directives: [ROUTER_DIRECTIVES, ProductTileComponent, ImageModalComponent, LoaderComponent]
 })
 

@@ -17,10 +17,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'new-arrivals',
   templateUrl: 'new-arrivals-component.html',
-  styleUrls: ['new-arrivals-component.css'],
+  styleUrls: ['new-arrivals-component.scss'],
   directives: [ProductListingComponent]
 })
 

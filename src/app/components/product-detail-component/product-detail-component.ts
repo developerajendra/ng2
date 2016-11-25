@@ -32,10 +32,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'product-detail',
   templateUrl: 'product-detail-component.html',
-  styleUrls: ['product-detail-component.css'],
+  styleUrls: ['product-detail-component.scss'],
   directives: [ROUTER_DIRECTIVES, ImageZoomComponent, ProductCarouselComponent, BannerComponent, DescriptionComponent,
     EmailModalComponent, DittoControlComponent,SelectLenseModal]
 })

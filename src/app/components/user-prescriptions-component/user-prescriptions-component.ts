@@ -30,10 +30,9 @@ declare var $:any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'user-prescriptions',
   templateUrl: 'user-prescriptions-component.html',
-  styleUrls: ['user-prescriptions-component.css']
+  styleUrls: ['user-prescriptions-component.scss']
 })
 
 /**

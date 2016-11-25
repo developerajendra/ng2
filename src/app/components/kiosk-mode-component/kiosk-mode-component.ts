@@ -23,10 +23,9 @@ import {AppConstants} from '../../constants/app-constants';
  */
 
 @Component({
-  moduleId: module.id,
   selector: "kiosk-mode",
   templateUrl: "kiosk-mode-component.html",
-  styleUrls: ["kiosk-mode-component.css"],
+  styleUrls: ["kiosk-mode-component.scss"],
   directives: [ROUTER_DIRECTIVES]
 })
 

@@ -20,10 +20,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId:module.id,
   selector:"quality",
   templateUrl:"quality-component.html",
-  styleUrls:["quality-component.css"],
+  styleUrls:["quality-component.scss"],
   directives: [BannerComponent]
 })
 

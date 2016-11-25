@@ -31,10 +31,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'register-user',
   templateUrl: 'register-user-component.html',
-  styleUrls: ['register-user-component.css'],
+  styleUrls: ['register-user-component.scss'],
   directives: [ROUTER_DIRECTIVES, ControlMessages, LoaderComponent]
 })
 

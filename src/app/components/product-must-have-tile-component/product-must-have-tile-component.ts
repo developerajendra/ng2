@@ -14,10 +14,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'product-must-have-tile',
   templateUrl: 'product-must-have-tile-component.html',
-  styleUrls: ['product-must-have-tile-component.css'],
+  styleUrls: ['product-must-have-tile-component.scss'],
   directives: [ROUTER_DIRECTIVES]
 })
 

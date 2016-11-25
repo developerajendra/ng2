@@ -24,10 +24,9 @@ function changeStatus() {
 }
 
 @Component({
-  moduleId: module.id,
   selector: "location",
   templateUrl: "location-component.html",
-  styleUrls: ["location-component.css"],
+  styleUrls: ["location-component.scss"],
   directives: [DescriptionComponent]
 })
 

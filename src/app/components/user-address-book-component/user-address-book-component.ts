@@ -27,10 +27,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'user-address-book',
   templateUrl: 'user-address-book-component.html',
-  styleUrls: ['user-address-book-component.css'],
+  styleUrls: ['user-address-book-component.scss'],
   directives: [ControlMessages, ToolTipComnponent]
 })
 

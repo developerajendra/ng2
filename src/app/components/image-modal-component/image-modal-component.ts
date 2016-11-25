@@ -20,10 +20,9 @@ import {ROUTER_DIRECTIVES, Router} from '@angular/router';
 declare var jQuery:any;
 
 @Component({
-  moduleId: module.id,
   selector: 'image-modal',
   templateUrl: 'image-modal-component.html',
-  styleUrls: ['image-modal-component.css'],
+  styleUrls: ['image-modal-component.scss'],
   directives: [ROUTER_DIRECTIVES]
 })
 

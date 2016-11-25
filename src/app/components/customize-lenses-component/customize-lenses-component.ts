@@ -25,10 +25,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'customize-lenses',
   templateUrl: 'customize-lenses-component.html',
-  styleUrls: ['customize-lenses-component.css'],
+  styleUrls: ['customize-lenses-component.scss'],
   directives: [BreadCrumbComponent, ControlMessages, ROUTER_DIRECTIVES, ProductTileComponent, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
   providers: [FormBuilder]
 

@@ -24,10 +24,9 @@ declare var jQuery: any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: "faq",
   templateUrl: "faq-component.html",
-  styleUrls: ["faq-component.css"],
+  styleUrls: ["faq-component.scss"],
   directives: [BannerComponent]
 })
 

@@ -10,10 +10,9 @@ import {Component, OnInit} from '@angular/core';
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'shop-ano',
   templateUrl: 'shop-ano-component.html',
-  styleUrls: ['shop-ano-component.css']
+  styleUrls: ['shop-ano-component.scss']
 })
 
 /**

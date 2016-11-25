@@ -21,10 +21,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'about-us',
   templateUrl: "about-us-component.html",
-  styleUrls: ['about-us-component.css'],
+  styleUrls: ['about-us-component.scss'],
   directives: [BannerComponent]
 })
 

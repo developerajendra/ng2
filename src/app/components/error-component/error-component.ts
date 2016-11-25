@@ -9,10 +9,9 @@ import {Component, OnInit} from '@angular/core';
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'error-component',
   templateUrl: 'error-component.html',
-  styleUrls: ['error-component.css']
+  styleUrls: ['error-component.scss']
 })
 
 /**

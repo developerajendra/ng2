@@ -15,10 +15,9 @@ import { StaticDataService } from '../../services';
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'page-description',
   templateUrl: 'description-component.html',
-  styleUrls: ['description-component.css']
+  styleUrls: ['description-component.scss']
 })
 
 /**

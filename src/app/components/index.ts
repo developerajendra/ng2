@@ -1,8 +1,8 @@
 // /**
 //  * Exporting components
 //  */
-// export * from './bag-modal-component';
-// export * from './banner-component';
+export * from './bag-modal-component';
+export * from './banner-component';
 // export * from './cart-description-component';
 // export * from './checkout-component';
 // export * from './customize-lenses-component';

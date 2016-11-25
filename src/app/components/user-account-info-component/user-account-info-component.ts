@@ -17,10 +17,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'user-account-info',
   templateUrl: 'user-account-info-component.html',
-  styleUrls: ['user-account-info-component.css']
+  styleUrls: ['user-account-info-component.scss']
 })
 
 /**

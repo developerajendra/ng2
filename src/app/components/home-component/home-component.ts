@@ -21,10 +21,9 @@ import {AppConstants} from "../../constants/app-constants";
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'home',
   templateUrl: 'home-component.html',
-  styleUrls: ['home-component.css'],
+  styleUrls: ['home-component.scss'],
   directives: [ProductCarouselComponent, BannerComponent, DescriptionComponent, ProductListingComponent]
 })
 

@@ -24,10 +24,9 @@ declare var window:any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'product-tile',
   templateUrl: 'product-tile-component.html',
-  styleUrls: ['product-tile-component.css'],
+  styleUrls: ['product-tile-component.scss'],
   directives: [ROUTER_DIRECTIVES]
 })
 

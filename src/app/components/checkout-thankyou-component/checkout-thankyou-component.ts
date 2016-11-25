@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, OnDestroy, ElementRef} from "@angular/core";
-import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {CartService, CookiesService} from "../../services";
 import {BreadCrumbComponent} from "../breadcrumb-component";
 import {AppConstants} from "../../constants/app-constants";
@@ -21,10 +21,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'checkout-thankyou',
   templateUrl: 'checkout-thankyou-component.html',
-  styleUrls: ['checkout-thankyou-component.css'],
+  styleUrls: ['checkout-thankyou-component.scss'],
   directives: [BreadCrumbComponent, ROUTER_DIRECTIVES]
 })
 

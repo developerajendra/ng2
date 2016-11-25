@@ -16,10 +16,9 @@ import {ProductModel} from "../../models/product-model";
 declare var jQuery: any;
 
 @Component({
-  moduleId: module.id,
   selector: 'email-modal',
   templateUrl: 'email-modal-component.html',
-  styleUrls: ['email-modal-component.css'],
+  styleUrls: ['email-modal-component.scss'],
   directives: [ROUTER_DIRECTIVES, ControlMessages]
 })
 

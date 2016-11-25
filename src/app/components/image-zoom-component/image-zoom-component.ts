@@ -8,10 +8,9 @@ import {Component, OnInit, Input, ElementRef} from "@angular/core";
  * Component decorator
  */
 @Component({
-  moduleId:module.id,
   selector:"image-zoom",
   templateUrl:"image-zoom-component.html",
-  styleUrls:["image-zoom-component.css"]
+  styleUrls:["image-zoom-component.scss"]
 })
 
 /**

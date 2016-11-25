@@ -38,10 +38,9 @@ function showPopup(el) {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'subscribe',
   templateUrl: 'subscribe-modal-component.html',
-  styleUrls: ['subscribe-modal-component.css'],
+  styleUrls: ['subscribe-modal-component.scss'],
   directives: [ControlMessages]
 })
 

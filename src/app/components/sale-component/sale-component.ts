@@ -14,10 +14,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'sale',
   templateUrl: 'sale-component.html',
-  styleUrls: ['sale-component.css']
+  styleUrls: ['sale-component.scss']
 })
 
 /**

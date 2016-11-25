@@ -34,10 +34,9 @@ declare var $:any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'susbscribe',
   templateUrl: 'subscribe-component.html',
-  styleUrls: ['subscribe-component.css'],
+  styleUrls: ['subscribe-component.scss'],
   directives: [ROUTER_DIRECTIVES, ControlMessages]
 })
 

@@ -9,10 +9,9 @@ declare var window: any;
 declare var jQuery: any;
 
 @Component({
-  moduleId: module.id,
   selector: 'ditto-control',
   templateUrl: 'ditto-control.component.html',
-  styleUrls: ['ditto-control.component.css'],
+  styleUrls: ['ditto-control.component.scss'],
   directives: [ProductCarouselComponent, ROUTER_DIRECTIVES]
 })
 

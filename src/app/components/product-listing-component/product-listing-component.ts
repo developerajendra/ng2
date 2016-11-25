@@ -26,10 +26,9 @@ function changeStatus() {
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'product-listing',
   templateUrl: 'product-listing-component.html',
-  styleUrls: ['product-listing-component.css'],
+  styleUrls: ['product-listing-component.scss'],
   directives: [ROUTER_DIRECTIVES, BannerComponent, ProductTileComponent, ProductMusthaveTileComponent, SelectLenseModal, DescriptionComponent]
 })
 

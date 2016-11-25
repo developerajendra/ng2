@@ -12,10 +12,9 @@ declare var window: any;
  */
 
 @Component({
-  moduleId: module.id,
   selector: 'user-account',
   templateUrl: 'user-account-component.html',
-  styleUrls: ['user-account-component.css'],
+  styleUrls: ['user-account-component.scss'],
   directives: [ROUTER_DIRECTIVES]
 })
 
