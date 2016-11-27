@@ -6,41 +6,53 @@ import {Routes, RouterModule} from "@angular/router";
  * Importing Components
  * @type {Array}
  */
-import {HomeComponent} from './components/home-component'
-import {ProductListingComponent} from './components/product-listing-component'
-import {ProductDetailComponent} from './components/product-detail-component'
-import {LoginComponent} from './components/login-component'
-// import {CartDescriptionComponent} from "./components/cart-description-component";
-// import {CheckoutComponent} from './components/checkout-component'
-// import {CustomizeLensesComponent} from './components/customize-lenses-component'
-// import {CustomizedLensReviewComponent} from './components/customized-lens-review-component'
-// import {CheckoutGuestComponent} from './components/checkout-guest-component'
-// import {CheckoutThankyouComponent} from './components/checkout-thankyou-component'
-// import {PaymentComponent} from './components/payment-component'
-// import {MustHavesComponent} from './components/must-haves-component'
-import {NewArrivalsComponent} from './components/new-arrivals-component'
-import {ShopAnOComponent} from './components/shop-ano-component'
-import {SaleComponent} from './components/sale-component'
-// import {VirtualTryOnComponent} from './components/virtual-try-on-component'
-// import {RegisterUserComponent} from './components/register-user-component'
-// import {forgotPasswordComponent} from './components/forgot-password-component'
-// import {resetPasswordComponent} from './components/reset-password-component'
-// import {UserAccountComponent} from './components/user-account-component'
-// import {TrialHistoryComponent} from './components/trial-history-component'
-// import {AboutUsComponent} from './components/about-us-component'
-// import {UserPrescriptionsComponent} from './components/user-prescriptions-component'
-// import {UserHistoryComponent} from './components/user-history-component'
-// import {UserDittoComponent} from './components/user-ditto-component'
-// import {UserAddressBookComponent} from './components/user-address-book-component'
-// import {UserAccountInfoComponent} from './components/user-account-info-component'
-// import {FaqComponent} from './components/faq-component'
-// import {LocationComponent} from './components/location-component'
-// import {PressComponent} from './components/press-component'
-// import {QualityComponent} from './components/quality-component'
-// import {KioskModeComponent} from './components/kiosk-mode-component'
-// import {ErrorComponent} from './components/error-component'
-import {ContinueShoppingComponent} from './components/continue-shopping-component'
-// import {LandingComponent} from './components/landing-component'
+import {
+  HeaderComponent,
+  FooterComponent,
+
+  HomeComponent,
+  BannerComponent,
+  ProductTileComponent,
+  SelectLenseModal,
+  ProductCarouselComponent,
+  ProductListingComponent,
+
+  ProductDetailComponent,
+  // LoginComponent,
+  // CartDescriptionComponent,
+  CheckoutComponent,
+  // CustomizeLensesComponent,
+  CustomizedLensReviewComponent,
+  // CheckoutGuestComponent,
+  // CheckoutThankyouComponent,
+  // PaymentComponent,
+  // MustHavesComponent,
+  NewArrivalsComponent,
+  ShopAnOComponent,
+  SaleComponent,
+  ContinueShoppingComponent,
+  VirtualTryOnComponent,
+  // RegisterUserComponent,
+  // forgotPasswordComponent,
+  // resetPasswordComponent,
+  // UserAccountComponent,
+  // TrialHistoryComponent,
+  // UserPrescriptionsComponent,
+  // UserHistoryComponent,
+  // UserDittoComponent,
+  // UserAddressBookComponent,
+  // UserAccountInfoComponent,
+
+
+  AboutUsComponent,
+  FaqComponent,
+  LocationComponent,
+  // PressComponent,
+  // QualityComponent,
+  // KioskModeComponent,
+  // ErrorComponent
+} from './components';
+
 // import {CheckoutRouteValidation, UserRouteValidation} from './routeValidation'
 import {AppConstants} from './constants/app-constants'
 
@@ -83,9 +95,9 @@ const appRoutes:Routes = [
   // ]
   // },
   // { path: 'customer/trial-history', component: TrialHistoryComponent},
-  // { path: 'about', component: AboutUsComponent},
+  { path: 'about', component: AboutUsComponent},
   // { path: 'faq', component: FaqComponent},
-  // { path: 'location', component: LocationComponent},
+  { path: 'location', component: LocationComponent},
   // { path: 'press', component: PressComponent},
   // { path: 'quality', component: QualityComponent},
   // { path: '404', component: ErrorComponent },

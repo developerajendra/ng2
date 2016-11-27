@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode, Injector, ReflectiveInjector } from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 
 import {
   HttpModule,
@@ -11,7 +11,7 @@ import {
 
 
 import {appRoutingProviders, routing} from "./routes";
-import { MetaService ,MetaConfig } from 'ng2-meta';
+import { MetaService, MetaModule } from 'ng2-meta';
 
 /**
  * Importing custom services
@@ -30,6 +30,8 @@ import {
   SelectLenseModal,
   ProductCarouselComponent,
   ProductListingComponent,
+
+  DescriptionComponent,
 
   ProductDetailComponent,
   // LoginComponent,
@@ -50,15 +52,15 @@ import {
   // resetPasswordComponent,
   // UserAccountComponent,
   // TrialHistoryComponent,
-  // AboutUsComponent,
   // UserPrescriptionsComponent,
   // UserHistoryComponent,
   // UserDittoComponent,
   // UserAddressBookComponent,
   // UserAccountInfoComponent,
+  AboutUsComponent,
   // FaqComponent,
-  // LocationComponent,
-  // PressComponent,
+  LocationComponent,
+  PressComponent,
   // QualityComponent,
   // KioskModeComponent,
   // ErrorComponent
@@ -113,12 +115,15 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     HeaderComponent,
     FooterComponent,
 
+    //Homepage Components
     HomeComponent,
     BannerComponent,
     ProductTileComponent,
     SelectLenseModal,
     ProductCarouselComponent,
     ProductListingComponent,
+
+    DescriptionComponent,
 
     ProductDetailComponent,
     // LoginComponent,
@@ -139,16 +144,19 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     // resetPasswordComponent,
     // UserAccountComponent,
     // TrialHistoryComponent,
-    // AboutUsComponent,
     ContinueShoppingComponent,
     // UserPrescriptionsComponent,
     // UserHistoryComponent,
     // UserDittoComponent,
     // UserAddressBookComponent,
     // UserAccountInfoComponent,
+
+    //Footer components
+    AboutUsComponent,
     // FaqComponent,
-    // LocationComponent,
+    LocationComponent,
     // PressComponent,
+
     // QualityComponent,
     // KioskModeComponent,
     // ErrorComponent
@@ -157,6 +165,8 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     BrowserModule,
     HttpModule,
     ReactiveFormsModule,
+    FormsModule,
+    MetaModule.forRoot(),
     routing
   ],
   providers: [

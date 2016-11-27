@@ -51,5 +51,6 @@ export * from './tool-tip-component';
 export * from './loader-component';
 export * from './image-zoom-component';
 export * from './ditto-control';
+export * from './continue-shopping-component';
 
 export * from './banner-component';
