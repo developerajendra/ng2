@@ -22,10 +22,15 @@ import { MetaService ,MetaConfig } from 'ng2-meta';
 import { AppComponent } from './app';
 import {
   HeaderComponent,
-  BannerComponent,
   FooterComponent,
+
   HomeComponent,
+  BannerComponent,
+  ProductTileComponent,
+  SelectLenseModal,
+  ProductCarouselComponent,
   ProductListingComponent,
+
   ProductDetailComponent,
   // LoginComponent,
   // CartDescriptionComponent,
@@ -106,10 +111,15 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
   declarations: [
     AppComponent,
     HeaderComponent,
-    BannerComponent,
     FooterComponent,
+
     HomeComponent,
+    BannerComponent,
+    ProductTileComponent,
+    SelectLenseModal,
+    ProductCarouselComponent,
     ProductListingComponent,
+
     ProductDetailComponent,
     // LoginComponent,
     // CartDescriptionComponent,
