@@ -7,9 +7,6 @@ import {Routes, RouterModule} from "@angular/router";
  * @type {Array}
  */
 import {
-  HeaderComponent,
-  FooterComponent,
-
   HomeComponent,
   BannerComponent,
   ProductTileComponent,

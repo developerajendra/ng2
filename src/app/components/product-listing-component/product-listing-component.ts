@@ -2,15 +2,12 @@
  * Importing core components
  */
 
-import {Component, OnInit, Input, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from "@angular/router";
+import {CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, Input, OnDestroy} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MetaService} from "ng2-meta";
 import {ProductService, StorageService, StaticDataService} from "../../services";
 import {ProductTileComponent} from "../product-tile-component";
 import {ProductMusthaveTileComponent} from "../product-must-have-tile-component";
-import {DescriptionComponent} from "../description-component";
-import {SelectLenseModal} from "../select-lense-modal-component";
-import {BannerComponent} from "../banner-component";
 import {AppConstants} from "../../constants/app-constants";
 import {TenantConstant} from "../../constants/tenant";
 import {Title} from "@angular/platform-browser";
@@ -29,7 +26,8 @@ function changeStatus() {
   selector: 'product-listing',
   templateUrl: 'product-listing-component.html',
   styleUrls: ['product-listing-component.scss'],
-  directives: [ROUTER_DIRECTIVES, BannerComponent, ProductTileComponent, ProductMusthaveTileComponent, SelectLenseModal, DescriptionComponent]
+  directives: [ProductTileComponent, ProductMusthaveTileComponent],
+  sehemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 
 /**

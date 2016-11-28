@@ -32,7 +32,9 @@ import {
   ProductListingComponent,
 
   DescriptionComponent,
+  LoaderComponent,
 
+  DittoControlComponent,
   ProductDetailComponent,
   // LoginComponent,
   // CartDescriptionComponent,
@@ -117,6 +119,9 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     HeaderComponent,
     FooterComponent,
 
+    DescriptionComponent,
+    LoaderComponent,
+
     //Homepage Components
     HomeComponent,
     BannerComponent,
@@ -125,8 +130,7 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     ProductCarouselComponent,
     ProductListingComponent,
 
-    DescriptionComponent,
-
+    DittoControlComponent,
     ProductDetailComponent,
     // LoginComponent,
     // CartDescriptionComponent,

@@ -1,7 +1,6 @@
 import {Component, OnInit, Input, OnChanges, OnDestroy, ElementRef} from "@angular/core";
 import {ProductService, UserService} from "../../services";
 import {ProductCarouselComponent} from "../product-carousel-component";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 import {ProductModel} from "../../models/product-model";
 
 declare var ditto: any;
@@ -12,7 +11,6 @@ declare var jQuery: any;
   selector: 'ditto-control',
   templateUrl: 'ditto-control.component.html',
   styleUrls: ['ditto-control.component.scss'],
-  directives: [ProductCarouselComponent, ROUTER_DIRECTIVES]
 })
 
 

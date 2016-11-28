@@ -2,14 +2,11 @@
  * Importing core components
  */
 
-import {Component, OnInit, OnDestroy, ElementRef} from "@angular/core";
-import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from "@angular/router";
+import {CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, OnDestroy, ElementRef} from "@angular/core";
+import {ActivatedRoute, Router} from "@angular/router";
 import {MessageService, iCartItem, ProductService, CartService, UserService, CookiesService, StaticDataService} from "../../services";
 import {TenantConstant} from "../../constants/tenant";
 import {MetaService} from "ng2-meta";
-import {ProductCarouselComponent} from "../product-carousel-component";
-import {BannerComponent} from "../banner-component";
-import {DescriptionComponent} from "../description-component";
 import {EmailModalComponent} from "../email-modal-component";
 import {ImageZoomComponent} from "../image-zoom-component";
 import {DittoControlComponent} from "../ditto-control";
@@ -35,8 +32,8 @@ function changeStatus() {
   selector: 'product-detail',
   templateUrl: 'product-detail-component.html',
   styleUrls: ['product-detail-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ImageZoomComponent, ProductCarouselComponent, BannerComponent, DescriptionComponent,
-    EmailModalComponent, DittoControlComponent,SelectLenseModal]
+  directives: [ImageZoomComponent, EmailModalComponent, DittoControlComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 
 /**

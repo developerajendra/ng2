@@ -2,27 +2,26 @@
   <h1 class="text-xs-center border-heading" *ngIf="productsData">{{eyeglasses === 'new-arrivals'?'New Arrivals':productsData.h1}}</h1>
   <div class="row filters" *ngIf="showFilters">
     <div class="padding-0 col-md-12">
-      <!--TODO:Temp comment-->
-      <!--<div class="padding-0 col-md-4" *ngIf="!isSlug">-->
-           <!--<form>-->
-             <!--<div class="form-group">-->
-               <!--<div class="padding-0 c-inputs-stacked col-xs-5">-->
-                 <!--<label class="c-input c-radio">-->
-                   <!--<input id="radioStacked1" name="radio-stacked" type="radio" [checked]="filterBy == 'eyeglasses'"  (click)="changeFilter('eyeglasses')">-->
-                   <!--<span class="c-indicator"></span>-->
-                   <!--EYEGLASSES-->
-                 <!--</label>-->
-               <!--</div>-->
-               <!--<div class="c-inputs-stacked col-xs-6">-->
-                 <!--<label class="c-input c-radio">-->
-                   <!--<input id="radioStacked2" name="radio-stacked" type="radio" [checked]="filterBy != 'eyeglasses'" (click)="changeFilter('sunglasses')">-->
-                   <!--<span class="c-indicator"></span>-->
-                   <!--SUNGLASSES-->
-                 <!--</label>-->
-               <!--</div>-->
-             <!--</div>-->
-           <!--</form>-->
-         <!--</div>-->
+      <div class="padding-0 col-md-4" *ngIf="!isSlug">
+           <form>
+             <div class="form-group">
+               <div class="padding-0 c-inputs-stacked col-xs-5">
+                 <label class="c-input c-radio">
+                   <input id="radioStacked1" name="radio-stacked" type="radio" [checked]="filterBy == 'eyeglasses'"  (click)="changeFilter('eyeglasses')">
+                   <span class="c-indicator"></span>
+                   EYEGLASSES
+                 </label>
+               </div>
+               <div class="c-inputs-stacked col-xs-6">
+                 <label class="c-input c-radio">
+                   <input id="radioStacked2" name="radio-stacked" type="radio" [checked]="filterBy != 'eyeglasses'" (click)="changeFilter('sunglasses')">
+                   <span class="c-indicator"></span>
+                   SUNGLASSES
+                 </label>
+               </div>
+             </div>
+           </form>
+         </div>
       <ul class="list-inline hidden-md-down">
         <li role="filters" class="dropdown list-inline-item" *ngFor="let tag of productTag" [id]="tag.text">
           <a class="dropdown-toggle text-uppercase" data-toggle="dropdown" href="javaScript:void(0);" role="button"
@@ -86,7 +85,6 @@
 </section>
 <page-description [contentId]="tileCollection || slug"></page-description>
 
-<!--Select lense model-->
 <select-lense-modal *ngIf="productsData && selectedProduct" [productId]="selectedProduct?.product_id" [variant]="slug" [product]="selectedProduct" [filterBy]="filterBy"
                     [modalId]="'quickBuy'" [slug]="slug" [tileCollection]="tileCollection"></select-lense-modal>
 

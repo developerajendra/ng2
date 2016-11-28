@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, Input, EventEmitter, Output, OnDestroy, OnChanges, ElementRef} from "@angular/core";
-import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {iCartItem, ProductService, CartService, MessageService, StaticDataService} from "../../services";
 import {ProductModel} from "../../models/product-model";
 import {TenantConstant} from "../../constants/tenant";
@@ -26,8 +26,7 @@ declare var window:any;
 @Component({
   selector: 'product-tile',
   templateUrl: 'product-tile-component.html',
-  styleUrls: ['product-tile-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['product-tile-component.scss']
 })
 
 /**
