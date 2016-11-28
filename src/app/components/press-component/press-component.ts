@@ -7,7 +7,6 @@ import {Component, OnInit} from '@angular/core';
 /**
  * Importing custom components
  */
-import {BannerComponent} from '../banner-component';
 import {StaticDataService} from '../../services';
 
 declare var window:any;
@@ -22,8 +21,7 @@ function changeStatus() {
 @Component({
   selector: "press",
   templateUrl: "press-component.html",
-  styleUrls: ["press-component.scss"],
-  directives: [BannerComponent]
+  styleUrls: ["press-component.scss"]
 })
 
 /**

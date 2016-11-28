@@ -47,8 +47,8 @@ import {
   AboutUsComponent,
   FaqComponent,
   LocationComponent,
-  // PressComponent,
-  // QualityComponent,
+  PressComponent,
+  QualityComponent,
   // KioskModeComponent,
   // ErrorComponent
 } from './components';
@@ -98,8 +98,8 @@ const appRoutes:Routes = [
   { path: 'about', component: AboutUsComponent},
   { path: 'faq', component: FaqComponent},
   { path: 'location', component: LocationComponent},
-  // { path: 'press', component: PressComponent},
-  // { path: 'quality', component: QualityComponent},
+  { path: 'press', component: PressComponent},
+  { path: 'quality', component: QualityComponent},
   // { path: '404', component: ErrorComponent },
   { path: ':pid', component: ProductDetailComponent },
   { path: '', component: HomeComponent },

@@ -57,11 +57,13 @@ import {
   // UserDittoComponent,
   // UserAddressBookComponent,
   // UserAccountInfoComponent,
+
   AboutUsComponent,
   FaqComponent,
   LocationComponent,
   PressComponent,
-  // QualityComponent,
+  QualityComponent,
+
   // KioskModeComponent,
   // ErrorComponent
 } from './components';
@@ -155,9 +157,9 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     AboutUsComponent,
     FaqComponent,
     LocationComponent,
-    // PressComponent,
+    PressComponent,
+    QualityComponent,
 
-    // QualityComponent,
     // KioskModeComponent,
     // ErrorComponent
   ],
