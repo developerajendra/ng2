@@ -58,7 +58,7 @@ import {
   // UserAddressBookComponent,
   // UserAccountInfoComponent,
   AboutUsComponent,
-  // FaqComponent,
+  FaqComponent,
   LocationComponent,
   PressComponent,
   // QualityComponent,
@@ -153,7 +153,7 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
 
     //Footer components
     AboutUsComponent,
-    // FaqComponent,
+    FaqComponent,
     LocationComponent,
     // PressComponent,
 

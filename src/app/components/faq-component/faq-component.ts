@@ -5,9 +5,6 @@
 import {Component, OnInit, ElementRef} from "@angular/core";
 import {MetaService} from "ng2-meta";
 import {StaticDataService} from "../../services";
-import {BannerComponent} from "../banner-component";
-import {Title} from "@angular/platform-browser";
-import {TenantConstant} from "../../constants/tenant";
 
 declare var window: any;
 function changeStatus() {
@@ -26,8 +23,7 @@ declare var jQuery: any;
 @Component({
   selector: "faq",
   templateUrl: "faq-component.html",
-  styleUrls: ["faq-component.scss"],
-  directives: [BannerComponent]
+  styleUrls: ["faq-component.scss"]
 })
 
 

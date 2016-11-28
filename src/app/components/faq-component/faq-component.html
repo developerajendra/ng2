@@ -1,16 +1,17 @@
-<section class="overflow-h inner-wrapper text-xs-center">
-  <section class="faq-top">
+<!--TODO:section tags need to use later-->
+<div class="overflow-h inner-wrapper text-xs-center">
+  <div class="faq-top">
     <h1>FREQUENTLY ASKED QUESTIONS</h1>
     <p>You can reach us from 9:00 AM — 5:00 PM EST at (855) 123-4567, or anytime at all at</p>
     <a href="mailto:help@aliceandoliviaeyewear.com" target="_parent">help@aliceandoliviaeyewear.com</a>
     <form action="" class="search-form">
       <input type="search" (keyup)="searchFaq(faq.value)" #faq class="search" placeholder="Search">
     </form>
-  </section>
+  </div>
 
-    <section class="col-xs-12 col-md-4" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="col-xs-12 col-md-4" id="accordion" role="tablist" aria-multiselectable="true">
       <template ngFor let-item [ngForOf]="data.sections" let-i="index">
-        <seciton *ngIf="i%3 == 0" class="card   pull-md-left">
+        <div *ngIf="i%3 == 0" class="card   pull-md-left">
           <div class="panel-heading" role="tab" id="headingOne" [ngClass]="{'search-element': item.selected }" >
             <a class="btn btn-outline text-xs-left headings" data-toggle="collapse" data-parent="#accordion" [href]="'#heading'+i"
                  aria-expanded="true" aria-controls="collapseOne">
@@ -23,15 +24,15 @@
               <dd class="answer" [innerHTML]="list.answer"></dd>
             </dl>
           </div>
-        </seciton>
+        </div>
       </template>
-    </section>
+    </div>
 
 
-    <section class="group-two col-xs-12 col-md-4">
+    <div class="group-two col-xs-12 col-md-4">
 
       <template ngFor let-item [ngForOf]="data.sections" let-i="index">
-        <seciton *ngIf="i%3 == 1" class="card panel pull-md-left">
+        <div *ngIf="i%3 == 1" class="card panel pull-md-left">
           <div class="panel-heading" role="tab" id="headingOne" [ngClass]="{'search-element': item.selected }" >
             <a class="btn btn-outline text-xs-left headings" data-toggle="collapse" data-parent="#accordion" [href]="'#heading'+i"
                aria-expanded="true" aria-controls="collapseOne">
@@ -44,15 +45,15 @@
               <dd class="answer" [innerHTML]="list.answer"></dd>
             </dl>
           </div>
-        </seciton>
+        </div>
       </template>
 
-    </section>
+    </div>
 
 
-  <section class="col-xs-12 col-md-4">
+  <div class="col-xs-12 col-md-4">
       <template ngFor let-item [ngForOf]="data.sections" let-i="index">
-        <seciton *ngIf="i%3 == 2" class="card pull-md-left">
+        <div *ngIf="i%3 == 2" class="card pull-md-left">
           <div class="panel-heading" role="tab" id="headingOne" [ngClass]="{'search-element': item.selected }" >
             <a class="btn btn-outline text-xs-left headings" data-toggle="collapse" data-parent="#accordion" [href]="'#heading'+i"
                aria-expanded="true" aria-controls="collapseOne">
@@ -65,9 +66,9 @@
               <dd class="answer" [innerHTML]="list.answer"></dd>
             </dl>
           </div>
-        </seciton>
+        </div>
       </template>
 
-  </section>
+  </div>
 
-</section>
+</div>

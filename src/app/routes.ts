@@ -96,7 +96,7 @@ const appRoutes:Routes = [
   // },
   // { path: 'customer/trial-history', component: TrialHistoryComponent},
   { path: 'about', component: AboutUsComponent},
-  // { path: 'faq', component: FaqComponent},
+  { path: 'faq', component: FaqComponent},
   { path: 'location', component: LocationComponent},
   // { path: 'press', component: PressComponent},
   // { path: 'quality', component: QualityComponent},

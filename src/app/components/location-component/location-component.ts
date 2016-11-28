@@ -9,6 +9,7 @@ import {MetaService} from "ng2-meta";
  * Importing custom components
  */
 
+import {DescriptionComponent} from '../description-component';
 import {StaticDataService} from '../../services';
 
 /**
@@ -25,7 +26,7 @@ function changeStatus() {
 @Component({
   selector: "location",
   templateUrl: "location-component.html",
-  styleUrls: ["location-component.scss"]
+  styleUrls: ["location-component.scss"],
 })
 
 /**
