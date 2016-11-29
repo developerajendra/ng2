@@ -5,7 +5,6 @@
 import {Component, Input, OnInit, ElementRef, OnChanges} from "@angular/core";
 import {FormBuilder, Validators, Control} from "@angular/common";
 import {ControlMessages} from "../control-messages-component";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 import {UserService, ProductService, ValidationService, StaticDataService} from "../../services";
 import {TenantConstant} from "../../constants/tenant";
 import {ProductModel} from "../../models/product-model";
@@ -19,7 +18,7 @@ declare var jQuery: any;
   selector: 'email-modal',
   templateUrl: 'email-modal-component.html',
   styleUrls: ['email-modal-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ControlMessages]
+  directives: [ControlMessages]
 })
 
 /**

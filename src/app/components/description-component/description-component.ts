@@ -3,7 +3,7 @@
  */
 
 import {Component, Input, OnInit} from '@angular/core';
-import {Router, ROUTER_DIRECTIVES, NavigationStart} from '@angular/router';
+import {Router, NavigationStart} from '@angular/router';
 
 /**
  * Importing custom components

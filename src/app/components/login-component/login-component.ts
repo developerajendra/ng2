@@ -10,7 +10,7 @@ import {MetaService} from "ng2-meta";
  */
 
 import {AppConstants} from '../../constants/app-constants';
-import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, Validators} from '@angular/common'
 import {UserService, CookiesService, ValidationService, StaticDataService} from '../../services';
 import {ControlMessages} from "../control-messages-component";
@@ -30,7 +30,7 @@ function changeStatus() {
   selector: 'login',
   templateUrl: 'login-component.html',
   styleUrls: ['login-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ControlMessages, LoaderComponent]
+  directives: [ControlMessages, LoaderComponent]
 })
 
 /**

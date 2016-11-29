@@ -26,8 +26,8 @@ import {
 
   HomeComponent,
   BannerComponent,
-  ProductTileComponent,
   SelectLenseModal,
+  ProductTileComponent,
   ProductCarouselComponent,
   ProductListingComponent,
 
@@ -99,8 +99,7 @@ import {
 } from './services';
 
 
-import {CheckoutRouteValidation, UserRouteValidation} from './routeValidation'
-
+ 
 /**
  * Importing custom routes
  */
@@ -125,8 +124,8 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     //Homepage Components
     HomeComponent,
     BannerComponent,
-    ProductTileComponent,
     SelectLenseModal,
+    ProductTileComponent,
     ProductCarouselComponent,
     ProductListingComponent,
 

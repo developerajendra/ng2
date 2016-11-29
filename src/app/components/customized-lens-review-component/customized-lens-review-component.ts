@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, ElementRef, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES,Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {ProductTileComponent} from "../product-tile-component";
 import {ImageModalComponent} from "../image-modal-component";
 import {TenantConstant} from "../../constants";
@@ -26,7 +26,7 @@ function changeStatus() {
   selector: 'lens-review',
   templateUrl: 'customized-lens-review.html',
   styleUrls: ['customized-lens-review.scss'],
-  directives: [ROUTER_DIRECTIVES, ProductTileComponent, ImageModalComponent, LoaderComponent]
+  directives: [ProductTileComponent, ImageModalComponent, LoaderComponent]
 })
 
 /**

@@ -6,7 +6,7 @@ import {Component, OnInit, OnDestroy, OnChanges, SimpleChanges} from "@angular/c
 import {AppConstants} from "../../constants/app-constants";
 import {FormBuilder, Validators, Control} from "@angular/common";
 import {ControlMessages} from "../control-messages-component";
-import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {UserService, CartService, ProductService, CookiesService, StaticDataService, NotifyService, OrderService} from "../../services";
 import {BreadCrumbComponent} from "../breadcrumb-component";
 import {ToolTipComnponent} from "../tool-tip-component";
@@ -27,7 +27,7 @@ function changeStatus() {
   selector: 'check-out',
   templateUrl: 'checkout-component.html',
   styleUrls: ['checkout-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ToolTipComnponent, ControlMessages, BreadCrumbComponent, LoaderComponent]
+  directives: [ToolTipComnponent, ControlMessages, BreadCrumbComponent, LoaderComponent]
 })
 
 /**

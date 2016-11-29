@@ -8,7 +8,7 @@ import {Component, Input, OnInit, ElementRef} from '@angular/core';
  * Importing custom components
  */
 
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 /**
  * @Component for email-modal-component
@@ -22,8 +22,7 @@ declare var jQuery:any;
 @Component({
   selector: 'image-modal',
   templateUrl: 'image-modal-component.html',
-  styleUrls: ['image-modal-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['image-modal-component.scss']
 })
 
 /**

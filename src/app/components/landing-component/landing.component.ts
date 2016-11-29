@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 import {StaticDataService} from "../../services";
 
 @Component({
 	moduleId: module.id,
 	selector: 'landing',
-	template: `<div id="landing" [innerHTML]="pageHtml"></div>`,
-	directives: [ROUTER_DIRECTIVES]
+	template: `<div id="landing" [innerHTML]="pageHtml"></div>`
 })
 export class LandingComponent implements OnInit {
 	page: string = "";

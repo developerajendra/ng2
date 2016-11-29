@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import {Router} from "@angular/router";
 
 declare var window: any;
 
@@ -14,8 +14,7 @@ declare var window: any;
 @Component({
   selector: 'user-account',
   templateUrl: 'user-account-component.html',
-  styleUrls: ['user-account-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['user-account-component.scss']
 })
 
 /**

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input, EventEmitter, Output, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService, MessageService, CartService} from "../../services";
 import {TenantConstant} from "../../constants/tenant";
 
@@ -16,8 +16,7 @@ function changeStatus() {
 @Component({
   selector: 'product-must-have-tile',
   templateUrl: 'product-must-have-tile-component.html',
-  styleUrls: ['product-must-have-tile-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['product-must-have-tile-component.scss']
 })
 
 /**

@@ -4,7 +4,6 @@
 
 import {Component, OnInit, ElementRef, AfterViewInit} from '@angular/core';
 import {FormBuilder, Validators, ControlGroup, Control} from '@angular/common';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 
 import {CookiesService, UserService, ValidationService, StaticDataService} from '../../services';
 
@@ -37,7 +36,7 @@ declare var $:any;
   selector: 'susbscribe',
   templateUrl: 'subscribe-component.html',
   styleUrls: ['subscribe-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ControlMessages]
+  directives: [ControlMessages]
 })
 
 /**

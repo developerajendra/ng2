@@ -3,7 +3,6 @@
  */
 
 import {Component, OnInit, OnChanges, Input, ElementRef} from "@angular/core";
-import {ROUTER_DIRECTIVES} from "@angular/router";
 import {iCartItem, CartService, ProductService} from "../../services";
 import {TenantConstant} from "../../constants/tenant";
 import {ProductModel} from "../../models/product-model";
@@ -21,9 +20,7 @@ function changeStatus() {
 @Component({
   selector: 'select-lense-modal',
   templateUrl: 'select-lense-modal-component.html',
-  styleUrls: ['select-lense-modal-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
-
+  styleUrls: ['select-lense-modal-component.scss']
 })
 
 /**

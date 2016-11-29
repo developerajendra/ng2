@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit} from "@angular/core";
-import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 /**
  * Importing internl services
@@ -25,8 +25,7 @@ import {AppConstants} from '../../constants/app-constants';
 @Component({
   selector: "kiosk-mode",
   templateUrl: "kiosk-mode-component.html",
-  styleUrls: ["kiosk-mode-component.scss"],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ["kiosk-mode-component.scss"]
 })
 
 /**

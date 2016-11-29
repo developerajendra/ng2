@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 import {UserService, ValidationService, StaticDataService} from '../../services';
 
@@ -26,7 +26,7 @@ function changeStatus() {
   selector: 'reset-password',
   templateUrl: 'reset-password-component.html',
   styleUrls: ['reset-password-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ControlMessages]
+  directives: [ControlMessages]
 })
 
 /**

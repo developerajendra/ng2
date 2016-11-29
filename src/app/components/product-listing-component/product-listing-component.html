@@ -83,10 +83,14 @@
   <!-- end must have -->
 
 </section>
-<page-description [contentId]="tileCollection || slug"></page-description>
 
 <select-lense-modal *ngIf="productsData && selectedProduct" [productId]="selectedProduct?.product_id" [variant]="slug" [product]="selectedProduct" [filterBy]="filterBy"
                     [modalId]="'quickBuy'" [slug]="slug" [tileCollection]="tileCollection"></select-lense-modal>
+                    
+<page-description [contentId]="tileCollection || slug"></page-description>
+
+
+
 
 
 

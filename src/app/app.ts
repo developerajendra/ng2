@@ -2,7 +2,7 @@
  * Importing core component
  */
 import {Component, OnInit, AfterViewInit, ElementRef} from '@angular/core';
-import {Router, ROUTER_DIRECTIVES, NavigationStart} from '@angular/router';
+import {Router, NavigationStart} from '@angular/router';
 
 
 /**
@@ -24,8 +24,7 @@ function cleanupPrerenderView() {
 @Component({
   selector: 'app',
   templateUrl: 'app.html',
-  styleUrls: ['app.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['app.scss']
 })
 
 /**

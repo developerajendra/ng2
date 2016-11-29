@@ -5,7 +5,7 @@
 
 import {AppConstants} from '../../constants/app-constants';
 import {Component, OnInit} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import {Router} from '@angular/router';
 import {FormBuilder, Validators, FormGroup} from '@angular/forms';
 
 /**
@@ -34,7 +34,7 @@ function changeStatus() {
   selector: 'register-user',
   templateUrl: 'register-user-component.html',
   styleUrls: ['register-user-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ControlMessages, LoaderComponent]
+  directives: [ControlMessages, LoaderComponent]
 })
 
 /**

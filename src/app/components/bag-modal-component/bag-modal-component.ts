@@ -3,7 +3,6 @@
  */
 
 import {Component, OnInit, ElementRef} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
 
 /**
  * Importing custom services
@@ -20,8 +19,7 @@ declare var jQuery:any;
 @Component({
   selector: 'bag-modal',
   templateUrl: 'bag-modal-component.html',
-  styleUrls: ['bag-modal-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['bag-modal-component.scss']
 })
 
 /**

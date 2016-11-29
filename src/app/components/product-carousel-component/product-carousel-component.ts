@@ -3,7 +3,7 @@
  */
 
 import {Component,CUSTOM_ELEMENTS_SCHEMA, OnInit, Input, ElementRef, OnChanges, EventEmitter, Output, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {SelectLenseModal} from "../select-lense-modal-component";
 import {ProductTileComponent} from "../product-tile-component";
 import {ProductService} from "../../services";
@@ -23,7 +23,6 @@ declare var jQuery: any;
   selector: 'product-carousel',
   templateUrl: 'product-carousel-component.html',
   styleUrls: ['product-carousel-component.scss'],
-  directives: [ROUTER_DIRECTIVES],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 

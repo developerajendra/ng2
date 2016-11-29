@@ -4,7 +4,7 @@
 
 import {Component, Input, OnInit, OnDestroy} from "@angular/core";
 import {FormBuilder, Validators, Control, FORM_DIRECTIVES} from "@angular/common";
-import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {BannerComponent} from "../banner-component";
 import {CartService, NotifyService, StaticDataService, CookiesService, UserService} from "../../services";
 import {TenantConstant} from "../../constants";
@@ -29,7 +29,7 @@ function changeStatus() {
   selector: 'payment',
   templateUrl: 'payment-component.html',
   styleUrls: ['payment-component.scss'],
-  directives: [LoaderComponent, ToolTipComnponent, ControlMessages, BannerComponent, BreadCrumbComponent, FORM_DIRECTIVES, ROUTER_DIRECTIVES]
+  directives: [LoaderComponent, ToolTipComnponent, ControlMessages, BannerComponent, BreadCrumbComponent, FORM_DIRECTIVES]
 })
 
 /**

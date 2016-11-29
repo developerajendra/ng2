@@ -3,7 +3,7 @@
  */
 
 import {Component} from "@angular/core";
-import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 /**
@@ -13,8 +13,7 @@ import {ROUTER_DIRECTIVES, ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector:'continue-shopping',
   templateUrl:'continue-shopping-component.html',
-  styleUrls:['continue-shopping-component.scss'],
-  directives:[ROUTER_DIRECTIVES]
+  styleUrls:['continue-shopping-component.scss']
 })
 
 /**

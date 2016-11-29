@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES, Router, ActivatedRoute} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import {FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES, FormBuilder} from "@angular/forms";
 import * as moment from "moment";
 import {AppConstants} from "../../constants/app-constants";
@@ -28,7 +28,7 @@ function changeStatus() {
   selector: 'customize-lenses',
   templateUrl: 'customize-lenses-component.html',
   styleUrls: ['customize-lenses-component.scss'],
-  directives: [BreadCrumbComponent, ControlMessages, ROUTER_DIRECTIVES, ProductTileComponent, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
+  directives: [BreadCrumbComponent, ControlMessages, ProductTileComponent, FORM_DIRECTIVES, REACTIVE_FORM_DIRECTIVES],
   providers: [FormBuilder]
 
 })

@@ -4,7 +4,7 @@
 
 
 import {Component, OnInit, ElementRef, OnDestroy} from '@angular/core';
-import {ROUTER_DIRECTIVES, Router} from '@angular/router';
+import {Router} from '@angular/router';
 
 /**
  * Importing app level constants
@@ -37,8 +37,7 @@ function changeStatus() {
 @Component({
   selector: 'header',
   templateUrl: 'header-component.html',
-  styleUrls: ['header-component.scss'],
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['header-component.scss']
 })
 
 /**

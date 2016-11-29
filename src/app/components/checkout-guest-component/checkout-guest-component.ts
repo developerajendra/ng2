@@ -3,7 +3,7 @@
  */
 
 import {Component, OnInit, OnDestroy} from "@angular/core";
-import {ROUTER_DIRECTIVES, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {AppConstants} from "../../constants/app-constants";
 import {FormBuilder, Validators} from "@angular/common";
 import {CustomizeLensService, UserService, CookiesService, ValidationService, CartService, NotifyService, StaticDataService} from "../../services";
@@ -25,7 +25,7 @@ function changeStatus() {
   selector: 'checkout-guest',
   templateUrl: 'checkout-guest-component.html',
   styleUrls: ['checkout-guest-component.scss'],
-  directives: [ROUTER_DIRECTIVES, ControlMessages, BreadCrumbComponent, LoaderComponent]
+  directives: [ControlMessages, BreadCrumbComponent, LoaderComponent]
 })
 
 /**
