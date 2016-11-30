@@ -271,12 +271,12 @@ export class ProductListingComponent implements OnInit, OnDestroy {
    */
 
   onProductSelected(_product) {
-    this.selectedProduct = JSON.parse(JSON.stringify(_product));
-    let _collection = TenantConstant.COLLECTIONS.find((collection)=> {
-      return collection.slug.trim() === this.slug.trim();
-    });
-    this.productDetailsRoute = ('/' + (this.selectedProduct.slug ? (this.selectedProduct.slug + '-') : (this.selectedProduct.name.split(' ').join('-') + '-' + this.selectedProduct.color.split(' ').join('-') + '-')) + this.selectedProduct.product_id );
-    this.selectedProduct.productDetailsRoute = this.productDetailsRoute;
+      this.selectedProduct = JSON.parse(JSON.stringify(_product));
+      let _collection = TenantConstant.COLLECTIONS.find((collection)=> {
+        return collection.slug.trim() === this.slug.trim();
+      });
+      this.productDetailsRoute = ('/' + (this.selectedProduct.slug ? (this.selectedProduct.slug + '-') : (this.selectedProduct.name.split(' ').join('-') + '-' + this.selectedProduct.color.split(' ').join('-') + '-')) + this.selectedProduct.product_id );
+      this.selectedProduct.productDetailsRoute = this.productDetailsRoute;
   }
 
   /**
