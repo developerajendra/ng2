@@ -31,6 +31,7 @@ import {
   ProductTileComponent,
   ProductCarouselComponent,
   ProductListingComponent,
+  BagModal,
 
   DescriptionComponent,
   LoaderComponent,
@@ -129,7 +130,8 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     ProductTileComponent,
     ProductCarouselComponent,
     ProductListingComponent,
-
+    BagModal,
+    
     DittoControlComponent,
     ProductDetailComponent,
     // LoginComponent,
