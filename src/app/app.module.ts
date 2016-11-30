@@ -1,6 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, enableProdMode, Injector, ReflectiveInjector } from '@angular/core';
 import { BrowserModule} from '@angular/platform-browser';
 import {ReactiveFormsModule,FormsModule} from '@angular/forms';
+import {TimeAgoPipe} from "angular2-moment";
+
 
 import {
   HttpModule,
@@ -99,7 +101,7 @@ import {
 } from './services';
 
 
- 
+
 /**
  * Importing custom routes
  */
@@ -162,6 +164,7 @@ import {AuthConfig} from "./services/auth/auth.interceptor";
     LocationComponent,
     PressComponent,
     QualityComponent,
+    TimeAgoPipe,
 
     // KioskModeComponent,
     // ErrorComponent
